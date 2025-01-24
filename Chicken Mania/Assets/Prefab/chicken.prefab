@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4180419715070284607}
   - component: {fileID: 742628636863081925}
   - component: {fileID: 2326794913266537656}
+  - component: {fileID: 727481031956311247}
   m_Layer: 0
   m_Name: chicken
   m_TagString: Untagged
@@ -151,3 +152,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &727481031956311247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703083249774642214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85220b39a209a143a0cda0d74c14884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEgg: {fileID: 5504100297531287279, guid: 0df52ae2025487b4b937175d5111cc67, type: 3}
+  timetoSpawn: 5
+  spawnCountdown: 0
