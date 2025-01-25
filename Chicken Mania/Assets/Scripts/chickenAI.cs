@@ -75,4 +75,9 @@ public class chickenAI : MonoBehaviour
         isWandering = false;
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
 }
