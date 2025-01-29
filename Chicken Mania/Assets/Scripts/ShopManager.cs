@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,7 +9,7 @@ public class ShopManager : MonoBehaviour
     public int Money;
     public TextMeshProUGUI Money_Text;
     //Chicken Species & Spawn
-    public GameObject ChickenSpecies;
+    public GameObject[] ChickenSpecies;
     public Transform SpawnPoint;
 
     void Start()
@@ -97,7 +98,7 @@ public class ShopManager : MonoBehaviour
             //If buying a chicken (Index [x,1-6]), spawn it
             if (itemId >= 1 && itemId <=6)
             {
-                SpawnChicken();
+                SpawnChicken(itemId);
             }
 
             //Only applies multiplier to Upgrade indexes
@@ -114,11 +115,12 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    void SpawnChicken()
+    void SpawnChicken(int itemId)
     {
-        if (ChickenSpecies != null && SpawnPoint != null)
+        int index = itemId - 1;
+        if (index >= 1 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
         {
-            Instantiate(ChickenSpecies, SpawnPoint.position, Quaternion.identity);
+            Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.identity);
         }
     }
  }
