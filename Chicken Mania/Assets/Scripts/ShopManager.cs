@@ -7,6 +7,9 @@ public class ShopManager : MonoBehaviour
     public int[,] Inventory = new int[4,11]; //Array for tier of chickens (avoid using index 0)
     public int Money;
     public TextMeshProUGUI Money_Text;
+    //Chicken Species & Spawn
+    public GameObject ChickenSpecies;
+    public Transform SpawnPoint;
 
     void Start()
     {
@@ -91,6 +94,12 @@ public class ShopManager : MonoBehaviour
             //Increment the count for the item (upgrade)
             Inventory[3, itemId] += 1;
 
+            //If buying a chicken (Index [x,1-6]), spawn it
+            if (itemId >= 1 && itemId <=6)
+            {
+                SpawnChicken();
+            }
+
             //Only applies multiplier to Upgrade indexes
             if (itemId >= 7 && itemId <= 10)
             {
@@ -105,4 +114,11 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-}
+    void SpawnChicken()
+    {
+        if (ChickenSpecies != null && SpawnPoint != null)
+        {
+            Instantiate(ChickenSpecies, SpawnPoint.position, Quaternion.identity);
+        }
+    }
+ }

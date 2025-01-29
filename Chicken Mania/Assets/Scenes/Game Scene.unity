@@ -1323,6 +1323,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Money: 100000
   Money_Text: {fileID: 56792785}
+  ChickenSpecies: {fileID: 1703083249774642214, guid: 01c4e5ebcdad7cd439c713ec310a8439, type: 3}
+  SpawnPoint: {fileID: 1347164615}
 --- !u!4 &210760837
 Transform:
   m_ObjectHideFlags: 0
