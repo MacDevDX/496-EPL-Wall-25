@@ -118,7 +118,7 @@ public class ShopManager : MonoBehaviour
     void SpawnChicken(int itemId)
     {
         int index = itemId - 1;
-        if (index >= 1 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
+        if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
         {
             Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.identity);
         }
