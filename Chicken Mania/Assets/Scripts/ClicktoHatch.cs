@@ -35,9 +35,12 @@ public class ClicktoHatch : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             //Debug.Log(Input.mousePosition);
-            if(Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))
             {
-                hatchCountdown -= 1;
+                if (hit.collider.gameObject == gameObject)
+                {
+                    hatchCountdown -= 1;
+                }
             }
         }
     }
@@ -50,7 +53,7 @@ public class ClicktoHatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hatchCountdown == 0)
+        if (hatchCountdown <= 0)  //in case lag and goes negative
         {
             Destroy(gameObject);
             Instantiate(chickObject, transform.position, transform.rotation);
