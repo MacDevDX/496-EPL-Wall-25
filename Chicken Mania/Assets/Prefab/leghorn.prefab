@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: leghorn
       objectReference: {fileID: 0}
+    - target: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: m_TagString
+      value: Draggable
+      objectReference: {fileID: 0}
     - target: {fileID: 5181418044264440063, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: spawnEgg
       value: 
