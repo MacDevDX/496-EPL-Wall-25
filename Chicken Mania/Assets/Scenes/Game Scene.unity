@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tier 5 Chicken
+  m_text: Silkie (Tier 5)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1327,10 +1327,10 @@ MonoBehaviour:
   - {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
   - {fileID: 3273522384971957849, guid: 50c2b17f74d1a784589234d4c50a6d6c, type: 3}
   - {fileID: 1786860546340604583, guid: 8201cee89e378a04b91c630c1bf4265f, type: 3}
+  - {fileID: 7082763808412361906, guid: 5ecba20f43c2e49419491d4365315ae7, type: 3}
+  - {fileID: 7082763808412361906, guid: 5ecba20f43c2e49419491d4365315ae7, type: 3}
+  - {fileID: 7082763808412361906, guid: 5ecba20f43c2e49419491d4365315ae7, type: 3}
   - {fileID: 1703083249774642214, guid: 01c4e5ebcdad7cd439c713ec310a8439, type: 3}
-  - {fileID: 1703083249774642214, guid: 01c4e5ebcdad7cd439c713ec310a8439, type: 3}
-  - {fileID: 1703083249774642214, guid: 01c4e5ebcdad7cd439c713ec310a8439, type: 3}
-  - {fileID: 7750806662387025738, guid: 0582fd89418706144b1bd206f56747fa, type: 3}
   SpawnPoint: {fileID: 1347164615}
 --- !u!4 &210760837
 Transform:
@@ -4906,7 +4906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tier 4 Chicken
+  m_text: Easter Egger (Tier 4)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6829,7 +6829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tier 3 Chicken
+  m_text: Astralorp (Tier 3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7798,7 +7798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tier 2 Chicken
+  m_text: Leghorn (Tier 2)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8036,7 +8036,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tier 1 Chicken
+  m_text: Rhode Island Red (Tier 1)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8859,7 +8859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tier 6 Chicken
+  m_text: Fried Chicken (Tier 6)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
