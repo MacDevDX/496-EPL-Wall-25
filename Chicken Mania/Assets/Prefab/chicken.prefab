@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 727481031956311247}
   m_Layer: 0
   m_Name: chicken
-  m_TagString: Untagged
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 3
+  m_CollisionDetection: 2
 --- !u!65 &2326794913266537656
 BoxCollider:
   m_ObjectHideFlags: 0
