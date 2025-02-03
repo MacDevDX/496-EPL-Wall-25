@@ -12,6 +12,11 @@ public class ShopManager : MonoBehaviour
     public GameObject[] ChickenSpecies;
     public Transform SpawnPoint;
 
+    public GameObject dragZone;
+    public GameObject ShopWindow;
+    public GameObject UpgradeWindow;
+
+
     void Start()
     {
         Money_Text.text = Money.ToString();
@@ -123,4 +128,30 @@ public class ShopManager : MonoBehaviour
             Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.identity);
         }
     }
- }
+
+    /*Below is to Toggle the shop menu*/
+
+    public void ToggleSell()
+    {
+        if (dragZone != null)
+        {
+            dragZone.SetActive(!dragZone.activeSelf); //Toggle the DropZone/Sell
+        }
+    }
+
+    public void ToggleBuy()
+    {
+        if (ShopWindow != null)
+        {
+            ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
+        }
+    }
+
+    public void ToggleUpgrade()
+    {
+        if (UpgradeWindow != null)
+        {
+            UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
+        }
+    }
+}
