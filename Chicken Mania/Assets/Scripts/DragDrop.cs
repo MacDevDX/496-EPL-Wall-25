@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DragAndDrop : MonoBehaviour
+public class DragDrop : MonoBehaviour
 {
     [SerializeField]
     private InputAction MouseClick;
