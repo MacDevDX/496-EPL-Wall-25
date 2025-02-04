@@ -668,7 +668,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1200,7 +1200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &131236611
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,7 +1231,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1498,6 +1498,9 @@ MonoBehaviour:
   - {fileID: 7082763808412361906, guid: 5ecba20f43c2e49419491d4365315ae7, type: 3}
   - {fileID: 1703083249774642214, guid: 01c4e5ebcdad7cd439c713ec310a8439, type: 3}
   SpawnPoint: {fileID: 50502829}
+  dragZone: {fileID: 131236610}
+  ShopWindow: {fileID: 1489658394}
+  UpgradeWindow: {fileID: 1209943696}
 --- !u!4 &210760837
 Transform:
   m_ObjectHideFlags: 0
@@ -4245,7 +4248,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012788651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 210760836}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: ToggleSell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1012788651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6663,10 +6678,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489658394}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 210760836}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: ToggleBuy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7359,10 +7374,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1209943696}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 210760836}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: ToggleUpgrade
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9483,9 +9498,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1730624711}
   - {fileID: 885061443}
+  - {fileID: 1761078210}
   - {fileID: 1347164615}
   - {fileID: 1272233484}
-  - {fileID: 1761078210}
   - {fileID: 1115551097}
   - {fileID: 210760837}
   - {fileID: 1216588359}

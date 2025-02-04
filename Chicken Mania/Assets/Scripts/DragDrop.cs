@@ -9,7 +9,7 @@ public class DragDrop : MonoBehaviour
     [SerializeField]
     private InputAction MouseClick;
     [SerializeField]
-    private float MouseDragPhysicsSpeed = 80;
+    private float MouseDragPhysicsSpeed = 150;
     [SerializeField]
     private float MouseDragSpeed = .1f;
 
@@ -57,7 +57,6 @@ public class DragDrop : MonoBehaviour
     private IEnumerator DragUpdate(GameObject clickedObject)
     {
         clickedObject.TryGetComponent<Rigidbody>(out var rb);
-
         objectAnimator = clickedObject.GetComponent<Animator>();  //Get the Animator component if it exists
 
         if (objectAnimator != null)
@@ -87,10 +86,10 @@ public class DragDrop : MonoBehaviour
 
         if (objectAnimator != null)
             objectAnimator.enabled = true; //Re-enable the animator when dragging is finished
-    
+
     }
     /************************ Below is the selling functions ******************************/
-    private void CheckDropZone() 
+    private void CheckDropZone()
     {
         if (currentObject != null)
         {
@@ -101,12 +100,13 @@ public class DragDrop : MonoBehaviour
                 if (hitCollider.CompareTag(dropZoneTag))  //Check if the object in zone
                 {
                     GiveMoney(currentObject); //Give money based on object
-                    Destroy(currentObject);                  
+                    Destroy(currentObject);
                     break;
                 }
             }
         }
     }
+
     private void GiveMoney(GameObject draggedObject)
     {
         int moneyEarned = 0;
