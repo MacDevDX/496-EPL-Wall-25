@@ -68,6 +68,11 @@ public class DragDrop : MonoBehaviour
 
         while (MouseClick.ReadValue<float>() != 0) //If 1 it means holding click/button
         {
+            if (clickedObject == null)
+            {
+                yield break;
+            }
+
             Ray ray = MainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (rb != null)
             {
@@ -110,7 +115,7 @@ public class DragDrop : MonoBehaviour
     private void GiveMoney(GameObject draggedObject)
     {
         int moneyEarned = 0;
-        UnityEngine.Debug.Log("Dragged object name: " + draggedObject.name);
+        //UnityEngine.Debug.Log("Dragged object name: " + draggedObject.name);
 
 
         if (draggedObject.name.Contains("rhode"))
