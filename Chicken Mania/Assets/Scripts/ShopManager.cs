@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class ShopManager : MonoBehaviour
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
     public Transform SpawnPoint;
+
+    public GameObject dragZone;
+    public GameObject ShopWindow;
+    public GameObject UpgradeWindow;
+
 
     void Start()
     {
@@ -78,7 +85,47 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
     }
+    /*
+    private void Update()
+    {
+        //Check for click outside the UI windows (Shop and Upgrade)
+        if (Input.GetMouseButtonDown(0)) // Left mouse button click
+        {
+            //Create a PointerEventData to check where the click occurred
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };
 
+            //List to hold the results of the raycast
+            var results = new System.Collections.Generic.List<RaycastResult>();
+
+            //Raycast to get all UI elements under the mouse
+            EventSystem.current.RaycastAll(pointerEventData, results);
+
+            bool clickedOnUI = false;
+
+            foreach (var result in results)
+            {
+                //if click is inside window, don't close
+                if (result.gameObject == ShopWindow || result.gameObject == UpgradeWindow)
+                {
+                    clickedOnUI = true;
+                    break;
+                }
+            }
+           
+            if (!clickedOnUI) //Closes windows
+            {
+                if (ShopWindow.activeSelf)
+                    ToggleBuy();
+
+                if (UpgradeWindow.activeSelf)
+                    ToggleUpgrade();
+            }
+        }
+    }
+    */
     public void Buy()
     {
         //References to the button clicked
@@ -123,4 +170,30 @@ public class ShopManager : MonoBehaviour
             Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.identity);
         }
     }
- }
+
+    /*Below is to Toggle the shop menu*/
+
+    public void ToggleSell()
+    {
+        if (dragZone != null)
+        {
+            dragZone.SetActive(!dragZone.activeSelf); //Toggle the DropZone/Sell
+        }
+    }
+
+    public void ToggleBuy()
+    {
+        if (ShopWindow != null)
+        {
+            ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
+        }
+    }
+
+    public void ToggleUpgrade()
+    {
+        if (UpgradeWindow != null)
+        {
+            UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
+        }
+    }
+}
