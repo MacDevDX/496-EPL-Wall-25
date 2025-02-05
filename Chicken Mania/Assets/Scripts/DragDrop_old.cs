@@ -52,7 +52,6 @@ public class DragDrop_old : MonoBehaviour
             }
         }
     }
-   
     private IEnumerator DragUpdate(GameObject clickedObject)
     {
         clickedObject.TryGetComponent<Rigidbody>(out var rb);
@@ -92,7 +91,6 @@ public class DragDrop_old : MonoBehaviour
             objectAnimator.enabled = true; //Re-enable the animator when dragging is finished
 
     }
-
     /************************ Below is the selling functions ******************************/
     private void CheckDropZone()
     {
@@ -117,34 +115,96 @@ public class DragDrop_old : MonoBehaviour
         int moneyEarned = 0;
         //UnityEngine.Debug.Log("Dragged object name: " + draggedObject.name);
 
-
         if (draggedObject.name.Contains("rhode"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 1 : 2;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 1;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 2;
+                shopManager.SellChicken();
+            }
         }
         else if (draggedObject.name.Contains("leghorn"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 2 : 3;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 2;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 3;
+                shopManager.SellChicken();
+            }
         }
         else if (draggedObject.name.Contains("astralorp"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 3 : 4;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 3;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 4;
+                shopManager.SellChicken();
+            }
         }
         else if (draggedObject.name.Contains("silkie"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 5 : 6;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 5;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 6;
+                shopManager.SellChicken();
+            }
         }
         else if (draggedObject.name.Contains("polish"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 4 : 5;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 4;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 5;
+                shopManager.SellChicken();
+            }
         }
         else if (draggedObject.name.Contains("easter"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 6 : 7;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 6;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 7;
+                shopManager.SellChicken();
+            }
         }
         else if (draggedObject.name.Contains("chicken"))
         {
-            moneyEarned = draggedObject.name.Contains("egg") ? 4 : 50000;
+            if (draggedObject.name.Contains("egg"))
+            {
+                moneyEarned = 6;
+                shopManager.SellEgg();
+            }
+            else
+            {
+                moneyEarned = 50000;
+                shopManager.SellChicken();
+            }
         }
 
         if (moneyEarned > 0)

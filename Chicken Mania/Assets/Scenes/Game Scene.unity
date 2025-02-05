@@ -1299,27 +1299,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 131236610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9738dad6d19bb41b6ca6cbc8e1f61b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dfab5b372bdcd0438cd19d2d28bb558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseClick:
     m_Name: Mouse Click
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 41e3af2b-5e73-453d-a9d8-997ddd3a57a0
+    m_Id: 2e2f33d5-8f06-4449-a17c-8cf7605f0050
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 9af3e90a-9734-4076-8011-7891a44fa88d
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
+    m_SingletonActionBindings: []
     m_Flags: 0
-  MouseDragPhysicsSpeed: 10
+  MouseDragPhysicsSpeed: 150
   MouseDragSpeed: 0.1
   dropZoneTag: DropZone
   shopManager: {fileID: 210760836}
