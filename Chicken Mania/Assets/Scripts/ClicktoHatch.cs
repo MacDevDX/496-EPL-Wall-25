@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TouchScript.Gestures;
 
 public class ClicktoHatch : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class ClicktoHatch : MonoBehaviour
         input.Click.Touch.performed += OnTap;
 
         shopManager = Object.FindFirstObjectByType<ShopManager>();
+
+        //TouchScript Gesture
+        TapGesture tapGesture = gameObject.AddComponent<TapGesture>();
+        tapGesture.Tapped += OnTouchTap;
     }
 
     private void OnEnable()
@@ -32,7 +37,7 @@ public class ClicktoHatch : MonoBehaviour
         input.Disable();
         input.Click.Touch.performed -= OnTap;
     }
-
+    //For normal input systems
     void OnTap(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -48,6 +53,11 @@ public class ClicktoHatch : MonoBehaviour
                 }
             }
         }
+    }
+    //For TouchScript system
+    private void OnTouchTap(object sender, System.EventArgs e)
+    {
+        hatchCountdown -= 1;
     }
 
     private void OnMouseDown()
