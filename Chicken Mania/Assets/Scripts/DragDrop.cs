@@ -1,9 +1,12 @@
 using System.Collections;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 using TouchScript.Gestures.TransformGestures;
@@ -30,11 +33,14 @@ public class DragDrop : MonoBehaviour
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private Animator objectAnimator;  //Added to work with the animated objects
 
     private GameObject currentObject; //Track the object currently being dragged for selling
     public ShopManager shopManager; //Reference to ShopManager
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     private Animator objectAnimator;
@@ -52,6 +58,9 @@ public class DragDrop : MonoBehaviour
     private Rigidbody objectRigidbody;
     private bool isDragging = false;
 
+    private Rigidbody objectRigidbody;
+    private bool isDragging = false;
+
     private void Awake()
     {
         MainCamera = Camera.main;
@@ -59,12 +68,15 @@ public class DragDrop : MonoBehaviour
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private void OnEnable()
     {
         MouseClick.Enable();
         MouseClick.performed += MousePressed;
 =======
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         // Add gesture components dynamically
@@ -76,6 +88,7 @@ public class DragDrop : MonoBehaviour
         tapGesture.Tapped += OnTap;
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     private void Update()
     {
@@ -85,6 +98,29 @@ public class DragDrop : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
+=======
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnMouseClick();
+        }
+        if (Input.GetMouseButton(0) && currentObject != null)
+        {
+            OnMouseDrag();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            EndDrag();
+        }
+    }
+
+    private void OnMouseClick()
+    {
+        Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+>>>>>>> Stashed changes
         {
             OnMouseClick();
         }
@@ -160,7 +196,21 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDrag()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+    {
+        if (currentObject == null || objectRigidbody == null) return;
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = MainCamera.WorldToScreenPoint(currentObject.transform.position).z;
+        Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
+
+        // Move object using Rigidbody to prevent collision issues
+        objectRigidbody.MovePosition(Vector3.Lerp(objectRigidbody.position, worldPos, MouseDragSpeed));
+    }
+    private void EndDrag()
+>>>>>>> Stashed changes
     {
         if (currentObject == null || objectRigidbody == null) return;
 
@@ -200,6 +250,7 @@ public class DragDrop : MonoBehaviour
         {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             if (clickedObject == null)
             {
                 yield break;
@@ -224,6 +275,8 @@ public class DragDrop : MonoBehaviour
         if (objectAnimator != null)
             objectAnimator.enabled = true; //Re-enable the animator when dragging is finished
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             if (objectRigidbody != null)
@@ -256,7 +309,14 @@ public class DragDrop : MonoBehaviour
         newPosition.z = MainCamera.WorldToScreenPoint(currentObject.transform.position).z;
         Vector3 worldPos = MainCamera.ScreenToWorldPoint(newPosition);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+
+        // Apply smooth drag effect
+        currentObject.transform.position = Vector3.SmoothDamp(currentObject.transform.position, worldPos, ref velocity, MouseDragSpeed);
+    }
+>>>>>>> Stashed changes
 
         // Apply smooth drag effect
         currentObject.transform.position = Vector3.SmoothDamp(currentObject.transform.position, worldPos, ref velocity, MouseDragSpeed);
