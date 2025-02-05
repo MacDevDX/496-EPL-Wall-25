@@ -8,11 +8,16 @@ public class ClicktoHatch : MonoBehaviour
 
     public GameObject chickObject;
 
+    private ShopManager shopManager; //private so don't need to attach in inspector but will need call in Awake
+
+
     void Awake()
     {
         hatchCountdown = clicktoHatch;
         input = new InputSystem();
         input.Click.Touch.performed += OnTap;
+
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
 
     private void OnEnable()
@@ -57,6 +62,7 @@ public class ClicktoHatch : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(chickObject, transform.position, transform.rotation);
+            shopManager.HatchEgg();
         }
     }
 }
