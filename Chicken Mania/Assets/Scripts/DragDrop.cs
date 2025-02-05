@@ -1,6 +1,11 @@
 using System.Collections;
+<<<<<<< Updated upstream
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+=======
+using TouchScript.Gestures.TransformGestures;
+using TouchScript.Gestures;
+>>>>>>> Stashed changes
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,30 +19,71 @@ public class DragDrop : MonoBehaviour
     private float MouseDragSpeed = .1f;
 
     [SerializeField]
-    private string dropZoneTag = "DropZone"; //Added for Drop to sell
+    private string dropZoneTag = "DropZone";
 
     private Camera MainCamera;
     private WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
     private Vector3 velocity = Vector3.zero;
 
+<<<<<<< Updated upstream
     private Animator objectAnimator;  //Added to work with the animated objects
 
     private GameObject currentObject; //Track the object currently being dragged for selling
     public ShopManager shopManager; //Reference to ShopManager
+=======
+    private Animator objectAnimator;
+    private GameObject currentObject;
+
+    public ShopManager shopManager;
+
+    private TransformGesture dragGesture;
+    private TapGesture tapGesture;
+>>>>>>> Stashed changes
+
+    private Rigidbody objectRigidbody;
+    private bool isDragging = false;
 
     private void Awake()
     {
         MainCamera = Camera.main;
+<<<<<<< Updated upstream
     }
 
     private void OnEnable()
     {
         MouseClick.Enable();
         MouseClick.performed += MousePressed;
+=======
+
+        // Add gesture components dynamically
+        dragGesture = gameObject.AddComponent<TransformGesture>();
+        tapGesture = gameObject.AddComponent<TapGesture>();
+
+        // Register event listeners
+        dragGesture.Transformed += OnDrag;
+        tapGesture.Tapped += OnTap;
     }
 
-    private void OnDisable()
+    private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnMouseClick();
+        }
+        if (Input.GetMouseButton(0) && currentObject != null)
+        {
+            OnMouseDrag();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            EndDrag();
+        }
+>>>>>>> Stashed changes
+    }
+
+    private void OnMouseClick()
+    {
+<<<<<<< Updated upstream
         MouseClick.performed -= MousePressed;
         MouseClick.Disable();
     }
@@ -47,14 +93,48 @@ public class DragDrop : MonoBehaviour
         Ray ray = MainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
+=======
+        Ray ray = MainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+>>>>>>> Stashed changes
         {
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable"))
             {
+<<<<<<< Updated upstream
                 StartCoroutine(DragUpdate(hit.collider.gameObject));
             }
         }
     }
     private IEnumerator DragUpdate(GameObject clickedObject)
+=======
+                currentObject = hit.collider.gameObject;
+                objectAnimator = currentObject.GetComponent<Animator>();
+                objectRigidbody = currentObject.GetComponent<Rigidbody>();
+
+                if (objectAnimator != null)
+                    objectAnimator.enabled = false;
+
+                if (objectRigidbody != null)
+                    objectRigidbody.isKinematic = true;  // Disable physics while dragging
+
+                isDragging = true;
+            }
+        }
+    }
+
+    private void OnMouseDrag()
+    {
+        if (currentObject == null || objectRigidbody == null) return;
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = MainCamera.WorldToScreenPoint(currentObject.transform.position).z;
+        Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
+
+        // Move object using Rigidbody to prevent collision issues
+        objectRigidbody.MovePosition(Vector3.Lerp(objectRigidbody.position, worldPos, MouseDragSpeed));
+    }
+    private void EndDrag()
+>>>>>>> Stashed changes
     {
         clickedObject.TryGetComponent<Rigidbody>(out var rb);
         objectAnimator = clickedObject.GetComponent<Animator>();  //Get the Animator component if it exists
@@ -68,6 +148,7 @@ public class DragDrop : MonoBehaviour
 
         while (MouseClick.ReadValue<float>() != 0) //If 1 it means holding click/button
         {
+<<<<<<< Updated upstream
             if (clickedObject == null)
             {
                 yield break;
@@ -91,6 +172,41 @@ public class DragDrop : MonoBehaviour
 
         if (objectAnimator != null)
             objectAnimator.enabled = true; //Re-enable the animator when dragging is finished
+=======
+            if (objectRigidbody != null)
+                objectRigidbody.isKinematic = false;  // Restore physics
+
+            CheckDropZone();
+
+            if (objectAnimator != null)
+                objectAnimator.enabled = true;
+
+            currentObject = null;
+            objectRigidbody = null;
+            isDragging = false;
+        }
+    }
+
+    private void OnTap(object sender, System.EventArgs e)
+    {
+        OnMouseClick();
+    }
+
+    private void OnDrag(object sender, System.EventArgs e)
+    {
+        if (currentObject == null) return;
+
+        // Get TouchScript transformation data
+        Vector3 newPosition = dragGesture.ScreenPosition;
+
+        // Convert touch position to world position
+        newPosition.z = MainCamera.WorldToScreenPoint(currentObject.transform.position).z;
+        Vector3 worldPos = MainCamera.ScreenToWorldPoint(newPosition);
+
+        // Apply smooth drag effect
+        currentObject.transform.position = Vector3.SmoothDamp(currentObject.transform.position, worldPos, ref velocity, MouseDragSpeed);
+    }
+>>>>>>> Stashed changes
 
     }
     /************************ Below is the selling functions ******************************/

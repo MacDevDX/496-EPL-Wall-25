@@ -1193,7 +1193,7 @@ GameObject:
   - component: {fileID: 131236614}
   - component: {fileID: 131236613}
   - component: {fileID: 131236612}
-  - component: {fileID: 131236615}
+  - component: {fileID: 131236616}
   m_Layer: 0
   m_Name: Sell_Point
   m_TagString: DropZone
@@ -1290,7 +1290,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131236610}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &131236615
+--- !u!114 &131236616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1299,13 +1299,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 131236610}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 3b9738dad6d19bb41b6ca6cbc8e1f61b, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 3dfab5b372bdcd0438cd19d2d28bb558, type: 3}
+>>>>>>> Stashed changes
   m_Name: 
   m_EditorClassIdentifier: 
   MouseClick:
     m_Name: Mouse Click
     m_Type: 0
     m_ExpectedControlType: 
+<<<<<<< Updated upstream
     m_Id: 41e3af2b-5e73-453d-a9d8-997ddd3a57a0
     m_Processors: 
     m_Interactions: 
@@ -1320,6 +1325,14 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   MouseDragPhysicsSpeed: 10
+=======
+    m_Id: 887e31b1-d857-47c9-b131-6826c4a82e48
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  MouseDragPhysicsSpeed: 150
+>>>>>>> Stashed changes
   MouseDragSpeed: 0.1
   dropZoneTag: DropZone
   shopManager: {fileID: 210760836}
