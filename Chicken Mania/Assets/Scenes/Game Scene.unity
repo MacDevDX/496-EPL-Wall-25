@@ -1300,7 +1300,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 3b9738dad6d19bb41b6ca6cbc8e1f61b, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 3dfab5b372bdcd0438cd19d2d28bb558, type: 3}
+>>>>>>> Stashed changes
 =======
   m_Script: {fileID: 11500000, guid: 3dfab5b372bdcd0438cd19d2d28bb558, type: 3}
 >>>>>>> Stashed changes
@@ -1310,6 +1314,7 @@ MonoBehaviour:
     m_Name: Mouse Click
     m_Type: 0
     m_ExpectedControlType: 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     m_Id: 41e3af2b-5e73-453d-a9d8-997ddd3a57a0
     m_Processors: 
@@ -1326,6 +1331,8 @@ MonoBehaviour:
     m_Flags: 0
   MouseDragPhysicsSpeed: 10
 =======
+=======
+>>>>>>> Stashed changes
     m_Id: 887e31b1-d857-47c9-b131-6826c4a82e48
     m_Processors: 
     m_Interactions: 
