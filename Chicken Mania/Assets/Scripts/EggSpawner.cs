@@ -7,6 +7,8 @@ public class EggSpawner : MonoBehaviour
 
     public float timetoSpawn, spawnCountdown;
 
+    private ShopManager shopManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +25,12 @@ public class EggSpawner : MonoBehaviour
             spawnCountdown = timetoSpawn;
 
             Instantiate(spawnEgg, transform.position, transform.rotation);
+            shopManager.AddEgg();
         }
     }
+    private void Awake()
+    {
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
+    }
+
 }

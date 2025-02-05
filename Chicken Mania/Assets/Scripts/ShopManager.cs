@@ -10,9 +10,17 @@ public class ShopManager : MonoBehaviour
     public int[,] Inventory = new int[4,11]; //Array for tier of chickens (avoid using index 0)
     public int Money;
     public TextMeshProUGUI Money_Text;
+    public TextMeshProUGUI ChickensCount_Text;
+    public TextMeshProUGUI ChicksCount_Text;
+    public TextMeshProUGUI EggsCount_Text;
+
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
     public Transform SpawnPoint;
+
+    private int chickensCount = 0;
+    private int chicksCount = 0;
+    private int eggsCount = 0;
 
     public GameObject dragZone;
     public GameObject ShopWindow;
@@ -22,6 +30,7 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         Money_Text.text = Money.ToString();
+        UpdateUI();
 
         /*--------------------------------------------------------------------------
          *************************************************************************** 
@@ -146,6 +155,7 @@ public class ShopManager : MonoBehaviour
             if (itemId >= 1 && itemId <=6)
             {
                 SpawnChicken(itemId);
+                AddChicken();
             }
 
             //Only applies multiplier to Upgrade indexes
@@ -171,7 +181,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    /*Below is to Toggle the shop menu*/
+    /**************** Below is to Toggle the shop menu ****************/
 
     public void ToggleSell()
     {
@@ -196,4 +206,79 @@ public class ShopManager : MonoBehaviour
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
         }
     }
+    /****************************************************************/
+
+    /***************** Below counts the entity *********************/
+
+    /*** Chicken Handler ***/
+    public void AddChicken()
+    {
+        chickensCount++;
+        UpdateUI();
+    }
+
+
+    /*** Chicks Handler ***/
+    public void AddChick()
+    {
+        chicksCount++;
+        UpdateUI();
+    }
+    public void ChickGrowsToChicken()
+    {
+        if (chicksCount > 0)
+        {
+            chicksCount--;
+            chickensCount++;
+            UpdateUI();
+        }
+    }
+    /*** Egg Handler ***/
+    public void AddEgg()
+    {
+        eggsCount++;
+        UpdateUI();
+    }
+    public void HatchEgg()
+    {
+        if (eggsCount > 0)
+        {
+            eggsCount--;
+            AddChick();
+            UpdateUI();
+        }
+    }
+    /*** Selling ***/
+    public void SellEgg()
+    {
+        if (eggsCount > 0)
+        {
+            eggsCount--;
+            UpdateUI();
+        }
+    }
+    public void SellChick()
+    {
+        if (eggsCount > 0)
+        {
+            chicksCount--;
+            UpdateUI();
+        }
+    }
+    public void SellChicken()
+    {
+        if (chickensCount > 0)
+        {
+            chickensCount--;
+            UpdateUI();
+        }
+    }
+    /*** Chicks to Chicken ***/
+    private void UpdateUI()
+    {
+        ChickensCount_Text.text = "Chickens: " + chickensCount;
+        ChicksCount_Text.text = "Chicks: " + chicksCount;
+        EggsCount_Text.text = "Eggs: " + eggsCount;
+    }
+    /****************************************************************/
 }
