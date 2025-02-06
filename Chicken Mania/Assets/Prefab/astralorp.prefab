@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: spawnEgg
       value: 
       objectReference: {fileID: 7082763808412361906, guid: 62b97b657a0b1bf40b8862644bc6bb5d, type: 3}
+    - target: {fileID: 5181418044264440063, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: timetoSpawn
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5738017701886331818, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

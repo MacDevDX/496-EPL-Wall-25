@@ -156,14 +156,14 @@ public class ShopManager : MonoBehaviour
             Inventory[3, itemId] += 1;
 
             //If buying a chicken (Index [x,1-6]), spawn it
-            if (itemId >= 1 && itemId <=6)
+            if (itemId >= 1 && itemId <= 6)
             {
                 SpawnChicken(itemId);
                 AddChicken();
             }
 
-            //Only applies multiplier to Upgrade indexes
-            if (itemId >= 7 && itemId <= 10)
+                //Only applies multiplier to Upgrade indexes
+                if (itemId >= 7 && itemId <= 10)
             {
                 //Recalculate the price: Price = BasePrice * (Count + 1)
                 Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);

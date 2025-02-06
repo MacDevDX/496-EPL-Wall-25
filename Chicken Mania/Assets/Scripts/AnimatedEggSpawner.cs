@@ -6,7 +6,7 @@ public class AnimatedEggSpawner : MonoBehaviour
 {
 
     public GameObject spawnEgg;
-    public float timetoSpawn = 5f; // Time between spawns
+    public float timetoSpawn = 10f; // Time between spawns
     public float spawnCountdown;
     private Animator chickenAnimator;
     private AnimatedChickenAI1 animatedChickenAI;
@@ -27,12 +27,26 @@ public class AnimatedEggSpawner : MonoBehaviour
     void Update()
     {
         spawnCountdown -= Time.deltaTime;
+
+        if (shopManager.Inventory[3, 7] == 1)
+        {
+            timetoSpawn = 7f;
+        }
+        else if (shopManager.Inventory[3, 7] == 2)
+        {
+            timetoSpawn = 6f;
+        }
+        else if (shopManager.Inventory[3, 7] == 3)
+        {
+            timetoSpawn = 5f;
+        }
+
         if (isLayingEgg)
         {
             chickenAnimator.SetTrigger("stop");
         }
 
-        if (spawnCountdown <= 0 && animatedChickenAI.IsStationary()) 
+        if (spawnCountdown <= 0 && animatedChickenAI.IsStationary() && Random.Range(0, 2) == 0) //50% to lay egg
         {
             isLayingEgg = true;
             chickenAnimator.SetTrigger("lay");
@@ -53,8 +67,6 @@ public class AnimatedEggSpawner : MonoBehaviour
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f; // Spawn position slightly behind the chicken
         Instantiate(spawnEgg, eggSpawnPosition, transform.rotation);
         shopManager.AddEgg();
-        //IgnoreDraggableCollisions(Instantiate(spawnEgg, eggSpawnPosition, transform.rotation)); //Used to ignore collision
-
         isLayingEgg = false;
     }
 
@@ -62,25 +74,4 @@ public class AnimatedEggSpawner : MonoBehaviour
     //Vector3 spawnPosition = transform.position - transform.forward * 1f; // 1f is the distance behind the chicken
     //spawnPosition.y = transform.position.y - 0.5f; // Adjust 0.5f to set the height
     //        Instantiate(spawnEgg, spawnPosition, transform.rotation);
-
-
-    /*Below is to ignore collision with tag Draggable*/
-    private void IgnoreDraggableCollisions(GameObject newObject)
-    {
-        GameObject[] draggableObjects = GameObject.FindGameObjectsWithTag("Draggable");
-
-        foreach (GameObject obj in draggableObjects)
-        {
-            if (obj != newObject)
-            {
-                Collider objCollider = obj.GetComponent<Collider>();
-                Collider newCollider = newObject.GetComponent<Collider>();
-
-                if (objCollider != null && newCollider != null)
-                {
-                    Physics.IgnoreCollision(objCollider, newCollider);
-                }
-            }
-        }
-    }
 }

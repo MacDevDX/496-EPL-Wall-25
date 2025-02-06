@@ -49,7 +49,7 @@ public class ClicktoHatch : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    hatchCountdown -= 1;
+                    hatchCountdown -= 1 + shopManager.Inventory[3, 9];
                 }
             }
         }
@@ -57,12 +57,12 @@ public class ClicktoHatch : MonoBehaviour
     //For TouchScript system
     private void OnTouchTap(object sender, System.EventArgs e)
     {
-        hatchCountdown -= 1;
+        hatchCountdown -= 1 + shopManager.Inventory[3, 9];
     }
 
     private void OnMouseDown()
     {
-        //hatchCountdown -= 1;
+        //hatchCountdown -= 1 + shopManager.Inventory[3, 9];
     }
 
     // Update is called once per frame

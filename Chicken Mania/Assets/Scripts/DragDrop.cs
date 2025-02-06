@@ -157,12 +157,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 1;
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 2;
+                moneyEarned = 2 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }
@@ -170,12 +175,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 2;
+                moneyEarned = 2 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 3;
+                moneyEarned = 3 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }
@@ -183,12 +193,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 3;
+                moneyEarned = 3 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 4;
+                moneyEarned = 4 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }
@@ -196,12 +211,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 5;
+                moneyEarned = 5 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 6;
+                moneyEarned = 6 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }
@@ -209,12 +229,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 4;
+                moneyEarned = 4 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 5;
+                moneyEarned = 5 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }
@@ -222,12 +247,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 6;
+                moneyEarned = 6 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 7;
+                moneyEarned = 7 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }
@@ -235,12 +265,17 @@ public class DragDrop : MonoBehaviour
         {
             if (draggedObject.name.Contains("egg"))
             {
-                moneyEarned = 6;
+                moneyEarned = 6 + 1 * shopManager.Inventory[3, 8];
+                shopManager.SellEgg();
+            }
+            else if (draggedObject.name.Contains("chick"))
+            {
+                moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
             }
             else
             {
-                moneyEarned = 50000;
+                moneyEarned = 50000 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
             }
         }

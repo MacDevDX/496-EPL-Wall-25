@@ -179,6 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9601c90fba2b2aa4ebe667d3619741f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicktoHatch: 3
+  clicktoHatch: 5
   hatchCountdown: 0
   chickObject: {fileID: 1786860546340604583, guid: 8201cee89e378a04b91c630c1bf4265f, type: 3}
