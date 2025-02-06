@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
@@ -18,14 +19,13 @@ public class ShopManager : MonoBehaviour
     public GameObject[] ChickenSpecies;
     public Transform SpawnPoint;
 
-    private int chickensCount = 0;
-    private int chicksCount = 0;
-    private int eggsCount = 0;
+    public int chickensCount = 0;
+    public int chicksCount = 0;
+    public int eggsCount = 0;
 
     public GameObject dragZone;
     public GameObject ShopWindow;
     public GameObject UpgradeWindow;
-
 
     void Start()
     {
@@ -93,6 +93,10 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
+    }
+    void Update()
+    {
+        CheckGameOver();
     }
     /*
     private void Update()
@@ -281,4 +285,37 @@ public class ShopManager : MonoBehaviour
         EggsCount_Text.text = "Eggs: " + eggsCount;
     }
     /****************************************************************/
+
+    /***************** Below handles game over **********************/
+    public GameObject GameOverWindow;
+    private bool isGameOver = false; //To prevent multiple triggers
+    private void CheckGameOver()
+    {
+        if (isGameOver) return;
+
+        int totalChickens = chickensCount;
+        int totalChicks = chicksCount;
+        int totalEggs = eggsCount;
+        int currentMoney = Money;
+        int lowestPrice = Inventory[2, 1]; //Get the price of the cheapest chicken
+
+        if (totalChickens == 0 && totalChicks == 0 && totalEggs == 0 && currentMoney < lowestPrice)
+        {
+            TriggerGameOver();
+        }
+    }
+    private void TriggerGameOver()
+    {
+        isGameOver = true;
+        if (GameOverWindow != null)
+        {
+            GameOverWindow.SetActive(true);
+        }
+    }
+    public void onReturnButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    /****************************************************************/
+
 }
