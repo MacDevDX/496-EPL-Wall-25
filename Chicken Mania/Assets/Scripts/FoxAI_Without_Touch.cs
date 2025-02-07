@@ -2,10 +2,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using System.Linq;
-using TouchScript.Gestures;
 
-public class FoxAI : MonoBehaviour
-{
+public class FoxAI_without_touch : MonoBehaviour
+{/*
     public float detectionRadius = 10f;
     public float eatingDistance = 1f;
     public float eatingTime = 2f;
@@ -16,7 +15,6 @@ public class FoxAI : MonoBehaviour
     private GameObject target;
     private bool isEating = false;
     private float eatingStartTime;
-    private int clickCount = 0;
 
     void Start()
     {
@@ -54,7 +52,7 @@ public class FoxAI : MonoBehaviour
             }
         }
     }
-
+    
     void FindTarget()
     {
         if (target != null) return;
@@ -66,19 +64,19 @@ public class FoxAI : MonoBehaviour
             target = chickens.OrderBy(ch => Vector3.Distance(transform.position, ch.transform.position)).FirstOrDefault();
         }
     }
-
+    
     bool IsTargetedByOtherFoxes(GameObject chicken)
     {
         FoxAI[] foxes = Object.FindObjectsByType<FoxAI>(FindObjectsSortMode.None);
         return foxes.Any(fox => fox.target == chicken && fox != this);
     }
-
+    
     void StartEating()
     {
         if (isEating || target == null) return;
         isEating = true;
         eatingStartTime = Time.time;
-        agent.isStopped = true; //Stop the fox while eating
+        agent.isStopped = true; // Stop the fox while eating
     }
 
     void StopEating()
@@ -102,29 +100,5 @@ public class FoxAI : MonoBehaviour
             }
             yield return new WaitForSeconds(wanderTime);
         }
-    }
-
-    void OnMouseDown()
-    {
-        RegisterClick();
-    }
-
-    public void RegisterTouch() // Call this method from TouchScript events
-    {
-        RegisterClick();
-    }
-
-    private void RegisterClick()
-    {
-        clickCount++;
-        if (clickCount >= 3)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void RegisterPinch() // Call this method from a pinch gesture in TouchScript
-    {
-        Destroy(gameObject);
-    }
+    }*/
 }
