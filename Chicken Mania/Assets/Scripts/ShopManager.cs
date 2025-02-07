@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
     public int[,] Inventory = new int[4,11]; //Array for tier of chickens (avoid using index 0)
     public int Money;
     public TextMeshProUGUI Money_Text;
+    public TextMeshProUGUI ChickensCount_Text;
+    public TextMeshProUGUI ChicksCount_Text;
+    public TextMeshProUGUI EggsCount_Text;
+
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
     public Transform SpawnPoint;
+
+    public int chickensCount = 0;
+    public int chicksCount = 0;
+    public int eggsCount = 0;
 
     public GameObject dragZone;
     public GameObject ShopWindow;
     public GameObject UpgradeWindow;
 
-
     void Start()
     {
         Money_Text.text = Money.ToString();
+        UpdateUI();
 
         /*--------------------------------------------------------------------------
          *************************************************************************** 
@@ -85,6 +95,10 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
     }
+    void Update()
+    {
+        CheckGameOver();
+    }
     /*
     private void Update()
     {
@@ -143,9 +157,10 @@ public class ShopManager : MonoBehaviour
             Inventory[3, itemId] += 1;
 
             //If buying a chicken (Index [x,1-6]), spawn it
-            if (itemId >= 1 && itemId <=6)
+            if (itemId >= 1 && itemId <= 6)
             {
                 SpawnChicken(itemId);
+                AddChicken();
             }
 
             //Only applies multiplier to Upgrade indexes
@@ -153,12 +168,13 @@ public class ShopManager : MonoBehaviour
             {
                 //Recalculate the price: Price = BasePrice * (Count + 1)
                 Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
-
+                /*
                 // Disable the button if the count reaches 3
                 if (Inventory[3, itemId] >= 3)
                 {
                     ButtonRef.GetComponent<UnityEngine.UI.Button>().interactable = false;
                 }
+                */
             }
         }
     }
@@ -167,11 +183,11 @@ public class ShopManager : MonoBehaviour
         int index = itemId - 1;
         if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
         {
-            Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.identity);
+            Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
         }
     }
 
-    /*Below is to Toggle the shop menu*/
+    /**************** Below is to Toggle the shop menu ****************/
 
     public void ToggleSell()
     {
@@ -196,4 +212,112 @@ public class ShopManager : MonoBehaviour
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
         }
     }
+    /****************************************************************/
+
+    /***************** Below counts the entity *********************/
+
+    /*** Chicken Handler ***/
+    public void AddChicken()
+    {
+        chickensCount++;
+        UpdateUI();
+    }
+
+
+    /*** Chicks Handler ***/
+    public void AddChick()
+    {
+        chicksCount++;
+        UpdateUI();
+    }
+    public void ChickGrowsToChicken()
+    {
+        if (chicksCount > 0)
+        {
+            chicksCount--;
+            chickensCount++;
+            UpdateUI();
+        }
+    }
+    /*** Egg Handler ***/
+    public void AddEgg()
+    {
+        eggsCount++;
+        UpdateUI();
+    }
+    public void HatchEgg()
+    {
+        if (eggsCount > 0)
+        {
+            eggsCount--;
+            AddChick();
+            UpdateUI();
+        }
+    }
+    /*** Selling ***/
+    public void SellEgg()
+    {
+        if (eggsCount > 0)
+        {
+            eggsCount--;
+            UpdateUI();
+        }
+    }
+    public void SellChick()
+    {
+        if (eggsCount > 0)
+        {
+            chicksCount--;
+            UpdateUI();
+        }
+    }
+    public void SellChicken()
+    {
+        if (chickensCount > 0)
+        {
+            chickensCount--;
+            UpdateUI();
+        }
+    }
+    /*** Chicks to Chicken ***/
+    private void UpdateUI()
+    {
+        ChickensCount_Text.text = "Chickens: " + chickensCount;
+        ChicksCount_Text.text = "Chicks: " + chicksCount;
+        EggsCount_Text.text = "Eggs: " + eggsCount;
+    }
+    /****************************************************************/
+
+    /***************** Below handles game over **********************/
+    public GameObject GameOverWindow;
+    private bool isGameOver = false; //To prevent multiple triggers
+    private void CheckGameOver()
+    {
+        if (isGameOver) return;
+
+        int totalChickens = chickensCount;
+        int totalChicks = chicksCount;
+        int totalEggs = eggsCount;
+        int currentMoney = Money;
+        int lowestPrice = Inventory[2, 1]; //Get the price of the cheapest chicken
+
+        if (totalChickens == 0 && totalChicks == 0 && totalEggs == 0 && currentMoney < lowestPrice)
+        {
+            TriggerGameOver();
+        }
+    }
+    private void TriggerGameOver()
+    {
+        isGameOver = true;
+        if (GameOverWindow != null)
+        {
+            GameOverWindow.SetActive(true);
+        }
+    }
+    public void onReturnButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    /****************************************************************/
+
 }

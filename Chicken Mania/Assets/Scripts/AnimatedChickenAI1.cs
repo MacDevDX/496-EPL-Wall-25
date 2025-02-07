@@ -82,7 +82,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
     {
         int rotationTime = Random.Range(1, 3);
         int rotationWait = Random.Range(1, 3);
-        int rotateDirection = Random.Range(1, 2);
+        int rotateDirection = Random.Range(1, 3);
         int walkWait = Random.Range(1, 3);
         int walkTime = Random.Range(3, 5);
         int peckTime = Random.Range(1, 3);

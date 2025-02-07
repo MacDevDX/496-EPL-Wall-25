@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TouchScript.Gestures;
 
 public class ClicktoHatch : MonoBehaviour
 {
@@ -8,11 +9,20 @@ public class ClicktoHatch : MonoBehaviour
 
     public GameObject chickObject;
 
+    private ShopManager shopManager; //private so don't need to attach in inspector but will need call in Awake
+
+
     void Awake()
     {
         hatchCountdown = clicktoHatch;
         input = new InputSystem();
         input.Click.Touch.performed += OnTap;
+
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
+
+        //TouchScript Gesture
+        TapGesture tapGesture = gameObject.AddComponent<TapGesture>();
+        tapGesture.Tapped += OnTouchTap;
     }
 
     private void OnEnable()
@@ -27,7 +37,7 @@ public class ClicktoHatch : MonoBehaviour
         input.Disable();
         input.Click.Touch.performed -= OnTap;
     }
-
+    //For normal input systems
     void OnTap(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -39,15 +49,20 @@ public class ClicktoHatch : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    hatchCountdown -= 1;
+                    hatchCountdown -= 1 + shopManager.Inventory[3, 9];
                 }
             }
         }
     }
+    //For TouchScript system
+    private void OnTouchTap(object sender, System.EventArgs e)
+    {
+        hatchCountdown -= 1 + shopManager.Inventory[3, 9];
+    }
 
     private void OnMouseDown()
     {
-        //hatchCountdown -= 1;
+        //hatchCountdown -= 1 + shopManager.Inventory[3, 9];
     }
 
     // Update is called once per frame
@@ -57,6 +72,7 @@ public class ClicktoHatch : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(chickObject, transform.position, transform.rotation);
+            shopManager.HatchEgg();
         }
     }
 }
