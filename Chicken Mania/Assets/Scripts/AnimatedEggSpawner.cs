@@ -64,7 +64,7 @@ public class AnimatedEggSpawner : MonoBehaviour
 
     public void LayEgg()
     {
-        Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f; // Spawn position slightly behind the chicken
+        Vector3 eggSpawnPosition = transform.position *0.3f - transform.forward * 0.5f; // Spawn position slightly behind the chicken
         Instantiate(spawnEgg, eggSpawnPosition, transform.rotation);
         shopManager.AddEgg();
         isLayingEgg = false;

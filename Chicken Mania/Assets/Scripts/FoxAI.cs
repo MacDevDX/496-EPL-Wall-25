@@ -1,125 +1,104 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 
 public class FoxAI : MonoBehaviour
 {
     public float detectionRadius = 10f;
-    public float eatTime = 2f;
+    public float eatingDistance = 1f;
+    public float eatingTime = 2f;
     public float wanderRadius = 5f;
-    public float idleTime = 3f;
-    public float wanderCooldown = 5f;
-
-    private Transform target;
-    private bool isEating = false;
-    private bool isWandering = false;
-    private bool isIdle = false;
+    public float wanderTime = 3f;
 
     private NavMeshAgent agent;
-    private static HashSet<Transform> targetedObjects = new HashSet<Transform>();
+    private GameObject target;
+    private bool isEating = false;
+    private float eatingStartTime;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        StartCoroutine(WanderRoutine());
+        StartCoroutine(Wander());
     }
 
     void Update()
     {
-        if (isEating || isIdle) return;
+        if (isEating)
+        {
+            if (target == null || Vector3.Distance(transform.position, target.transform.position) > eatingDistance)
+            {
+                StopEating();
+                return;
+            }
+
+            if (Time.time - eatingStartTime >= eatingTime)
+            {
+                Destroy(target);
+                StopEating();
+            }
+            return;
+        }
 
         FindTarget();
-
         if (target != null)
         {
-            MoveToTarget();
+            agent.SetDestination(target.transform.position);
+
+            // If close enough to the target, start eating
+            if (Vector3.Distance(transform.position, target.transform.position) <= eatingDistance)
+            {
+                StartEating();
+            }
         }
     }
 
     void FindTarget()
     {
-        GameObject[] potentialTargets = GameObject.FindGameObjectsWithTag("Draggable");
-        float closestDistance = Mathf.Infinity;
-        Transform closestTarget = null;
+        if (target != null) return;
+        GameObject[] chickens = GameObject.FindGameObjectsWithTag("Draggable");
+        chickens = chickens.Where(ch => !IsTargetedByOtherFoxes(ch)).ToArray();
 
-        foreach (GameObject obj in potentialTargets)
+        if (chickens.Length > 0)
         {
-            if (targetedObjects.Contains(obj.transform)) continue;
-
-            float distance = Vector3.Distance(transform.position, obj.transform.position);
-            if (distance < closestDistance && distance <= detectionRadius)
-            {
-                closestDistance = distance;
-                closestTarget = obj.transform;
-            }
-        }
-
-        if (closestTarget != null)
-        {
-            if (target != null) targetedObjects.Remove(target);
-            target = closestTarget;
-            targetedObjects.Add(target);
-            isWandering = false;
+            target = chickens.OrderBy(ch => Vector3.Distance(transform.position, ch.transform.position)).FirstOrDefault();
         }
     }
 
-    void MoveToTarget()
+    bool IsTargetedByOtherFoxes(GameObject chicken)
     {
-        if (target == null) return;
-
-        agent.SetDestination(target.position);
-
-        if (Vector3.Distance(transform.position, target.position) < 0.5f)
-        {
-            StartCoroutine(EatTarget());
-        }
+        FoxAI[] foxes = Object.FindObjectsByType<FoxAI>(FindObjectsSortMode.None);
+        return foxes.Any(fox => fox.target == chicken && fox != this);
     }
 
-    IEnumerator EatTarget()
+    void StartEating()
     {
+        if (isEating || target == null) return;
         isEating = true;
-        agent.isStopped = true;
+        eatingStartTime = Time.time;
+        agent.isStopped = true; // Stop the fox while eating
+    }
 
-        yield return new WaitForSeconds(eatTime);
-
-        if (target != null)
-        {
-            targetedObjects.Remove(target);
-            Destroy(target.gameObject);
-        }
-
+    void StopEating()
+    {
+        isEating = false;
         target = null;
         agent.isStopped = false;
-        isEating = false;
+        StartCoroutine(Wander());
     }
 
-    IEnumerator WanderRoutine()
+    IEnumerator Wander()
     {
-        while (true)
+        while (target == null)
         {
-            if (target == null && !isEating)
+            Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
+            randomDirection += transform.position;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomDirection, out hit, wanderRadius, 1))
             {
-                if (!isWandering)
-                {
-                    Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
-                    randomDirection += transform.position;
-                    NavMeshHit hit;
-                    if (NavMesh.SamplePosition(randomDirection, out hit, wanderRadius, 1))
-                    {
-                        agent.SetDestination(hit.position);
-                        isWandering = true;
-                    }
-                }
-                else if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                {
-                    isWandering = false;
-                    isIdle = true;
-                    yield return new WaitForSeconds(idleTime);
-                    isIdle = false;
-                }
+                agent.SetDestination(hit.position);
             }
-            yield return new WaitForSeconds(wanderCooldown);
+            yield return new WaitForSeconds(wanderTime);
         }
     }
 }
