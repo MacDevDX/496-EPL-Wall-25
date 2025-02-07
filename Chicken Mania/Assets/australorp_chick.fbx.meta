@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53712f477937a4b4690c623d0d65ba60
+guid: c6a717206ddc8bc4da0c4542cfd8d1b0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Chickencolor
+      name: Chickcolor
+    second: {fileID: 2100000, guid: 07848e1c55eef504386c679d16f3fe03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chickfeet
+    second: {fileID: 2100000, guid: 50de132fb8f4a5f459a2bc54954735c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chickstripes
     second: {fileID: 2100000, guid: 07848e1c55eef504386c679d16f3fe03, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: chickenbeek
-    second: {fileID: 4330470057307472797, guid: 093c32e92498ccb44a6be9a7686f0a6d, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: chickeneyes
-    second: {fileID: 2100000, guid: 07848e1c55eef504386c679d16f3fe03, type: 2}
+    second: {fileID: 2100000, guid: 50de132fb8f4a5f459a2bc54954735c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -76,8 +81,8 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Armature|Peck
-      takeName: Armature|Peck
-      internalID: 6066994667510077347
+      takeName: Armature|Peck.001
+      internalID: 5423693325449916128
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -127,14 +132,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 1
-        functionName: LayEgg
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -168,10 +166,39 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Walk_no_bobbing
+      takeName: Armature|Walk_no_bobbing
+      internalID: 6734963073015231261
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.2
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -226,7 +253,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.2
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

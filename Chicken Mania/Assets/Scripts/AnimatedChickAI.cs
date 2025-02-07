@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatedChickenAI1 : MonoBehaviour
+public class AnimatedChickAI1 : MonoBehaviour
 {
-    public float movementSpeed = 20f;
+    public float movementSpeed = 60f;
     public float rotationSpeed = 100f;
 
     private bool isWandering = false;
@@ -13,9 +13,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
     private bool isWalking = false;
     private bool isPecking = false;
     private bool isStationary = true; // Default state is stationary
-    private bool isLayingEggInEggSpawnerScript = false; // Flag to freeze movement while laying anim is playing
-    private Animator chickenAnimator;
-    private AnimatedEggSpawner animatedEggSpawner;
+    private Animator chickAnimator;
 
 
     Rigidbody rb;
@@ -24,8 +22,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        chickenAnimator = GetComponent<Animator>();
-        animatedEggSpawner = GetComponent <AnimatedEggSpawner>();
+        chickAnimator = GetComponent<Animator>();
         // Make chicken generate in random direction
         float randomY = Random.Range(0f, 360f);
         transform.eulerAngles = new Vector3(0, randomY, 0);
@@ -34,12 +31,6 @@ public class AnimatedChickenAI1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isLayingEggInEggSpawnerScript = animatedEggSpawner.IsLaying();
-        if (isLayingEggInEggSpawnerScript)
-        {
-            return; // Stop movement if laying
-        }
-
         if (isWandering == false)
         {
             StartCoroutine(Wander());
@@ -54,30 +45,30 @@ public class AnimatedChickenAI1 : MonoBehaviour
         }
         if (isRotatingRight == true)
         {
-            chickenAnimator.SetTrigger("walk");
+            chickAnimator.SetTrigger("walk");
             transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
         }
         if (isRotatingLeft == true)
         {
-            chickenAnimator.SetTrigger("walk");
+            chickAnimator.SetTrigger("walk");
             transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
         }
         if (isWalking == true)
         {
             rb.AddForce(transform.forward * movementSpeed);
-            chickenAnimator.SetTrigger("walk");
+            chickAnimator.SetTrigger("walk");
         }
         if (isRotatingLeft == false || isRotatingRight == false)
         {
-            chickenAnimator.SetTrigger("stop");
+            chickAnimator.SetTrigger("stop");
         }
         if (isWandering == true)
         {
-            chickenAnimator.SetTrigger("stop");
+            chickAnimator.SetTrigger("stop");
         }
         if (isPecking == true)
         {
-            chickenAnimator.SetTrigger("peck");
+            chickAnimator.SetTrigger("peck");
         }
     }
 
@@ -125,21 +116,4 @@ public class AnimatedChickenAI1 : MonoBehaviour
         }
         isWandering = false;
     }
-    // Use case: ensures that chicken is not moving when laying an egg
-    public bool IsStationary()
-    {
-        return isStationary;
-    }
-
-    //public void SetLayingFlag(bool laying)
-    //{
-    //    isLayingEggInEggSpawnerScript = laying;
-        
-    //    if (laying)
-    //    {
-    //        rb.linearVelocity = Vector3.zero; // Stop movement
-    //        rb.angularVelocity = Vector3.zero;
-    //        chickenAnimator.SetTrigger("stop"); // Stop all animations
-    //    }
-    //}
 }
