@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1472248740341049448, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2514152616717961882, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -81,12 +85,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 07848e1c55eef504386c679d16f3fe03, type: 2}
     - target: {fileID: 8468898697738734399, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: m_Drag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468898697738734399, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_Mass
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8468898697738734399, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_Constraints
       value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468898697738734399, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8468898697738734399, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_CollisionDetection

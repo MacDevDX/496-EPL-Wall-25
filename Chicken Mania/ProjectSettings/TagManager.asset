@@ -7,6 +7,7 @@ TagManager:
   - Event
   - Draggable
   - DropZone
+  - ShopButton
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Chicken
   - Chick
   - Egg
-  - 
+  - Fox
   - 
   - 
   - 

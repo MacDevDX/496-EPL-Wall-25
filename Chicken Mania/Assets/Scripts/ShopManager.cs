@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
@@ -162,17 +163,18 @@ public class ShopManager : MonoBehaviour
                 AddChicken();
             }
 
-                //Only applies multiplier to Upgrade indexes
-                if (itemId >= 7 && itemId <= 10)
+            //Only applies multiplier to Upgrade indexes
+            if (itemId >= 7 && itemId <= 10)
             {
                 //Recalculate the price: Price = BasePrice * (Count + 1)
                 Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
-
+                /*
                 // Disable the button if the count reaches 3
                 if (Inventory[3, itemId] >= 3)
                 {
                     ButtonRef.GetComponent<UnityEngine.UI.Button>().interactable = false;
                 }
+                */
             }
         }
     }
@@ -181,7 +183,7 @@ public class ShopManager : MonoBehaviour
         int index = itemId - 1;
         if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
         {
-            Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.identity);
+            Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
         }
     }
 
