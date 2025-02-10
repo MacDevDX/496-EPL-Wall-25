@@ -279,6 +279,31 @@ public class ShopManager : MonoBehaviour
             UpdateUI();
         }
     }
+    /*** Eaten ***/
+    public void LoseEgg()
+    {
+        if (eggsCount > 0)
+        {
+            eggsCount--;
+            UpdateUI();
+        }
+    }
+    public void LoseChick()
+    {
+        if (eggsCount > 0)
+        {
+            chicksCount--;
+            UpdateUI();
+        }
+    }
+    public void LoseChicken()
+    {
+        if (chickensCount > 0)
+        {
+            chickensCount--;
+            UpdateUI();
+        }
+    }
     /*** Chicks to Chicken ***/
     private void UpdateUI()
     {

@@ -18,8 +18,12 @@ public class FoxAI : MonoBehaviour
     private float eatingStartTime;
     private int clickCount = 0;
 
+    private ShopManager shopManager;
+
     void Start()
     {
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
+
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(Wander());
     }
@@ -83,6 +87,11 @@ public class FoxAI : MonoBehaviour
 
     void StopEating()
     {
+        if (target != null)
+        {
+            UpdateCount(target); // Update the respective count before destroying the target
+            Destroy(target);
+        }
         isEating = false;
         target = null;
         agent.isStopped = false;
@@ -101,6 +110,23 @@ public class FoxAI : MonoBehaviour
                 agent.SetDestination(hit.position);
             }
             yield return new WaitForSeconds(wanderTime);
+        }
+    }
+
+    void UpdateCount(GameObject obj)
+    {
+        // Check the tag of the object and update the corresponding count
+        if (obj.name.Contains("egg"))
+        {
+            shopManager.LoseEgg();
+        }
+        else if (obj.name.Contains("chicks"))
+        {
+            shopManager.LoseChick();
+        }
+        else if (obj.name.Contains("chicken"))
+        {
+            shopManager.LoseChicken();
         }
     }
 
