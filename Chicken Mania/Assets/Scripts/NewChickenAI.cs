@@ -15,7 +15,6 @@ public class NewChickenAI : MonoBehaviour
     private float eggTimer;                    // Timer for egg-laying
     private bool isLayingEgg = false;          // Whether the chicken is laying an egg
     private bool isRunningFromFox = false;     // Whether the chicken is running from a fox
-    private bool isWandering = false;          // Whether the chicken is wandering
 
     private ShopManager shopManager;
 
@@ -37,14 +36,10 @@ public class NewChickenAI : MonoBehaviour
         if (!isLayingEgg && !isRunningFromFox)
         {
             eggTimer -= Time.deltaTime;
-            if (eggTimer <= 0f && !isLayingEgg)
+            if (eggTimer <= 0f)
             {
-                if (!isLayingEgg)
-                {
-                    StartCoroutine(LayEgg1());
-                }
+                StartCoroutine(LayEgg());
                 eggTimer = eggLayInterval; // Reset timer
-                StartCoroutine(Wander());
             }
         }
 
@@ -57,33 +52,48 @@ public class NewChickenAI : MonoBehaviour
         else if (isRunningFromFox)
         {
             isRunningFromFox = false;
-            chickenAnimator.SetTrigger("stop");
             StartCoroutine(Wander()); // Resume wandering
+        }
+
+        // Synchronize animations with NavMeshAgent
+        if (!isLayingEgg && !isRunningFromFox)
+        {
+            if (agent.velocity.magnitude > 0.1f) // Agent is moving
+            {
+                chickenAnimator.SetTrigger("walk");
+            }
+            else if (agent.remainingDistance <= agent.stoppingDistance) // Agent has stopped
+            {
+                chickenAnimator.SetTrigger("stop");
+            }
         }
     }
 
-    IEnumerator LayEgg1()
+    IEnumerator LayEgg()
     {
         isLayingEgg = true;
-        chickenAnimator.SetTrigger("lay1"); // Trigger "lay" animation
+        agent.isStopped = true; // Stop movement while laying an egg
+        chickenAnimator.SetTrigger("lay"); // Trigger "lay" animation
+
+        //yield return new WaitForSeconds(2f); // Wait for the duration of the "lay" animation
 
         // Spawn the egg
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
         Instantiate(eggPrefab, eggSpawnPosition, Quaternion.identity);
 
         shopManager.AddEgg();
+        chickenAnimator.SetTrigger("stop");
 
-        chickenAnimator.SetTrigger("stop"); // Transition back to "Idle"
         isLayingEgg = false;
-
-        yield return null; // Ensure the coroutine completes
+        agent.isStopped = false; // Resume movement
+        yield return null;
     }
 
     void RunAway(Vector3 foxPosition)
     {
         isRunningFromFox = true;
+        agent.isStopped = false; // Ensure agent is moving
         StopCoroutine(Wander()); // Stop wandering
-        chickenAnimator.SetTrigger("walk");
 
         Vector3 runDirection = (transform.position - foxPosition).normalized * 10f;
         Vector3 targetPosition = transform.position + runDirection;
@@ -93,18 +103,12 @@ public class NewChickenAI : MonoBehaviour
 
     IEnumerator Wander()
     {
-        isWandering = true;
-
         while (!isLayingEgg && !isRunningFromFox)
         {
-            // Choose a random action: idle, walk, peck, or rotate
-            int action = Random.Range(0, 4); // 0 = idle, 1 = walk, 2 = rotate, 3 = peck
-            if (action == 0) // Idle
-            {
-                chickenAnimator.SetTrigger("stop");
-                yield return new WaitForSeconds(Random.Range(2f, 5f));
-            }
-            else if (action == 1) // Walk
+            // Choose a random action: walk, idle, or peck
+            int action = Random.Range(0, 3); // 0 = walk, 1 = idle, 2 = peck
+
+            if (action == 0) // Walk
             {
                 chickenAnimator.SetTrigger("walk");
                 Vector3 randomDirection = transform.position + Random.insideUnitSphere * 5f;
@@ -113,21 +117,17 @@ public class NewChickenAI : MonoBehaviour
 
                 yield return new WaitForSeconds(Random.Range(3f, 6f));
             }
-            else if (action == 2) // Rotate
+            else if (action == 1) // Idle
             {
                 chickenAnimator.SetTrigger("stop");
-                float randomRotation = Random.Range(-90f, 90f);
-                transform.Rotate(Vector3.up, randomRotation);
                 yield return new WaitForSeconds(Random.Range(1f, 3f));
             }
-            else if (action == 3) // Peck
+            else if (action == 2) // Peck
             {
                 chickenAnimator.SetTrigger("peck");
                 yield return new WaitForSeconds(Random.Range(1f, 2f)); // Allow peck animation to play
             }
         }
-
-        isWandering = false;
     }
 
     private void OnDrawGizmosSelected()
