@@ -9454,7 +9454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1610360555
 Transform:
   m_ObjectHideFlags: 0
@@ -9579,7 +9579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 10
-  eatingDistance: 1
+  eatingDistance: 2
   eatingTime: 2
   wanderRadius: 5
   wanderTime: 3
@@ -10964,7 +10964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1939897695
 Transform:
   m_ObjectHideFlags: 0
@@ -11089,7 +11089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 10
-  eatingDistance: 1
+  eatingDistance: 2
   eatingTime: 2
   wanderRadius: 5
   wanderTime: 3
@@ -11779,7 +11779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2115440610
 Transform:
   m_ObjectHideFlags: 0
@@ -11904,7 +11904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 10
-  eatingDistance: 1
+  eatingDistance: 2
   eatingTime: 2
   wanderRadius: 5
   wanderTime: 3

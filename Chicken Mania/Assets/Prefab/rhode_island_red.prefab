@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEgg: {fileID: 7082763808412361906, guid: 99489ef109d29ac489084a9ade1c3f07, type: 3}
-  timetoSpawn: 10
+  timetoSpawn: 20
   spawnCountdown: 0
 --- !u!1 &3032297543120215360
 GameObject:

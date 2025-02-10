@@ -65,7 +65,7 @@ public class NewChickenAI : MonoBehaviour
     IEnumerator LayEgg1()
     {
         isLayingEgg = true;
-        chickenAnimator.SetTrigger("lay"); // Trigger "lay" animation
+        chickenAnimator.SetTrigger("lay1"); // Trigger "lay" animation
 
         // Spawn the egg
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
