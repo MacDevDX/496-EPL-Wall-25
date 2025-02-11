@@ -26,6 +26,8 @@ public class AnimatedChickenAI1 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         chickenAnimator = GetComponent<Animator>();
         animatedEggSpawner = GetComponent <AnimatedEggSpawner>();
+        StartCoroutine(Wander());
+
     }
 
     // Update is called once per frame

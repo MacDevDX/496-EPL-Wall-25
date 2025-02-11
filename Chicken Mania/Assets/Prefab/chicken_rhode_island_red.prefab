@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 1472248740341049448}
   - component: {fileID: 5181418044264440063}
   m_Layer: 6
-  m_Name: rhode_island_red
+  m_Name: chicken_rhode_island_red
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
