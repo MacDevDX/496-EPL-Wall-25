@@ -3,12 +3,11 @@ using TouchScript.Gestures.TransformGestures;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using TouchScript.Gestures.TransformGestures;
 
 public class NewChickenAI : MonoBehaviour
 {
     public float movementSpeed = 2f;            // Speed of movement
-    public float eggLayInterval = 30f;         // Time interval for laying eggs
+    public float eggLayInterval = 10f;         // Time interval for laying eggs
     public float foxDetectionRadius = 10f;     // Distance to detect a fox
     public GameObject eggPrefab;               // Egg prefab to spawn
     public LayerMask foxLayer;                 // Layer mask for detecting foxes
@@ -19,20 +18,31 @@ public class NewChickenAI : MonoBehaviour
     private bool isLayingEgg = false;          // Whether the chicken is laying an egg
     private bool isRunningFromFox = false;     // Whether the chicken is running from a fox
     private TransformGesture dragGesture;
+    private Rigidbody rb;
+    private bool isDragging = false;
+    private GameObject currentDropZone = null;
+    private bool isLayingEggInEggSpawnerScript = false;
 
     private ShopManager shopManager;
+    private NewEggSpawner newEggSpawner;
+    private bool isStationary = true;
 
     void Start()
     {
         shopManager = Object.FindFirstObjectByType<ShopManager>();
+        newEggSpawner = GetComponent<NewEggSpawner>();
 
         agent = GetComponent<NavMeshAgent>();
         chickenAnimator = GetComponent<Animator>();
         agent.speed = movementSpeed;
 
-        // Add Transform Gesture
+        rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true; // Ensure it's kinematic for physics-based dragging
+
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
+        dragGesture.TransformCompleted += (s, e) => OnDragEnd();
 
 
         eggTimer = eggLayInterval; // Initialize egg timer
@@ -41,17 +51,18 @@ public class NewChickenAI : MonoBehaviour
 
     void Update()
     {
+        //if (isDragging) return;
         // Handle egg-laying timer
-        if (!isLayingEgg && !isRunningFromFox)
+        isLayingEggInEggSpawnerScript = newEggSpawner.IsLaying();
+        if (isLayingEggInEggSpawnerScript)
         {
-            eggTimer -= Time.deltaTime;
-            if (eggTimer <= 0f)
-            {
-                StartCoroutine(LayEgg());
-                eggTimer = eggLayInterval; // Reset timer
-            }
+            isDragging = true;
+            return; // Stop movement if laying or being dragged
         }
-
+        else
+        {
+            isDragging = false; // Allow movement again
+        }
         // Detect foxes and handle running away
         Collider[] foxes = Physics.OverlapSphere(transform.position, foxDetectionRadius, foxLayer);
         if (foxes.Length > 0)
@@ -77,27 +88,29 @@ public class NewChickenAI : MonoBehaviour
             }
         }
     }
-
     IEnumerator LayEgg()
     {
+        //if (isLayingEgg) yield break;
+
         isLayingEgg = true;
         agent.isStopped = true; // Stop movement while laying an egg
         chickenAnimator.SetTrigger("lay"); // Trigger "lay" animation
 
-        //yield return new WaitForSeconds(2f); // Wait for the duration of the "lay" animation
+        yield return new WaitForSeconds(2f); // Wait for the duration of the "lay" animation
+        chickenAnimator.SetTrigger("stop");
 
         // Spawn the egg
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
         Instantiate(eggPrefab, eggSpawnPosition, Quaternion.identity);
 
         shopManager.AddEgg();
-        chickenAnimator.SetTrigger("stop");
 
         isLayingEgg = false;
         agent.isStopped = false; // Resume movement
-        yield return null;
+        //eggTimer = eggLayInterval;
+        //yield return null;
     }
-
+    
     void RunAway(Vector3 foxPosition)
     {
         isRunningFromFox = true;
@@ -138,17 +151,75 @@ public class NewChickenAI : MonoBehaviour
             }
         }
     }
+    /*
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
         {
-            transform.position += dragGesture.DeltaPosition;
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
+            agent.Warp(newPosition); // Use Warp to move while keeping NavMeshAgent active
         }
     }
-    private void OnDrawGizmosSelected()
+
+    private void OnDragEnd()
     {
-        // Draw a sphere to visualize the fox detection radius
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, foxDetectionRadius);
+        agent.isStopped = false; // Resume NavMeshAgent movement
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+    }
+    */
+    private void OnDrag(object sender, System.EventArgs e)
+    {
+        if (shopManager.dragZone && shopManager.dragZone.activeSelf)
+        {
+            isDragging = true;
+            agent.isStopped = true;
+            rb.isKinematic = false; // Enable physics during drag
+
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
+            rb.MovePosition(newPosition);
+        }
+    }
+
+    private void OnDragEnd()
+    {
+        isDragging = false;
+        rb.isKinematic = true; // Disable physics
+        agent.isStopped = false;
+        agent.Warp(transform.position); // Reset NavMeshAgent position
+
+        if (currentDropZone != null)
+        {
+            SellChicken();
+        }
+    }
+
+    private void SellChicken()
+    {
+        Sell sellScript = currentDropZone.GetComponent<Sell>();
+        if (sellScript != null)
+        {
+            sellScript.GiveMoney(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DropZone"))
+        {
+            currentDropZone = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DropZone"))
+        {
+            currentDropZone = null;
+        }
+    }
+    public bool IsStationary()
+    {
+        return isStationary;
     }
 }

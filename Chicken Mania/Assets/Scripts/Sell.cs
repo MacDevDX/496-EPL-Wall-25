@@ -17,7 +17,7 @@ public class Sell : MonoBehaviour
         }
     }
 
-    private void GiveMoney(GameObject droppedObject)
+    public void GiveMoney(GameObject droppedObject)
     {
         int moneyEarned = 0;
 
@@ -27,16 +27,20 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 2 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
+
             }
         }
         else if (droppedObject.name.Contains("leghorn"))
@@ -45,16 +49,19 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 2 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 3 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
             }
         }
         else if (droppedObject.name.Contains("astralorp"))
@@ -63,16 +70,19 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 3 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 4 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
             }
         }
         else if (droppedObject.name.Contains("silkie"))
@@ -81,16 +91,19 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 5 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 6 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
             }
         }
         else if (droppedObject.name.Contains("polish"))
@@ -99,16 +112,19 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 4 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 5 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
             }
         }
         else if (droppedObject.name.Contains("easter"))
@@ -117,16 +133,19 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 6 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 7 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
             }
         }
         else if (droppedObject.name.Contains("chicken"))
@@ -135,16 +154,19 @@ public class Sell : MonoBehaviour
             {
                 moneyEarned = 6 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
                 moneyEarned = 1 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellEgg();
+                Destroy(droppedObject);
             }
             else
             {
                 moneyEarned = 50000 + 1 * shopManager.Inventory[3, 8];
                 shopManager.SellChicken();
+                Destroy(droppedObject);
             }
         }
 

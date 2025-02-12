@@ -94,8 +94,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
-    - {fileID: 5181418044264440063, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     - {fileID: 8337793653876108695, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+    - {fileID: 5181418044264440063, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -111,6 +111,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6859322251239308506}
+    - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1905714985679960655}
   m_SourcePrefab: {fileID: 100100000, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
 --- !u!1 &3273522384971957849 stripped
 GameObject:
@@ -218,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  eggLayInterval: 30
+  eggLayInterval: 10
   foxDetectionRadius: 10
   eggPrefab: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
   foxLayer:
@@ -246,3 +249,18 @@ NavMeshAgent:
   m_BaseOffset: 0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1905714985679960655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273522384971957849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbb936b61cfa644eb84e60c5ae71d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEgg: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
+  timetoSpawn: 10
+  spawnCountdown: 0

@@ -25,6 +25,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private bool isDragging = false;
     private ShopManager shopManager;
+    private GameObject currentDropZone = null;
 
     void Start()
     {
@@ -33,11 +34,18 @@ public class AnimatedChickenAI1 : MonoBehaviour
         animatedEggSpawner = GetComponent <AnimatedEggSpawner>();
         shopManager = Object.FindFirstObjectByType<ShopManager>();
 
-        // Add Transform Gesture
+        if (rb == null)
+        {
+            rb = gameObject.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = true;  // Prevent unwanted movement
+        }
+
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
+        dragGesture.TransformCompleted += OnDragEnd; // Detect drag release
 
-        StartCoroutine(Wander());
+        //StartCoroutine(Wander());
     }
     void Update()
     {
@@ -46,6 +54,10 @@ public class AnimatedChickenAI1 : MonoBehaviour
         {
             isDragging = true;
             return; // Stop movement if laying or being dragged
+        }
+        else
+        {
+            isDragging = false; // Allow movement again
         }
 
         if (!isDragging) // Normal AI movement
@@ -90,6 +102,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
                 chickenAnimator.SetTrigger("peck");
             }
         }
+        //rb.WakeUp();
     }
 
     IEnumerator Wander()
@@ -130,41 +143,54 @@ public class AnimatedChickenAI1 : MonoBehaviour
 
         isWandering = false;
     }
+
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
         {
-        transform.position += dragGesture.DeltaPosition;
-        isDragging = false;
+            rb.isKinematic = true; // Ensure no physics interference
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
+            rb.MovePosition(newPosition); // Move with physics
+            isDragging = true;
         }
     }
 
-    /*
-    private void OnDrag(object sender, System.EventArgs e)
+    private void OnDragEnd(object sender, System.EventArgs e)
     {
-        if (!sellMode) return; // Only allow drag if selling mode is active
+        isDragging = false;
+        rb.isKinematic = false; // Reactivate physics
 
-        TransformGesture gesture = sender as TransformGesture;
-        if (gesture == null) return;
-
-        isDragging = true;
-
-        // Convert screen delta to world position
-        Vector3 screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(transform.position).z);
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPoint);
-
-        // Keep the chicken on the ground (adjust Y position)
-        worldPosition.y = transform.position.y;
-
-        // Move smoothly using Rigidbody
-        rb.MovePosition(Vector3.Lerp(transform.position, worldPosition, Time.deltaTime * 10));
-    }
-    */
-    public void EnableSellingMode(bool enable)
-    {
-        //sellMode = enable;
+        // If released over DropZone, sell the chicken
+        if (currentDropZone != null)
+        {
+            SellChicken();
+        }
     }
 
+    private void SellChicken()
+    {
+        Sell sellScript = currentDropZone.GetComponent<Sell>();
+        if (sellScript != null)
+        {
+            sellScript.GiveMoney(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DropZone"))
+        {
+            currentDropZone = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DropZone"))
+        {
+            currentDropZone = null;
+        }
+    }
     public bool IsStationary()
     {
         return isStationary;
