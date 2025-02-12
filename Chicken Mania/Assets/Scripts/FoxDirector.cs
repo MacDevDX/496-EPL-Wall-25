@@ -18,13 +18,13 @@ public class FoxDirector : MonoBehaviour
     public GameObject foxObject;
 
     // These are public so other classes can communicate. Do not modify these in the inspector!
-    public Edible[] chickenList;
+    public List<Edible> chickenList;
     public List<FoxBehavior> foxList;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        chickenList = new Edible[1];
+        chickenList = new List<Edible>();
         foxList = new List<FoxBehavior>();
 
         // this will repeat the listed function. to cancel _all_ invokes, use CancelInvoke()
@@ -39,8 +39,8 @@ public class FoxDirector : MonoBehaviour
 
     void UpdateChickenList()
     {
-        // get all instances of the chicken script
-        chickenList = Object.FindObjectsOfType<Edible>();
+        //// get all instances of the chicken script
+        //chickenList = Object.FindObjectsOfType<Edible>();
 
         if (initialFox == true) 
         {
@@ -48,7 +48,7 @@ public class FoxDirector : MonoBehaviour
             initialFox = false;
         }
 
-        int spawnTarget = chickenList.Count() / 5;
+        int spawnTarget = chickenList.Count / 5;
         int foxCount = foxList.Count;
         spawnTarget = (int)(foxesPer5Chickens * spawnTarget);
 
@@ -59,6 +59,28 @@ public class FoxDirector : MonoBehaviour
             foxCount = foxList.Count;
         }
 
+    }
+
+    public void setupNewEdible(GameObject newObject, ShopManager ShopMan, FoxDirector FoxDir, string edibleType)
+    {
+        Edible newEdible = newObject.GetComponent<Edible>();
+        FoxDir.chickenList.Add(newEdible);
+        newEdible.FoxDirecter = FoxDir;
+        newEdible.ShopMan = ShopMan;
+
+
+        if (edibleType == "EGG")
+        {
+            newEdible.isEgg = true;
+        }
+        if (edibleType == "CHICK")
+        {
+            newEdible.isChick = true;
+        }
+        if (edibleType == "CHICKEN")
+        {
+            newEdible.isChicken = true;
+        }
     }
 
     void SpawnFox()

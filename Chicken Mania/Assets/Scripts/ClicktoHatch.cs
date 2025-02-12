@@ -86,8 +86,8 @@ public class ClicktoHatch : MonoBehaviour
     public float clicktoHatch, hatchCountdown;
     public GameObject chickObject;
 
-    private ShopManager shopManager;
-
+    public ShopManager shopManager;
+    public FoxDirector FoxDir;
     void Awake()
     {
         // Initialize the hatch countdown
@@ -114,7 +114,14 @@ public class ClicktoHatch : MonoBehaviour
         {
             // Spawn the chick and hatch the egg
             Destroy(gameObject);
-            Instantiate(chickObject, transform.position, transform.rotation);
+
+            GameObject newChick = Instantiate(chickObject, transform.position, transform.rotation);
+
+            //IMPORTANT: Currently eggs spawn chickens. If this changes and chicks are implemented, change below to "CHICK"
+            FoxDir.setupNewEdible(newChick, shopManager, FoxDir, "CHICKEN");
+            newChick.GetComponent<AnimatedEggSpawner>().FoxDir = FoxDir;
+            newChick.GetComponent<AnimatedEggSpawner>().shopManager = shopManager;
+
             shopManager.HatchEgg();
         }
     }
