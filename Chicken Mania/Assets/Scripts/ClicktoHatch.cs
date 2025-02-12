@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.InputSystem;
 using TouchScript.Gestures;
 
@@ -70,6 +70,49 @@ public class ClicktoHatch : MonoBehaviour
     {
         if (hatchCountdown <= 0)  //in case lag and goes negative
         {
+            Destroy(gameObject);
+            Instantiate(chickObject, transform.position, transform.rotation);
+            shopManager.HatchEgg();
+        }
+    }
+}
+*/
+
+using UnityEngine;
+using TouchScript.Gestures;
+
+public class ClicktoHatch : MonoBehaviour
+{
+    public float clicktoHatch, hatchCountdown;
+    public GameObject chickObject;
+
+    private ShopManager shopManager;
+
+    void Awake()
+    {
+        // Initialize the hatch countdown
+        hatchCountdown = clicktoHatch;
+
+        // Access ShopManager for inventory and currency updates
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
+
+        // Set up TapGesture component for detecting taps on the object
+        TapGesture tapGesture = gameObject.AddComponent<TapGesture>();
+        tapGesture.Tapped += OnTouchTap;
+    }
+
+    private void OnTouchTap(object sender, System.EventArgs e)
+    {
+        // When the object is tapped, reduce the countdown
+        hatchCountdown -= 1 + shopManager.Inventory[3, 9];
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (hatchCountdown <= 0)  // If the countdown has finished
+        {
+            // Spawn the chick and hatch the egg
             Destroy(gameObject);
             Instantiate(chickObject, transform.position, transform.rotation);
             shopManager.HatchEgg();
