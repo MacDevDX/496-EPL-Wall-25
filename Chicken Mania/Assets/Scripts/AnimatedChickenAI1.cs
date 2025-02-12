@@ -6,6 +6,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
 {
     public float movementSpeed = 20f;
     public float rotationSpeed = 100f;
+    public FoxBehavior chasingFox;
 
     private bool isWandering = false;
     private bool isRotatingLeft = false;

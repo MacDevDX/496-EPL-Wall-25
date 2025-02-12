@@ -85,6 +85,12 @@ public class FoxBehavior : MonoBehaviour
             if (chickenTarget != null)
             {
                 chickenBody = chickenTarget.gameObject.GetComponent<Rigidbody>();
+
+                if (chickenTarget.isChicken)
+                {
+                    // formally declare war upon the chicken
+                    chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = this;
+                }
             }
         }
 
@@ -113,9 +119,12 @@ public class FoxBehavior : MonoBehaviour
     private void tappedHandler(object sender, System.EventArgs e)
     {
     tapsRequired -= 1;
-    if (tapsRequired == 0)
+    if (tapsRequired <= 0)
         {
             directorRef.foxList.Remove(this);
+            // notify the chicken that it is safe
+            if (chickenTarget != null && chickenTarget.isChicken)
+            chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = null;
             Debug.Log("Fox(" + this + ") has notified :" + directorRef + " of its termination.");
             Destroy(gameObject);
         }

@@ -13012,6 +13012,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
+      propertyPath: maxFoxes
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
       propertyPath: graceTime
       value: 10
       objectReference: {fileID: 0}
@@ -31257,6 +31261,10 @@ PrefabInstance:
     - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
       propertyPath: foxSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
+      propertyPath: maxFoxes
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
       propertyPath: graceTime
