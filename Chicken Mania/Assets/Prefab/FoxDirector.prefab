@@ -49,8 +49,8 @@ MonoBehaviour:
   maxFoxes: 3
   foxSpeed: 3
   foxesPer5Chickens: 1
-  devourCooldown: 600
-  devourSpreeCD: 200
+  devourCooldown: 5
+  devourSpreeCD: 2
   initialFox: 0
   foxObject: {fileID: 5596084627485922698, guid: 226c6f76ad83dc8448f9fc805cc94f34, type: 3}
   chickenList: []

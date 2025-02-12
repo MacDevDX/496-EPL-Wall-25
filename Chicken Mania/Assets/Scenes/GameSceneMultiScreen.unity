@@ -31274,6 +31274,14 @@ PrefabInstance:
       propertyPath: initialFox
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
+      propertyPath: devourSpreeCD
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
+      propertyPath: devourCooldown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8543069936627171866, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
       propertyPath: m_Name
       value: FoxDirector

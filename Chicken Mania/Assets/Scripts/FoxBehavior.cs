@@ -8,8 +8,8 @@ public class FoxBehavior : MonoBehaviour
 {
     public int tapsRequired;
     public float foxSpeed;
-    public int devourCooldown;
-    public int devourSpreeCD;
+    public float devourCooldown;
+    public float devourSpreeCD;
 
     public FoxDirector directorRef;
     
@@ -37,7 +37,7 @@ public class FoxBehavior : MonoBehaviour
                 Vector3 targetVecNorm = Vector3.Normalize(targetVector);
 
                 // move towards the target
-                rBody.AddForce(targetVecNorm * 10);
+                rBody.AddForce(targetVecNorm * 1200 * Time.deltaTime);
 
                 // rotate towards the target
                 targetVecNorm.y = 0;
@@ -49,7 +49,7 @@ public class FoxBehavior : MonoBehaviour
             }
 
             // cooldown is measured in frames, very bad! switch to time later
-            if (devourCooldown == 0)
+            if (devourCooldown <= 0)
             {
                 devourCooldown = devourSpreeCD;
                 chickenTarget.eaten = true;
@@ -58,7 +58,7 @@ public class FoxBehavior : MonoBehaviour
 
             if (targetVector.magnitude < 1.5)
             {
-                devourCooldown -= 1;
+                devourCooldown -= Time.deltaTime;
             }
         }
         else
