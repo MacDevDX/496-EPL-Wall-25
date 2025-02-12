@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1472248740341049448, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b1607a5fde3952f4c9fc804a7c1d7e41, type: 2}
+      objectReference: {fileID: 9100000, guid: b0d446a189349b5489e98fd7ad570804, type: 2}
     - target: {fileID: 2514152616717961882, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -92,13 +92,17 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8230933578599369723}
+    - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4185166679060534111}
   m_SourcePrefab: {fileID: 100100000, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
 --- !u!1 &3273522384971957849 stripped
 GameObject:
@@ -150,3 +154,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4185166679060534111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273522384971957849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ea9930ecb674732bee27116520fad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  OnTransformStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransform:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransformComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  type: 7
+  screenTransformThreshold: 0.1
+  minScreenPointsDistance: 0.5
+  projectionProps: 0
+  projection: 1
+  projectionPlaneNormal: {x: 0, y: 1, z: 0}

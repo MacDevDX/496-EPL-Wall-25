@@ -1,6 +1,9 @@
 using System.Collections;
+using TouchScript.Gestures.TransformGestures;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using TouchScript.Gestures.TransformGestures;
 
 public class NewChickenAI : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class NewChickenAI : MonoBehaviour
     private float eggTimer;                    // Timer for egg-laying
     private bool isLayingEgg = false;          // Whether the chicken is laying an egg
     private bool isRunningFromFox = false;     // Whether the chicken is running from a fox
+    private TransformGesture dragGesture;
 
     private ShopManager shopManager;
 
@@ -25,6 +29,11 @@ public class NewChickenAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         chickenAnimator = GetComponent<Animator>();
         agent.speed = movementSpeed;
+
+        // Add Transform Gesture
+        dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
+        dragGesture.Transformed += OnDrag;
+
 
         eggTimer = eggLayInterval; // Initialize egg timer
         StartCoroutine(Wander());
@@ -129,7 +138,13 @@ public class NewChickenAI : MonoBehaviour
             }
         }
     }
-
+    private void OnDrag(object sender, System.EventArgs e)
+    {
+        if (shopManager.dragZone && shopManager.dragZone.activeSelf)
+        {
+            transform.position += dragGesture.DeltaPosition;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         // Draw a sphere to visualize the fox detection radius
