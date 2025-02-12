@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using TouchScript.Gestures.TransformGestures;
 using TouchScript.Gestures;
 using UnityEngine;
@@ -291,3 +291,5 @@ public class DragDrop : MonoBehaviour
         }
     }
 }
+*/
+

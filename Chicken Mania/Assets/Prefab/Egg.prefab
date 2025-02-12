@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2887246526565179991}
   - component: {fileID: 2013398444864379185}
   - component: {fileID: 689207844367441739}
+  - component: {fileID: -6165743927528186446}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Draggable
@@ -124,3 +125,17 @@ MonoBehaviour:
   clicktoHatch: 3
   hatchCountdown: 0
   chickObject: {fileID: 7750806662387025738, guid: 0582fd89418706144b1bd206f56747fa, type: 3}
+--- !u!114 &-6165743927528186446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504100297531287279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eaten: 0
+  Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
