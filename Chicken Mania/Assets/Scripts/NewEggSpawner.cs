@@ -1,62 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI; // Required for NavMeshAgent
 
 public class NewEggSpawner : MonoBehaviour
 {
-
     public GameObject spawnEgg;
-    public float timetoSpawn = 10f; // Time between spawns
-    public float spawnCountdown;
+    public float timetoSpawn = 10f; // Default time between spawns
+    private float spawnCountdown;
     private Animator chickenAnimator;
     private NewChickenAI chickenAI;
+    private NavMeshAgent navMeshAgent;
     private bool isLayingEgg = false;
-
     private ShopManager shopManager;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawnCountdown = timetoSpawn;
         chickenAnimator = GetComponent<Animator>();
         chickenAI = GetComponent<NewChickenAI>();
+        navMeshAgent = GetComponent<NavMeshAgent>(); // Get the NavMeshAgent
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (chickenAI == null || shopManager == null || navMeshAgent == null) return; // Prevent null reference errors
+
         spawnCountdown -= Time.deltaTime;
 
-        if (shopManager.Inventory[3, 7] == 1)
+        // Check for inventory-based spawn rate upgrades
+        if (shopManager.Inventory != null && shopManager.Inventory.Length > 3)
         {
-            timetoSpawn = 7f;
-        }
-        else if (shopManager.Inventory[3, 7] == 2)
-        {
-            timetoSpawn = 6f;
-        }
-        else if (shopManager.Inventory[3, 7] == 3)
-        {
-            timetoSpawn = 5f;
+            int upgradeLevel = shopManager.Inventory[3, 7];
+            timetoSpawn = Mathf.Clamp(10f - upgradeLevel, 5f, 10f);
+            spawnCountdown = Mathf.Min(spawnCountdown, timetoSpawn); // Adjust spawn countdown
         }
 
-        if (isLayingEgg)
-        {
-            chickenAnimator.SetTrigger("stop");
-        }
-
-        if (spawnCountdown <= 0 && chickenAI.IsStationary() && Random.Range(0, 2) == 0) //50% to lay egg
+        if (spawnCountdown <= 0 && chickenAI.IsStationary() && !isLayingEgg && Random.Range(0, 2) == 0)
         {
             isLayingEgg = true;
+            navMeshAgent.isStopped = true; // Disable movement
             chickenAnimator.SetTrigger("lay");
             spawnCountdown = timetoSpawn;
         }
     }
-    private void Awake()
-    {
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
-    }
+
     public bool IsLaying()
     {
         return isLayingEgg;
@@ -64,14 +53,11 @@ public class NewEggSpawner : MonoBehaviour
 
     public void LayEgg()
     {
-        Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f; // Spawn position slightly behind the chicken
-        Instantiate(spawnEgg, eggSpawnPosition, transform.rotation);
+        Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
+        Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
         shopManager.AddEgg();
-        isLayingEgg = false;
-    }
 
-    //Vector3 offsetBehind = new Vector3(0, 0, -1); // Behind the chicken (along the Z-axis)
-    //Vector3 spawnPosition = transform.position - transform.forward * 1f; // 1f is the distance behind the chicken
-    //spawnPosition.y = transform.position.y - 0.5f; // Adjust 0.5f to set the height
-    //        Instantiate(spawnEgg, spawnPosition, transform.rotation);
+        isLayingEgg = false;
+        navMeshAgent.isStopped = false; // Re-enable movement
+    }
 }

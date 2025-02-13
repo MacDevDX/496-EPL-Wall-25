@@ -1,69 +1,63 @@
 using System.Collections;
 using TouchScript.Gestures.TransformGestures;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NewChickenAI : MonoBehaviour
 {
-    public float movementSpeed = 2f;            // Speed of movement
-    public float eggLayInterval = 10f;         // Time interval for laying eggs
-    public float foxDetectionRadius = 10f;     // Distance to detect a fox
-    public GameObject eggPrefab;               // Egg prefab to spawn
-    public LayerMask foxLayer;                 // Layer mask for detecting foxes
+    [Header("Movement Settings")]
+    public float movementSpeed = 2f;
+    public float foxDetectionRadius = 10f;
+    public LayerMask foxLayer;
 
-    private Animator chickenAnimator;          // Animator for controlling animations
-    private NavMeshAgent agent;                // NavMeshAgent for movement
-    private float eggTimer;                    // Timer for egg-laying
-    private bool isLayingEgg = false;          // Whether the chicken is laying an egg
-    private bool isRunningFromFox = false;     // Whether the chicken is running from a fox
-    private TransformGesture dragGesture;
+    [Header("Egg Laying Settings")]
+    public GameObject eggPrefab;
+    public float eggLayInterval = 10f;
+
+    private Animator animator;
+    private NavMeshAgent agent;
     private Rigidbody rb;
+    private TransformGesture dragGesture;
     private bool isDragging = false;
-    private GameObject currentDropZone = null;
-    private bool isLayingEggInEggSpawnerScript = false;
+    private bool isRunningFromFox = false;
+    private bool isLayingEgg = false;
+    private bool isStationary = true;
+    private GameObject currentDropZone;
 
     private ShopManager shopManager;
-    private NewEggSpawner newEggSpawner;
-    private bool isStationary = true;
+    private NewEggSpawner eggSpawner;
 
     void Start()
     {
         shopManager = Object.FindFirstObjectByType<ShopManager>();
-        newEggSpawner = GetComponent<NewEggSpawner>();
+        eggSpawner = GetComponent<NewEggSpawner>();
 
         agent = GetComponent<NavMeshAgent>();
-        chickenAnimator = GetComponent<Animator>();
         agent.speed = movementSpeed;
+
+        animator = GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.isKinematic = true; // Ensure it's kinematic for physics-based dragging
+        rb.isKinematic = true;
 
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
 
-
-        eggTimer = eggLayInterval; // Initialize egg timer
         StartCoroutine(Wander());
     }
 
     void Update()
     {
-        //if (isDragging) return;
-        // Handle egg-laying timer
-        isLayingEggInEggSpawnerScript = newEggSpawner.IsLaying();
-        if (isLayingEggInEggSpawnerScript)
-        {
-            isDragging = true;
-            return; // Stop movement if laying or being dragged
-        }
-        else
-        {
-            isDragging = false; // Allow movement again
-        }
-        // Detect foxes and handle running away
+        if (isDragging || eggSpawner.IsLaying()) return;
+
+        HandleFoxDetection();
+        UpdateAnimationState();
+    }
+
+    private void HandleFoxDetection()
+    {
         Collider[] foxes = Physics.OverlapSphere(transform.position, foxDetectionRadius, foxLayer);
         if (foxes.Length > 0)
         {
@@ -72,152 +66,93 @@ public class NewChickenAI : MonoBehaviour
         else if (isRunningFromFox)
         {
             isRunningFromFox = false;
-            StartCoroutine(Wander()); // Resume wandering
+            StartCoroutine(Wander());
         }
+    }
 
-        // Synchronize animations with NavMeshAgent
+    private void UpdateAnimationState()
+    {
         if (!isLayingEgg && !isRunningFromFox)
         {
-            if (agent.velocity.magnitude > 0.1f) // Agent is moving
-            {
-                chickenAnimator.SetTrigger("walk");
-            }
-            else if (agent.remainingDistance <= agent.stoppingDistance) // Agent has stopped
-            {
-                chickenAnimator.SetTrigger("stop");
-            }
+            if (agent.velocity.magnitude > 0.1f)
+                animator.SetTrigger("walk");
+            else
+                animator.SetTrigger("stop");
         }
     }
-    IEnumerator LayEgg()
-    {
-        //if (isLayingEgg) yield break;
 
-        isLayingEgg = true;
-        agent.isStopped = true; // Stop movement while laying an egg
-        chickenAnimator.SetTrigger("lay"); // Trigger "lay" animation
-
-        yield return new WaitForSeconds(2f); // Wait for the duration of the "lay" animation
-        chickenAnimator.SetTrigger("stop");
-
-        // Spawn the egg
-        Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
-        Instantiate(eggPrefab, eggSpawnPosition, Quaternion.identity);
-
-        shopManager.AddEgg();
-
-        isLayingEgg = false;
-        agent.isStopped = false; // Resume movement
-        //eggTimer = eggLayInterval;
-        //yield return null;
-    }
-    
-    void RunAway(Vector3 foxPosition)
+    private void RunAway(Vector3 foxPosition)
     {
         isRunningFromFox = true;
-        agent.isStopped = false; // Ensure agent is moving
-        StopCoroutine(Wander()); // Stop wandering
+        StopCoroutine(Wander());
 
         Vector3 runDirection = (transform.position - foxPosition).normalized * 10f;
-        Vector3 targetPosition = transform.position + runDirection;
-
-        agent.SetDestination(targetPosition);
+        agent.SetDestination(transform.position + runDirection);
     }
 
     IEnumerator Wander()
     {
         while (!isLayingEgg && !isRunningFromFox)
         {
-            // Choose a random action: walk, idle, or peck
-            int action = Random.Range(0, 3); // 0 = walk, 1 = idle, 2 = peck
-
-            if (action == 0) // Walk
+            int action = Random.Range(0, 3);
+            if (action == 0)
             {
-                chickenAnimator.SetTrigger("walk");
-                Vector3 randomDirection = transform.position + Random.insideUnitSphere * 5f;
-                randomDirection.y = transform.position.y; // Keep on the same level
-                agent.SetDestination(randomDirection);
-
+                animator.SetTrigger("walk");
+                agent.SetDestination(transform.position + Random.insideUnitSphere * 5f);
                 yield return new WaitForSeconds(Random.Range(3f, 6f));
             }
-            else if (action == 1) // Idle
+            else if (action == 1)
             {
-                chickenAnimator.SetTrigger("stop");
+                animator.SetTrigger("stop");
                 yield return new WaitForSeconds(Random.Range(1f, 3f));
             }
-            else if (action == 2) // Peck
+            else
             {
-                chickenAnimator.SetTrigger("peck");
-                yield return new WaitForSeconds(Random.Range(1f, 2f)); // Allow peck animation to play
+                animator.SetTrigger("peck");
+                yield return new WaitForSeconds(Random.Range(1f, 2f));
             }
         }
     }
-    /*
+
     private void OnDrag(object sender, System.EventArgs e)
     {
-        if (shopManager.dragZone && shopManager.dragZone.activeSelf)
-        {
-            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
-            agent.Warp(newPosition); // Use Warp to move while keeping NavMeshAgent active
-        }
-    }
+        if (!shopManager.dragZone.activeSelf) return;
 
-    private void OnDragEnd()
-    {
-        agent.isStopped = false; // Resume NavMeshAgent movement
-        agent.updatePosition = true;
-        agent.updateRotation = true;
-    }
-    */
-    private void OnDrag(object sender, System.EventArgs e)
-    {
-        if (shopManager.dragZone && shopManager.dragZone.activeSelf)
-        {
-            isDragging = true;
-            agent.isStopped = true;
-            rb.isKinematic = false; // Enable physics during drag
+        isDragging = true;
+        agent.isStopped = true;
+        rb.isKinematic = false;
 
-            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
-            rb.MovePosition(newPosition);
-        }
+        rb.MovePosition(transform.position + dragGesture.DeltaPosition * 2.8f);
     }
 
     private void OnDragEnd()
     {
         isDragging = false;
-        rb.isKinematic = true; // Disable physics
+        rb.isKinematic = true;
+        agent.Warp(transform.position);
         agent.isStopped = false;
-        agent.Warp(transform.position); // Reset NavMeshAgent position
 
         if (currentDropZone != null)
-        {
             SellChicken();
-        }
     }
 
     private void SellChicken()
     {
-        Sell sellScript = currentDropZone.GetComponent<Sell>();
-        if (sellScript != null)
-        {
-            sellScript.GiveMoney(gameObject);
-        }
+        currentDropZone?.GetComponent<Sell>()?.GiveMoney(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DropZone"))
-        {
             currentDropZone = other.gameObject;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("DropZone"))
-        {
             currentDropZone = null;
-        }
     }
+
     public bool IsStationary()
     {
         return isStationary;

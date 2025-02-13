@@ -149,7 +149,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
         {
             rb.isKinematic = true; // Ensure no physics interference
-            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition * 2.8f;
             rb.MovePosition(newPosition); // Move with physics
             isDragging = true;
         }
