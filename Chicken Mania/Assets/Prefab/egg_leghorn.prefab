@@ -82,6 +82,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1200302889437123345}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7031059339251669055}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 453162051108716785}
   m_SourcePrefab: {fileID: 100100000, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
 --- !u!1 &7082763808412361906 stripped
 GameObject:
@@ -185,6 +191,8 @@ MonoBehaviour:
   clicktoHatch: 5
   hatchCountdown: 0
   chickObject: {fileID: 3273522384971957849, guid: 50c2b17f74d1a784589234d4c50a6d6c, type: 3}
+  shopManager: {fileID: 0}
+  FoxDir: {fileID: 0}
 --- !u!114 &-1200302889437123345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,3 +236,43 @@ MonoBehaviour:
   projectionProps: 0
   projection: 1
   projectionPlaneNormal: {x: 0, y: 1, z: 0}
+--- !u!195 &7031059339251669055
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082763808412361906}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &453162051108716785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082763808412361906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSmoothing: 1
+  smoothingFactor: 0.00001
+  positionThreshold: 0.010000001
+  rotationThreshold: 0.1
+  scaleThreshold: 0.010000001
+  allowChangingFromOutside: 0

@@ -37238,6 +37238,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1867599689}
     m_Modifications:
     - target: {fileID: 20008968474174282, guid: 0aff83ce5ffe51748a6ee5d1e39e60a3, type: 3}
+      propertyPath: FoxDir
+      value: 
+      objectReference: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
+    - target: {fileID: 20008968474174282, guid: 0aff83ce5ffe51748a6ee5d1e39e60a3, type: 3}
       propertyPath: dragZone
       value: 
       objectReference: {fileID: 1193908887}

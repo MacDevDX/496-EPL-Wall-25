@@ -122,7 +122,7 @@ public class NewChickenAI : MonoBehaviour
         agent.isStopped = true;
         rb.isKinematic = false;
 
-        rb.MovePosition(transform.position + dragGesture.DeltaPosition * 2.8f);
+        rb.MovePosition(transform.position + dragGesture.DeltaPosition);
     }
 
     private void OnDragEnd()

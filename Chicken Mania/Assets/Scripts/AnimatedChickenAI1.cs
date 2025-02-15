@@ -144,27 +144,45 @@ public class AnimatedChickenAI1 : MonoBehaviour
         isWandering = false;
     }
 
+    private void OnEnable()
+    {
+        dragGesture.Transformed += OnDrag;
+        dragGesture.TransformCompleted += OnDragEnd;
+    }
+
+    private void OnDisable()
+    {
+        dragGesture.Transformed -= OnDrag;
+        dragGesture.TransformCompleted -= OnDragEnd;
+    }
+
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
         {
-            rb.isKinematic = true; // Ensure no physics interference
-            Vector3 newPosition = transform.position + dragGesture.DeltaPosition * 2.8f;
-            rb.MovePosition(newPosition); // Move with physics
             isDragging = true;
+            rb.useGravity = false;
+            rb.isKinematic = true; // Prevents physics interference
+
+            // Convert touch position to world position
+            Vector3 screenPosition = dragGesture.ScreenPosition;
+            screenPosition.z = Camera.main.WorldToScreenPoint(transform.position).z; // Maintain depth
+
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+
+            // Ensure movement only on X/Z axis
+            Vector3 newPosition = new Vector3(worldPosition.x, transform.position.y, worldPosition.z);
+
+            // Smoothly move using Rigidbody to keep collisions
+            rb.MovePosition(Vector3.Lerp(transform.position, newPosition, 0.3f));
         }
     }
 
     private void OnDragEnd(object sender, System.EventArgs e)
     {
         isDragging = false;
-        rb.isKinematic = false; // Reactivate physics
-
-        // If released over DropZone, sell the chicken
-        if (currentDropZone != null)
-        {
-            SellChicken();
-        }
+        rb.useGravity = true;
+        rb.isKinematic = false; // Re-enable physics
     }
 
     private void SellChicken()

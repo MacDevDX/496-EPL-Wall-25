@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2459048466750030918}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7239336657199326225}
   m_SourcePrefab: {fileID: 100100000, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
 --- !u!1 &7082763808412361906 stripped
 GameObject:
@@ -185,6 +188,8 @@ MonoBehaviour:
   clicktoHatch: 5
   hatchCountdown: 0
   chickObject: {fileID: 3273522384971957849, guid: 1ffcc3808008cec458c851995e28a32a, type: 3}
+  shopManager: {fileID: 0}
+  FoxDir: {fileID: 0}
 --- !u!114 &-2459048466750030918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,3 +233,21 @@ MonoBehaviour:
   projectionProps: 0
   projection: 1
   projectionPlaneNormal: {x: 0, y: 1, z: 0}
+--- !u!114 &7239336657199326225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082763808412361906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSmoothing: 1
+  smoothingFactor: 0.00001
+  positionThreshold: 0.010000001
+  rotationThreshold: 0.1
+  scaleThreshold: 0.010000001
+  allowChangingFromOutside: 0
