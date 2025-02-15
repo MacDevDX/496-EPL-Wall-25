@@ -8,6 +8,7 @@ TagManager:
   - Draggable
   - DropZone
   - ShopButton
+  - ShopManagerLeft
   layers:
   - Default
   - TransparentFX
@@ -19,9 +20,9 @@ TagManager:
   - Chick
   - Egg
   - Fox
-  - 
-  - 
-  - 
+  - LeftScreen
+  - MiddleScreen
+  - RightScreen
   - 
   - 
   - 
