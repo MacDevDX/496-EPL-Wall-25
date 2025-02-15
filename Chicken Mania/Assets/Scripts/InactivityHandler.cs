@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using TouchScript.Gestures;
+using TouchScript;
+using TouchScript.Gestures.TransformGestures;
 
 public class InactivityHandler : MonoBehaviour
 {
-    public float inactivityThreshold = 60f; //seconds
-    public float returnToMenuTime = 30f;
+    public float inactivityThreshold = 60f; // Time in seconds before inactivity warning
+    public float returnToMenuTime = 30f; // Time before returning to the main menu
     private float lastInteractionTime;
     private float countdownTime;
     private bool countdownStarted = false;
@@ -17,6 +19,7 @@ public class InactivityHandler : MonoBehaviour
     private void Start()
     {
         lastInteractionTime = Time.time;
+
         if (inactivityWarning != null)
         {
             inactivityWarning.SetActive(false);
@@ -27,19 +30,13 @@ public class InactivityHandler : MonoBehaviour
 
     private void Update()
     {
-        //Check for mouse clicks
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-        {
-            ResetInactivityTimer();
-        }
-
-        //Inactivity timer
+        // Start inactivity warning if threshold is exceeded
         if (!countdownStarted && Time.time - lastInteractionTime > inactivityThreshold)
         {
             ShowInactivityWarning();
         }
 
-        //Goes to main menu after idle too long
+        // Handle countdown to return to main menu
         if (countdownStarted)
         {
             countdownTime -= Time.deltaTime;
@@ -54,18 +51,19 @@ public class InactivityHandler : MonoBehaviour
 
     private void RegisterTouchGestures()
     {
-        TapGesture[] tapGestures = FindObjectsByType<TapGesture>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        PressGesture[] pressGestures = FindObjectsByType<PressGesture>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        // Find all touch gestures
+        TapGesture[] tapGestures = FindObjectsOfType<TapGesture>();
+        PressGesture[] pressGestures = FindObjectsOfType<PressGesture>();
+        ReleaseGesture[] releaseGestures = FindObjectsOfType<ReleaseGesture>();
+        FlickGesture[] flickGestures = FindObjectsOfType<FlickGesture>();
+        TransformGesture[] transformGestures = FindObjectsOfType<TransformGesture>();
 
-        foreach (TapGesture tapGesture in tapGestures)
-        {
-            tapGesture.Tapped += OnUserInteraction;
-        }
-
-        foreach (PressGesture pressGesture in pressGestures)
-        {
-            pressGesture.Pressed += OnUserInteraction;
-        }
+        // Subscribe to all touch events
+        foreach (TapGesture tap in tapGestures) tap.Tapped += OnUserInteraction;
+        foreach (PressGesture press in pressGestures) press.Pressed += OnUserInteraction;
+        foreach (ReleaseGesture release in releaseGestures) release.Released += OnUserInteraction;
+        foreach (FlickGesture flick in flickGestures) flick.Flicked += OnUserInteraction;
+        foreach (TransformGesture transform in transformGestures) transform.Transformed += OnUserInteraction;
     }
 
     private void OnUserInteraction(object sender, System.EventArgs e)
@@ -92,5 +90,21 @@ public class InactivityHandler : MonoBehaviour
             countdownStarted = true;
             countdownTime = returnToMenuTime;
         }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from gestures to prevent memory leaks
+        TapGesture[] tapGestures = FindObjectsOfType<TapGesture>();
+        PressGesture[] pressGestures = FindObjectsOfType<PressGesture>();
+        ReleaseGesture[] releaseGestures = FindObjectsOfType<ReleaseGesture>();
+        FlickGesture[] flickGestures = FindObjectsOfType<FlickGesture>();
+        TransformGesture[] transformGestures = FindObjectsOfType<TransformGesture>();
+
+        foreach (TapGesture tap in tapGestures) tap.Tapped -= OnUserInteraction;
+        foreach (PressGesture press in pressGestures) press.Pressed -= OnUserInteraction;
+        foreach (ReleaseGesture release in releaseGestures) release.Released -= OnUserInteraction;
+        foreach (FlickGesture flick in flickGestures) flick.Flicked -= OnUserInteraction;
+        foreach (TransformGesture transform in transformGestures) transform.Transformed -= OnUserInteraction;
     }
 }
