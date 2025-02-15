@@ -47,6 +47,7 @@ public class FoxDirector : MonoBehaviour
             SpawnFox();
             initialFox = false;
         }
+        chickenList.RemoveAll(x => !x);
 
         int spawnTarget = chickenList.Count / 5;
         int foxCount = foxList.Count;
