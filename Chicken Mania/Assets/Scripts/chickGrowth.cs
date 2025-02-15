@@ -6,7 +6,8 @@ public class chickGrowth : MonoBehaviour
 
     public float timetoGrow, growCountdown;
 
-    private ShopManager shopManager;
+    public ShopManager shopManager;
+    public FoxDirector FoxDir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,8 +29,12 @@ public class chickGrowth : MonoBehaviour
         {
             growCountdown = timetoGrow;
             Destroy(gameObject);
-            Instantiate(spawnChicken, transform.position, transform.rotation);
+            GameObject newChicken = Instantiate(spawnChicken, transform.position, transform.rotation);
             shopManager.ChickGrowsToChicken();
+
+            FoxDir.setupNewEdible(newChicken, shopManager, FoxDir, "CHICKEN");
+            newChicken.GetComponent<AnimatedEggSpawner>().FoxDir = FoxDir;
+            newChicken.GetComponent<AnimatedEggSpawner>().shopManager = shopManager;
         }
     }
 }

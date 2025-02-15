@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 742628636863081925}
   - component: {fileID: 2326794913266537656}
   - component: {fileID: 727481031956311247}
+  - component: {fileID: 5959124081923900937}
   m_Layer: 6
   m_Name: chicken
   m_TagString: Draggable
@@ -167,3 +168,17 @@ MonoBehaviour:
   spawnEgg: {fileID: 5504100297531287279, guid: 0df52ae2025487b4b937175d5111cc67, type: 3}
   timetoSpawn: 5
   spawnCountdown: 0
+--- !u!114 &5959124081923900937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703083249774642214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eaten: 0
+  Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
