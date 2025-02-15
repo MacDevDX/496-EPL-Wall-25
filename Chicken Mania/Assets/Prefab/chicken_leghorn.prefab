@@ -110,7 +110,10 @@ PrefabInstance:
       addedObject: {fileID: 6859322251239308506}
     - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8184418776130846728}
+      addedObject: {fileID: 1905714985679960655}
+    - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1799395141334823930}
   m_SourcePrefab: {fileID: 100100000, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
 --- !u!1 &3273522384971957849 stripped
 GameObject:
@@ -227,7 +230,7 @@ NavMeshAgent:
   m_BaseOffset: 0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-8184418776130846728
+--- !u!114 &1905714985679960655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,12 +239,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3273522384971957849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cbb936b61cfa644eb84e60c5ae71d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableSmoothing: 1
-  smoothingFactor: 0.00001
-  positionThreshold: 0.010000001
-  rotationThreshold: 0.1
-  scaleThreshold: 0.010000001
-  allowChangingFromOutside: 0
+  spawnEgg: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
+  timetoSpawn: 10
+--- !u!114 &-1799395141334823930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273522384971957849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb91e667354c9d4eb8a89370495f973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
+  foxDetectionRadius: 10
+  foxLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  eggPrefab: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
+  eggLayInterval: 10

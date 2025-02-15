@@ -12,7 +12,8 @@ public class NewEggSpawner : MonoBehaviour
     private NewChickenAI chickenAI;
     private NavMeshAgent navMeshAgent;
     private bool isLayingEgg = false;
-    private ShopManager shopManager;
+    public FoxDirector FoxDir;
+    public ShopManager shopManager;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class NewEggSpawner : MonoBehaviour
         chickenAnimator = GetComponent<Animator>();
         chickenAI = GetComponent<NewChickenAI>();
         navMeshAgent = GetComponent<NavMeshAgent>(); // Get the NavMeshAgent
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
 
     void Update()
@@ -54,7 +55,12 @@ public class NewEggSpawner : MonoBehaviour
     public void LayEgg()
     {
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
-        Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
+        GameObject newEgg = Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
+
+        FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+        newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
+        newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
+
         shopManager.AddEgg();
 
         isLayingEgg = false;

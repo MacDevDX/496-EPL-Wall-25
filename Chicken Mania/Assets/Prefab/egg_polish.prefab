@@ -84,7 +84,7 @@ PrefabInstance:
       addedObject: {fileID: 3649418640794253033}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1161566765174720234}
+      addedObject: {fileID: -6360774545315558923}
   m_SourcePrefab: {fileID: 100100000, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
 --- !u!1 &7082763808412361906 stripped
 GameObject:
@@ -233,7 +233,7 @@ MonoBehaviour:
   projectionProps: 0
   projection: 1
   projectionPlaneNormal: {x: 0, y: 1, z: 0}
---- !u!114 &1161566765174720234
+--- !u!114 &-6360774545315558923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,12 +242,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7082763808412361906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableSmoothing: 1
-  smoothingFactor: 0.00001
-  positionThreshold: 0.010000001
-  rotationThreshold: 0.1
-  scaleThreshold: 0.010000001
-  allowChangingFromOutside: 0
+  isEgg: 1
+  isChick: 0
+  isChicken: 0
+  eaten: 0
+  Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
+  ShopMan: {fileID: 0}
+  FoxDirecter: {fileID: 0}

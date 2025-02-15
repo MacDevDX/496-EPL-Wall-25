@@ -33,7 +33,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         chickenAnimator = GetComponent<Animator>();
         animatedEggSpawner = GetComponent <AnimatedEggSpawner>();
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
 
         if (rb == null)
         {
