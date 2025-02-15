@@ -96,6 +96,8 @@ PrefabInstance:
     - {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     - {fileID: 8337793653876108695, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     - {fileID: 5181418044264440063, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+    - {fileID: 5035895320480830195, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+    - {fileID: -3015198837319516783, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -244,6 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEgg: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
   timetoSpawn: 10
+  FoxDir: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!114 &-1799395141334823930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,5 +265,9 @@ MonoBehaviour:
   foxLayer:
     serializedVersion: 2
     m_Bits: 512
-  eggPrefab: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
-  eggLayInterval: 10
+  minWalkTime: 3
+  maxWalkTime: 6
+  minIdleTime: 1
+  maxIdleTime: 3
+  minPeckTime: 1
+  maxPeckTime: 2
