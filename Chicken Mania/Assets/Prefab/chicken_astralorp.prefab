@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1506593840767311565, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: spawnEgg
+      value: 
+      objectReference: {fileID: 7082763808412361906, guid: 62b97b657a0b1bf40b8862644bc6bb5d, type: 3}
     - target: {fileID: 1472248740341049448, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: m_AnimatePhysics
       value: 0
@@ -137,4 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEgg: 0
+  isChick: 0
+  isChicken: 0
   eaten: 0
+  Particles: {fileID: 0}
+  ShopMan: {fileID: 0}
+  FoxDirecter: {fileID: 0}

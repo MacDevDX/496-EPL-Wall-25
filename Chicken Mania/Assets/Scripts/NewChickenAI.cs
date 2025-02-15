@@ -10,9 +10,13 @@ public class NewChickenAI : MonoBehaviour
     public float foxDetectionRadius = 10f;
     public LayerMask foxLayer;
 
-    [Header("Egg Laying Settings")]
-    public GameObject eggPrefab;
-    public float eggLayInterval = 10f;
+    [Header("Wander Timing Settings")]
+    public float minWalkTime = 3f;
+    public float maxWalkTime = 6f;
+    public float minIdleTime = 1f;
+    public float maxIdleTime = 3f;
+    public float minPeckTime = 1f;
+    public float maxPeckTime = 2f;
 
     private Animator animator;
     private NavMeshAgent agent;
@@ -99,17 +103,17 @@ public class NewChickenAI : MonoBehaviour
             {
                 animator.SetTrigger("walk");
                 agent.SetDestination(transform.position + Random.insideUnitSphere * 5f);
-                yield return new WaitForSeconds(Random.Range(3f, 6f));
+                yield return new WaitForSeconds(Random.Range(minWalkTime, maxWalkTime));
             }
             else if (action == 1)
             {
                 animator.SetTrigger("stop");
-                yield return new WaitForSeconds(Random.Range(1f, 3f));
+                yield return new WaitForSeconds(Random.Range(minIdleTime, maxIdleTime));
             }
             else
             {
                 animator.SetTrigger("peck");
-                yield return new WaitForSeconds(Random.Range(1f, 2f));
+                yield return new WaitForSeconds(Random.Range(minPeckTime, maxPeckTime));
             }
         }
     }
@@ -117,14 +121,14 @@ public class NewChickenAI : MonoBehaviour
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (!shopManager.dragZone.activeSelf) return;
-
+      
         isDragging = true;
         agent.isStopped = true;
         rb.isKinematic = false;
 
         rb.MovePosition(transform.position + dragGesture.DeltaPosition);
     }
-
+    
     private void OnDragEnd()
     {
         isDragging = false;

@@ -194,10 +194,11 @@ public class ShopManager : MonoBehaviour
         if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
         {
             GameObject newChicken = Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
-
+            /*
             FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
             newChicken.GetComponent<AnimatedEggSpawner>().FoxDir = FoxDir;
             newChicken.GetComponent<AnimatedEggSpawner>().shopManager = this;
+            */
         }
     }
     private IEnumerator ShowMessage(string message)
