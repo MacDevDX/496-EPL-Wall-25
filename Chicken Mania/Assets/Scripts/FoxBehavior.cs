@@ -86,11 +86,11 @@ public class FoxBehavior : MonoBehaviour
             {
                 chickenBody = chickenTarget.gameObject.GetComponent<Rigidbody>();
 
-                if (chickenTarget.isChicken)
-                {
-                    // formally declare war upon the chicken
-                    chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = this;
-                }
+                //if (chickenTarget.isChicken)
+                //{
+                //    // formally declare war upon the chicken
+                //    chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = this;
+                //}
             }
         }
 
@@ -123,8 +123,10 @@ public class FoxBehavior : MonoBehaviour
         {
             directorRef.foxList.Remove(this);
             // notify the chicken that it is safe
-            if (chickenTarget != null && chickenTarget.isChicken)
-            chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = null;
+            //if (chickenTarget != null && chickenTarget.isChicken)
+            //{
+            //    chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = null; 
+            //}
             Debug.Log("Fox(" + this + ") has notified :" + directorRef + " of its termination.");
             Destroy(gameObject);
         }

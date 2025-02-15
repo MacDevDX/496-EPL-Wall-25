@@ -244,7 +244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEgg: {fileID: 7082763808412361906, guid: dee92096bde4e4648b93eafa99fe7aaa, type: 3}
   timetoSpawn: 10
-  spawnCountdown: 0
 --- !u!114 &-1799395141334823930
 MonoBehaviour:
   m_ObjectHideFlags: 0

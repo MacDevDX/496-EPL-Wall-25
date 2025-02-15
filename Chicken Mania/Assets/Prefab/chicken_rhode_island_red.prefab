@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 50
   rotationSpeed: 100
+  chasingFox: {fileID: 0}
 --- !u!114 &8908724349331312710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,8 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEgg: 0
+  isChick: 0
+  isChicken: 1
   eaten: 0
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
+  ShopMan: {fileID: 0}
+  FoxDirecter: {fileID: 0}
 --- !u!65 &3905841920946136012
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -279,6 +285,8 @@ MonoBehaviour:
   spawnEgg: {fileID: 7082763808412361906, guid: 99489ef109d29ac489084a9ade1c3f07, type: 3}
   timetoSpawn: 10
   spawnCountdown: 0
+  FoxDir: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!114 &4924968899829501402
 MonoBehaviour:
   m_ObjectHideFlags: 0
