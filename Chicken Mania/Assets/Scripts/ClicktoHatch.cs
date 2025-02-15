@@ -85,7 +85,8 @@ public class ClicktoHatch : MonoBehaviour
 {
     public float clicktoHatch, hatchCountdown;
     public GameObject chickObject;
-
+    
+    // these public references will be added by parent upon creation, leave empty in inspector
     public ShopManager shopManager;
     public FoxDirector FoxDir;
     void Awake()
@@ -94,7 +95,8 @@ public class ClicktoHatch : MonoBehaviour
         hatchCountdown = clicktoHatch;
 
         // Access ShopManager for inventory and currency updates
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        // parent object will load shopmanager instead
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
 
         // Set up TapGesture component for detecting taps on the object
         TapGesture tapGesture = gameObject.AddComponent<TapGesture>();
@@ -118,9 +120,10 @@ public class ClicktoHatch : MonoBehaviour
             GameObject newChick = Instantiate(chickObject, transform.position, transform.rotation);
 
             //IMPORTANT: Currently eggs spawn chickens. If this changes and chicks are implemented, change below to "CHICK"
+            // Also, when chicks are implemented, change <NewEggSpawner> below to <chickGrowth>
             FoxDir.setupNewEdible(newChick, shopManager, FoxDir, "CHICKEN");
-            newChick.GetComponent<AnimatedEggSpawner>().FoxDir = FoxDir;
-            newChick.GetComponent<AnimatedEggSpawner>().shopManager = shopManager;
+            newChick.GetComponent<NewEggSpawner>().FoxDir = FoxDir;
+            newChick.GetComponent<NewEggSpawner>().shopManager = shopManager;
 
             shopManager.HatchEgg();
         }

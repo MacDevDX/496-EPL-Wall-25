@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 8908724349331312710, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: isChicken
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     - {fileID: 5181418044264440063, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
