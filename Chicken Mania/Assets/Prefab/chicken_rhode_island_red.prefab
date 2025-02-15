@@ -140,8 +140,9 @@ GameObject:
   - component: {fileID: 3905841920946136012}
   - component: {fileID: 1472248740341049448}
   - component: {fileID: 5181418044264440063}
+  - component: {fileID: 4924968899829501402}
   m_Layer: 6
-  m_Name: rhode_island_red
+  m_Name: chicken_rhode_island_red
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +191,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8337793653876108695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +264,49 @@ MonoBehaviour:
   spawnEgg: {fileID: 7082763808412361906, guid: 99489ef109d29ac489084a9ade1c3f07, type: 3}
   timetoSpawn: 10
   spawnCountdown: 0
+--- !u!114 &4924968899829501402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003831507810226208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ea9930ecb674732bee27116520fad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  OnTransformStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransform:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransformComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  type: 7
+  screenTransformThreshold: 0.1
+  minScreenPointsDistance: 0.5
+  projectionProps: 0
+  projection: 1
+  projectionPlaneNormal: {x: 0, y: 1, z: 0}
 --- !u!1 &3032297543120215360
 GameObject:
   m_ObjectHideFlags: 0

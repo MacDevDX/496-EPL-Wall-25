@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TouchScript.Gestures;
+using TouchScript.Gestures.TransformGestures;
+using Unity.VisualScripting;
 
 public class AnimatedChickenAI1 : MonoBehaviour
 {
     public float movementSpeed = 20f;
     public float rotationSpeed = 100f;
+    //public bool sellMode = false;
 
     private bool isWandering = false;
     private bool isRotatingLeft = false;
@@ -16,66 +20,89 @@ public class AnimatedChickenAI1 : MonoBehaviour
     private bool isLayingEggInEggSpawnerScript = false; // Flag to freeze movement while laying anim is playing
     private Animator chickenAnimator;
     private AnimatedEggSpawner animatedEggSpawner;
+    private Rigidbody rb;
+    private TransformGesture dragGesture;
+    private Vector3 velocity = Vector3.zero;
+    private bool isDragging = false;
+    private ShopManager shopManager;
+    private GameObject currentDropZone = null;
 
-
-    Rigidbody rb;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         chickenAnimator = GetComponent<Animator>();
         animatedEggSpawner = GetComponent <AnimatedEggSpawner>();
-    }
+        shopManager = Object.FindFirstObjectByType<ShopManager>();
 
-    // Update is called once per frame
+        if (rb == null)
+        {
+            rb = gameObject.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = true;  // Prevent unwanted movement
+        }
+
+        dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
+        dragGesture.Transformed += OnDrag;
+        dragGesture.TransformCompleted += OnDragEnd; // Detect drag release
+
+        //StartCoroutine(Wander());
+    }
     void Update()
     {
         isLayingEggInEggSpawnerScript = animatedEggSpawner.IsLaying();
         if (isLayingEggInEggSpawnerScript)
         {
-            return; // Stop movement if laying
-        }
-
-        if (isWandering == false)
-        {
-            StartCoroutine(Wander());
-        }
-        if (isRotatingRight || isRotatingLeft || isWalking)
-        {
-            isStationary = false;
+            isDragging = true;
+            return; // Stop movement if laying or being dragged
         }
         else
         {
-            isStationary = true;
+            isDragging = false; // Allow movement again
         }
-        if (isRotatingRight == true)
+
+        if (!isDragging) // Normal AI movement
         {
-            chickenAnimator.SetTrigger("walk");
-            transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
+            if (isWandering == false)
+            {
+                StartCoroutine(Wander());
+            }
+            if (isRotatingRight || isRotatingLeft || isWalking)
+            {
+                isStationary = false;
+            }
+            else
+            {
+                isStationary = true;
+            }
+            if (isRotatingRight == true)
+            {
+                chickenAnimator.SetTrigger("walk");
+                transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
+            }
+            if (isRotatingLeft == true)
+            {
+                chickenAnimator.SetTrigger("walk");
+                transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
+            }
+            if (isWalking == true)
+            {
+                rb.AddForce(transform.forward * movementSpeed);
+                chickenAnimator.SetTrigger("walk");
+            }
+            if (isRotatingLeft == false || isRotatingRight == false)
+            {
+                chickenAnimator.SetTrigger("stop");
+            }
+            if (isWandering == true)
+            {
+                chickenAnimator.SetTrigger("stop");
+            }
+            if (isPecking == true)
+            {
+                chickenAnimator.SetTrigger("peck");
+            }
         }
-        if (isRotatingLeft == true)
-        {
-            chickenAnimator.SetTrigger("walk");
-            transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
-        }
-        if (isWalking == true)
-        {
-            rb.AddForce(transform.forward * movementSpeed);
-            chickenAnimator.SetTrigger("walk");
-        }
-        if (isRotatingLeft == false || isRotatingRight == false)
-        {
-            chickenAnimator.SetTrigger("stop");
-        }
-        if (isWandering == true)
-        {
-            chickenAnimator.SetTrigger("stop");
-        }
-        if (isPecking == true)
-        {
-            chickenAnimator.SetTrigger("peck");
-        }
+        //rb.WakeUp();
     }
 
     IEnumerator Wander()
@@ -90,13 +117,9 @@ public class AnimatedChickenAI1 : MonoBehaviour
         isWandering = true;
 
         yield return new WaitForSeconds(walkWait);
-
         isWalking = true;
-
         yield return new WaitForSeconds(walkTime);
-
         isWalking = false;
-
         yield return new WaitForSeconds(rotationWait);
 
         if (rotateDirection == 1)
@@ -107,7 +130,6 @@ public class AnimatedChickenAI1 : MonoBehaviour
             isPecking = true;
             yield return new WaitForSeconds(peckTime);
             isPecking = false;
-
         }
         if (rotateDirection == 2)
         {
@@ -116,27 +138,61 @@ public class AnimatedChickenAI1 : MonoBehaviour
             isRotatingRight = false;
             isPecking = true;
             yield return new WaitForSeconds(peckTime);
-
             isPecking = false;
-
         }
+
         isWandering = false;
     }
-    // Use case: ensures that chicken is not moving when laying an egg
+
+    private void OnDrag(object sender, System.EventArgs e)
+    {
+        if (shopManager.dragZone && shopManager.dragZone.activeSelf)
+        {
+            rb.isKinematic = true; // Ensure no physics interference
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition * 2.8f;
+            rb.MovePosition(newPosition); // Move with physics
+            isDragging = true;
+        }
+    }
+
+    private void OnDragEnd(object sender, System.EventArgs e)
+    {
+        isDragging = false;
+        rb.isKinematic = false; // Reactivate physics
+
+        // If released over DropZone, sell the chicken
+        if (currentDropZone != null)
+        {
+            SellChicken();
+        }
+    }
+
+    private void SellChicken()
+    {
+        Sell sellScript = currentDropZone.GetComponent<Sell>();
+        if (sellScript != null)
+        {
+            sellScript.GiveMoney(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DropZone"))
+        {
+            currentDropZone = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DropZone"))
+        {
+            currentDropZone = null;
+        }
+    }
     public bool IsStationary()
     {
         return isStationary;
     }
-
-    //public void SetLayingFlag(bool laying)
-    //{
-    //    isLayingEggInEggSpawnerScript = laying;
-        
-    //    if (laying)
-    //    {
-    //        rb.linearVelocity = Vector3.zero; // Stop movement
-    //        rb.angularVelocity = Vector3.zero;
-    //        chickenAnimator.SetTrigger("stop"); // Stop all animations
-    //    }
-    //}
 }

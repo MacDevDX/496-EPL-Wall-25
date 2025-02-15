@@ -1,4 +1,6 @@
+
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,6 +17,8 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI ChickensCount_Text;
     public TextMeshProUGUI ChicksCount_Text;
     public TextMeshProUGUI EggsCount_Text;
+    public TextMeshProUGUI WinMessage;
+    public TextMeshProUGUI TimerText;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -61,18 +65,18 @@ public class ShopManager : MonoBehaviour
          --------------------------------------------------------------------------*/
 
         //Chicken Price
-        Inventory[2, 1] = 50;
-        Inventory[2, 2] = 100;
-        Inventory[2, 3] = 200;
-        Inventory[2, 4] = 400;
-        Inventory[2, 5] = 600;
-        Inventory[2, 6] = 1000;
+        Inventory[2, 1] = 20;
+        Inventory[2, 2] = 40;
+        Inventory[2, 3] = 50;
+        Inventory[2, 4] = 60;
+        Inventory[2, 5] = 70;
+        Inventory[2, 6] = 100;
 
         //Upgrades (Supplements, Feed, Incubator, Research)
-        Inventory[2, 7] = 100;
-        Inventory[2, 8] = 100;
-        Inventory[2, 9] = 100;
-        Inventory[2, 10] = 100;
+        Inventory[2, 7] = 30;
+        Inventory[2, 8] = 10;
+        Inventory[2, 9] = 50;
+        Inventory[2, 10] = 50;
 
 
         /*--------------------------------------------------------------------------
@@ -162,6 +166,11 @@ public class ShopManager : MonoBehaviour
                 SpawnChicken(itemId);
                 AddChicken();
             }
+            // Show message if itemId 6 is bought
+            if (itemId == 6)
+            {
+                StartCoroutine(ShowMessage("You have purchased the ultimate chicken! You Won! Continue playing or time out to reset!"));
+            }
 
             //Only applies multiplier to Upgrade indexes
             if (itemId >= 7 && itemId <= 10)
@@ -185,6 +194,19 @@ public class ShopManager : MonoBehaviour
         {
             Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
         }
+    }
+    private IEnumerator ShowMessage(string message)
+    {
+        WinMessage.text = message;
+        WinMessage.gameObject.SetActive(true);
+        TimerText.gameObject.SetActive(true);
+        for (int i = 10; i > 0; i--)
+        {
+            TimerText.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        WinMessage.gameObject.SetActive(false);
+        TimerText.gameObject.SetActive(false);
     }
 
     /**************** Below is to Toggle the shop menu ****************/
@@ -272,6 +294,31 @@ public class ShopManager : MonoBehaviour
         }
     }
     public void SellChicken()
+    {
+        if (chickensCount > 0)
+        {
+            chickensCount--;
+            UpdateUI();
+        }
+    }
+    /*** Eaten ***/
+    public void LoseEgg()
+    {
+        if (eggsCount > 0)
+        {
+            eggsCount--;
+            UpdateUI();
+        }
+    }
+    public void LoseChick()
+    {
+        if (eggsCount > 0)
+        {
+            chicksCount--;
+            UpdateUI();
+        }
+    }
+    public void LoseChicken()
     {
         if (chickensCount > 0)
         {
