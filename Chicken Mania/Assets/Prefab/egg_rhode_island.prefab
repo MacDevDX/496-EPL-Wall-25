@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5433273662056440120}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 837150880067765738}
   m_SourcePrefab: {fileID: 100100000, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
 --- !u!1 &7082763808412361906 stripped
 GameObject:
@@ -185,6 +188,8 @@ MonoBehaviour:
   clicktoHatch: 5
   hatchCountdown: 0
   chickObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+  shopManager: {fileID: 0}
+  FoxDir: {fileID: 0}
 --- !u!114 &5433273662056440120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,3 +233,22 @@ MonoBehaviour:
   projectionProps: 0
   projection: 1
   projectionPlaneNormal: {x: 0, y: 1, z: 0}
+--- !u!114 &837150880067765738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082763808412361906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEgg: 1
+  isChick: 0
+  isChicken: 0
+  eaten: 0
+  Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
+  ShopMan: {fileID: 0}
+  FoxDirecter: {fileID: 0}
