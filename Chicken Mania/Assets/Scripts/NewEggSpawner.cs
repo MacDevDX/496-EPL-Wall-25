@@ -59,8 +59,13 @@ public class NewEggSpawner : MonoBehaviour
     public void LayEgg()
     {
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
-        Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
+        GameObject newEgg = Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
         shopManager.AddEgg();
+
+        // this will give this object's shopmanage reference to the new egg and allow the foxes to target it
+        FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+        newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
+        newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
 
         isLayingEgg = false;
         //navMeshAgent.isStopped = false; // Re-enable movement

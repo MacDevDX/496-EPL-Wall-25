@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e50f4a86d7a0d84ca9ef69ce56587c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEgg: 1
+  isEgg: 0
   isChick: 0
   isChicken: 0
   eaten: 0

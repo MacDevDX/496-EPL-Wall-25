@@ -17,7 +17,9 @@ public class chickGrowth : MonoBehaviour
 
     private void Awake()
     {
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        // dont use this, it pools all 3 game instances into one shopmanager
+        // instead, the object creating this object will load in the shopmanager reference
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
 
     // Update is called once per frame
@@ -33,8 +35,8 @@ public class chickGrowth : MonoBehaviour
             shopManager.ChickGrowsToChicken();
 
             FoxDir.setupNewEdible(newChicken, shopManager, FoxDir, "CHICKEN");
-            newChicken.GetComponent<AnimatedEggSpawner>().FoxDir = FoxDir;
-            newChicken.GetComponent<AnimatedEggSpawner>().shopManager = shopManager;
+            newChicken.GetComponent<NewEggSpawner>().FoxDir = FoxDir;
+            newChicken.GetComponent<NewEggSpawner>().shopManager = shopManager;
         }
     }
 }

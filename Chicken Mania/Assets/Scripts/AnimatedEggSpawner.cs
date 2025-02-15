@@ -56,7 +56,8 @@ public class AnimatedEggSpawner : MonoBehaviour
     }
     private void Awake()
     {
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        //
+        // shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
     public bool IsLaying()
     {
