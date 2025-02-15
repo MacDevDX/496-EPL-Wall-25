@@ -1,20 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using TouchScript.Gestures;
-using TouchScript;
-using TouchScript.Gestures.TransformGestures;
 
 public class InactivityHandler : MonoBehaviour
 {
-    public float inactivityThreshold = 60f; // Time in seconds before inactivity warning
-    public float returnToMenuTime = 30f; // Time before returning to the main menu
+    public float inactivityThreshold = 60f; // Seconds before warning
+    public float returnToMenuTime = 30f;    // Seconds before message disappears
     private float lastInteractionTime;
     private float countdownTime;
     private bool countdownStarted = false;
 
     public GameObject inactivityWarning;
     public TextMeshProUGUI countdownText;
+    public GameObject hudObject; // Reference to the HUD object
 
     private void Start()
     {
@@ -30,13 +28,13 @@ public class InactivityHandler : MonoBehaviour
 
     private void Update()
     {
-        // Start inactivity warning if threshold is exceeded
+        // Check inactivity per instance
         if (!countdownStarted && Time.time - lastInteractionTime > inactivityThreshold)
         {
             ShowInactivityWarning();
         }
 
-        // Handle countdown to return to main menu
+        // Handle countdown per instance
         if (countdownStarted)
         {
             countdownTime -= Time.deltaTime;
@@ -44,26 +42,29 @@ public class InactivityHandler : MonoBehaviour
 
             if (countdownTime <= 0)
             {
-                SceneManager.LoadScene("Main Menu");
+                inactivityWarning.SetActive(false);
+                countdownStarted = false; // Reset so it can trigger again later
             }
         }
     }
 
     private void RegisterTouchGestures()
     {
-        // Find all touch gestures
-        TapGesture[] tapGestures = FindObjectsOfType<TapGesture>();
-        PressGesture[] pressGestures = FindObjectsOfType<PressGesture>();
-        ReleaseGesture[] releaseGestures = FindObjectsOfType<ReleaseGesture>();
-        FlickGesture[] flickGestures = FindObjectsOfType<FlickGesture>();
-        TransformGesture[] transformGestures = FindObjectsOfType<TransformGesture>();
+        if (hudObject != null)
+        {
+            TapGesture tapGesture = hudObject.GetComponent<TapGesture>();
+            PressGesture pressGesture = hudObject.GetComponent<PressGesture>();
 
-        // Subscribe to all touch events
-        foreach (TapGesture tap in tapGestures) tap.Tapped += OnUserInteraction;
-        foreach (PressGesture press in pressGestures) press.Pressed += OnUserInteraction;
-        foreach (ReleaseGesture release in releaseGestures) release.Released += OnUserInteraction;
-        foreach (FlickGesture flick in flickGestures) flick.Flicked += OnUserInteraction;
-        foreach (TransformGesture transform in transformGestures) transform.Transformed += OnUserInteraction;
+            if (tapGesture != null)
+            {
+                tapGesture.Tapped += OnUserInteraction;
+            }
+
+            if (pressGesture != null)
+            {
+                pressGesture.Pressed += OnUserInteraction;
+            }
+        }
     }
 
     private void OnUserInteraction(object sender, System.EventArgs e)
@@ -90,21 +91,5 @@ public class InactivityHandler : MonoBehaviour
             countdownStarted = true;
             countdownTime = returnToMenuTime;
         }
-    }
-
-    private void OnDestroy()
-    {
-        // Unsubscribe from gestures to prevent memory leaks
-        TapGesture[] tapGestures = FindObjectsOfType<TapGesture>();
-        PressGesture[] pressGestures = FindObjectsOfType<PressGesture>();
-        ReleaseGesture[] releaseGestures = FindObjectsOfType<ReleaseGesture>();
-        FlickGesture[] flickGestures = FindObjectsOfType<FlickGesture>();
-        TransformGesture[] transformGestures = FindObjectsOfType<TransformGesture>();
-
-        foreach (TapGesture tap in tapGestures) tap.Tapped -= OnUserInteraction;
-        foreach (PressGesture press in pressGestures) press.Pressed -= OnUserInteraction;
-        foreach (ReleaseGesture release in releaseGestures) release.Released -= OnUserInteraction;
-        foreach (FlickGesture flick in flickGestures) flick.Flicked -= OnUserInteraction;
-        foreach (TransformGesture transform in transformGestures) transform.Transformed -= OnUserInteraction;
     }
 }

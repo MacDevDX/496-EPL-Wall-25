@@ -33,7 +33,7 @@ public class NewChickenAI : MonoBehaviour
 
     void Start()
     {
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
         eggSpawner = GetComponent<NewEggSpawner>();
 
         agent = GetComponent<NavMeshAgent>();
