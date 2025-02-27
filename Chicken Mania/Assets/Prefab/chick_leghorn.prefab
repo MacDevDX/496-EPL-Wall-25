@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6dceef62e9535b142beb907fd8907827, type: 3}
+      propertyPath: m_TagString
+      value: Draggable
+      objectReference: {fileID: 0}
     - target: {fileID: 984288346049153740, guid: 6dceef62e9535b142beb907fd8907827, type: 3}
       propertyPath: m_Layer
       value: 7
