@@ -83,6 +83,8 @@ MonoBehaviour:
   useUnityEvents: 0
   layers:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3494526013400818725
 MonoBehaviour:
   m_ObjectHideFlags: 0
