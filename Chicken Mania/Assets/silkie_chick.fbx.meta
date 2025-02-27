@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53712f477937a4b4690c623d0d65ba60
+guid: e307ada411258694a8617481c7ab5e2e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Chickencolor
-    second: {fileID: 2100000, guid: 07848e1c55eef504386c679d16f3fe03, type: 2}
+      name: ChickCrest
+    second: {fileID: 2100000, guid: 2cbfccc62eaa80143b498d8038efdbe5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChickStripe
+    second: {fileID: 2750473515558187163, guid: 27a2b3be2c4205c48874dba9d5f06f3f, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chickcolor
+    second: {fileID: 2100000, guid: 2cbfccc62eaa80143b498d8038efdbe5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chickfeet
+    second: {fileID: 4899543566982293433, guid: 27a2b3be2c4205c48874dba9d5f06f3f, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: chickenbeek
-    second: {fileID: 4330470057307472797, guid: 093c32e92498ccb44a6be9a7686f0a6d, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: chickeneyes
-    second: {fileID: 2100000, guid: 07848e1c55eef504386c679d16f3fe03, type: 2}
+    second: {fileID: 4899543566982293433, guid: 27a2b3be2c4205c48874dba9d5f06f3f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -75,9 +85,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Peck
-      takeName: Armature|Peck
-      internalID: 6066994667510077347
+      name: Armature|Peck.001
+      takeName: Armature|Peck.001
+      internalID: 5423693325449916128
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -86,7 +96,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -115,7 +125,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -127,14 +137,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 1
-        functionName: LayEgg
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -151,7 +154,36 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Walk_no_bobbing
+      takeName: Armature|Walk_no_bobbing
+      internalID: 6734963073015231261
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -171,7 +203,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.2
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -226,7 +258,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.2
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

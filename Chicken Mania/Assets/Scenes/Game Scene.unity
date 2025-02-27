@@ -2055,9 +2055,9 @@ MonoBehaviour:
   - {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
   - {fileID: 3273522384971957849, guid: 50c2b17f74d1a784589234d4c50a6d6c, type: 3}
   - {fileID: 1786860546340604583, guid: 8201cee89e378a04b91c630c1bf4265f, type: 3}
-  - {fileID: 7082763808412361906, guid: 5ecba20f43c2e49419491d4365315ae7, type: 3}
-  - {fileID: 7082763808412361906, guid: 5ecba20f43c2e49419491d4365315ae7, type: 3}
-  - {fileID: 1703083249774642214, guid: 01c4e5ebcdad7cd439c713ec310a8439, type: 3}
+  - {fileID: 6557275548659218529, guid: 628e9ca280dcec9448d25d2f98b40777, type: 3}
+  - {fileID: 7234867584336921233, guid: a87f840b45a95b44fbaf945d0550f7b4, type: 3}
+  - {fileID: 1242848292487861556, guid: 45e6b23af572bcf4e96859c0b7f1c3d5, type: 3}
   SpawnPoint: {fileID: 50502829}
   chickensCount: 0
   chicksCount: 0
@@ -2065,6 +2065,7 @@ MonoBehaviour:
   dragZone: {fileID: 131236610}
   ShopWindow: {fileID: 1489658394}
   UpgradeWindow: {fileID: 1209943696}
+  FoxDir: {fileID: 0}
   GameOverWindow: {fileID: 340949537}
 --- !u!4 &210760837
 Transform:
@@ -3369,6 +3370,7 @@ MonoBehaviour:
   returnToMenuTime: 30
   inactivityWarning: {fileID: 1032270925}
   countdownText: {fileID: 143882205}
+  hudObject: {fileID: 0}
 --- !u!1 &581687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -5268,6 +5270,63 @@ MonoBehaviour:
   LevelText: {fileID: 528893860}
   ButtonComponent: {fileID: 914746333}
   ShopManager: {fileID: 210760835}
+--- !u!1001 &938405420
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18739796
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001582861
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.702053
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474971869548946868, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425401168577931576, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
+      propertyPath: m_Name
+      value: Coop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 922d8179a3ed7a34e8798a15e4eaefec, type: 3}
 --- !u!1 &945139900
 GameObject:
   m_ObjectHideFlags: 0
@@ -12246,3 +12305,5 @@ SceneRoots:
   - {fileID: 1115551097}
   - {fileID: 1216588359}
   - {fileID: 762394217}
+  - {fileID: 495390100}
+  - {fileID: 938405420}

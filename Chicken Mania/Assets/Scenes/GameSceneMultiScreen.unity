@@ -39092,6 +39092,18 @@ PrefabInstance:
       propertyPath: ChickensCount_Text
       value: 
       objectReference: {fileID: 254859648}
+    - target: {fileID: 20008968474174282, guid: 0aff83ce5ffe51748a6ee5d1e39e60a3, type: 3}
+      propertyPath: 'ChickenSpecies.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6557275548659218529, guid: 628e9ca280dcec9448d25d2f98b40777, type: 3}
+    - target: {fileID: 20008968474174282, guid: 0aff83ce5ffe51748a6ee5d1e39e60a3, type: 3}
+      propertyPath: 'ChickenSpecies.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7234867584336921233, guid: a87f840b45a95b44fbaf945d0550f7b4, type: 3}
+    - target: {fileID: 20008968474174282, guid: 0aff83ce5ffe51748a6ee5d1e39e60a3, type: 3}
+      propertyPath: 'ChickenSpecies.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1242848292487861556, guid: 45e6b23af572bcf4e96859c0b7f1c3d5, type: 3}
     - target: {fileID: 5939800190468815238, guid: 0aff83ce5ffe51748a6ee5d1e39e60a3, type: 3}
       propertyPath: m_Name
       value: ShopManager
