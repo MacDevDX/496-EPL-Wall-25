@@ -220,12 +220,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7082763808412361906}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableSmoothing: 1
+  enableSmoothing: 0
   smoothingFactor: 0.00001
   positionThreshold: 0.01
   rotationThreshold: 0.1

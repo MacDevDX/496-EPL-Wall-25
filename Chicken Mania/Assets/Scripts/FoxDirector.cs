@@ -16,6 +16,7 @@ public class FoxDirector : MonoBehaviour
     public int devourSpreeCD;
     public bool initialFox;     // start with one fox
     public GameObject foxObject;
+    public GameObject screenSection;
 
     // These are public so other classes can communicate. Do not modify these in the inspector!
     public List<Edible> chickenList;
@@ -89,6 +90,10 @@ public class FoxDirector : MonoBehaviour
         GameObject newFox = Instantiate(foxObject, transform.position, transform.rotation);
         FoxBehavior newFoxScript = newFox.GetComponent<FoxBehavior>();
         newFoxScript.directorRef = this;
+
+        // Tag forx with screen section
+        newFox.tag = "Fox_"+screenSection.name;
+
         foxList.Add(newFoxScript);
 
         newFoxScript.foxSpeed = foxSpeed;

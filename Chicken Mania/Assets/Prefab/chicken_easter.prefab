@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Draggable
       objectReference: {fileID: 0}
+    - target: {fileID: 3905841920946136012, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: projectionPlaneNormal.y
       value: 1
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 8468898697738734399, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
     m_RemovedGameObjects: []
@@ -123,6 +131,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7475589932427681851}
+    - targetCorrespondingSourceObject: {fileID: 3003831507810226208, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8191433093320707965}
   m_SourcePrefab: {fileID: 100100000, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
 --- !u!1 &3273522384971957849 stripped
 GameObject:
@@ -217,3 +228,21 @@ MonoBehaviour:
   projectionProps: 0
   projection: 1
   projectionPlaneNormal: {x: 0, y: 1, z: 0}
+--- !u!114 &8191433093320707965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273522384971957849}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSmoothing: 0
+  smoothingFactor: 0.00001
+  positionThreshold: 0.01
+  rotationThreshold: 0.1
+  scaleThreshold: 0.01
+  allowChangingFromOutside: 0

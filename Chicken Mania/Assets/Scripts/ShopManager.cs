@@ -1,5 +1,6 @@
 
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,6 +14,7 @@ public class ShopManager : MonoBehaviour
 {
     public int[,] Inventory = new int[4,11]; //Array for tier of chickens (avoid using index 0)
     public int Money;
+    //public int startingMoney = 100000;
     public TextMeshProUGUI Money_Text;
     public TextMeshProUGUI ChickensCount_Text;
     public TextMeshProUGUI ChicksCount_Text;
@@ -32,6 +34,9 @@ public class ShopManager : MonoBehaviour
     public GameObject ShopWindow;
     public GameObject UpgradeWindow;
     public FoxDirector FoxDir;
+
+    // Screen Section
+    public GameObject screenSection;
 
     void Start()
     {
@@ -104,47 +109,7 @@ public class ShopManager : MonoBehaviour
     {
         CheckGameOver();
     }
-    /*
-    private void Update()
-    {
-        //Check for click outside the UI windows (Shop and Upgrade)
-        if (Input.GetMouseButtonDown(0)) // Left mouse button click
-        {
-            //Create a PointerEventData to check where the click occurred
-            PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
-            {
-                position = Input.mousePosition
-            };
 
-            //List to hold the results of the raycast
-            var results = new System.Collections.Generic.List<RaycastResult>();
-
-            //Raycast to get all UI elements under the mouse
-            EventSystem.current.RaycastAll(pointerEventData, results);
-
-            bool clickedOnUI = false;
-
-            foreach (var result in results)
-            {
-                //if click is inside window, don't close
-                if (result.gameObject == ShopWindow || result.gameObject == UpgradeWindow)
-                {
-                    clickedOnUI = true;
-                    break;
-                }
-            }
-           
-            if (!clickedOnUI) //Closes windows
-            {
-                if (ShopWindow.activeSelf)
-                    ToggleBuy();
-
-                if (UpgradeWindow.activeSelf)
-                    ToggleUpgrade();
-            }
-        }
-    }
-    */
     public void Buy()
     {
         //References to the button clicked
@@ -195,18 +160,27 @@ public class ShopManager : MonoBehaviour
         {
             GameObject newChicken = Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
 
+            // Set chicken as child of screen
+            newChicken.transform.SetParent(screenSection.transform);
+
             FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
             AnimatedEggSpawner eggScript = newChicken.GetComponent<AnimatedEggSpawner>();
             if (eggScript != null)
             {
                 eggScript.FoxDir = FoxDir;
                 eggScript.shopManager = this;
+
+                // Set egg as child of screen
+                eggScript.transform.SetParent(screenSection.transform);
             }
             else
             {
                 NewEggSpawner newEggScript = newChicken.GetComponent<NewEggSpawner>();
                 newEggScript.FoxDir = FoxDir;
                 newEggScript.shopManager = this;
+
+                // Set the egg spawner under the screen
+                newEggScript.transform.SetParent(screenSection.transform);
             }
         }
     }
@@ -379,6 +353,29 @@ public class ShopManager : MonoBehaviour
     public void onReturnButton()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void ResetGame()
+    {
+        // Destroy objects on the screen section
+        Transform screenSectionTransform = screenSection.transform;
+        GameObject[] draggableObjects = screenSectionTransform.GetComponentsInChildren<Transform>()
+            .Where(t => t.CompareTag("Draggable"))
+            .Select(t => t.gameObject)
+            .ToArray();
+
+        foreach (GameObject obj in draggableObjects)
+        {
+            Destroy(obj);
+        }
+
+        // Destroy Foxes
+        GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
+        foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
+
+        Money = 100000;
+        chickensCount = 0;
+        eggsCount = 0;
     }
     /****************************************************************/
 

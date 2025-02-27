@@ -12,7 +12,12 @@ public class InactivityHandler : MonoBehaviour
 
     public GameObject inactivityWarning;
     public TextMeshProUGUI countdownText;
-    public GameObject hudObject; // Reference to the HUD object
+    // public GameObject hudObject; // Reference to the HUD object
+    public GameObject screenTouchArea; // Reference to the screen Section
+    public GameObject inactivityTouchArea; // Reference to the screen touch area for inactivity
+    public ScreenController screenController; // Reference to screen controller script
+    public ShopManager shopManager;
+
 
     private void Start()
     {
@@ -42,18 +47,19 @@ public class InactivityHandler : MonoBehaviour
 
             if (countdownTime <= 0)
             {
-                inactivityWarning.SetActive(false);
-                countdownStarted = false; // Reset so it can trigger again later
+         
+                ReturnToTitle();
+                
             }
         }
     }
 
     private void RegisterTouchGestures()
     {
-        if (hudObject != null)
+        if (screenTouchArea != null)
         {
-            TapGesture tapGesture = hudObject.GetComponent<TapGesture>();
-            PressGesture pressGesture = hudObject.GetComponent<PressGesture>();
+            TapGesture tapGesture = screenTouchArea.GetComponent<TapGesture>();
+            PressGesture pressGesture = screenTouchArea.GetComponent<PressGesture>();
 
             if (tapGesture != null)
             {
@@ -64,12 +70,27 @@ public class InactivityHandler : MonoBehaviour
             {
                 pressGesture.Pressed += OnUserInteraction;
             }
+
+            
+        }
+
+        if (inactivityTouchArea != null)
+        {
+            TapGesture inactivityTapGesture = inactivityTouchArea.GetComponent<TapGesture>();
+
+            if (inactivityTapGesture != null)
+            {
+                Debug.Log($"Inactive Area is pressed in {screenTouchArea}");
+                inactivityTapGesture.Tapped += OnUserInteraction; 
+            }
         }
     }
 
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
+        Debug.Log($"ScreenArea is pressed in {screenTouchArea}");
         ResetInactivityTimer();
+
     }
 
     private void ResetInactivityTimer()
@@ -91,5 +112,30 @@ public class InactivityHandler : MonoBehaviour
             countdownStarted = true;
             countdownTime = returnToMenuTime;
         }
+    }
+
+    private void ReturnToTitle()
+    {
+
+        if (inactivityWarning != null)
+        {
+            inactivityWarning.SetActive(false);
+        }
+
+        countdownStarted = false;
+        lastInteractionTime = Time.time;
+
+        if (screenController != null)
+        {
+            Debug.Log("Return to Start Page");
+            screenController.ReturnToTitlePage();
+            shopManager.ResetGame();
+        }
+        else
+        {
+            Debug.Log("Screen not found" + gameObject.name);
+        }
+
+
     }
 }
