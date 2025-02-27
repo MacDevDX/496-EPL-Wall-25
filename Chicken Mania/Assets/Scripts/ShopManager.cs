@@ -31,6 +31,7 @@ public class ShopManager : MonoBehaviour
     public GameObject dragZone;
     public GameObject ShopWindow;
     public GameObject UpgradeWindow;
+    public FoxDirector FoxDir;
 
     void Start()
     {
@@ -192,7 +193,21 @@ public class ShopManager : MonoBehaviour
         int index = itemId - 1;
         if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
         {
-            Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
+            GameObject newChicken = Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
+
+            FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
+            AnimatedEggSpawner eggScript = newChicken.GetComponent<AnimatedEggSpawner>();
+            if (eggScript != null)
+            {
+                eggScript.FoxDir = FoxDir;
+                eggScript.shopManager = this;
+            }
+            else
+            {
+                NewEggSpawner newEggScript = newChicken.GetComponent<NewEggSpawner>();
+                newEggScript.FoxDir = FoxDir;
+                newEggScript.shopManager = this;
+            }
         }
     }
     private IEnumerator ShowMessage(string message)

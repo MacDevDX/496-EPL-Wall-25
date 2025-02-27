@@ -12,7 +12,8 @@ public class AnimatedEggSpawner : MonoBehaviour
     private AnimatedChickenAI1 animatedChickenAI;
     private bool isLayingEgg = false;
 
-    private ShopManager shopManager;
+    public FoxDirector FoxDir;
+    public ShopManager shopManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,7 +56,8 @@ public class AnimatedEggSpawner : MonoBehaviour
     }
     private void Awake()
     {
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        //
+        // shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
     public bool IsLaying()
     {
@@ -65,7 +67,12 @@ public class AnimatedEggSpawner : MonoBehaviour
     public void LayEgg()
     {
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f; // Spawn position slightly behind the chicken
-        Instantiate(spawnEgg, eggSpawnPosition, transform.rotation);
+        GameObject newEgg = Instantiate(spawnEgg, eggSpawnPosition, transform.rotation);
+
+        FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+        newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
+        newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
+
         shopManager.AddEgg();
         isLayingEgg = false;
     }

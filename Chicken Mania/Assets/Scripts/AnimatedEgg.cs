@@ -51,7 +51,7 @@ public class AnimatedEgg : MonoBehaviour
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
         {
             rb.isKinematic = true; // Ensure no physics interference
-            Vector3 newPosition = transform.position + dragGesture.DeltaPosition * 2.8f;
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
             rb.MovePosition(newPosition); // Move with physics
             //isDragging = true;
         }

@@ -12,15 +12,16 @@ public class NewEggSpawner : MonoBehaviour
     private NewChickenAI chickenAI;
     private NavMeshAgent navMeshAgent;
     private bool isLayingEgg = false;
-    private ShopManager shopManager;
+    public FoxDirector FoxDir;
+    public ShopManager shopManager;
 
     void Start()
     {
         spawnCountdown = timetoSpawn;
         chickenAnimator = GetComponent<Animator>();
         chickenAI = GetComponent<NewChickenAI>();
-        navMeshAgent = GetComponent<NavMeshAgent>(); // Get the NavMeshAgent
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        navMeshAgent = chickenAI.GetComponent<NavMeshAgent>(); // Get the NavMeshAgent
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
 
     void Update()
@@ -36,11 +37,15 @@ public class NewEggSpawner : MonoBehaviour
             timetoSpawn = Mathf.Clamp(10f - upgradeLevel, 5f, 10f);
             spawnCountdown = Mathf.Min(spawnCountdown, timetoSpawn); // Adjust spawn countdown
         }
-
+        if (isLayingEgg)
+        {
+            chickenAnimator.SetTrigger("stop");
+        }
         if (spawnCountdown <= 0 && chickenAI.IsStationary() && !isLayingEgg && Random.Range(0, 2) == 0)
         {
             isLayingEgg = true;
-            navMeshAgent.isStopped = true; // Disable movement
+            //navMeshAgent.isStopped = true; // Disable movement
+            chickenAI.StopMovement(true); // Stop chicken movement
             chickenAnimator.SetTrigger("lay");
             spawnCountdown = timetoSpawn;
         }
@@ -54,10 +59,17 @@ public class NewEggSpawner : MonoBehaviour
     public void LayEgg()
     {
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
-        Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
+        GameObject newEgg = Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
         shopManager.AddEgg();
 
+        // this will give this object's shopmanage reference to the new egg and allow the foxes to target it
+        FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+        newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
+        newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
+
         isLayingEgg = false;
-        navMeshAgent.isStopped = false; // Re-enable movement
+        //navMeshAgent.isStopped = false; // Re-enable movement
+        chickenAI.StopMovement(false); // Resume movement
+
     }
 }

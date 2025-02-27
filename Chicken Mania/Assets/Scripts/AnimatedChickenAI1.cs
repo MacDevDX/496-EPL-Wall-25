@@ -9,6 +9,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
 {
     public float movementSpeed = 20f;
     public float rotationSpeed = 100f;
+    public FoxBehavior chasingFox;
     //public bool sellMode = false;
 
     private bool isWandering = false;
@@ -32,7 +33,7 @@ public class AnimatedChickenAI1 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         chickenAnimator = GetComponent<Animator>();
         animatedEggSpawner = GetComponent <AnimatedEggSpawner>();
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
 
         if (rb == null)
         {
@@ -144,12 +145,24 @@ public class AnimatedChickenAI1 : MonoBehaviour
         isWandering = false;
     }
 
+    private void OnEnable()
+    {
+        dragGesture.Transformed += OnDrag;
+        dragGesture.TransformCompleted += OnDragEnd;
+    }
+
+    private void OnDisable()
+    {
+        dragGesture.Transformed -= OnDrag;
+        dragGesture.TransformCompleted -= OnDragEnd;
+    }
+
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
         {
             rb.isKinematic = true; // Ensure no physics interference
-            Vector3 newPosition = transform.position + dragGesture.DeltaPosition * 2.8f;
+            Vector3 newPosition = transform.position + dragGesture.DeltaPosition;
             rb.MovePosition(newPosition); // Move with physics
             isDragging = true;
         }
@@ -158,13 +171,8 @@ public class AnimatedChickenAI1 : MonoBehaviour
     private void OnDragEnd(object sender, System.EventArgs e)
     {
         isDragging = false;
-        rb.isKinematic = false; // Reactivate physics
-
-        // If released over DropZone, sell the chicken
-        if (currentDropZone != null)
-        {
-            SellChicken();
-        }
+        rb.useGravity = true;
+        rb.isKinematic = false; // Re-enable physics
     }
 
     private void SellChicken()

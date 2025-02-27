@@ -1,22 +1,23 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using TouchScript.Gestures;
 
 public class InactivityHandler : MonoBehaviour
 {
-    public float inactivityThreshold = 60f; //seconds
-    public float returnToMenuTime = 30f;
+    public float inactivityThreshold = 60f; // Seconds before warning
+    public float returnToMenuTime = 30f;    // Seconds before message disappears
     private float lastInteractionTime;
     private float countdownTime;
     private bool countdownStarted = false;
 
     public GameObject inactivityWarning;
     public TextMeshProUGUI countdownText;
+    public GameObject hudObject; // Reference to the HUD object
 
     private void Start()
     {
         lastInteractionTime = Time.time;
+
         if (inactivityWarning != null)
         {
             inactivityWarning.SetActive(false);
@@ -27,19 +28,13 @@ public class InactivityHandler : MonoBehaviour
 
     private void Update()
     {
-        //Check for mouse clicks
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-        {
-            ResetInactivityTimer();
-        }
-
-        //Inactivity timer
+        // Check inactivity per instance
         if (!countdownStarted && Time.time - lastInteractionTime > inactivityThreshold)
         {
             ShowInactivityWarning();
         }
 
-        //Goes to main menu after idle too long
+        // Handle countdown per instance
         if (countdownStarted)
         {
             countdownTime -= Time.deltaTime;
@@ -47,24 +42,28 @@ public class InactivityHandler : MonoBehaviour
 
             if (countdownTime <= 0)
             {
-                SceneManager.LoadScene("Main Menu");
+                inactivityWarning.SetActive(false);
+                countdownStarted = false; // Reset so it can trigger again later
             }
         }
     }
 
     private void RegisterTouchGestures()
     {
-        TapGesture[] tapGestures = FindObjectsByType<TapGesture>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        PressGesture[] pressGestures = FindObjectsByType<PressGesture>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-
-        foreach (TapGesture tapGesture in tapGestures)
+        if (hudObject != null)
         {
-            tapGesture.Tapped += OnUserInteraction;
-        }
+            TapGesture tapGesture = hudObject.GetComponent<TapGesture>();
+            PressGesture pressGesture = hudObject.GetComponent<PressGesture>();
 
-        foreach (PressGesture pressGesture in pressGestures)
-        {
-            pressGesture.Pressed += OnUserInteraction;
+            if (tapGesture != null)
+            {
+                tapGesture.Tapped += OnUserInteraction;
+            }
+
+            if (pressGesture != null)
+            {
+                pressGesture.Pressed += OnUserInteraction;
+            }
         }
     }
 

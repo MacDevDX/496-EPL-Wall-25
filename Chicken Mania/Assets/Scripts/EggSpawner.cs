@@ -7,7 +7,8 @@ public class EggSpawner : MonoBehaviour
 
     public float timetoSpawn, spawnCountdown;
 
-    private ShopManager shopManager;
+    public ShopManager shopManager;
+    public FoxDirector FoxDir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,13 +25,18 @@ public class EggSpawner : MonoBehaviour
         {
             spawnCountdown = timetoSpawn;
 
-            Instantiate(spawnEgg, transform.position, transform.rotation);
+            GameObject newEgg = Instantiate(spawnEgg, transform.position, transform.rotation);
             shopManager.AddEgg();
+
+            FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+            newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
+            newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
         }
     }
     private void Awake()
     {
-        shopManager = Object.FindFirstObjectByType<ShopManager>();
+        // parent will load this for us
+        //shopManager = Object.FindFirstObjectByType<ShopManager>();
     }
 
 }
