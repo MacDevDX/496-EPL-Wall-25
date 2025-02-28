@@ -3634,7 +3634,7 @@ PrefabInstance:
       objectReference: {fileID: 5596084627485922698, guid: 226c6f76ad83dc8448f9fc805cc94f34, type: 3}
     - target: {fileID: 5379915389629343920, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: foxesPer5Chickens
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6221291239030785796, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_text
