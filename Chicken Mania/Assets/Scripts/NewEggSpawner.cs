@@ -60,6 +60,10 @@ public class NewEggSpawner : MonoBehaviour
     {
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
         GameObject newEgg = Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
+
+        // Change parent to screen
+        newEgg.transform.SetParent(transform.parent);
+
         shopManager.AddEgg();
 
         // this will give this object's shopmanage reference to the new egg and allow the foxes to target it

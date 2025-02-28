@@ -9,6 +9,9 @@ TagManager:
   - DropZone
   - ShopButton
   - ShopManagerLeft
+  - Fox_ScreenLeft
+  - Fox_ScreenMiddle
+  - Fox_ScreenRight
   layers:
   - Default
   - TransparentFX

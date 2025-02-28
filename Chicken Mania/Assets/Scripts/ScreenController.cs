@@ -7,6 +7,7 @@ public class ScreenController : MonoBehaviour
     public GameObject gameUI;   // Assign Canvas GameUI in the Inspector
     public GameObject gameObjects; // Assign GameObjects in the Inspector
     public GameObject shopManager; // Assign ShopManager in the Inspector
+    public string screenName;   // For debugging purposes
 
     private TapGesture tapGesture; // TouchScript's Tap Gesture
 
@@ -25,7 +26,7 @@ public class ScreenController : MonoBehaviour
     private void OnGestureStateChanged(object sender, GestureStateChangeEventArgs e)
     {
         // For debugging, check the gesture's state
-        Debug.Log($"Gesture state changed from {e.PreviousState} to {e.State}");
+        //Debug.Log($"Gesture state changed from {e.PreviousState} to {e.State} on {screenName}");
     }
 
     private void OnDisable()
@@ -49,5 +50,13 @@ public class ScreenController : MonoBehaviour
         gameUI.SetActive(true);    // Show in-game UI
         gameObjects.SetActive(true); // Activate game objects
         shopManager.SetActive(true); // Activate shop manager
+    }
+
+    public void ReturnToTitlePage()
+    {
+        gameUI.SetActive(false);
+        gameObjects.SetActive(false);
+        shopManager.SetActive(false);
+        startUI.SetActive(true);
     }
 }
