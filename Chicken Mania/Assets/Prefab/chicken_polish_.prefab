@@ -161,9 +161,6 @@ PrefabInstance:
       addedObject: {fileID: 5413562019605952148}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0c978081c44d924ea466e3c76c22f0e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7969255326053351662}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0c978081c44d924ea466e3c76c22f0e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5516436976685531424}
   m_SourcePrefab: {fileID: 100100000, guid: d0c978081c44d924ea466e3c76c22f0e, type: 3}
 --- !u!1 &1242848292487861556 stripped
@@ -295,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbb936b61cfa644eb84e60c5ae71d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEgg: {fileID: 7082763808412361906, guid: c7ef6fade0c532f4886a32f601bd9e4a, type: 3}
+  spawnEgg: {fileID: 7082763808412361906, guid: 1b64499264ee2a94ca877b390387fec0, type: 3}
   timetoSpawn: 10
   FoxDir: {fileID: 0}
   shopManager: {fileID: 0}
@@ -383,24 +380,6 @@ MonoBehaviour:
   positionThreshold: 0.01
   rotationThreshold: 0.1
   scaleThreshold: 0.01
-  allowChangingFromOutside: 0
---- !u!114 &7969255326053351662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242848292487861556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSmoothing: 1
-  smoothingFactor: 0.00001
-  positionThreshold: 0.010000001
-  rotationThreshold: 0.1
-  scaleThreshold: 0.010000001
   allowChangingFromOutside: 0
 --- !u!114 &5516436976685531424
 MonoBehaviour:

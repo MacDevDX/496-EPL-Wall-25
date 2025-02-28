@@ -76,11 +76,11 @@ public class ShopManager : MonoBehaviour
 
         //Chicken Price
         Inventory[2, 1] = 20;
-        Inventory[2, 2] = 40;
-        Inventory[2, 3] = 50;
-        Inventory[2, 4] = 60;
-        Inventory[2, 5] = 70;
-        Inventory[2, 6] = 100;
+        Inventory[2, 2] = 30;
+        Inventory[2, 3] = 40;
+        Inventory[2, 4] = 50;
+        Inventory[2, 5] = 60;
+        Inventory[2, 6] = 80;
 
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[2, 7] = 30;
@@ -147,7 +147,11 @@ public class ShopManager : MonoBehaviour
             if (itemId >= 7 && itemId <= 10)
             {
                 //Recalculate the price: Price = BasePrice * (Count + 1)
-                Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
+                //Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
+
+                //Recalculate the price: Price = BasePrice * 1.1^(Count + 1)
+                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.1f, Inventory[3, itemId] + 1));
+
                 /*
                 // Disable the button if the count reaches 3
                 if (Inventory[3, itemId] >= 3)
@@ -385,7 +389,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        Money = 100000;
+        Money = 20;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
