@@ -81,7 +81,7 @@ public class InactivityHandler : MonoBehaviour
 
             if (inactivityTapGesture != null)
             {
-                Debug.Log($"Inactive Area is pressed in {screenTouchArea}");
+                //Debug.Log($"Inactive Area is pressed in {screenTouchArea}");
                 inactivityTapGesture.Tapped += OnUserInteraction; 
             }
 
@@ -109,7 +109,7 @@ public class InactivityHandler : MonoBehaviour
 
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
-        Debug.Log($"ScreenArea is pressed in {screenTouchArea}");
+        //Debug.Log($"ScreenArea is pressed in {screenTouchArea}");
         ResetInactivityTimer();
 
     }
@@ -148,7 +148,7 @@ public class InactivityHandler : MonoBehaviour
 
         if (screenController != null)
         {
-            Debug.Log("Return to Start Page");
+            //Debug.Log("Return to Start Page");
             //screenController.ReturnToTitlePage();
             shopManager.ResetGame();
         }
