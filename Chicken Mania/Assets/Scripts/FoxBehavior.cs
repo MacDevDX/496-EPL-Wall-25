@@ -43,7 +43,7 @@ public class FoxBehavior : MonoBehaviour
                 targetVecNorm.y = 0;
                 Quaternion targetRotation = Quaternion.LookRotation(targetVecNorm, Vector3.up);
                 // this second rotation offsets the rotation so the object points "forward"
-                targetRotation = targetRotation * Quaternion.Euler(-90,0,-90);
+                targetRotation = targetRotation * Quaternion.Euler(0,0,0);
                 rBody.MoveRotation(targetRotation);
 
             }
