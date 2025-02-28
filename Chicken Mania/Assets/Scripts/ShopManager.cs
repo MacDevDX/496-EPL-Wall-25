@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using TouchScript.Examples.RawInput;
 
 public class ShopManager : MonoBehaviour
 {
@@ -37,9 +38,12 @@ public class ShopManager : MonoBehaviour
 
     // Screen Section
     public GameObject screenSection;
+    private ScreenController screenController;
+
 
     void Start()
     {
+        screenController = screenSection.GetComponent<ScreenController>();
         Money_Text.text = Money.ToString();
         UpdateUI();
 
@@ -105,6 +109,7 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
     }
+
     void Update()
     {
         CheckGameOver();
@@ -121,7 +126,7 @@ public class ShopManager : MonoBehaviour
         {
             //Deduct money and update UI
             Money -= Inventory[2, itemId];
-            Money_Text.text = Money.ToString();
+            //Money_Text.text = Money.ToString();
 
             //Increment the count for the item (upgrade)
             Inventory[3, itemId] += 1;
@@ -321,6 +326,8 @@ public class ShopManager : MonoBehaviour
         ChickensCount_Text.text = "Chickens: " + chickensCount;
         ChicksCount_Text.text = "Chicks: " + chicksCount;
         EggsCount_Text.text = "Eggs: " + eggsCount;
+
+        Money_Text.text = Money.ToString();
     }
     /****************************************************************/
 
@@ -352,9 +359,14 @@ public class ShopManager : MonoBehaviour
     }
     public void onReturnButton()
     {
-        SceneManager.LoadScene("Main Menu");
+        ResetGame();
+        GameOverWindow.SetActive(false);
     }
 
+
+    /*
+     * Reset Game State function
+     */
     public void ResetGame()
     {
         // Destroy objects on the screen section
@@ -375,7 +387,20 @@ public class ShopManager : MonoBehaviour
 
         Money = 100000;
         chickensCount = 0;
+        chicksCount = 0;
         eggsCount = 0;
+
+        UpdateUI();
+
+        // Call the ReturnToTitlePage function
+        if (screenController != null)
+        {
+            screenController.ReturnToTitlePage();
+        }
+        else
+        {
+            Debug.LogWarning("ScreenController not found on " + screenSection.name);
+        }
     }
     /****************************************************************/
 

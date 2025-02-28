@@ -12,7 +12,7 @@ public class InactivityHandler : MonoBehaviour
 
     public GameObject inactivityWarning;
     public TextMeshProUGUI countdownText;
-    // public GameObject hudObject; // Reference to the HUD object
+    public GameObject hudObject; // Reference to the HUD object
     public GameObject screenTouchArea; // Reference to the screen Section
     public GameObject inactivityTouchArea; // Reference to the screen touch area for inactivity
     public ScreenController screenController; // Reference to screen controller script
@@ -77,11 +77,32 @@ public class InactivityHandler : MonoBehaviour
         if (inactivityTouchArea != null)
         {
             TapGesture inactivityTapGesture = inactivityTouchArea.GetComponent<TapGesture>();
+            PressGesture inactivityPressGesture = inactivityTouchArea.GetComponent<PressGesture>();
 
             if (inactivityTapGesture != null)
             {
                 Debug.Log($"Inactive Area is pressed in {screenTouchArea}");
                 inactivityTapGesture.Tapped += OnUserInteraction; 
+            }
+
+            if (inactivityPressGesture != null)
+            {
+                inactivityPressGesture.Pressed += OnUserInteraction;
+            }
+        }
+
+        if (hudObject != null)
+        {
+            TapGesture hudTapGesture = hudObject.GetComponent<TapGesture>();
+            PressGesture hudPressGesture = hudObject.GetComponent<PressGesture>();
+
+            if(hudTapGesture != null)
+            {
+                hudTapGesture.Tapped += OnUserInteraction;
+            }
+            if(hudPressGesture != null)
+            {
+                hudPressGesture.Pressed += OnUserInteraction;
             }
         }
     }
@@ -128,7 +149,7 @@ public class InactivityHandler : MonoBehaviour
         if (screenController != null)
         {
             Debug.Log("Return to Start Page");
-            screenController.ReturnToTitlePage();
+            //screenController.ReturnToTitlePage();
             shopManager.ResetGame();
         }
         else
