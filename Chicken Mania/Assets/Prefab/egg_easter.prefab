@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clicktoHatch: 5
   hatchCountdown: 0
-  chickObject: {fileID: 3273522384971957849, guid: 520855bae38415b468591b3cc0efef93, type: 3}
+  chickObject: {fileID: 5339610932845619327, guid: cbe939c253d1c0548805afd41099ef4f, type: 3}
   shopManager: {fileID: 0}
   FoxDir: {fileID: 0}
 --- !u!114 &-8012331972744544794
@@ -308,12 +308,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7082763808412361906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableSmoothing: 0
+  enableSmoothing: 1
   smoothingFactor: 0.00001
   positionThreshold: 0.01
   rotationThreshold: 0.1

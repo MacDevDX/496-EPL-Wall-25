@@ -118,14 +118,13 @@ public class ClicktoHatch : MonoBehaviour
             Destroy(gameObject);
 
             GameObject newChick = Instantiate(chickObject, transform.position, transform.rotation);
+            shopManager.HatchEgg();
 
             //IMPORTANT: Currently eggs spawn chickens. If this changes and chicks are implemented, change below to "CHICK"
             // Also, when chicks are implemented, change <NewEggSpawner> below to <chickGrowth>
-            FoxDir.setupNewEdible(newChick, shopManager, FoxDir, "CHICKEN");
-            newChick.GetComponent<NewEggSpawner>().FoxDir = FoxDir;
-            newChick.GetComponent<NewEggSpawner>().shopManager = shopManager;
-
-            shopManager.HatchEgg();
+            FoxDir.setupNewEdible(newChick, shopManager, FoxDir, "CHICK");
+            newChick.GetComponent<chickGrowth>().FoxDir = FoxDir;
+            newChick.GetComponent<chickGrowth>().shopManager = shopManager;
         }
     }
 }

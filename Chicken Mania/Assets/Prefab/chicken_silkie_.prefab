@@ -158,9 +158,6 @@ PrefabInstance:
       addedObject: {fileID: 7836466058602128725}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27a2b3be2c4205c48874dba9d5f06f3f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1485975639615931342}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27a2b3be2c4205c48874dba9d5f06f3f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5285622654351577535}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27a2b3be2c4205c48874dba9d5f06f3f, type: 3}
       insertIndex: -1
@@ -366,24 +363,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1485975639615931342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234867584336921233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSmoothing: 1
-  smoothingFactor: 0.00001
-  positionThreshold: 0.01
-  rotationThreshold: 0.1
-  scaleThreshold: 0.01
-  allowChangingFromOutside: 0
 --- !u!114 &5285622654351577535
 MonoBehaviour:
   m_ObjectHideFlags: 0
