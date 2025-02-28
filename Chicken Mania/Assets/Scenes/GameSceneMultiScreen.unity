@@ -23477,6 +23477,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1867599689}
     m_Modifications:
+    - target: {fileID: 2785642333820755278, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
+      propertyPath: foxObject
+      value: 
+      objectReference: {fileID: 6660555086431714724, guid: de9583b516606fc409a66b3782476200, type: 3}
     - target: {fileID: 8543069936627171866, guid: 0cb8388a0c1549641a577734590bd98e, type: 3}
       propertyPath: m_Name
       value: FoxDirector
