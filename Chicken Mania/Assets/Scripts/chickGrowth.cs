@@ -32,7 +32,7 @@ public class chickGrowth : MonoBehaviour
             growCountdown = timetoGrow;
             Destroy(gameObject);
             GameObject newChicken = Instantiate(spawnChicken, transform.position, transform.rotation);
-            //newChicken.transform.SetParent(screenSection.transform);
+            newChicken.transform.SetParent(transform.parent);
 
             shopManager.ChickGrowsToChicken();
 
