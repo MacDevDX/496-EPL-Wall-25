@@ -15,6 +15,7 @@ public class InactivityHandlerOld : MonoBehaviour
 
     public ShopManager shopManager;
     public GameObject hudObject; // Reference to the HUD object
+    public GameObject Screen;
 
     private void Start()
     {
@@ -53,6 +54,22 @@ public class InactivityHandlerOld : MonoBehaviour
 
     private void RegisterTouchGestures()
     {
+        if (Screen != null)
+        {
+            TapGesture tapGesture = Screen.GetComponent<TapGesture>();
+            PressGesture pressGesture = Screen.GetComponent<PressGesture>();
+
+            if (tapGesture != null)
+            {
+                tapGesture.Tapped += OnUserInteraction;
+            }
+
+            if (pressGesture != null)
+            {
+                pressGesture.Pressed += OnUserInteraction;
+            }
+        }
+
         if (hudObject != null)
         {
             TapGesture tapGesture = hudObject.GetComponent<TapGesture>();
@@ -68,10 +85,12 @@ public class InactivityHandlerOld : MonoBehaviour
                 pressGesture.Pressed += OnUserInteraction;
             }
         }
+        
     }
 
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
+        Debug.Log("here");
         ResetInactivityTimer();
     }
 

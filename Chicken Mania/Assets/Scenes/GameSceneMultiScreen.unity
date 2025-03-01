@@ -1389,8 +1389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2449d3c44848448a05777e07a76ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inactivityThreshold: 60
-  returnToMenuTime: 30
+  inactivityThreshold: 10
+  returnToMenuTime: 10
   inactivityWarning: {fileID: 591372952}
   countdownText: {fileID: 1828660753}
   shopManager: {fileID: 95547546}
@@ -1964,8 +1964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2449d3c44848448a05777e07a76ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inactivityThreshold: 60
-  returnToMenuTime: 30
+  inactivityThreshold: 5
+  returnToMenuTime: 5
   inactivityWarning: {fileID: 840804733}
   countdownText: {fileID: 2143277563}
   shopManager: {fileID: 1556390049}
