@@ -100,6 +100,6 @@ public class FoxDirector : MonoBehaviour
         newFoxScript.devourCooldown = devourCooldown;
         newFoxScript.devourSpreeCD = devourSpreeCD;
 
-        Debug.Log("Created fox agent :" + newFoxScript + " for Director :" + this);
+        //Debug.Log("Created fox agent :" + newFoxScript + " for Director :" + this);
     }
 }
