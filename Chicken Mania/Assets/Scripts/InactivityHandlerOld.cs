@@ -90,7 +90,6 @@ public class InactivityHandlerOld : MonoBehaviour
 
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
-        Debug.Log("here");
         ResetInactivityTimer();
     }
 
