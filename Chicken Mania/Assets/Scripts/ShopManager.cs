@@ -13,7 +13,7 @@ using TouchScript.Examples.RawInput;
 
 public class ShopManager : MonoBehaviour
 {
-    public int[,] Inventory = new int[4,11]; //Array for tier of chickens (avoid using index 0)
+    public int[,] Inventory = new int[4,12]; //Array for tier of chickens (avoid using index 0)
     public int Money;
     //public int startingMoney = 100000;
     public TextMeshProUGUI Money_Text;
@@ -60,6 +60,7 @@ public class ShopManager : MonoBehaviour
         Inventory[1, 4] = 4;
         Inventory[1, 5] = 5;
         Inventory[1, 6] = 6;
+        Inventory[1, 11] = 11; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[1, 7] = 7;
@@ -77,15 +78,16 @@ public class ShopManager : MonoBehaviour
         //Chicken Price
         Inventory[2, 1] = 20;
         Inventory[2, 2] = 30;
-        Inventory[2, 3] = 40;
-        Inventory[2, 4] = 50;
-        Inventory[2, 5] = 60;
-        Inventory[2, 6] = 80;
+        Inventory[2, 3] = 75;
+        Inventory[2, 4] = 113;
+        Inventory[2, 5] = 281;
+        Inventory[2, 6] = 600;
+        Inventory[2, 11] = 10000; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[2, 7] = 30;
         Inventory[2, 8] = 10;
-        Inventory[2, 9] = 50;
+        Inventory[2, 9] = 15;
         Inventory[2, 10] = 50;
 
 
@@ -102,6 +104,7 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 4] = 0;
         Inventory[3, 5] = 0;
         Inventory[3, 6] = 0;
+        Inventory[3, 11] = 0;
 
         //Upgrades Count (Supplements, Feed, Incubator, Research)
         Inventory[3, 7] = 0;
@@ -150,7 +153,7 @@ public class ShopManager : MonoBehaviour
                 //Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
 
                 //Recalculate the price: Price = BasePrice * 1.1^(Count + 1)
-                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.1f, Inventory[3, itemId] + 1));
+                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
 
                 /*
                 // Disable the button if the count reaches 3
@@ -393,6 +396,14 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
+        Inventory[3, 7] = 0;
+        Inventory[3, 8] = 0;
+        Inventory[3, 9] = 0;
+        Inventory[3, 10] = 0;
+        Inventory[2, 7] = 30;
+        Inventory[2, 8] = 10;
+        Inventory[2, 9] = 15;
+        Inventory[2, 10] = 50;
 
         UpdateUI();
 

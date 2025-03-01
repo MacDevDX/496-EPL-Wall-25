@@ -12,12 +12,10 @@ public class InactivityHandler : MonoBehaviour
 
     public GameObject inactivityWarning;
     public TextMeshProUGUI countdownText;
-    public GameObject hudObject; // Reference to the HUD object
-    public GameObject screenTouchArea; // Reference to the screen Section
-    public GameObject inactivityTouchArea; // Reference to the screen touch area for inactivity
-    public ScreenController screenController; // Reference to screen controller script
-    public ShopManager shopManager;
 
+    public ShopManager shopManager;
+    public GameObject hudObject; // Reference to the HUD object
+    public GameObject Screen;
 
     private void Start()
     {
@@ -47,19 +45,19 @@ public class InactivityHandler : MonoBehaviour
 
             if (countdownTime <= 0)
             {
-         
-                ReturnToTitle();
-                
+                inactivityWarning.SetActive(false);
+                countdownStarted = false; // Reset so it can trigger again later
+                shopManager.ResetGame();
             }
         }
     }
 
     private void RegisterTouchGestures()
     {
-        if (screenTouchArea != null)
+        if (Screen != null)
         {
-            TapGesture tapGesture = screenTouchArea.GetComponent<TapGesture>();
-            PressGesture pressGesture = screenTouchArea.GetComponent<PressGesture>();
+            TapGesture tapGesture = Screen.GetComponent<TapGesture>();
+            PressGesture pressGesture = Screen.GetComponent<PressGesture>();
 
             if (tapGesture != null)
             {
@@ -70,48 +68,29 @@ public class InactivityHandler : MonoBehaviour
             {
                 pressGesture.Pressed += OnUserInteraction;
             }
-
-            
-        }
-
-        if (inactivityTouchArea != null)
-        {
-            TapGesture inactivityTapGesture = inactivityTouchArea.GetComponent<TapGesture>();
-            PressGesture inactivityPressGesture = inactivityTouchArea.GetComponent<PressGesture>();
-
-            if (inactivityTapGesture != null)
-            {
-                //Debug.Log($"Inactive Area is pressed in {screenTouchArea}");
-                inactivityTapGesture.Tapped += OnUserInteraction; 
-            }
-
-            if (inactivityPressGesture != null)
-            {
-                inactivityPressGesture.Pressed += OnUserInteraction;
-            }
         }
 
         if (hudObject != null)
         {
-            TapGesture hudTapGesture = hudObject.GetComponent<TapGesture>();
-            PressGesture hudPressGesture = hudObject.GetComponent<PressGesture>();
+            TapGesture tapGesture = hudObject.GetComponent<TapGesture>();
+            PressGesture pressGesture = hudObject.GetComponent<PressGesture>();
 
-            if(hudTapGesture != null)
+            if (tapGesture != null)
             {
-                hudTapGesture.Tapped += OnUserInteraction;
+                tapGesture.Tapped += OnUserInteraction;
             }
-            if(hudPressGesture != null)
+
+            if (pressGesture != null)
             {
-                hudPressGesture.Pressed += OnUserInteraction;
+                pressGesture.Pressed += OnUserInteraction;
             }
         }
+        
     }
 
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
-        //Debug.Log($"ScreenArea is pressed in {screenTouchArea}");
         ResetInactivityTimer();
-
     }
 
     private void ResetInactivityTimer()
@@ -133,30 +112,5 @@ public class InactivityHandler : MonoBehaviour
             countdownStarted = true;
             countdownTime = returnToMenuTime;
         }
-    }
-
-    private void ReturnToTitle()
-    {
-
-        if (inactivityWarning != null)
-        {
-            inactivityWarning.SetActive(false);
-        }
-
-        countdownStarted = false;
-        lastInteractionTime = Time.time;
-
-        if (screenController != null)
-        {
-            //Debug.Log("Return to Start Page");
-            //screenController.ReturnToTitlePage();
-            shopManager.ResetGame();
-        }
-        else
-        {
-            Debug.Log("Screen not found" + gameObject.name);
-        }
-
-
     }
 }

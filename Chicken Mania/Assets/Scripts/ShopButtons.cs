@@ -84,6 +84,23 @@ public class ShopButtons : MonoBehaviour
                 }
             }
         }
+        /*
+        else if (ItemID == 11) //Secret Chicken
+        {
+            if (shopManager.Inventory[3, 6] >= 1) //If has Tier 6 chicken: Show
+            {
+                PriceText.gameObject.SetActive(true);
+                ButtonComponent.gameObject.SetActive(true);
+                PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID];
+                ButtonComponent.interactable = true;
+            }
+            else //If no tier 6: Don't show
+            {
+                PriceText.gameObject.SetActive(false);
+                ButtonComponent.gameObject.SetActive(false);
+            }
+        }
+        */
         else //For normal shop items
         {
             PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID].ToString();
