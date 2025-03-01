@@ -127,7 +127,7 @@ public class NewChickenAI : MonoBehaviour
 
     private void OnDrag(object sender, System.EventArgs e)
     {
-        if (!shopManager.dragZone.activeSelf) return;
+        //if (!shopManager.dragZone.activeSelf) return;
       
         isDragging = true;
         agent.isStopped = true;
