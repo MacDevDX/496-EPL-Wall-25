@@ -43,7 +43,8 @@ public class ShopManager : MonoBehaviour
     private ScreenController screenController;
 
     private float Timer = 120f;
-
+    public float timeToGrow = 10f;
+    public float timeToSpawn = 10f;
 
     void Start()
     {
@@ -505,5 +506,4 @@ public class ShopManager : MonoBehaviour
         }
     }
     /****************************************************************/
-
 }

@@ -21,6 +21,8 @@ public class ScreenController : MonoBehaviour
 
     private bool gameModeStarted = false;
 
+    public float timetoGrow = 10f;
+    public float timetoSpawn = 10f;
 
     private void OnEnable()
     {
@@ -86,8 +88,8 @@ public class ScreenController : MonoBehaviour
         shopManager.SetActive(true); // Activate shop manager
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        //chickGrowth.timetoGrow = 10f;
-        //NewEggSpawner.timetoSpawn = 10f;
+        shopManagerScript.timeToGrow = 10f;
+        shopManagerScript.timeToSpawn = 10f;
     }
 
     public void StartTycoonGameMode()
@@ -108,8 +110,8 @@ public class ScreenController : MonoBehaviour
         shopManager.SetActive(true); // Activate shop manager
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        //chickGrowth.timetoGrow = 50f;
-       //NewEggSpawner.timetoSpawn = 30f;
+        shopManagerScript.timeToGrow = 50f;
+        shopManagerScript.timeToSpawn = 30f;
     }
 
     public void ReturnToTitlePage()
@@ -142,8 +144,8 @@ public class ScreenController : MonoBehaviour
             GameUI_TimerMode.SetActive(true);
             shopManagerScript.StartCountdown();
             //shopManagerScript.Inventory[3, 9] = 2;  //DOESN'T SET INITIALLY
-            //chickGrowth.timetoGrow = 7f;
-            //NewEggSpawner.timetoSpawn = 7f;
+            shopManagerScript.timeToGrow = 7f;
+            shopManagerScript.timeToSpawn = 7f;
 
             // Randomly spawn 10 chickens
             for (int i = 0; i < 10; i++)
