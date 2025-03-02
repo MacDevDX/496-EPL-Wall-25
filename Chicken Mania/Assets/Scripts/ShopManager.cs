@@ -22,6 +22,8 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI EggsCount_Text;
     public TextMeshProUGUI WinMessage;
     public TextMeshProUGUI TimerText;
+    public TextMeshProUGUI CountdownText;
+    public TextMeshProUGUI Score;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -39,6 +41,8 @@ public class ShopManager : MonoBehaviour
     // Screen Section
     public GameObject screenSection;
     private ScreenController screenController;
+
+    private float Timer = 120f;
 
 
     void Start()
@@ -111,8 +115,8 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
-    }
 
+    }
     void Update()
     {
         CheckGameOver();
@@ -165,7 +169,7 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    void SpawnChicken(int itemId)
+    public void SpawnChicken(int itemId)
     {
         int index = itemId - 1;
         if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
@@ -369,7 +373,61 @@ public class ShopManager : MonoBehaviour
         ResetGame();
         GameOverWindow.SetActive(false);
     }
+    public void onReturnButtonTimerMode()
+    {
+        ResetTimerMode();
+        Score.gameObject.SetActive(false);
+    }
 
+    /* Below handles Timer Mode */
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownRoutine());
+    }
+
+    private IEnumerator CountdownRoutine()
+    {
+        while (Timer > 0)
+        {
+            Timer -= Time.deltaTime;
+            UpdateTimerDisplay();
+            yield return null;
+        }
+
+        Timer = 0;
+        DisplayScore();
+    }
+
+    void UpdateTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(Timer / 60);
+        int seconds = Mathf.FloorToInt(Timer % 60);
+        CountdownText.text = $"{minutes:D2}:{seconds:D2}"; // Formats as MM:SS
+    }
+    void DisplayScore()
+    {
+        CountdownText.gameObject.SetActive(false);
+
+        // Destroy objects on the screen section
+        Transform screenSectionTransform = screenSection.transform;
+        GameObject[] draggableObjects = screenSectionTransform.GetComponentsInChildren<Transform>()
+            .Where(t => t.CompareTag("Draggable"))
+            .Select(t => t.gameObject)
+            .ToArray();
+
+        foreach (GameObject obj in draggableObjects)
+        {
+            Destroy(obj);
+        }
+
+        // Destroy Foxes
+        GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
+        foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
+
+        //Displays Total Count
+        Score.text = $"Time's up!\nYour Score: {chickensCount+chicksCount+eggsCount}!";
+        Score.gameObject.SetActive(true);
+    }
 
     /*
      * Reset Game State function
@@ -415,6 +473,35 @@ public class ShopManager : MonoBehaviour
         else
         {
             Debug.LogWarning("ScreenController not found on " + screenSection.name);
+        }
+    }
+    /*
+    * Reset Game State function
+    */
+    public void ResetTimerMode()
+    {
+        chickensCount = 0;
+        chicksCount = 0;
+        eggsCount = 0;
+        Inventory[3, 7] = 0;
+        Inventory[3, 8] = 0;
+        Inventory[3, 9] = 0;
+        Inventory[3, 10] = 0;
+        Inventory[2, 7] = 30;
+        Inventory[2, 8] = 10;
+        Inventory[2, 9] = 15;
+        Inventory[2, 10] = 50;
+        Timer = 120f;
+
+        //Reset UI elements
+        UpdateUI();
+        CountdownText.gameObject.SetActive(true);
+        UpdateTimerDisplay();
+
+        // Call the ReturnToTitlePage function
+        if (screenController != null)
+        {
+            screenController.ReturnToTitlePage();
         }
     }
     /****************************************************************/

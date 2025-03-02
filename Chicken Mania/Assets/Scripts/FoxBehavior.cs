@@ -127,7 +127,7 @@ public class FoxBehavior : MonoBehaviour
             //{
             //    chickenTarget.gameObject.GetComponent<AnimatedChickenAI1>().chasingFox = null; 
             //}
-            Debug.Log("Fox(" + this + ") has notified :" + directorRef + " of its termination.");
+            //Debug.Log("Fox(" + this + ") has notified :" + directorRef + " of its termination.");
             Destroy(gameObject);
         }
     }
