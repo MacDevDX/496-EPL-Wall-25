@@ -16,12 +16,15 @@ public class FoxBehavior : MonoBehaviour
     public Edible chickenTarget;
     private Rigidbody chickenBody;
     private Rigidbody rBody;
+    private Animator animator;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        animator.SetBool("chasing", false);
     }
 
     // Update is called once per frame
@@ -76,6 +79,7 @@ public class FoxBehavior : MonoBehaviour
     void AquireTarget()
     {
         int count = directorRef.chickenList.Count();
+        animator.SetBool("chasing", false);
 
         if (count > 0)
         {
@@ -85,6 +89,7 @@ public class FoxBehavior : MonoBehaviour
             if (chickenTarget != null)
             {
                 chickenBody = chickenTarget.gameObject.GetComponent<Rigidbody>();
+                animator.SetBool("chasing", true);
 
                 //if (chickenTarget.isChicken)
                 //{
