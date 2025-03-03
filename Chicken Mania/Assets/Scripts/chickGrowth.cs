@@ -9,10 +9,12 @@ public class chickGrowth : MonoBehaviour
     public ShopManager shopManager;
     public FoxDirector FoxDir;
 
+    private ScreenController ScreenController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        growCountdown = timetoGrow;
+        growCountdown = shopManager.timeToGrow;
     }
 
     private void Awake()

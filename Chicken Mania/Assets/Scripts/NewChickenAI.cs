@@ -28,7 +28,7 @@ public class NewChickenAI : MonoBehaviour
     private bool isStationary = true;
     private GameObject currentDropZone;
 
-    private ShopManager shopManager;
+    public ShopManager shopManager;
     private NewEggSpawner eggSpawner;
 
     void Start()
@@ -48,7 +48,7 @@ public class NewChickenAI : MonoBehaviour
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
-
+        
         StartCoroutine(Wander());
     }
 
@@ -128,7 +128,6 @@ public class NewChickenAI : MonoBehaviour
     private void OnDrag(object sender, System.EventArgs e)
     {
         //if (!shopManager.dragZone.activeSelf) return;
-      
         isDragging = true;
         agent.isStopped = true;
         rb.isKinematic = false;
