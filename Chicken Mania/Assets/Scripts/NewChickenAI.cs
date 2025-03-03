@@ -45,7 +45,6 @@ public class NewChickenAI : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
 
-
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();

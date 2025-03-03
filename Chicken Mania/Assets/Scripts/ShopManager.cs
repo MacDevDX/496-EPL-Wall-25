@@ -180,6 +180,9 @@ public class ShopManager : MonoBehaviour
             // Set chicken as child of screen
             newChicken.transform.SetParent(screenSection.transform);
 
+            NewChickenAI newChickenAI = newChicken.GetComponent<NewChickenAI>(); //Added for drag instances
+            newChickenAI.shopManager = this;
+
             FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
             AnimatedEggSpawner eggScript = newChicken.GetComponent<AnimatedEggSpawner>();
             if (eggScript != null)
