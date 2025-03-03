@@ -109,11 +109,15 @@ public class FoxBehavior : MonoBehaviour
     private void OnEnable()
     {
         GetComponent<TapGesture>().Tapped += tappedHandler;
+        GetComponent<FlickGesture>().Flicked += flickHandler;
+        //GetComponent<PinchGesture>().StateChanged += pinchHandler;
     }
 
     private void OnDisable()
     {
         GetComponent<TapGesture>().Tapped -= tappedHandler;
+        GetComponent<FlickGesture>().Flicked -= flickHandler;
+        //GetComponent<PinchGesture>().StateChanged -= pinchHandler;
     }
 
     private void tappedHandler(object sender, System.EventArgs e)
@@ -131,6 +135,20 @@ public class FoxBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void flickHandler(object sender, System.EventArgs e)
+    {
+        directorRef.foxList.Remove(this);
+        Destroy(gameObject);
+    }
+    /*
+    private void pinchHandler(object sender, GestureStateChangeEventArgs e)
+    {
+        if (e.State == Gesture.GestureState.Recognized) //When 2 touches pinch..
+        {
+            directorRef.foxList.Remove(this);
+            Destroy(gameObject);
+        }
+    }
+    */
     // End of touchscript ---------------------------------------------------
 }
