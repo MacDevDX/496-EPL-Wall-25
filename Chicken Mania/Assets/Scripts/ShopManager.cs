@@ -13,7 +13,7 @@ using TouchScript.Examples.RawInput;
 
 public class ShopManager : MonoBehaviour
 {
-    public int[,] Inventory = new int[4,11]; //Array for tier of chickens (avoid using index 0)
+    public int[,] Inventory = new int[4,12]; //Array for tier of chickens (avoid using index 0)
     public int Money;
     //public int startingMoney = 100000;
     public TextMeshProUGUI Money_Text;
@@ -22,6 +22,8 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI EggsCount_Text;
     public TextMeshProUGUI WinMessage;
     public TextMeshProUGUI TimerText;
+    public TextMeshProUGUI CountdownText;
+    public TextMeshProUGUI Score;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -40,6 +42,9 @@ public class ShopManager : MonoBehaviour
     public GameObject screenSection;
     private ScreenController screenController;
 
+    private float Timer = 120f;
+    public float timeToGrow = 10f;
+    public float timeToSpawn = 10f;
 
     void Start()
     {
@@ -60,6 +65,7 @@ public class ShopManager : MonoBehaviour
         Inventory[1, 4] = 4;
         Inventory[1, 5] = 5;
         Inventory[1, 6] = 6;
+        Inventory[1, 11] = 11; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[1, 7] = 7;
@@ -77,15 +83,16 @@ public class ShopManager : MonoBehaviour
         //Chicken Price
         Inventory[2, 1] = 20;
         Inventory[2, 2] = 30;
-        Inventory[2, 3] = 40;
-        Inventory[2, 4] = 50;
-        Inventory[2, 5] = 60;
-        Inventory[2, 6] = 80;
+        Inventory[2, 3] = 75;
+        Inventory[2, 4] = 113;
+        Inventory[2, 5] = 281;
+        Inventory[2, 6] = 600;
+        Inventory[2, 11] = 10000; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[2, 7] = 30;
         Inventory[2, 8] = 10;
-        Inventory[2, 9] = 50;
+        Inventory[2, 9] = 15;
         Inventory[2, 10] = 50;
 
 
@@ -102,14 +109,15 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 4] = 0;
         Inventory[3, 5] = 0;
         Inventory[3, 6] = 0;
+        Inventory[3, 11] = 0;
 
         //Upgrades Count (Supplements, Feed, Incubator, Research)
         Inventory[3, 7] = 0;
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
-    }
 
+    }
     void Update()
     {
         CheckGameOver();
@@ -150,7 +158,7 @@ public class ShopManager : MonoBehaviour
                 //Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
 
                 //Recalculate the price: Price = BasePrice * 1.1^(Count + 1)
-                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.1f, Inventory[3, itemId] + 1));
+                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
 
                 /*
                 // Disable the button if the count reaches 3
@@ -162,7 +170,7 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    void SpawnChicken(int itemId)
+    public void SpawnChicken(int itemId)
     {
         int index = itemId - 1;
         if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
@@ -171,6 +179,9 @@ public class ShopManager : MonoBehaviour
 
             // Set chicken as child of screen
             newChicken.transform.SetParent(screenSection.transform);
+
+            NewChickenAI newChickenAI = newChicken.GetComponent<NewChickenAI>(); //Added for drag instances
+            newChickenAI.shopManager = this;
 
             FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
             AnimatedEggSpawner eggScript = newChicken.GetComponent<AnimatedEggSpawner>();
@@ -366,7 +377,61 @@ public class ShopManager : MonoBehaviour
         ResetGame();
         GameOverWindow.SetActive(false);
     }
+    public void onReturnButtonTimerMode()
+    {
+        ResetTimerMode();
+        Score.gameObject.SetActive(false);
+    }
 
+    /* Below handles Timer Mode */
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownRoutine());
+    }
+
+    private IEnumerator CountdownRoutine()
+    {
+        while (Timer > 0)
+        {
+            Timer -= Time.deltaTime;
+            UpdateTimerDisplay();
+            yield return null;
+        }
+
+        Timer = 0;
+        DisplayScore();
+    }
+
+    void UpdateTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(Timer / 60);
+        int seconds = Mathf.FloorToInt(Timer % 60);
+        CountdownText.text = $"{minutes:D2}:{seconds:D2}"; // Formats as MM:SS
+    }
+    void DisplayScore()
+    {
+        CountdownText.gameObject.SetActive(false);
+
+        // Destroy objects on the screen section
+        Transform screenSectionTransform = screenSection.transform;
+        GameObject[] draggableObjects = screenSectionTransform.GetComponentsInChildren<Transform>()
+            .Where(t => t.CompareTag("Draggable"))
+            .Select(t => t.gameObject)
+            .ToArray();
+
+        foreach (GameObject obj in draggableObjects)
+        {
+            Destroy(obj);
+        }
+
+        // Destroy Foxes
+        GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
+        foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
+
+        //Displays Total Count
+        Score.text = $"Time's up!\nYour Score: {chickensCount+chicksCount+eggsCount}!";
+        Score.gameObject.SetActive(true);
+    }
 
     /*
      * Reset Game State function
@@ -393,6 +458,14 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
+        Inventory[3, 7] = 0;
+        Inventory[3, 8] = 0;
+        Inventory[3, 9] = 0;
+        Inventory[3, 10] = 0;
+        Inventory[2, 7] = 30;
+        Inventory[2, 8] = 10;
+        Inventory[2, 9] = 15;
+        Inventory[2, 10] = 50;
 
         UpdateUI();
 
@@ -406,6 +479,34 @@ public class ShopManager : MonoBehaviour
             Debug.LogWarning("ScreenController not found on " + screenSection.name);
         }
     }
-    /****************************************************************/
+    /*
+    * Reset Game State function
+    */
+    public void ResetTimerMode()
+    {
+        chickensCount = 0;
+        chicksCount = 0;
+        eggsCount = 0;
+        Inventory[3, 7] = 0;
+        Inventory[3, 8] = 0;
+        Inventory[3, 9] = 0;
+        Inventory[3, 10] = 0;
+        Inventory[2, 7] = 30;
+        Inventory[2, 8] = 10;
+        Inventory[2, 9] = 15;
+        Inventory[2, 10] = 50;
+        Timer = 120f;
 
+        //Reset UI elements
+        UpdateUI();
+        CountdownText.gameObject.SetActive(true);
+        UpdateTimerDisplay();
+
+        // Call the ReturnToTitlePage function
+        if (screenController != null)
+        {
+            screenController.ReturnToTitlePage();
+        }
+    }
+    /****************************************************************/
 }

@@ -118,6 +118,7 @@ public class ClicktoHatch : MonoBehaviour
             Destroy(gameObject);
 
             GameObject newChick = Instantiate(chickObject, transform.position, transform.rotation);
+            newChick.transform.SetParent(transform.parent);
             shopManager.HatchEgg();
 
             //IMPORTANT: Currently eggs spawn chickens. If this changes and chicks are implemented, change below to "CHICK"

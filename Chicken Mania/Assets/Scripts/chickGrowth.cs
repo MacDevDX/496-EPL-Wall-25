@@ -9,10 +9,12 @@ public class chickGrowth : MonoBehaviour
     public ShopManager shopManager;
     public FoxDirector FoxDir;
 
+    private ScreenController ScreenController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        growCountdown = timetoGrow;
+        growCountdown = shopManager.timeToGrow;
     }
 
     private void Awake()
@@ -32,7 +34,7 @@ public class chickGrowth : MonoBehaviour
             growCountdown = timetoGrow;
             Destroy(gameObject);
             GameObject newChicken = Instantiate(spawnChicken, transform.position, transform.rotation);
-            //newChicken.transform.SetParent(screenSection.transform);
+            newChicken.transform.SetParent(transform.parent);
 
             shopManager.ChickGrowsToChicken();
 

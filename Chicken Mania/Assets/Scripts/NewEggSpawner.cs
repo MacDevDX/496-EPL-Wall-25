@@ -17,7 +17,8 @@ public class NewEggSpawner : MonoBehaviour
 
     void Start()
     {
-        spawnCountdown = timetoSpawn;
+        //spawnCountdown = timetoSpawn;
+        spawnCountdown = shopManager.timeToSpawn;
         chickenAnimator = GetComponent<Animator>();
         chickenAI = GetComponent<NewChickenAI>();
         navMeshAgent = chickenAI.GetComponent<NavMeshAgent>(); // Get the NavMeshAgent
@@ -34,7 +35,7 @@ public class NewEggSpawner : MonoBehaviour
         if (shopManager.Inventory != null && shopManager.Inventory.Length > 3)
         {
             int upgradeLevel = shopManager.Inventory[3, 7];
-            timetoSpawn = Mathf.Clamp(10f - upgradeLevel, 5f, 10f);
+            timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn - upgradeLevel, 3f, 30f); //3f and 30f is min and max values
             spawnCountdown = Mathf.Min(spawnCountdown, timetoSpawn); // Adjust spawn countdown
         }
         if (isLayingEgg)
