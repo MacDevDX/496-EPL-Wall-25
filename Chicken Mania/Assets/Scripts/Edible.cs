@@ -20,7 +20,7 @@ public class Edible : MonoBehaviour
         InvokeRepeating("Decay", 1.0f, 0.5f);
         // store the material of this object for decay
         var renderers = this.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
-        if (renderers[0] != null )
+        if (renderers.Length >= 2 )
         {
             mat = renderers[0].material;
             mat2 = renderers[1].material;
