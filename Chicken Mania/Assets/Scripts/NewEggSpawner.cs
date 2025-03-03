@@ -72,6 +72,9 @@ public class NewEggSpawner : MonoBehaviour
         newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
         newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
 
+        // register this egg for decaying
+        shopManager.EggDecay.edibleList.Add(newEgg.GetComponent<Edible>());
+
         isLayingEgg = false;
         //navMeshAgent.isStopped = false; // Re-enable movement
         chickenAI.StopMovement(false); // Resume movement
