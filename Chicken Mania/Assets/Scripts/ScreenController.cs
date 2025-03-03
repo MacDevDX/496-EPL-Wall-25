@@ -9,7 +9,20 @@ public class ScreenController : MonoBehaviour
     public GameObject shopManager; // Assign ShopManager in the Inspector
     public string screenName;   // For debugging purposes
 
+    public GameObject GameUI_TimerMode;
+    public GameObject ManiaModeButton; //Assign button for Mania Mode in the Inspector
+    public GameObject TimerModeButton; //Assign button for Timed Mode in the Inspector
+    public GameObject TycoonModeButton; //Assign button for Tycoon Mode in the Inspector
+    
     private TapGesture tapGesture; // TouchScript's Tap Gesture
+
+    public ShopManager shopManagerScript; // Reference to ShopManager script
+    public InactivityHandler InactivityScript; // Reference to InactivityHandler script
+
+    private bool gameModeStarted = false;
+
+    public float timetoGrow = 10f;
+    public float timetoSpawn = 10f;
 
     private void OnEnable()
     {
@@ -41,22 +54,125 @@ public class ScreenController : MonoBehaviour
 
     private void OnTap(object sender, System.EventArgs e)
     {
-        StartGame();
+        GameObject tappedObject = ((Component)sender).gameObject;
+
+        if (tappedObject == ManiaModeButton)
+        {
+            StartGame();
+        }
+        else if (tappedObject == TimerModeButton)
+        {
+            TGameMode();
+        }
+        else if (tappedObject == TycoonModeButton)
+        {
+            StartTycoonGameMode();
+        }
     }
 
     public void StartGame()
     {
         startUI.SetActive(false);  // Hide start UI
         gameUI.SetActive(true);    // Show in-game UI
+
+        CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = gameUI.AddComponent<CanvasGroup>();
+        }
+        canvasGroup.alpha = 255;  // Make it visible
+        canvasGroup.interactable = true;  // enable interaction
+        canvasGroup.blocksRaycasts = true; // blocks clicks
+
         gameObjects.SetActive(true); // Activate game objects
         shopManager.SetActive(true); // Activate shop manager
+
+        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        shopManagerScript.timeToGrow = 10f;
+        shopManagerScript.timeToSpawn = 10f;
+    }
+
+    public void StartTycoonGameMode()
+    {
+        startUI.SetActive(false);  // Hide start UI
+        gameUI.SetActive(true);    // Show in-game UI
+
+        CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = gameUI.AddComponent<CanvasGroup>();
+        }
+        canvasGroup.alpha = 255;  // Make it visible
+        canvasGroup.interactable = true;  // enable interaction
+        canvasGroup.blocksRaycasts = true; // blocks clicks
+
+        gameObjects.SetActive(true); // Activate game objects
+        shopManager.SetActive(true); // Activate shop manager
+
+        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        shopManagerScript.timeToGrow = 50f;
+        shopManagerScript.timeToSpawn = 30f;
     }
 
     public void ReturnToTitlePage()
     {
+        GameUI_TimerMode.SetActive(false);
         gameUI.SetActive(false);
         gameObjects.SetActive(false);
         shopManager.SetActive(false);
         startUI.SetActive(true);
+        gameModeStarted = false;
+    }
+
+    public void TGameMode()
+    {
+        if (!gameModeStarted)
+        {
+            startUI.SetActive(false);  // Hide start UI
+            gameObjects.SetActive(true); // Activate game objects
+            shopManager.SetActive(true); // Activate shop manager
+            gameUI.SetActive(true);
+            CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = gameUI.AddComponent<CanvasGroup>();
+            }
+            canvasGroup.alpha = 0;  // Make it fully transparent
+            canvasGroup.interactable = false;  // Disable interaction
+            canvasGroup.blocksRaycasts = false; // Prevents blocking clicks
+
+            GameUI_TimerMode.SetActive(true);
+            shopManagerScript.StartCountdown();
+            //shopManagerScript.Inventory[3, 9] = 2;  //DOESN'T SET INITIALLY
+            shopManagerScript.timeToGrow = 7f;
+            shopManagerScript.timeToSpawn = 7f;
+
+            // Randomly spawn 10 chickens
+            for (int i = 0; i < 10; i++)
+            {
+                int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
+                if (itemId >= 1 && itemId <= 6)
+                {
+                    shopManagerScript.SpawnChicken(itemId);
+                    shopManagerScript.AddChicken();
+                }
+
+            }
+            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            gameModeStarted = true;
+        }
+        /*
+        // If somehow they lose all chickens/chicks/eggs then.. spawn 1 so doesn't trigger the normal Gamemode's gameover
+        // Probably not needed because if money=20, they will stay until timer reaches 0.. for proper exit
+        if (shopManagerScript.chickensCount + shopManagerScript.chicksCount + shopManagerScript.eggsCount <= 0)
+        {
+            int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
+            if (itemId >= 1 && itemId <= 6)
+            {
+                shopManagerScript.SpawnChicken(itemId);
+                shopManagerScript.AddChicken();
+            }
+        }
+        */
     }
 }

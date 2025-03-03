@@ -89,7 +89,7 @@ PrefabInstance:
       addedObject: {fileID: -4140252843346367934}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 744de06d4a0f21d4abc8be7fd5bc5f85, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8389137641937567082}
+      addedObject: {fileID: -2706735249251186536}
   m_SourcePrefab: {fileID: 100100000, guid: 744de06d4a0f21d4abc8be7fd5bc5f85, type: 3}
 --- !u!1 &1680277712845598054 stripped
 GameObject:
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f059eef859945274da35680a31ad04f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapsRequired: 0
-  foxSpeed: 0
+  tapsRequired: 3
+  foxSpeed: 5
   devourCooldown: 0
   devourSpreeCD: 0
   directorRef: {fileID: 0}
@@ -243,25 +243,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &8389137641937567082
-Animator:
-  serializedVersion: 7
+--- !u!114 &-2706735249251186536
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680277712845598054}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a11b1020f592784e9cb6956a29cb9ee, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba67d04e07d3491989322c6414feaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  flickTime: 0.1
+  minDistance: 1
+  movementThreshold: 0.5
+  direction: 0
