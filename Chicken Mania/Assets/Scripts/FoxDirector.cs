@@ -48,6 +48,7 @@ public class FoxDirector : MonoBehaviour
             SpawnFox();
             initialFox = false;
         }
+        // remove all null values, eg gameobjects that have been destroyed
         chickenList.RemoveAll(x => !x);
 
         int spawnTarget = chickenList.Count / 5;

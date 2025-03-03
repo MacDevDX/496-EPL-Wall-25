@@ -35,6 +35,7 @@ public class ShopManager : MonoBehaviour
     public GameObject ShopWindow;
     public GameObject UpgradeWindow;
     public FoxDirector FoxDir;
+    public EggDecayer EggDecay;
 
     // Screen Section
     public GameObject screenSection;
