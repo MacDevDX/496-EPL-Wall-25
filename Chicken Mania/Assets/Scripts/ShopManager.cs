@@ -236,7 +236,9 @@ public class ShopManager : MonoBehaviour
     {
         if (ShopWindow != null)
         {
-            ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
+            bool isActive = !ShopWindow.activeSelf;
+            ShopWindow.SetActive(isActive);
+            ToggleGamePause(isActive);
         }
     }
 
@@ -244,8 +246,15 @@ public class ShopManager : MonoBehaviour
     {
         if (UpgradeWindow != null)
         {
-            UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
+            bool isActive = !UpgradeWindow.activeSelf;
+            UpgradeWindow.SetActive(isActive);
+            ToggleGamePause(isActive);
         }
+    }
+
+    private void ToggleGamePause(bool isPaused)
+    {
+        //Time.timeScale = isPaused ? 0f : 1f;  // Pause or resume time but for all
     }
     /****************************************************************/
 
