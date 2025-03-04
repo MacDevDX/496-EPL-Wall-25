@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 using TouchScript.Examples.RawInput;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
+using TouchScript.Gestures;
 
 public class ShopManager : MonoBehaviour
 {
@@ -49,11 +50,20 @@ public class ShopManager : MonoBehaviour
     public float timeToSpawn = 10f;
     public GameObject lastSpawnedChicken;
 
+    private TapGesture tapGesture;
+
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();
         Money_Text.text = Money.ToString();
         UpdateUI();
+
+        tapGesture = screenController.GetComponent<TapGesture>();
+
+        if (tapGesture != null)
+        {
+            tapGesture.Tapped += OnUserInteraction;
+        }
 
         /*--------------------------------------------------------------------------
          *************************************************************************** 
@@ -249,6 +259,20 @@ public class ShopManager : MonoBehaviour
             bool isActive = !UpgradeWindow.activeSelf;
             UpgradeWindow.SetActive(isActive);
             ToggleGamePause(isActive);
+        }
+    }
+    private void OnUserInteraction(object sender, System.EventArgs e)
+    {
+        if (ShopWindow.activeSelf)
+        {
+            ShopWindow.SetActive(false);
+            ToggleGamePause(false);
+        }
+
+        if (UpgradeWindow.activeSelf)
+        {
+            UpgradeWindow.SetActive(false);
+            ToggleGamePause(false);
         }
     }
 
