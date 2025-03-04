@@ -1,6 +1,5 @@
 using UnityEngine;
 using TouchScript.Gestures;
-using UnityEngine.WSA;
 
 public class ScreenController : MonoBehaviour
 {

@@ -1,4 +1,3 @@
-
 using System;
 using System.Linq;
 using System.Collections;
@@ -10,8 +9,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using TouchScript.Examples.RawInput;
-using static UnityEditor.Progress;
-using JetBrains.Annotations;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 
