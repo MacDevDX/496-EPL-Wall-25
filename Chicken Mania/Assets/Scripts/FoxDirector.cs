@@ -86,8 +86,19 @@ public class FoxDirector : MonoBehaviour
     }
 
     public void SpawnFox()
-    {
-        GameObject newFox = Instantiate(foxObject, transform.position, transform.rotation);
+    {    
+        // Define the spawn range
+        float spawnRangeX = 5f; // Range for X-axis
+        float spawnRangeZ = 5f; // Range for Z-axis
+
+        // Randomize the spawn position within the range
+        Vector3 randomizedPosition = new Vector3(
+            transform.position.x + Random.Range(-spawnRangeX, spawnRangeX),
+            transform.position.y, // Maintain the original Y position
+            transform.position.z + Random.Range(-spawnRangeZ, spawnRangeZ)
+        );
+
+        GameObject newFox = Instantiate(foxObject, randomizedPosition, transform.rotation);
         FoxBehavior newFoxScript = newFox.GetComponent<FoxBehavior>();
         newFoxScript.directorRef = this;
 

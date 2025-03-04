@@ -516,17 +516,21 @@ public class ShopManager : MonoBehaviour
     private IEnumerator UpdateFoxesPer5ChickensRoutine()
     {
         int foxesToSpawn = 1;
-
+        
         while (Timer > 0)
         {
-            yield return new WaitForSeconds(5f);
-            //FoxDir.foxesPer5Chickens += 5f; // Does not work because int conversion = 0
-            for (int i = 0; i < foxesToSpawn; i++)
+            if (chickensCount == 1)
             {
-                FoxDir.SpawnFox();
-                yield return new WaitForSeconds(0.5f); // Small delay between each fox spawn (0.5 seconds)
+                yield return new WaitForSeconds(5f);
+                //FoxDir.foxesPer5Chickens += 5f; // Does not work because int conversion = 0
+                for (int i = 0; i < foxesToSpawn; i++)
+                {
+                    FoxDir.SpawnFox();
+                    yield return new WaitForSeconds(0.5f); // Small delay between each fox spawn (0.5 seconds)
+                }
+                foxesToSpawn += 2;
             }
-            foxesToSpawn += 2;
+            else yield return new WaitForSeconds(5f);
         }
     }
     void UpdateTimerDisplayPGM()
