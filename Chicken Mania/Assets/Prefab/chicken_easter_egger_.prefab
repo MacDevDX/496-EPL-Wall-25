@@ -280,6 +280,7 @@ MonoBehaviour:
   maxIdleTime: 3
   minPeckTime: 1
   maxPeckTime: 2
+  shopManager: {fileID: 0}
 --- !u!114 &524584136040814107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +419,7 @@ MonoBehaviour:
   OnTransformComplete:
     m_PersistentCalls:
       m_Calls: []
-  type: 7
+  type: 1
   screenTransformThreshold: 0.1
   minScreenPointsDistance: 0.5
   projectionProps: 0

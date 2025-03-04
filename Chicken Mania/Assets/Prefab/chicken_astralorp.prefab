@@ -77,6 +77,10 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924968899829501402, guid: bd23100ca3d544142845f30597f1ce5c, type: 3}
       propertyPath: projectionPlaneNormal.y
       value: 1
       objectReference: {fileID: 0}
