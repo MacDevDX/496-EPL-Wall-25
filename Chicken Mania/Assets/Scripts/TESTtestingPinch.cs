@@ -17,11 +17,13 @@ public class TESTtestingPinch : MonoBehaviour
     private void OnEnable()
     {
         GetComponent<PinchGesture>().StateChanged += pinchHandler;
+        GetComponent<Pinch2>().StateChanged += pinchHandler;
     }
 
     private void OnDisable()
     {
         GetComponent<PinchGesture>().StateChanged -= pinchHandler;
+        GetComponent<Pinch2>().StateChanged -= pinchHandler;
     }
 
     private void pinchHandler(object sender, GestureStateChangeEventArgs e)

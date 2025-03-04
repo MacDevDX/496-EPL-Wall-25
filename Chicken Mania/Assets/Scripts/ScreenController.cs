@@ -1,5 +1,6 @@
 using UnityEngine;
 using TouchScript.Gestures;
+using UnityEngine.WSA;
 
 public class ScreenController : MonoBehaviour
 {
@@ -146,7 +147,7 @@ public class ScreenController : MonoBehaviour
             //shopManagerScript.Inventory[3, 9] = 2;  //DOESN'T SET INITIALLY
             shopManagerScript.timeToGrow = 7f;
             shopManagerScript.timeToSpawn = 7f;
-
+            /*
             // Randomly spawn 10 chickens
             for (int i = 0; i < 10; i++)
             {
@@ -158,6 +159,7 @@ public class ScreenController : MonoBehaviour
                 }
 
             }
+            */
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
@@ -174,5 +176,43 @@ public class ScreenController : MonoBehaviour
             }
         }
         */
+
+    }
+    public void ProtectGameMode()
+    {
+        if (!gameModeStarted)
+        {
+            startUI.SetActive(false);  // Hide start UI
+            gameObjects.SetActive(true); // Activate game objects
+            shopManager.SetActive(true); // Activate shop manager
+            gameUI.SetActive(true);
+            CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = gameUI.AddComponent<CanvasGroup>();
+            }
+            canvasGroup.alpha = 0;  // Make it fully transparent
+            canvasGroup.interactable = false;  // Disable interaction
+            canvasGroup.blocksRaycasts = false; // Prevents blocking clicks
+
+            GameUI_TimerMode.SetActive(true);
+            shopManagerScript.StartCountdownPGM();
+
+            //int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
+            //shopManagerScript.SpawnChicken(itemId);
+            //shopManagerScript.AddChicken();
+            //GameObject spawnedChicken = shopManagerScript.lastSpawnedChicken;
+            //shopManagerScript.FoxDir.setupNewEdible(spawnedChicken, shopManagerScript, shopManagerScript.FoxDir, "CHICKEN");
+
+            //shopManagerScript.FoxDir.spawnTick = 2;
+            //shopManagerScript.FoxDir.foxesPer5Chickens = 5f;
+            shopManagerScript.timeToSpawn = 600f;
+
+
+            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            gameModeStarted = true;
+        }
+
+
     }
 }

@@ -10,6 +10,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using TouchScript.Examples.RawInput;
+using static UnityEditor.Progress;
+using JetBrains.Annotations;
+using TouchScript.Behaviors;
+using TouchScript.Gestures.TransformGestures;
 
 public class ShopManager : MonoBehaviour
 {
@@ -24,6 +28,7 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI CountdownText;
     public TextMeshProUGUI Score;
+    public TextMeshProUGUI tutorialTextPGM;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -45,6 +50,7 @@ public class ShopManager : MonoBehaviour
     private float Timer = 120f;
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
+    public GameObject lastSpawnedChicken;
 
     void Start()
     {
@@ -179,6 +185,7 @@ public class ShopManager : MonoBehaviour
 
             // Set chicken as child of screen
             newChicken.transform.SetParent(screenSection.transform);
+            lastSpawnedChicken = newChicken;  // Store reference
 
             NewChickenAI newChickenAI = newChicken.GetComponent<NewChickenAI>(); //Added for drag instances
             newChickenAI.shopManager = this;
@@ -383,12 +390,41 @@ public class ShopManager : MonoBehaviour
         Score.gameObject.SetActive(false);
     }
 
-    /* Below handles Timer Mode */
+    /***************************************** Below handles Timer Mode *****************************************/
     public void StartCountdown()
     {
         StartCoroutine(CountdownRoutine());
+        StartCoroutine(StartingTimedMode());
     }
+    private IEnumerator StartingTimedMode()
+    {
+        tutorialTextPGM.gameObject.SetActive(true);
+        int timeLeft = 5; // Starting countdown
+        while (timeLeft > 0)
+        {
+            tutorialTextPGM.text = $"Hatch the eggs! \nStarting in {timeLeft} seconds...";
+            yield return new WaitForSeconds(1f);
+            timeLeft--;
+        }
 
+        tutorialTextPGM.text = "GO!";
+        yield return new WaitForSeconds(1f);
+        tutorialTextPGM.gameObject.SetActive(false);
+
+        // Randomly spawn 10 chickens
+        for (int i = 0; i < 10; i++)
+        {
+            int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
+            if (itemId >= 1 && itemId <= 6)
+            {
+                SpawnChicken(itemId);
+                AddChicken();
+            }
+
+        }
+
+        StartCoroutine(CountdownRoutine());
+    }
     private IEnumerator CountdownRoutine()
     {
         while (Timer > 0)
@@ -433,9 +469,111 @@ public class ShopManager : MonoBehaviour
         Score.gameObject.SetActive(true);
     }
 
-    /*
-     * Reset Game State function
-     */
+    /***************************************************** Below handles Protect Game Mode ****************************************************/
+    public void StartCountdownPGM()
+    {
+        StartCoroutine(StartingPGM());
+    }
+    private IEnumerator StartingPGM()
+    {
+        tutorialTextPGM.gameObject.SetActive(true);
+        int timeLeft = 5; // Starting countdown
+        while (timeLeft > 0)
+        {
+            tutorialTextPGM.text = $"Protect the chicken from foxes! \nStarting in {timeLeft} seconds...";
+            yield return new WaitForSeconds(1f);
+            timeLeft--;
+        }
+
+        tutorialTextPGM.text = "GO!";
+        yield return new WaitForSeconds(1f);
+        tutorialTextPGM.gameObject.SetActive(false);
+
+        int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
+        SpawnChicken(itemId);
+        AddChicken();
+        StartCoroutine(CountdownRoutinePGM());
+        StartCoroutine(UpdateFoxesPer5ChickensRoutine());
+    }
+
+    private IEnumerator CountdownRoutinePGM()
+    {
+        while (Timer > 0)
+        {
+            Timer -= Time.deltaTime;
+            UpdateTimerDisplayPGM();
+            if (chickensCount == 0)
+            {
+                DisplayScorePGM();
+            }
+
+            yield return null;
+        }
+
+        Timer = 0;
+        DisplayScorePGM();
+    }
+    private IEnumerator UpdateFoxesPer5ChickensRoutine()
+    {
+        int foxesToSpawn = 1;
+
+        while (Timer > 0)
+        {
+            yield return new WaitForSeconds(5f);
+            //FoxDir.foxesPer5Chickens += 5f; // Does not work because int conversion = 0
+            for (int i = 0; i < foxesToSpawn; i++)
+            {
+                FoxDir.SpawnFox();
+                yield return new WaitForSeconds(0.5f); // Small delay between each fox spawn (0.5 seconds)
+            }
+            foxesToSpawn += 2;
+        }
+    }
+    void UpdateTimerDisplayPGM()
+    {
+        int minutes = Mathf.FloorToInt(Timer / 60);
+        int seconds = Mathf.FloorToInt(Timer % 60);
+        CountdownText.text = $"{minutes:D2}:{seconds:D2}"; // Formats as MM:SS
+    }
+    void DisplayScorePGM()
+    {
+        CountdownText.gameObject.SetActive(false);
+
+        // Destroy objects on the screen section
+        Transform screenSectionTransform = screenSection.transform;
+        GameObject[] draggableObjects = screenSectionTransform.GetComponentsInChildren<Transform>()
+            .Where(t => t.CompareTag("Draggable"))
+            .Select(t => t.gameObject)
+            .ToArray();
+
+        foreach (GameObject obj in draggableObjects)
+        {
+            Destroy(obj);
+        }
+
+        // Destroy Foxes
+        GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
+        foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
+
+        //Resets the values to before game started
+        FoxDir.spawnTick = 10;
+        FoxDir.foxesPer5Chickens = 1f;
+
+        if (chickensCount == 0)
+        {
+            Score.text = "You lost your chicken!";
+        }
+        else if (chickensCount >= 1)
+        {
+            Score.text = "Time's up!\nYour chicken survived!";
+        }
+        Score.gameObject.SetActive(true);
+    }
+
+
+    
+     /*************************************************** Reset Game State function *************************************************/
+     
     public void ResetGame()
     {
         // Destroy objects on the screen section
