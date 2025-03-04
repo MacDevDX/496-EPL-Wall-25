@@ -13,7 +13,7 @@ public class PinchGestureHandler : MonoBehaviour
         transformGesture = GetComponent<TransformGesture>();
         if (transformGesture != null)
         {
-            transformGesture.TransformStarted += OnTransformStarted;
+            //transformGesture.TransformStarted += OnTransformStarted;
             transformGesture.Transformed += OnTransformed;
         }
     }
@@ -22,7 +22,7 @@ public class PinchGestureHandler : MonoBehaviour
     {
         if (transformGesture != null)
         {
-            transformGesture.TransformStarted -= OnTransformStarted;
+            //transformGesture.TransformStarted -= OnTransformStarted;
             transformGesture.Transformed -= OnTransformed;
         }
     }
@@ -35,10 +35,22 @@ public class PinchGestureHandler : MonoBehaviour
     private void OnTransformed(object sender, EventArgs e)
     {
         var gesture = sender as TransformGesture;
+        /*
         if (gesture != null)
         {
             float scaleFactor = gesture.DeltaScale;
             transform.localScale = new Vector3(initialScale * scaleFactor, initialScale * scaleFactor, initialScale * scaleFactor);
+        }
+        */
+        if (gesture != null)
+        {
+            float scaleFactor = gesture.DeltaScale;
+
+            if (scaleFactor < 0.9f)
+            {
+                Destroy(gameObject);
+            }
+
         }
     }
 }
