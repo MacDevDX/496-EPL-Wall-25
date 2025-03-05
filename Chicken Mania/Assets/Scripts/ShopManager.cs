@@ -12,6 +12,7 @@ using TouchScript.Examples.RawInput;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 using TouchScript.Gestures;
+using UnityEngine.WSA;
 
 public class ShopManager : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class ShopManager : MonoBehaviour
     private float Timer = 120f;
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
+    public float FoxDetection = 0f;
     public GameObject lastSpawnedChicken;
 
     private TapGesture tapGesture;
@@ -522,6 +524,9 @@ public class ShopManager : MonoBehaviour
         int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
         SpawnChicken(itemId);
         AddChicken();
+        NewChickenAI newChickenAI = lastSpawnedChicken.GetComponent<NewChickenAI>();
+        newChickenAI.foxDetectionRadius = 10f;
+
         StartCoroutine(CountdownRoutinePGM());
         StartCoroutine(UpdateFoxesPer5ChickensRoutine());
     }
@@ -550,13 +555,17 @@ public class ShopManager : MonoBehaviour
         while (Timer > 0)
         {
             yield return new WaitForSeconds(5f);
-            //FoxDir.foxesPer5Chickens += 5f; // Does not work because int conversion = 0
-            for (int i = 0; i < foxesToSpawn; i++)
+            if (chickensCount == 1)
             {
-                FoxDir.SpawnFox();
-                yield return new WaitForSeconds(0.5f); // Small delay between each fox spawn (0.5 seconds)
+                //FoxDir.foxesPer5Chickens += 5f; // Does not work because int conversion = 0
+                for (int i = 0; i < foxesToSpawn; i++)
+                {
+                    FoxDir.SpawnFox();
+                    yield return new WaitForSeconds(0.5f); // Small delay between each fox spawn (0.5 seconds)
+                }
+                foxesToSpawn += 2;
             }
-            foxesToSpawn += 2;
+            else yield return new WaitForSeconds(5f);
         }
     }
     void UpdateTimerDisplayPGM()
@@ -586,8 +595,8 @@ public class ShopManager : MonoBehaviour
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
         //Resets the values to before game started
-        FoxDir.spawnTick = 10;
-        FoxDir.foxesPer5Chickens = 1f;
+        //FoxDir.spawnTick = 10;
+        //FoxDir.foxesPer5Chickens = 1f;
 
         if (chickensCount == 0)
         {
@@ -635,7 +644,7 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 9] = 15;
         Inventory[2, 10] = 50;
         dragZone.SetActive(false);
-
+        GameOverWindow.SetActive(false);
         UpdateUI();
 
         // Call the ReturnToTitlePage function
@@ -666,8 +675,7 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 10] = 50;
         Timer = 120f;
         dragZone.SetActive(false);
-
-
+        FoxDir.foxList.Clear();
         //Reset UI elements
         UpdateUI();
         CountdownText.gameObject.SetActive(true);

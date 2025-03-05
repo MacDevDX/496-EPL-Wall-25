@@ -7,7 +7,7 @@ public class NewChickenAI : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float movementSpeed = 2f;
-    public float foxDetectionRadius = 10f;
+    public float foxDetectionRadius = 0f;
     public LayerMask foxLayer;
 
     [Header("Wander Timing Settings")]

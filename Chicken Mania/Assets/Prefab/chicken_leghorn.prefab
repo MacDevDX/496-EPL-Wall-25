@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  foxDetectionRadius: 10
+  foxDetectionRadius: 0
   foxLayer:
     serializedVersion: 2
     m_Bits: 512

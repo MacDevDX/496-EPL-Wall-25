@@ -88,8 +88,8 @@ public class FoxDirector : MonoBehaviour
     public void SpawnFox()
     {    
         // Define the spawn range
-        float spawnRangeX = 5f; // Range for X-axis
-        float spawnRangeZ = 5f; // Range for Z-axis
+        float spawnRangeX = 4f; // Range for X-axis
+        float spawnRangeZ = 4f; // Range for Z-axis
 
         // Randomize the spawn position within the range
         Vector3 randomizedPosition = new Vector3(
