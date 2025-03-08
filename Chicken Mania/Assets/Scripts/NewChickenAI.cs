@@ -30,6 +30,7 @@ public class NewChickenAI : MonoBehaviour
 
     public ShopManager shopManager;
     private NewEggSpawner eggSpawner;
+    private bool menuIsOpen = false;
 
     void Start()
     {
@@ -48,7 +49,8 @@ public class NewChickenAI : MonoBehaviour
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
-        
+        shopManager.MenuOpen += HandleMenuOpen;
+
         StartCoroutine(Wander());
     }
 
@@ -106,6 +108,11 @@ public class NewChickenAI : MonoBehaviour
         while (!isLayingEgg && !isRunningFromFox)
         {
             int action = Random.Range(0, 3);
+            if (menuIsOpen)
+            {
+                action = 1;
+            }
+
             if (action == 0)
             {
                 animator.SetTrigger("walk");
@@ -171,6 +178,12 @@ public class NewChickenAI : MonoBehaviour
     {
         agent.isStopped = stop;
         isStationary = stop;
+    }
+
+    void HandleMenuOpen(object sender, MenuOpenEventArgs a)
+    {
+        Debug.Log("Got menu open event with status:" + a.State);
+        menuIsOpen = a.State;
     }
 
 }

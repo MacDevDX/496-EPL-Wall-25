@@ -47,6 +47,10 @@ public class ShopManager : MonoBehaviour
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
 
+    // Pause Broadcast
+    public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
+    public event MenuOpenEventHandler MenuOpen;
+
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();
@@ -122,6 +126,11 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         CheckGameOver();
+    }
+
+    protected virtual void OnMenuOpen(MenuOpenEventArgs e)
+    {
+        MenuOpen?.Invoke(this, e);
     }
 
     public void Buy()
@@ -234,6 +243,7 @@ public class ShopManager : MonoBehaviour
         if (ShopWindow != null)
         {
             ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
+            OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
         }
     }
 
@@ -242,6 +252,7 @@ public class ShopManager : MonoBehaviour
         if (UpgradeWindow != null)
         {
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
+            OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
         }
     }
     /****************************************************************/
@@ -510,4 +521,15 @@ public class ShopManager : MonoBehaviour
         }
     }
     /****************************************************************/
+}
+
+
+public class MenuOpenEventArgs : EventArgs
+{
+    public bool State { get; set; }
+
+    public MenuOpenEventArgs(bool state)
+    { 
+        this.State = state;
+    }
 }
