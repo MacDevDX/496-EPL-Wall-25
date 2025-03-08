@@ -62,22 +62,12 @@ public class Edible : MonoBehaviour
             CancelInvoke();
         }
 
-        if (eggDecay == 2)
+        if (eggDecay == 3)
         {
-            var decayCol1 = Color.white;
-            decayCol1.a = 0.1f;
+            var decayCol1 = new Color (0.635f, 0.667f, 0.596f);
 
             mat.SetColor("_BaseColor", decayCol1);
             mat2.SetColor("_BaseColor", decayCol1);
-        }
-
-        if (eggDecay == 3)
-        {
-            var decayCol2 = Color.white;
-            decayCol2.a = 0.03f;
-
-            mat.SetColor("_BaseColor", decayCol2);
-            mat2.SetColor("_BaseColor", decayCol2);
         }
 
         if (eggDecay >= 4)
