@@ -58,6 +58,10 @@ public class ShopManager : MonoBehaviour
 
     private GameObject activeSellZone; 
 
+    // Pause Broadcast
+    public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
+    public event MenuOpenEventHandler MenuOpen;
+
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();
@@ -140,6 +144,11 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         CheckGameOver();
+    }
+
+    protected virtual void OnMenuOpen(MenuOpenEventArgs e)
+    {
+        MenuOpen?.Invoke(this, e);
     }
 
     public void Buy()
@@ -262,10 +271,8 @@ public class ShopManager : MonoBehaviour
     {
         if (ShopWindow != null && !isGameOver)
         {
-            CloseAllWindows();
-            bool isActive = !ShopWindow.activeSelf;
-            ShopWindow.SetActive(isActive);
-            ToggleGamePause(isActive);
+            ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
+            OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
         }
     }
 
@@ -273,10 +280,8 @@ public class ShopManager : MonoBehaviour
     {
         if (UpgradeWindow != null && !isGameOver)
         {
-            CloseAllWindows();
-            bool isActive = !UpgradeWindow.activeSelf;
-            UpgradeWindow.SetActive(isActive);
-            ToggleGamePause(isActive);
+            UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
+            OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
         }
     }
     public void CloseAllWindows()
@@ -730,4 +735,15 @@ public class ShopManager : MonoBehaviour
         }
     }
     /****************************************************************/
+}
+
+
+public class MenuOpenEventArgs : EventArgs
+{
+    public bool State { get; set; }
+
+    public MenuOpenEventArgs(bool state)
+    { 
+        this.State = state;
+    }
 }

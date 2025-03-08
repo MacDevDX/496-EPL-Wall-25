@@ -75,4 +75,5 @@ public class Edible : MonoBehaviour
             eaten = true;
         }
     }
+
 }

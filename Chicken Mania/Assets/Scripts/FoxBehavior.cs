@@ -21,6 +21,7 @@ public class FoxBehavior : MonoBehaviour
     private Rigidbody rBody;
     private Animator animator;
 
+    private bool menuIsOpen = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,11 +29,18 @@ public class FoxBehavior : MonoBehaviour
         rBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.SetBool("chasing", false);
+
+        directorRef.shopManagerScript.MenuOpen += HandleMenuOpen;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (menuIsOpen)
+        {
+            return;
+        }
+
         if (chickenTarget != null)
         {
             // aquire the vector pointing to the target
@@ -109,6 +117,10 @@ public class FoxBehavior : MonoBehaviour
 
 
 
+    void HandleMenuOpen(object sender, MenuOpenEventArgs a)
+    {
+        menuIsOpen = a.State;
+    }
 
 
 
@@ -127,6 +139,7 @@ public class FoxBehavior : MonoBehaviour
         //GetComponent<FlickGesture>().Flicked -= flickHandler;
         GetComponent<TransformGesture>().Transformed -= pinchHandler;
     }
+
 
     private void tappedHandler(object sender, System.EventArgs e)
     {
