@@ -54,6 +54,8 @@ public class ShopManager : MonoBehaviour
 
     private TapGesture tapGesture;
 
+    private GameObject activeSellZone; 
+
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();
@@ -238,16 +240,25 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleSell()
     {
-        if (dragZone != null)
+        if (activeSellZone == null && !isGameOver)
         {
-            dragZone.SetActive(!dragZone.activeSelf); //Toggle the DropZone/Sell
+            activeSellZone = Instantiate(dragZone, SpawnPoint.position, Quaternion.identity);
+            activeSellZone.transform.SetParent(transform.parent);
+            Sell sellScript = activeSellZone.GetComponent<Sell>();
+            sellScript.shopManager = this;
+        }
+        else
+        {
+            Destroy(activeSellZone);
+            activeSellZone = null;
         }
     }
 
     public void ToggleBuy()
     {
-        if (ShopWindow != null)
+        if (ShopWindow != null && !isGameOver)
         {
+            CloseAllWindows();
             bool isActive = !ShopWindow.activeSelf;
             ShopWindow.SetActive(isActive);
             ToggleGamePause(isActive);
@@ -256,12 +267,18 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleUpgrade()
     {
-        if (UpgradeWindow != null)
+        if (UpgradeWindow != null && !isGameOver)
         {
+            CloseAllWindows();
             bool isActive = !UpgradeWindow.activeSelf;
             UpgradeWindow.SetActive(isActive);
             ToggleGamePause(isActive);
         }
+    }
+    public void CloseAllWindows()
+    {
+        if (ShopWindow != null) ShopWindow.SetActive(false);
+        if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
     }
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
@@ -409,6 +426,10 @@ public class ShopManager : MonoBehaviour
         if (GameOverWindow != null)
         {
             GameOverWindow.SetActive(true);
+            ShopWindow.SetActive(false);
+            UpgradeWindow.SetActive(false);
+            Destroy(activeSellZone);
+            activeSellZone = null;
         }
     }
     public void onReturnButton()
@@ -643,8 +664,10 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 8] = 10;
         Inventory[2, 9] = 15;
         Inventory[2, 10] = 50;
-        dragZone.SetActive(false);
         GameOverWindow.SetActive(false);
+
+        Destroy(activeSellZone);
+        activeSellZone = null;
         UpdateUI();
 
         // Call the ReturnToTitlePage function
@@ -674,8 +697,8 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 9] = 15;
         Inventory[2, 10] = 50;
         Timer = 120f;
-        dragZone.SetActive(false);
         FoxDir.foxList.Clear();
+
         //Reset UI elements
         UpdateUI();
         CountdownText.gameObject.SetActive(true);

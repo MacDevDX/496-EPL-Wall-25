@@ -31,10 +31,11 @@ public class AnimatedEgg : MonoBehaviour
             rb.useGravity = false;
             rb.isKinematic = true;  // Prevent unwanted movement
         }
-
+        /*
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += OnDragEnd; // Detect drag release
+        */
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class AnimatedEgg : MonoBehaviour
             eggAnimator.SetTrigger("tap");
         }
     }
-
+    /*
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (shopManager.dragZone && shopManager.dragZone.activeSelf)
@@ -93,4 +94,5 @@ public class AnimatedEgg : MonoBehaviour
             currentDropZone = null;
         }
     }
+    */
 }

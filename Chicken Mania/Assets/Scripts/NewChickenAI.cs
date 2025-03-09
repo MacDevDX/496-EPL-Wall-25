@@ -44,11 +44,11 @@ public class NewChickenAI : MonoBehaviour
         rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
         rb.useGravity = false;
         rb.isKinematic = true;
-
+        /*
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
-        
+        */
         StartCoroutine(Wander());
     }
 
@@ -124,7 +124,7 @@ public class NewChickenAI : MonoBehaviour
             }
         }
     }
-
+    /*
     private void OnDrag(object sender, System.EventArgs e)
     {
         //if (!shopManager.dragZone.activeSelf) return;
@@ -145,12 +145,10 @@ public class NewChickenAI : MonoBehaviour
         if (currentDropZone != null)
             SellChicken();
     }
-
     private void SellChicken()
     {
         currentDropZone?.GetComponent<Sell>()?.GiveMoney(gameObject);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DropZone"))
@@ -162,7 +160,7 @@ public class NewChickenAI : MonoBehaviour
         if (other.CompareTag("DropZone"))
             currentDropZone = null;
     }
-
+    */
     public bool IsStationary()
     {
         return isStationary;
