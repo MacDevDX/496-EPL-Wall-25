@@ -20,9 +20,9 @@ public class ShopManager : MonoBehaviour
     public int Money;
     //public int startingMoney = 100000;
     public TextMeshProUGUI Money_Text;
-    public TextMeshProUGUI ChickensCount_Text;
-    public TextMeshProUGUI ChicksCount_Text;
-    public TextMeshProUGUI EggsCount_Text;
+    //public TextMeshProUGUI ChickensCount_Text;
+    //public TextMeshProUGUI ChicksCount_Text;
+    //public TextMeshProUGUI EggsCount_Text;
     public TextMeshProUGUI WinMessage;
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI CountdownText;
@@ -142,6 +142,8 @@ public class ShopManager : MonoBehaviour
 
     public void Buy()
     {
+        if (Money < Inventory[2, 1]) return;
+
         //References to the button clicked
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         int itemId = ButtonRef.GetComponent<ShopButtons>().ItemID;
@@ -392,11 +394,11 @@ public class ShopManager : MonoBehaviour
         }
     }
     /*** Chicks to Chicken ***/
-    private void UpdateUI()
+    public void UpdateUI()
     {
-        ChickensCount_Text.text = "Chickens: " + chickensCount;
-        ChicksCount_Text.text = "Chicks: " + chicksCount;
-        EggsCount_Text.text = "Eggs: " + eggsCount;
+        //ChickensCount_Text.text = "Chickens: " + chickensCount;
+        //ChicksCount_Text.text = "Chicks: " + chicksCount;
+        //EggsCount_Text.text = "Eggs: " + eggsCount;
 
         Money_Text.text = Money.ToString();
     }
@@ -426,8 +428,7 @@ public class ShopManager : MonoBehaviour
         if (GameOverWindow != null)
         {
             GameOverWindow.SetActive(true);
-            ShopWindow.SetActive(false);
-            UpgradeWindow.SetActive(false);
+            CloseAllWindows();
             Destroy(activeSellZone);
             activeSellZone = null;
         }
@@ -665,6 +666,7 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 9] = 15;
         Inventory[2, 10] = 50;
         GameOverWindow.SetActive(false);
+        isGameOver = false;
 
         Destroy(activeSellZone);
         activeSellZone = null;
