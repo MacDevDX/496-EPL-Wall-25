@@ -27,6 +27,7 @@ public class NewChicksAI : MonoBehaviour
     private GameObject currentDropZone;
 
     private ShopManager shopManager;
+    private bool menuIsOpen = false;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class NewChicksAI : MonoBehaviour
         agent.speed = movementSpeed;
 
         animator = GetComponent<Animator>();
+        shopManager.MenuOpen += HandleMenuOpen;
 
         rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
         rb.useGravity = false;
@@ -99,6 +101,12 @@ public class NewChicksAI : MonoBehaviour
         while (!isRunningFromFox)
         {
             int action = Random.Range(0, 3);
+
+            if (menuIsOpen)
+            {
+                action = 1;
+            }
+
             if (action == 0)
             {
                 animator.SetTrigger("walk");
@@ -155,6 +163,11 @@ public class NewChicksAI : MonoBehaviour
     {
         if (other.CompareTag("DropZone"))
             currentDropZone = null;
+    }
+
+    void HandleMenuOpen(object sender, MenuOpenEventArgs a)
+    {
+        menuIsOpen = a.State;
     }
 
 }
