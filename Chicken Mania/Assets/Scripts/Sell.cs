@@ -1,22 +1,83 @@
 using System.Collections;
+using System.Collections.Generic;
+using TouchScript.Gestures.TransformGestures;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sell : MonoBehaviour
 {
     [SerializeField]
     private string dropZoneTag = "DropZone";
+    private string sellableTag = "Draggable";
 
     public ShopManager shopManager;
 
-    private void OnTriggerEnter(Collider other)
+    private TransformGesture dragGesture;
+    private Rigidbody rb;
+    private bool isDragging = false;
+
+
+    void Start()
     {
-        if (other.CompareTag(dropZoneTag))
-        {
-            GiveMoney(gameObject);
-            Destroy(gameObject);
-        }
+        rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
+
+        dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
+        dragGesture.Transformed += OnDrag;
+        dragGesture.TransformCompleted += (s, e) => OnDragEnd();
+    }
+    private void OnDrag(object sender, System.EventArgs e)
+    {
+        isDragging = true;
+        //GetComponent<Collider>().enabled = false;
+        transform.position += dragGesture.DeltaPosition;
+        rb.MovePosition(transform.position + dragGesture.DeltaPosition);
     }
 
+    private void OnDragEnd()
+    {
+        isDragging = false;
+        //GetComponent<Collider>().enabled = true;
+    }
+    /*
+    private void CheckForSellable()
+    {
+        Collider[] sellable = Physics.OverlapSphere(transform.position, 2f); // Adjust radius if needed
+        List<GameObject> toSell = new List<GameObject>();
+
+        foreach (Collider col in sellable)
+        {
+            if (col.CompareTag(sellableTag))
+                toSell.Add(col.gameObject);
+        }
+
+        foreach (GameObject SellObject in toSell)
+        {
+            GiveMoney(SellObject);
+        }
+    }
+    */
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!isDragging) return;
+        if (other.CompareTag(sellableTag))
+        {
+            GiveMoney(other.gameObject);
+            Destroy(other.gameObject);
+           
+        }
+    }
+    /*
+    private void OnTriggerStay(Collider other)
+    {
+        if (!isDragging) return;
+        if (other.CompareTag(sellableTag))
+        {
+            GiveMoney(other.gameObject);
+            Destroy(other.gameObject);
+        }
+    }
+    */
     public void GiveMoney(GameObject droppedObject)
     {
         int moneyEarned = 0;

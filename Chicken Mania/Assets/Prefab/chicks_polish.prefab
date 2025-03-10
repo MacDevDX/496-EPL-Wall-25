@@ -13,6 +13,18 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
       objectReference: {fileID: 0}
@@ -153,12 +165,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2837277553550863431}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3436743248579421715}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 309734339842213351}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 961970f1a74aac449832b291da5bdfcf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 208691872334848931}
@@ -341,67 +347,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3436743248579421715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501487769881561393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978a486d8ecf8437cbb87e8534908895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSmoothing: 1
-  smoothingFactor: 0.00001
-  positionThreshold: 0.010000001
-  rotationThreshold: 0.1
-  scaleThreshold: 0.010000001
-  allowChangingFromOutside: 0
---- !u!114 &309734339842213351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501487769881561393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ea9930ecb674732bee27116520fad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnStateChange:
-    m_PersistentCalls:
-      m_Calls: []
-  basicEditor: 1
-  generalProps: 0
-  limitsProps: 0
-  advancedProps: 0
-  minPointers: 0
-  maxPointers: 0
-  useSendMessage: 0
-  sendStateChangeMessages: 0
-  sendMessageTarget: {fileID: 0}
-  useUnityEvents: 0
-  sendStateChangeEvents: 0
-  requireGestureToFail: {fileID: 0}
-  friendlyGestures: []
-  OnTransformStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransform:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  type: 7
-  screenTransformThreshold: 0.1
-  minScreenPointsDistance: 0.5
-  projectionProps: 0
-  projection: 1
-  projectionPlaneNormal: {x: 0, y: 1, z: 0}
 --- !u!114 &208691872334848931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  foxDetectionRadius: 10
+  foxDetectionRadius: 0
   foxLayer:
     serializedVersion: 2
     m_Bits: 512

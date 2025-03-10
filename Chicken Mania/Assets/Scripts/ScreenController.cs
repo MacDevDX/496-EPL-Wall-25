@@ -147,17 +147,6 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToGrow = 7f;
             shopManagerScript.timeToSpawn = 7f;
 
-            // Randomly spawn 10 chickens
-            for (int i = 0; i < 10; i++)
-            {
-                int itemId = Random.Range(1, 7); // Randomly select an item ID between 1 and 6
-                if (itemId >= 1 && itemId <= 6)
-                {
-                    shopManagerScript.SpawnChicken(itemId);
-                    shopManagerScript.AddChicken();
-                }
-
-            }
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
@@ -174,5 +163,35 @@ public class ScreenController : MonoBehaviour
             }
         }
         */
+
+    }
+    public void ProtectGameMode()
+    {
+        if (!gameModeStarted)
+        {
+            startUI.SetActive(false);  // Hide start UI
+            gameObjects.SetActive(true); // Activate game objects
+            shopManager.SetActive(true); // Activate shop manager
+            gameUI.SetActive(true);
+            CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = gameUI.AddComponent<CanvasGroup>();
+            }
+            canvasGroup.alpha = 0;  // Make it fully transparent
+            canvasGroup.interactable = false;  // Disable interaction
+            canvasGroup.blocksRaycasts = false; // Prevents blocking clicks
+
+            GameUI_TimerMode.SetActive(true);
+            shopManagerScript.StartCountdownPGM();
+
+            shopManagerScript.timeToSpawn = 600f;
+
+
+            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            gameModeStarted = true;
+        }
+
+
     }
 }

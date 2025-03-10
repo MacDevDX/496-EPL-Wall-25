@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using TouchScript.Examples.Tap;
 
 
 // currently this WILL break when more than one instance of the game is loaded side by side. needs a re-code to fix, some kind of chicken director
@@ -41,7 +42,7 @@ public class FoxDirector : MonoBehaviour
         
     }
 
-    void UpdateChickenList()
+    public void UpdateChickenList()
     {
         //// get all instances of the chicken script
         //chickenList = Object.FindObjectsOfType<Edible>();
@@ -62,8 +63,7 @@ public class FoxDirector : MonoBehaviour
         int foxCount = foxList.Count;
         spawnTarget = (int)(foxesPer5Chickens * spawnTarget);
 
-
-        while(foxCount < spawnTarget && foxCount < maxFoxes)
+        while (foxCount < spawnTarget && foxCount < maxFoxes)
         {
             SpawnFox();
             foxCount = foxList.Count;
@@ -93,9 +93,20 @@ public class FoxDirector : MonoBehaviour
         }
     }
 
-    void SpawnFox()
-    {
-        GameObject newFox = Instantiate(foxObject, transform.position, transform.rotation);
+    public void SpawnFox()
+    {    
+        // Define the spawn range
+        float spawnRangeX = 4f; // Range for X-axis
+        float spawnRangeZ = 4f; // Range for Z-axis
+
+        // Randomize the spawn position within the range
+        Vector3 randomizedPosition = new Vector3(
+            transform.position.x + Random.Range(-spawnRangeX, spawnRangeX),
+            transform.position.y, // Maintain the original Y position
+            transform.position.z + Random.Range(-spawnRangeZ, spawnRangeZ)
+        );
+
+        GameObject newFox = Instantiate(foxObject, randomizedPosition, transform.rotation);
         FoxBehavior newFoxScript = newFox.GetComponent<FoxBehavior>();
         newFoxScript.directorRef = this;
 
