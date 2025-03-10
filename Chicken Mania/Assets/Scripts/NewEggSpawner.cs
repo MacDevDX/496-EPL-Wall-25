@@ -15,6 +15,8 @@ public class NewEggSpawner : MonoBehaviour
     public FoxDirector FoxDir;
     public ShopManager shopManager;
 
+    private bool menuIsOpen = false;
+
     void Start()
     {
         //spawnCountdown = timetoSpawn;
@@ -23,13 +25,18 @@ public class NewEggSpawner : MonoBehaviour
         chickenAI = GetComponent<NewChickenAI>();
         navMeshAgent = chickenAI.GetComponent<NavMeshAgent>(); // Get the NavMeshAgent
         //shopManager = Object.FindFirstObjectByType<ShopManager>();
+        shopManager.MenuOpen += HandleMenuOpen;
     }
 
     void Update()
     {
         if (chickenAI == null || shopManager == null || navMeshAgent == null) return; // Prevent null reference errors
 
-        spawnCountdown -= Time.deltaTime;
+        if (!menuIsOpen)
+        {
+            spawnCountdown -= Time.deltaTime;
+        }
+        
 
         // Check for inventory-based spawn rate upgrades
         if (shopManager.Inventory != null && shopManager.Inventory.Length > 3)
@@ -72,9 +79,17 @@ public class NewEggSpawner : MonoBehaviour
         newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
         newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
 
+        // register this egg for decaying
+        shopManager.EggDecay.edibleList.Add(newEgg.GetComponent<Edible>());
+
         isLayingEgg = false;
         //navMeshAgent.isStopped = false; // Re-enable movement
         chickenAI.StopMovement(false); // Resume movement
 
+    }
+
+    void HandleMenuOpen(object sender, MenuOpenEventArgs a)
+    {
+        menuIsOpen = a.State;
     }
 }

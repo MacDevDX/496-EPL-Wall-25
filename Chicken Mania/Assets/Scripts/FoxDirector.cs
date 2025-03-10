@@ -17,6 +17,8 @@ public class FoxDirector : MonoBehaviour
     public bool initialFox;     // start with one fox
     public GameObject foxObject;
     public GameObject screenSection;
+    public ShopManager shopManagerScript;
+    private bool menuIsOpen = false;
 
     // These are public so other classes can communicate. Do not modify these in the inspector!
     public List<Edible> chickenList;
@@ -27,6 +29,7 @@ public class FoxDirector : MonoBehaviour
     {
         chickenList = new List<Edible>();
         foxList = new List<FoxBehavior>();
+        shopManagerScript.MenuOpen += HandleMenuOpen;
 
         // this will repeat the listed function. to cancel _all_ invokes, use CancelInvoke()
         InvokeRepeating("UpdateChickenList", graceTime, spawnTick);
@@ -42,12 +45,17 @@ public class FoxDirector : MonoBehaviour
     {
         //// get all instances of the chicken script
         //chickenList = Object.FindObjectsOfType<Edible>();
+        if (menuIsOpen)
+        {
+            return;
+        }
 
         if (initialFox == true) 
         {
             SpawnFox();
             initialFox = false;
         }
+        // remove all null values, eg gameobjects that have been destroyed
         chickenList.RemoveAll(x => !x);
 
         int spawnTarget = chickenList.Count / 5;
@@ -101,5 +109,10 @@ public class FoxDirector : MonoBehaviour
         newFoxScript.devourSpreeCD = devourSpreeCD;
 
         //Debug.Log("Created fox agent :" + newFoxScript + " for Director :" + this);
+    }
+
+    void HandleMenuOpen(object sender, MenuOpenEventArgs a)
+    {
+        menuIsOpen = a.State;
     }
 }

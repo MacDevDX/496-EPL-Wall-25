@@ -10,11 +10,13 @@ public class chickGrowth : MonoBehaviour
     public FoxDirector FoxDir;
 
     private ScreenController ScreenController;
+    private bool menuIsOpen = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         growCountdown = shopManager.timeToGrow;
+        shopManager.MenuOpen += HandleMenuOpen;
     }
 
     private void Awake()
@@ -27,6 +29,11 @@ public class chickGrowth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (menuIsOpen)
+        {
+            return;
+        }
+
         growCountdown -= Time.deltaTime;
 
         if (growCountdown <= 0)
@@ -41,6 +48,12 @@ public class chickGrowth : MonoBehaviour
             FoxDir.setupNewEdible(newChicken, shopManager, FoxDir, "CHICKEN");
             newChicken.GetComponent<NewEggSpawner>().FoxDir = FoxDir;
             newChicken.GetComponent<NewEggSpawner>().shopManager = shopManager;
+            newChicken.GetComponent<NewChickenAI>().shopManager = shopManager;
         }
+    }
+
+    void HandleMenuOpen(object sender, MenuOpenEventArgs a)
+    {
+        menuIsOpen = a.State;
     }
 }
