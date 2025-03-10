@@ -6,14 +6,26 @@ public class Edible : MonoBehaviour
     public bool isChick;
     public bool isChicken;
     public bool eaten = false;
+    public int eggDecay = 0;
     public ParticleSystem Particles;
     public ShopManager ShopMan;
     public FoxDirector FoxDirecter;
 
+    private Material mat;
+    private Material mat2;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InvokeRepeating("Decay", 1.0f, 0.5f);
+        // store the material of this object for decay
+        var renderers = this.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+        if (renderers.Length >= 2 )
+        {
+            mat = renderers[0].material;
+            mat2 = renderers[1].material;
+        }
+
     }
 
     // Update is called once per frame
@@ -40,5 +52,28 @@ public class Edible : MonoBehaviour
             Destroy(this.gameObject);
 
         }
+
     }
+
+    void Decay()
+    {
+        if (!isEgg)
+        {
+            CancelInvoke();
+        }
+
+        if (eggDecay == 3)
+        {
+            var decayCol1 = new Color (0.635f, 0.667f, 0.596f);
+
+            mat.SetColor("_BaseColor", decayCol1);
+            mat2.SetColor("_BaseColor", decayCol1);
+        }
+
+        if (eggDecay >= 4)
+        {
+            eaten = true;
+        }
+    }
+
 }
