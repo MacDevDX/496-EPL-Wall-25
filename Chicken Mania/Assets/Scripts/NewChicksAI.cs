@@ -7,7 +7,7 @@ public class NewChicksAI : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float movementSpeed = 2f;
-    public float foxDetectionRadius = 10f;
+    public float foxDetectionRadius = 0f;
     public LayerMask foxLayer;
 
     [Header("Wander Timing Settings")]
@@ -42,11 +42,11 @@ public class NewChicksAI : MonoBehaviour
         rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
         rb.useGravity = false;
         rb.isKinematic = true;
-
+        /*
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
-
+        */
         StartCoroutine(Wander());
     }
 
@@ -125,7 +125,7 @@ public class NewChicksAI : MonoBehaviour
             }
         }
     }
-
+    /*
     private void OnDrag(object sender, System.EventArgs e)
     {
         if (!shopManager.dragZone.activeSelf) return;
