@@ -25,6 +25,36 @@ public class ShopButtons : MonoBehaviour
     {
         var shopManager = ShopManager.GetComponent<ShopManager>();
 
+        if (ItemID == 1)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 1]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 2)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 2]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 3)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 3]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 4)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 4]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 5)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 5]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 6)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 6]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
         if (ItemID >= 7 && ItemID <= 10) //For upgrades
         {
             if (shopManager.Inventory[3, ItemID] >= 3)
@@ -83,6 +113,7 @@ public class ShopButtons : MonoBehaviour
                     ButtonComponent.interactable = false;
                 }
             }
+            shopManager.UpdateUI();
         }
         /*
         else if (ItemID == 11) //Secret Chicken

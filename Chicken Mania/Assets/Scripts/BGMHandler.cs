@@ -1,23 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TouchScript.Gestures;
 
 public class RandomBGM : MonoBehaviour
 {
     public AudioClip[] bgmTracks;
-    public Slider volumeSlider;
-
+    public SliderSync sliderSync;
     private AudioSource audioSource;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        if (volumeSlider != null)
+        if (sliderSync != null)
         {
-            volumeSlider.onValueChanged.AddListener(ChangeVolume);
+            //Add all slider objects from SyncSlider
+            foreach (var slider in sliderSync.sliders)
+            {
+                if (slider != null)
+                {
+                    slider.onValueChanged.AddListener(ChangeVolume);
+
+                    LongPressGesture longPressGesture = slider.gameObject.GetComponent<LongPressGesture>();
+                    longPressGesture.StateChanged += OnLongPress;
+                }
+            }
         }
 
+        audioSource.loop = true;
         PlayRandomTrack();
+
     }
 
     void PlayRandomTrack()
@@ -35,6 +47,14 @@ public class RandomBGM : MonoBehaviour
 
     void ChangeVolume(float value)
     {
-        audioSource.volume = value; // Set volume based on slider value
+        audioSource.volume = value; //Set volume based on slider value
+    }
+
+    private void OnLongPress(object sender, GestureStateChangeEventArgs e)
+    {
+        if (e.State == Gesture.GestureState.Recognized)
+        {
+            PlayRandomTrack(); //Change tracks if long press on slider
+        }
     }
 }

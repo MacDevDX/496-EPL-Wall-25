@@ -2,6 +2,8 @@ using UnityEngine;
 using TouchScript.Gestures;
 using System.Collections.Generic;
 using System.Linq;
+using static UnityEngine.ParticleSystem;
+using TouchScript.Gestures.TransformGestures;
 
 
 public class FoxBehavior : MonoBehaviour
@@ -10,6 +12,7 @@ public class FoxBehavior : MonoBehaviour
     public float foxSpeed;
     public float devourCooldown;
     public float devourSpreeCD;
+    public ParticleSystem Particles;
 
     public FoxDirector directorRef;
     
@@ -126,15 +129,15 @@ public class FoxBehavior : MonoBehaviour
     private void OnEnable()
     {
         GetComponent<TapGesture>().Tapped += tappedHandler;
-        GetComponent<FlickGesture>().Flicked += flickHandler;
-        //GetComponent<PinchGesture>().StateChanged += pinchHandler;
+        //GetComponent<FlickGesture>().Flicked += flickHandler;
+        GetComponent<TransformGesture>().Transformed += pinchHandler;
     }
 
     private void OnDisable()
     {
         GetComponent<TapGesture>().Tapped -= tappedHandler;
-        GetComponent<FlickGesture>().Flicked -= flickHandler;
-        //GetComponent<PinchGesture>().StateChanged -= pinchHandler;
+        //GetComponent<FlickGesture>().Flicked -= flickHandler;
+        GetComponent<TransformGesture>().Transformed -= pinchHandler;
     }
 
 
@@ -151,22 +154,23 @@ public class FoxBehavior : MonoBehaviour
             //}
             //Debug.Log("Fox(" + this + ") has notified :" + directorRef + " of its termination.");
             Destroy(gameObject);
+            Instantiate(Particles, transform.position, Quaternion.identity);
         }
     }
+    /*
     private void flickHandler(object sender, System.EventArgs e)
     {
         directorRef.foxList.Remove(this);
         Destroy(gameObject);
-    }
-    /*
-    private void pinchHandler(object sender, GestureStateChangeEventArgs e)
-    {
-        if (e.State == Gesture.GestureState.Recognized) //When 2 touches pinch..
-        {
-            directorRef.foxList.Remove(this);
-            Destroy(gameObject);
-        }
+        Instantiate(Particles, transform.position, Quaternion.identity);
     }
     */
+    private void pinchHandler(object sender, System.EventArgs e)
+    {
+        directorRef.foxList.Remove(this);
+        Destroy(gameObject);
+        Instantiate(Particles, transform.position, Quaternion.identity);
+    }
+
     // End of touchscript ---------------------------------------------------
 }
