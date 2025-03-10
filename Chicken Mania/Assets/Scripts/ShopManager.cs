@@ -62,10 +62,6 @@ public class ShopManager : MonoBehaviour
     public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
     public event MenuOpenEventHandler MenuOpen;
 
-    // Pause Broadcast
-    public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
-    public event MenuOpenEventHandler MenuOpen;
-
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();

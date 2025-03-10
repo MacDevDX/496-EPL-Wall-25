@@ -50,7 +50,7 @@ public class NewChickenAI : MonoBehaviour
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
         shopManager.MenuOpen += HandleMenuOpen;
-
+        */
         StartCoroutine(Wander());
     }
 
