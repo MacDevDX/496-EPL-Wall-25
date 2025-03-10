@@ -199,6 +199,7 @@ public class ShopManager : MonoBehaviour
                 */
             }
         }
+        UpdateUI();
     }
     public void SpawnChicken(int itemId)
     {
@@ -269,7 +270,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleBuy()
     {
-        if (ShopWindow != null && !isGameOver)
+        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf))
         {
             ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
             OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
@@ -278,7 +279,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleUpgrade()
     {
-        if (UpgradeWindow != null && !isGameOver)
+        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf))
         {
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
             OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
@@ -431,6 +432,7 @@ public class ShopManager : MonoBehaviour
     }
     private IEnumerator TriggerGameOver()
     {
+        CloseAllWindows();
         isGameOver = true;
         if (GameOverWindow != null)
         {
@@ -438,19 +440,17 @@ public class ShopManager : MonoBehaviour
             int timeLeft = 30;
             while(timeLeft > -1)
             {
-                GameOverText.text = $"You have no more money!\r\nAll your chicken have been taken!\r\nReturning to Main Menu in {timeLeft} seconds...";
+                GameOverText.text = $"You have no more money to buy Chickens!\r\nYou have 0 Chickens!\r\nReturning to Main Menu in {timeLeft} seconds...";
                 yield return new WaitForSeconds(1f);
                 timeLeft--;
             }
             if (timeLeft <= 0)
             {
-                CloseAllWindows();
                 Destroy(activeSellZone);
                 activeSellZone = null;
                 ResetGame();
                 GameOverWindow.SetActive(false);
             }
-            CloseAllWindows();
             Destroy(activeSellZone);
             activeSellZone = null;
         }
