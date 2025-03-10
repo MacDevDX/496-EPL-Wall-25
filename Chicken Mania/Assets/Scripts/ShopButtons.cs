@@ -55,6 +55,26 @@ public class ShopButtons : MonoBehaviour
             if (shopManager.Money < shopManager.Inventory[2, 6]) ButtonComponent.interactable = false;
             else ButtonComponent.interactable = true;
         }
+        if (ItemID == 7)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 7]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 8)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 8]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 9)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 9]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 10)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 10]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
         if (ItemID >= 7 && ItemID <= 10) //For upgrades
         {
             if (shopManager.Inventory[3, ItemID] >= 3)
