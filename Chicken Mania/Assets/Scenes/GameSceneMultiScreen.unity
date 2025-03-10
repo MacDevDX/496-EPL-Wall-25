@@ -786,6 +786,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121689867}
   m_CullTransparentMesh: 1
+--- !u!114 &132274669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2418492604546469775, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+  m_PrefabInstance: {fileID: 5853365807560204907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &139123246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,6 +4767,17 @@ MonoBehaviour:
       m_Calls: []
   timeToPress: 2
   distanceLimit: Infinity
+--- !u!114 &800889300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1893009934875548969, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+  m_PrefabInstance: {fileID: 5022151346588682936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &824775347
 GameObject:
   m_ObjectHideFlags: 0
@@ -6683,6 +6705,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163360228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3743294936315949035, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+  m_PrefabInstance: {fileID: 788304168288683651}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1168201438
 GameObject:
   m_ObjectHideFlags: 0
@@ -11711,6 +11744,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2400156670368752282, guid: e5ecb7cf725b2ac459e13a5fedba3554, type: 3}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 1163360228}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: CountdownText
       value: 
       objectReference: {fileID: 664879412}
@@ -12083,6 +12120,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2400156670368752282, guid: e5ecb7cf725b2ac459e13a5fedba3554, type: 3}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 800889300}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: CountdownText
       value: 
       objectReference: {fileID: 767916041}
@@ -12358,6 +12399,10 @@ PrefabInstance:
       propertyPath: sellPrefab
       value: 
       objectReference: {fileID: 2400156670368752282, guid: e5ecb7cf725b2ac459e13a5fedba3554, type: 3}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 132274669}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: CountdownText
       value: 

@@ -28,6 +28,7 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI CountdownText;
     public TextMeshProUGUI Score;
     public TextMeshProUGUI tutorialTextPGM;
+    public TextMeshProUGUI GameOverText;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -419,15 +420,30 @@ public class ShopManager : MonoBehaviour
 
         if (totalChickens == 0 && totalChicks == 0 && totalEggs == 0 && currentMoney < lowestPrice)
         {
-            TriggerGameOver();
+            StartCoroutine(TriggerGameOver());
         }
     }
-    private void TriggerGameOver()
+    private IEnumerator TriggerGameOver()
     {
         isGameOver = true;
         if (GameOverWindow != null)
         {
             GameOverWindow.SetActive(true);
+            int timeLeft = 30;
+            while(timeLeft > -1)
+            {
+                GameOverText.text = $"You have no more money!\r\nAll your chicken have been taken!\r\nReturning to Main Menu in {timeLeft} seconds...";
+                yield return new WaitForSeconds(1f);
+                timeLeft--;
+            }
+            if (timeLeft <= 0)
+            {
+                CloseAllWindows();
+                Destroy(activeSellZone);
+                activeSellZone = null;
+                ResetGame();
+                GameOverWindow.SetActive(false);
+            }
             CloseAllWindows();
             Destroy(activeSellZone);
             activeSellZone = null;
