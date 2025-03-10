@@ -37,7 +37,7 @@ public class NewChicksAI : MonoBehaviour
         agent.speed = movementSpeed;
 
         animator = GetComponent<Animator>();
-        shopManager.MenuOpen += HandleMenuOpen;
+        //shopManager.MenuOpen += HandleMenuOpen;
 
         rb = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
         rb.useGravity = false;
@@ -169,5 +169,5 @@ public class NewChicksAI : MonoBehaviour
     {
         menuIsOpen = a.State;
     }
-
+    */
 }
