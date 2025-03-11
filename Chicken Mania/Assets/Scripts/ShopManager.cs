@@ -257,7 +257,6 @@ public class ShopManager : MonoBehaviour
         if (activeSellZone == null && !isGameOver)
         {
             activeSellZone = Instantiate(dragZone, SpawnPoint.position, Quaternion.identity);
-            activeSellZone.transform.SetParent(transform.parent);
             Sell sellScript = activeSellZone.GetComponent<Sell>();
             sellScript.shopManager = this;
         }

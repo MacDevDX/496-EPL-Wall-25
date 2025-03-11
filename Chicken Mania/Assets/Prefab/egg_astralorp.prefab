@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6815409233026061111, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 71854d5a9ff9bd14b9b4859a65f814a1, type: 2}
+    - target: {fileID: -5199103673118499719, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 71854d5a9ff9bd14b9b4859a65f814a1, type: 2}
     - target: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       propertyPath: m_Name
       value: egg_astralorp
@@ -215,6 +223,7 @@ MonoBehaviour:
   isChick: 0
   isChicken: 0
   eaten: 0
+  eggDecay: 0
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
   ShopMan: {fileID: 0}
   FoxDirecter: {fileID: 0}
