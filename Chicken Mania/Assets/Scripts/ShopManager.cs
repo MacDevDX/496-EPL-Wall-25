@@ -257,12 +257,6 @@ public class ShopManager : MonoBehaviour
         if (activeSellZone == null && !isGameOver)
         {
             activeSellZone = Instantiate(dragZone, SpawnPoint.position, Quaternion.identity);
-            // Adjust rotation of basket and fix y value
-            activeSellZone.transform.rotation = Quaternion.Euler(300f, 0f, 0f);
-            Vector3 newPosition = new Vector3(activeSellZone.transform.position.x, 2.9f, activeSellZone.transform.position.z);
-            activeSellZone.transform.position = newPosition;
-            activeSellZone.transform.SetParent(transform.parent);
-
             Sell sellScript = activeSellZone.GetComponent<Sell>();
             sellScript.shopManager = this;
         }
