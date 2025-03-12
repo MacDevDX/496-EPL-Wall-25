@@ -31,6 +31,19 @@ public class Sell : MonoBehaviour
         //GetComponent<Collider>().enabled = false;
         transform.position += dragGesture.DeltaPosition;
         rb.MovePosition(transform.position + dragGesture.DeltaPosition);
+
+        // Adjust scale with clamping
+        Vector3 currentScale = transform.localScale;
+        float newScaleFactor = Mathf.Clamp(dragGesture.DeltaScale, 1f, 2f); // Keep DeltaScale within range
+        Vector3 newScale = currentScale * newScaleFactor;
+
+        // Clamp the new scale values explicitly
+        newScale.x = Mathf.Clamp(newScale.x, 1f, 2f);
+        newScale.y = Mathf.Clamp(newScale.y, 1f, 2f);
+        newScale.z = Mathf.Clamp(newScale.z, 1f, 2f);
+
+        // Apply the corrected scale
+        transform.localScale = newScale;
     }
 
     private void OnDragEnd()
