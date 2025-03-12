@@ -88,13 +88,13 @@ public class ShopManager : MonoBehaviour
         Inventory[1, 4] = 4;
         Inventory[1, 5] = 5;
         Inventory[1, 6] = 6;
-        Inventory[1, 11] = 11; //Secret Chicken
+        Inventory[1, 7] = 7; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
-        Inventory[1, 7] = 7;
         Inventory[1, 8] = 8;
         Inventory[1, 9] = 9;
         Inventory[1, 10] = 10;
+        Inventory[1, 11] = 11;
 
 
         /*--------------------------------------------------------------------------
@@ -110,13 +110,13 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 4] = 113;
         Inventory[2, 5] = 281;
         Inventory[2, 6] = 600;
-        Inventory[2, 11] = 10000; //Secret Chicken
+        Inventory[2, 7] = 10000; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
-        Inventory[2, 7] = 30;
-        Inventory[2, 8] = 10;
-        Inventory[2, 9] = 15;
-        Inventory[2, 10] = 50;
+        Inventory[2, 8] = 30;
+        Inventory[2, 9] = 10;
+        Inventory[2, 10] = 15;
+        Inventory[2, 11] = 50;
 
 
         /*--------------------------------------------------------------------------
@@ -132,13 +132,13 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 4] = 0;
         Inventory[3, 5] = 0;
         Inventory[3, 6] = 0;
-        Inventory[3, 11] = 0;
+        Inventory[3, 7] = 0;
 
         //Upgrades Count (Supplements, Feed, Incubator, Research)
-        Inventory[3, 7] = 0;
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
+        Inventory[3, 11] = 0;
 
     }
     void Update()
@@ -175,6 +175,11 @@ public class ShopManager : MonoBehaviour
                 SpawnChicken(itemId);
                 AddChicken();
             }
+            if (itemId == 7)
+            {
+                SpawnFriedChicken(itemId);
+                AddChicken();
+            }
             // Show message if itemId 6 is bought
             if (itemId == 6)
             {
@@ -182,7 +187,7 @@ public class ShopManager : MonoBehaviour
             }
 
             //Only applies multiplier to Upgrade indexes
-            if (itemId >= 7 && itemId <= 10)
+            if (itemId >= 8 && itemId <= 11)
             {
                 //Recalculate the price: Price = BasePrice * (Count + 1)
                 //Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
@@ -234,6 +239,20 @@ public class ShopManager : MonoBehaviour
                 // Set the egg spawner under the screen
                 newEggScript.transform.SetParent(screenSection.transform);
             }
+        }
+    }
+    public void SpawnFriedChicken(int itemId)
+    {
+        int index = itemId - 1;
+        if (index >= 0 && index < ChickenSpecies.Length && ChickenSpecies[index] != null && SpawnPoint != null)
+        {
+            GameObject newChicken = Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
+
+            // Set chicken as child of screen
+            newChicken.transform.SetParent(screenSection.transform);
+            lastSpawnedChicken = newChicken;  // Store reference
+
+            FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
         }
     }
     private IEnumerator ShowMessage(string message)
@@ -679,16 +698,25 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
-        Inventory[3, 7] = 0;
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
-        Inventory[2, 7] = 30;
-        Inventory[2, 8] = 10;
-        Inventory[2, 9] = 15;
-        Inventory[2, 10] = 50;
+        Inventory[3, 17] = 0;
+        Inventory[2, 8] = 30;
+        Inventory[2, 9] = 10;
+        Inventory[2, 10] = 15;
+        Inventory[2, 11] = 50;
         GameOverWindow.SetActive(false);
         isGameOver = false;
+
+        //Resets Array's Chicken Counts
+        Inventory[3, 1] = 0;
+        Inventory[3, 2] = 0;
+        Inventory[3, 3] = 0;
+        Inventory[3, 4] = 0;
+        Inventory[3, 5] = 0;
+        Inventory[3, 6] = 0;
+        Inventory[3, 7] = 0;
 
         Destroy(activeSellZone);
         activeSellZone = null;
@@ -712,14 +740,14 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
-        Inventory[3, 7] = 0;
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
-        Inventory[2, 7] = 30;
-        Inventory[2, 8] = 10;
-        Inventory[2, 9] = 15;
-        Inventory[2, 10] = 50;
+        Inventory[3, 11] = 0;
+        Inventory[2, 8] = 30;
+        Inventory[2, 9] = 10;
+        Inventory[2, 10] = 15;
+        Inventory[2, 11] = 50;
         Timer = 120f;
         FoxDir.foxList.Clear();
 
