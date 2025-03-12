@@ -5,6 +5,8 @@ public class ObjectScaler : MonoBehaviour
 {
     private TransformGesture scaleGesture;
     private Vector3 initialScale;
+    public float maxSize = 2f;
+    public float minSize = 1f;
 
     private void OnEnable()
     {
@@ -15,7 +17,7 @@ public class ObjectScaler : MonoBehaviour
     }
     private void Scaling(object sender, System.EventArgs e)
     {
-        float newScaleFactor = Mathf.Clamp(transform.localScale.x * scaleGesture.DeltaScale, 1f, 2f);
+        float newScaleFactor = Mathf.Clamp(transform.localScale.x * scaleGesture.DeltaScale, minSize, maxSize);
         transform.localScale = initialScale * newScaleFactor;
     }
     private void LateUpdate()
