@@ -107,7 +107,7 @@ public class ShopButtons : MonoBehaviour
         }
         else if (ItemID >= 3 && ItemID <= 6) //Locking chicken tiers 3-6
         {
-            int researchLevel = shopManager.Inventory[3, 10];
+            int researchLevel = shopManager.Inventory[3, 11];
 
             if (ItemID == 3 || ItemID == 4) //Tiers 3 & 4 unlock at Research Level 1+
             {
