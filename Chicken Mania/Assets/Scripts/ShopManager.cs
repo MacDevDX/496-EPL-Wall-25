@@ -248,9 +248,7 @@ public class ShopManager : MonoBehaviour
         {
             GameObject newChicken = Instantiate(ChickenSpecies[index], SpawnPoint.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
 
-            // Set chicken as child of screen
             newChicken.transform.SetParent(screenSection.transform);
-            lastSpawnedChicken = newChicken;  // Store reference
 
             FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
         }
