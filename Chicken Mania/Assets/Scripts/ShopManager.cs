@@ -114,8 +114,8 @@ public class ShopManager : MonoBehaviour
 
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[2, 8] = 30;
-        Inventory[2, 9] = 10;
-        Inventory[2, 10] = 15;
+        Inventory[2, 9] = 25;
+        Inventory[2, 10] = 25;
         Inventory[2, 11] = 50;
 
 
@@ -187,21 +187,22 @@ public class ShopManager : MonoBehaviour
             }
 
             //Only applies multiplier to Upgrade indexes
-            if (itemId >= 8 && itemId <= 11)
+            if (itemId == 8)
             {
-                //Recalculate the price: Price = BasePrice * (Count + 1)
-                //Inventory[2, itemId] = Inventory[2, itemId] * (Inventory[3, itemId] + 1);
-
-                //Recalculate the price: Price = BasePrice * 1.1^(Count + 1)
+                Inventory[2, itemId] = (Inventory[2, itemId] + (30 * Inventory[3, itemId]));
+            }
+            if (itemId == 9)
+            {
                 Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
-
-                /*
-                // Disable the button if the count reaches 3
-                if (Inventory[3, itemId] >= 3)
-                {
-                    ButtonRef.GetComponent<UnityEngine.UI.Button>().interactable = false;
-                }
-                */
+            }
+            if (itemId == 10)
+            {
+                Inventory[2, itemId] = (Inventory[2, itemId] + 25);
+            }
+            if (itemId == 11)
+            {
+                //Recalculate the price: Price = BasePrice * 1.6^(Upgrade + 1)
+                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
             }
         }
         UpdateUI();
@@ -699,7 +700,7 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
-        Inventory[3, 17] = 0;
+        Inventory[3, 11] = 0;
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 10;
         Inventory[2, 10] = 15;
