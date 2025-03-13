@@ -697,17 +697,17 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
+
+        //Resets Array's Upgrade Cost
+        Inventory[2, 8] = 30;
+        Inventory[2, 9] = 25;
+        Inventory[2, 10] = 25;
+        Inventory[2, 11] = 50;
+        //Resets Array's Upgrade Count
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
         Inventory[3, 11] = 0;
-        Inventory[2, 8] = 30;
-        Inventory[2, 9] = 10;
-        Inventory[2, 10] = 15;
-        Inventory[2, 11] = 50;
-        GameOverWindow.SetActive(false);
-        isGameOver = false;
-
         //Resets Array's Chicken Counts
         Inventory[3, 1] = 0;
         Inventory[3, 2] = 0;
@@ -716,6 +716,9 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 5] = 0;
         Inventory[3, 6] = 0;
         Inventory[3, 7] = 0;
+
+        GameOverWindow.SetActive(false);
+        isGameOver = false;
 
         Destroy(activeSellZone);
         activeSellZone = null;
@@ -739,14 +742,16 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
+        //Resets Array's Upgrade Cost
+        Inventory[2, 8] = 30;
+        Inventory[2, 9] = 25;
+        Inventory[2, 10] = 25;
+        Inventory[2, 11] = 50;
+        //Resets Array's Upgrade Count
         Inventory[3, 8] = 0;
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
         Inventory[3, 11] = 0;
-        Inventory[2, 8] = 30;
-        Inventory[2, 9] = 10;
-        Inventory[2, 10] = 15;
-        Inventory[2, 11] = 50;
         Timer = 120f;
         FoxDir.foxList.Clear();
 
