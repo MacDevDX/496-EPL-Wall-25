@@ -45,7 +45,6 @@ public class NewEggSpawner : MonoBehaviour
             timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn - upgradeLevel, 3f, 30f); //3f and 30f is min and max values
             timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn * (1 - 0.05f * upgradeLevel), 3f, 30f);
             spawnCountdown = Mathf.Min(spawnCountdown, timetoSpawn); // Adjust spawn countdown
-            Debug.Log($"Time to Spawn:{timetoSpawn}, spawnCountdown {spawnCountdown}");
         }
         if (isLayingEgg)
         {

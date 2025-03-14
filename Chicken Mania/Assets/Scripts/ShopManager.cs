@@ -307,25 +307,21 @@ public class ShopManager : MonoBehaviour
     {
         if (ShopWindow != null) ShopWindow.SetActive(false);
         if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
     }
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
         if (ShopWindow.activeSelf)
         {
             ShopWindow.SetActive(false);
-            ToggleGamePause(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
         }
 
         if (UpgradeWindow.activeSelf)
         {
             UpgradeWindow.SetActive(false);
-            ToggleGamePause(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
         }
-    }
-
-    private void ToggleGamePause(bool isPaused)
-    {
-        //Time.timeScale = isPaused ? 0f : 1f;  // Pause or resume time but for all
     }
     /****************************************************************/
 
