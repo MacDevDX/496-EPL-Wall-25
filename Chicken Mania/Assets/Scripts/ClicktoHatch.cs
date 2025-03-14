@@ -106,7 +106,7 @@ public class ClicktoHatch : MonoBehaviour
     private void OnTouchTap(object sender, System.EventArgs e)
     {
         // When the object is tapped, reduce the countdown
-        hatchCountdown -= 1 + shopManager.Inventory[3, 9];
+        hatchCountdown -= 1 + shopManager.Inventory[3, 10];
     }
 
     // Update is called once per frame

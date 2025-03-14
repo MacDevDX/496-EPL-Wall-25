@@ -19,13 +19,6 @@ public class chickGrowth : MonoBehaviour
         shopManager.MenuOpen += HandleMenuOpen;
     }
 
-    private void Awake()
-    {
-        // dont use this, it pools all 3 game instances into one shopmanager
-        // instead, the object creating this object will load in the shopmanager reference
-        //shopManager = Object.FindFirstObjectByType<ShopManager>();
-    }
-
     // Update is called once per frame
     void Update()
     {
