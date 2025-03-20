@@ -56,7 +56,10 @@ public class ShopManager : MonoBehaviour
 
     private TapGesture tapGesture;
 
-    private GameObject activeSellZone; 
+    private GameObject activeSellZone;
+
+    // Music and Home Button Menu
+    public GameObject SettingsButtonMenu;
 
     // Pause Broadcast
     public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
@@ -689,7 +692,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        Money = 20;
+        Money = 20000;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
@@ -719,6 +722,12 @@ public class ShopManager : MonoBehaviour
         Destroy(activeSellZone);
         activeSellZone = null;
         UpdateUI();
+
+        // Check if win message is on and stops it
+        if (WinMessage != null )
+        {
+            WinMessage.gameObject.SetActive(false);
+        }
 
         // Call the ReturnToTitlePage function
         if (screenController != null)
@@ -763,6 +772,24 @@ public class ShopManager : MonoBehaviour
         }
     }
     /****************************************************************/
+
+    /***For Home Button Menu***/
+    public void OpenHomeButtonMenu()
+    {
+        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf))
+        {
+            SettingsButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenu.activeSelf));
+        }
+    }
+
+    public void CloseHomeButtonMenu()
+    {
+        SettingsButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
+
+
 }
 
 
