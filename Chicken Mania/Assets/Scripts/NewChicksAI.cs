@@ -164,7 +164,7 @@ public class NewChicksAI : MonoBehaviour
         if (other.CompareTag("DropZone"))
             currentDropZone = null;
     }
-
+    */
     void HandleMenuOpen(object sender, MenuOpenEventArgs a)
     {
         menuIsOpen = a.State;

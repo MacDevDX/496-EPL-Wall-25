@@ -10,6 +10,7 @@ public class ShopButtons : MonoBehaviour
     public TextMeshProUGUI LevelText;
     public Button ButtonComponent;
     public GameObject ShopManager;
+    public GameObject SecretTier;
 
     void Start()
     {
@@ -55,7 +56,41 @@ public class ShopButtons : MonoBehaviour
             if (shopManager.Money < shopManager.Inventory[2, 6]) ButtonComponent.interactable = false;
             else ButtonComponent.interactable = true;
         }
-        if (ItemID >= 7 && ItemID <= 10) //For upgrades
+        if (shopManager.Inventory[3, 6] == 0)
+        {
+            SecretTier.SetActive(false);
+        }
+        if (shopManager.Inventory[3, 6] >= 1)
+        {
+            SecretTier.SetActive(true);
+        }
+        if (ItemID == 7)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 7]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 8)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 8]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 9)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 9]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 10)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 10]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+        if (ItemID == 11)
+        {
+            if (shopManager.Money < shopManager.Inventory[2, 11]) ButtonComponent.interactable = false;
+            else ButtonComponent.interactable = true;
+        }
+
+        if (ItemID >= 8 && ItemID <= 11) //For upgrades
         {
             if (shopManager.Inventory[3, ItemID] >= 3)
             {
@@ -72,7 +107,7 @@ public class ShopButtons : MonoBehaviour
         }
         else if (ItemID >= 3 && ItemID <= 6) //Locking chicken tiers 3-6
         {
-            int researchLevel = shopManager.Inventory[3, 10];
+            int researchLevel = shopManager.Inventory[3, 11];
 
             if (ItemID == 3 || ItemID == 4) //Tiers 3 & 4 unlock at Research Level 1+
             {
