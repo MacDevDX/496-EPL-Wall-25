@@ -190,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61edc836165db84fa0fa53948047ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tapTextPrefab: {fileID: 63707943563286983, guid: 64823b240cc302046b378a5685b552bd, type: 3}
+  timeTillIndicator: 30
 --- !u!114 &7904351906919646621
 MonoBehaviour:
   m_ObjectHideFlags: 0

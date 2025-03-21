@@ -12,6 +12,11 @@ public class AnimatedEgg : MonoBehaviour
     //private bool isDragging = false;
     private GameObject currentDropZone = null;
 
+    [Header("Tap Indicator")]
+    public GameObject tapTextPrefab;
+    public float timeTillIndicator = 30f;
+    private bool isTextVisible = false;
+    private GameObject tapTextInstance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,16 +41,68 @@ public class AnimatedEgg : MonoBehaviour
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += OnDragEnd; // Detect drag release
         */
+        if (tapTextPrefab != null)
+        {
+            tapTextInstance = Instantiate(tapTextPrefab, transform.position + Vector3.up * .8f, Quaternion.identity);
+            tapTextInstance.transform.SetParent(transform);
+            tapTextInstance.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (tap>=1)
         {
             eggAnimator.SetTrigger("tap");
         }
+        */
+        if (!isTextVisible)
+        {
+            timeTillIndicator -= Time.deltaTime;
+
+            if (timeTillIndicator <= 0f)
+            {
+                ShowTapText();
+                timeTillIndicator = 0f;
+            }
+        }
     }
+    public void RegisterTap()
+    {
+        if (GetComponent<ClicktoHatch>().hatchCountdown >= 1)
+        {
+            eggAnimator.SetTrigger("tap");
+            eggAnimator.SetTrigger("idle");
+        }
+        
+        if (GetComponent<ClicktoHatch>().hatchCountdown <= 0)
+        {
+            eggAnimator.SetTrigger("hatch_tap");
+        }
+        
+        timeTillIndicator = 30f;  //Reset timer
+        HideTapText();
+    }
+    private void ShowTapText()
+    {
+        if (tapTextInstance != null)
+        {
+            tapTextInstance.SetActive(true);
+            isTextVisible = true;
+        }
+    }
+
+    private void HideTapText()
+    {
+        if (tapTextInstance != null)
+        {
+            tapTextInstance.SetActive(false);
+            isTextVisible = false;
+        }
+    }
+
     /*
     private void OnDrag(object sender, System.EventArgs e)
     {
