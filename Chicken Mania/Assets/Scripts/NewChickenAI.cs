@@ -49,10 +49,11 @@ public class NewChickenAI : MonoBehaviour
         dragGesture = GetComponent<TransformGesture>() ?? gameObject.AddComponent<TransformGesture>();
         dragGesture.Transformed += OnDrag;
         dragGesture.TransformCompleted += (s, e) => OnDragEnd();
-        shopManager.MenuOpen += HandleMenuOpen;
         */
+        shopManager.MenuOpen += HandleMenuOpen;
+
         StartCoroutine(Wander());
-        //*/
+        
     }
 
     void Update()
@@ -181,7 +182,6 @@ public class NewChickenAI : MonoBehaviour
 
     void HandleMenuOpen(object sender, MenuOpenEventArgs a)
     {
-        Debug.Log("Got menu open event with status:" + a.State);
         menuIsOpen = a.State;
     }
 

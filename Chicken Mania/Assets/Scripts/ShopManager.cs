@@ -291,7 +291,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleBuy()
     {
-        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf))
+        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
         {
             ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
             OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
@@ -300,7 +300,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleUpgrade()
     {
-        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf))
+        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
         {
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
             OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
@@ -310,6 +310,7 @@ public class ShopManager : MonoBehaviour
     {
         if (ShopWindow != null) ShopWindow.SetActive(false);
         if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
+        if (SettingsButtonMenu != null) SettingsButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
     private void OnUserInteraction(object sender, System.EventArgs e)
@@ -692,7 +693,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        Money = 20000;
+        Money = 20;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;

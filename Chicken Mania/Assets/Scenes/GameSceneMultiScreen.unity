@@ -1697,6 +1697,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 731924850}
     m_Modifications:
     - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
+      propertyPath: decayTickTime
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
       propertyPath: shopManagerScript
       value: 
       objectReference: {fileID: 95547546}
@@ -2726,6 +2730,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1812330138}
     m_Modifications:
+    - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
+      propertyPath: decayTickTime
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
       propertyPath: shopManagerScript
       value: 
@@ -8879,6 +8887,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 516814034}
     m_Modifications:
     - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
+      propertyPath: decayTickTime
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
       propertyPath: shopManagerScript
       value: 
       objectReference: {fileID: 1514303263}
@@ -11794,6 +11806,10 @@ PrefabInstance:
       value: MenuUI
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -14475,6 +14491,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1129068725370922911, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1467890861342769135, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14502,6 +14522,10 @@ PrefabInstance:
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: MenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
@@ -14583,6 +14607,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7587994701467850191, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636129548794942782, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: MusicToggleMiddleInGame
@@ -14591,11 +14623,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8256080116906316176, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: MusicInfoMiddleInGame
       objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429158310802631684, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -15355,6 +15395,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1129068725370922911, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2617992915989778152, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15382,6 +15426,10 @@ PrefabInstance:
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: MenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
@@ -15463,6 +15511,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7587994701467850191, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636129548794942782, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: MusicToggleLefttInGame
@@ -15471,11 +15527,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8256080116906316176, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: MusicInfoLeftInGame
       objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429158310802631684, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
@@ -18707,6 +18771,10 @@ PrefabInstance:
     - target: {fileID: 1405649061825849700, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1092.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462425491296436662, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1476560141606647490, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Sprite
