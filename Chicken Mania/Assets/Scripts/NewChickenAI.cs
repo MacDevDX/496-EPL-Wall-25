@@ -52,6 +52,7 @@ public class NewChickenAI : MonoBehaviour
         shopManager.MenuOpen += HandleMenuOpen;
         */
         StartCoroutine(Wander());
+        //*/
     }
 
     void Update()
