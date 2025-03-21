@@ -143,6 +143,43 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 10] = 0;
         Inventory[3, 11] = 0;
 
+        try
+        {
+            DateTime currentDate = DateTime.Now;
+
+            if (currentDate != null) // Ensures currentDate is valid
+            {
+                Debug.Log("Current Date and Time: " + currentDate.ToString());
+
+                // Define the start and end of the Christmas week
+                DateTime startOfChristmasWeek = new DateTime(currentDate.Year, 12, 18);
+                DateTime endOfChristmasWeek = new DateTime(currentDate.Year, 12, 25);
+
+                // Check if the current date falls within the range
+                if (currentDate >= startOfChristmasWeek && currentDate <= endOfChristmasWeek)
+                {
+                    Debug.Log("It's the week of Christmas!");
+                }
+                // Define the start and end of the Halloween week
+                DateTime startOfHalloweenWeek = new DateTime(currentDate.Year, 10, 24);
+                DateTime endOfHalloweenWeek = new DateTime(currentDate.Year, 10, 31);
+
+                // Check if the current date falls within Halloween week
+                if (currentDate >= startOfHalloweenWeek && currentDate <= endOfHalloweenWeek)
+                {
+                    Debug.Log("It's the week of Halloween!");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Unable to retrieve the current date.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error occurred while checking the date: " + ex.Message);
+        }
+
     }
     void Update()
     {
