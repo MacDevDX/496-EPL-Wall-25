@@ -1289,7 +1289,7 @@ MonoBehaviour:
   ItemID: 2
   PriceText: {fileID: 1033952059}
   ButtonComponent: {fileID: 81457090}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -1351,8 +1351,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1556390049}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -2500,7 +2500,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 1714070683}
   ButtonComponent: {fileID: 139375364}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -2562,7 +2562,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 1251663161}
   ButtonComponent: {fileID: 143481637}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -2729,7 +2729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -3191,7 +3191,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 132523040}
   ButtonComponent: {fileID: 156089869}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -3380,7 +3380,7 @@ MonoBehaviour:
   ItemID: 1
   PriceText: {fileID: 132689289}
   ButtonComponent: {fileID: 162729564}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -3442,7 +3442,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -3527,7 +3527,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 1800808089}
   ButtonComponent: {fileID: 167394306}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -3589,7 +3589,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -4427,7 +4427,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 936844732}
   ButtonComponent: {fileID: 199119728}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -4489,7 +4489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -4752,7 +4752,7 @@ MonoBehaviour:
   ItemID: 3
   PriceText: {fileID: 766682033}
   ButtonComponent: {fileID: 211617941}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -4814,8 +4814,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1556390049}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -5898,7 +5898,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 1214276707}
   ButtonComponent: {fileID: 307815001}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -5960,7 +5960,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -6298,7 +6298,7 @@ MonoBehaviour:
   ItemID: 4
   PriceText: {fileID: 266116794}
   ButtonComponent: {fileID: 328826821}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -6360,8 +6360,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1514303263}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -6701,7 +6701,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 335674651}
   ButtonComponent: {fileID: 351545182}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -6763,7 +6763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -7023,7 +7023,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 51488388}
   ButtonComponent: {fileID: 361826323}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -7085,7 +7085,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -7877,7 +7877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: CloseAllWindows
+        m_MethodName: ToggleBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8271,7 +8271,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 1576697956}
   ButtonComponent: {fileID: 449640461}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -8333,7 +8333,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -8650,7 +8650,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 1168403111}
   ButtonComponent: {fileID: 481674655}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -8712,7 +8712,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -9487,7 +9487,7 @@ MonoBehaviour:
   ItemID: 5
   PriceText: {fileID: 1121856450}
   ButtonComponent: {fileID: 523327993}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -9549,8 +9549,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1514303263}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -9861,7 +9861,7 @@ MonoBehaviour:
   ItemID: 4
   PriceText: {fileID: 816771813}
   ButtonComponent: {fileID: 531734736}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -9923,8 +9923,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1556390049}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -10618,7 +10618,7 @@ MonoBehaviour:
   ItemID: 6
   PriceText: {fileID: 1782504541}
   ButtonComponent: {fileID: 560399129}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -10680,8 +10680,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1556390049}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -11033,7 +11033,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 632712005}
   ButtonComponent: {fileID: 567015225}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -11560,7 +11560,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 48745029}
   ButtonComponent: {fileID: 614025650}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -11622,7 +11622,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -11727,7 +11727,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 728962680}
   ButtonComponent: {fileID: 617020819}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -11789,7 +11789,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -11916,7 +11916,7 @@ MonoBehaviour:
   ItemID: 1
   PriceText: {fileID: 1465169474}
   ButtonComponent: {fileID: 630455798}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -11978,7 +11978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -12538,7 +12538,7 @@ MonoBehaviour:
   ItemID: 2
   PriceText: {fileID: 137145017}
   ButtonComponent: {fileID: 685693015}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -12600,8 +12600,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1514303263}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -13043,6 +13043,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8346a4f8f34e964781c1fca60e868b7, type: 3}
+--- !u!1 &708279514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5614461343744086978, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+  m_PrefabInstance: {fileID: 788304168288683651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &710310414
 GameObject:
   m_ObjectHideFlags: 0
@@ -13078,7 +13083,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 909709666}
   ButtonComponent: {fileID: 710310416}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -13140,7 +13145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -13403,7 +13408,7 @@ MonoBehaviour:
   ItemID: 5
   PriceText: {fileID: 1257093895}
   ButtonComponent: {fileID: 719365075}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -13465,8 +13470,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1556390049}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -14227,7 +14232,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 881663792}
   ButtonComponent: {fileID: 785572427}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -14289,7 +14294,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -15327,7 +15332,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 1341986967}
   ButtonComponent: {fileID: 833730010}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -15389,7 +15394,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -15631,7 +15636,7 @@ MonoBehaviour:
   ItemID: 7
   PriceText: {fileID: 695201549}
   ButtonComponent: {fileID: 840777082}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -15693,8 +15698,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1514303263}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -17580,7 +17585,7 @@ MonoBehaviour:
   ItemID: 6
   PriceText: {fileID: 445166540}
   ButtonComponent: {fileID: 964078874}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -17642,8 +17647,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1514303263}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -19899,7 +19904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: CloseAllWindows
         m_Mode: 1
@@ -20897,7 +20902,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 1343907196}
   ButtonComponent: {fileID: 1150736735}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -20959,7 +20964,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -22190,7 +22195,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 566684187}
   ButtonComponent: {fileID: 1220655608}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -22252,7 +22257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -22540,7 +22545,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 1559988890}
   ButtonComponent: {fileID: 1249977544}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -22602,7 +22607,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -23277,7 +23282,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 1494747113}
   ButtonComponent: {fileID: 1269214389}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -23339,7 +23344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -25532,7 +25537,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 1348081126}
   ButtonComponent: {fileID: 1399358288}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -25594,7 +25599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -26313,7 +26318,7 @@ MonoBehaviour:
   ItemID: 7
   PriceText: {fileID: 1609749642}
   ButtonComponent: {fileID: 1443020724}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -26375,8 +26380,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1556390049}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -27084,7 +27089,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 1186573019}
   ButtonComponent: {fileID: 1474930068}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -27146,7 +27151,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -28173,7 +28178,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
   m_PrefabInstance: {fileID: 788304168288683651}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 708279514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1535b593aedc80b4ba7488d5ecb7a49f, type: 3}
@@ -28611,7 +28616,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
   m_PrefabInstance: {fileID: 5022151346588682936}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1905635521}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1535b593aedc80b4ba7488d5ecb7a49f, type: 3}
@@ -29109,7 +29114,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: CloseAllWindows
         m_Mode: 1
@@ -30155,7 +30160,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 147596369}
   ButtonComponent: {fileID: 1647271309}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -30217,7 +30222,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -31358,7 +31363,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 682503370}
   ButtonComponent: {fileID: 1671825325}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -31420,7 +31425,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -31582,7 +31587,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: CloseAllWindows
+        m_MethodName: ToggleBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31832,7 +31837,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 1467509785}
   ButtonComponent: {fileID: 1690634864}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -31894,7 +31899,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -32004,7 +32009,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 959116302}
   ButtonComponent: {fileID: 1694694375}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -32066,7 +32071,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -33551,7 +33556,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 170233769}
   ButtonComponent: {fileID: 1815230932}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -33613,7 +33618,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -34314,7 +34319,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 426667235}
   ButtonComponent: {fileID: 1860923687}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -34376,7 +34381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -34503,7 +34508,7 @@ MonoBehaviour:
   ItemID: 3
   PriceText: {fileID: 1038564241}
   ButtonComponent: {fileID: 1887396712}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -34565,8 +34570,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
-        m_TargetAssemblyTypeName: ChickenShop, Assembly-CSharp
+      - m_Target: {fileID: 1514303263}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -34721,6 +34726,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df4fe1c907d415c488fe0bf1006f0195, type: 3}
+--- !u!1 &1905635521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1836066974552125458, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+  m_PrefabInstance: {fileID: 5022151346588682936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916932326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35472,7 +35482,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: CloseAllWindows
+        m_MethodName: ToggleUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35758,7 +35768,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: CloseAllWindows
+        m_MethodName: ToggleUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35982,7 +35992,7 @@ MonoBehaviour:
   ItemID: 9
   PriceText: {fileID: 1578731170}
   ButtonComponent: {fileID: 2030508225}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -36044,7 +36054,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -36826,7 +36836,7 @@ MonoBehaviour:
   ItemID: 10
   PriceText: {fileID: 2053218937}
   ButtonComponent: {fileID: 2060341500}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 708279514}
   SecretTier: {fileID: 840777080}
   S0: {fileID: 156089867}
   S1: {fileID: 351545180}
@@ -36888,7 +36898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -37265,7 +37275,7 @@ MonoBehaviour:
   ItemID: 8
   PriceText: {fileID: 1701073596}
   ButtonComponent: {fileID: 2086284705}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -37327,7 +37337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -37489,7 +37499,7 @@ MonoBehaviour:
   ItemID: 11
   PriceText: {fileID: 62656651}
   ButtonComponent: {fileID: 2118619739}
-  ShopManager: {fileID: 5853365807560204909}
+  ShopManager: {fileID: 1905635521}
   SecretTier: {fileID: 1443020722}
   S0: {fileID: 617020817}
   S1: {fileID: 449640459}
@@ -37551,7 +37561,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95547546}
+      - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -41772,7 +41782,7 @@ PrefabInstance:
       objectReference: {fileID: 95547546}
     - target: {fileID: 5635592135832770378, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseAllWindows
+      value: ToggleUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 5635592135832770378, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -41812,7 +41822,7 @@ PrefabInstance:
       objectReference: {fileID: 95547546}
     - target: {fileID: 5852825375553658015, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseAllWindows
+      value: ToggleBuy
       objectReference: {fileID: 0}
     - target: {fileID: 5852825375553658015, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

@@ -90,6 +90,7 @@ public class ShopButtons : MonoBehaviour
             if (shopManager.Money < shopManager.Inventory[2, 7]) ButtonComponent.interactable = false;
             else ButtonComponent.interactable = true;
         }
+        /*
         if (ItemID == 8)
         {
             if (shopManager.Money < shopManager.Inventory[2, 8]) ButtonComponent.interactable = false;
@@ -110,27 +111,11 @@ public class ShopButtons : MonoBehaviour
             if (shopManager.Money < shopManager.Inventory[2, 11]) ButtonComponent.interactable = false;
             else ButtonComponent.interactable = true;
         }
-        /*
-        S0.SetActive(shopManager.Inventory[3, 8] == 0);
-        S1.SetActive(shopManager.Inventory[3, 8] == 1);
-        S2.SetActive(shopManager.Inventory[3, 8] == 2);
-        S3.SetActive(shopManager.Inventory[3, 8] >= 3);
-
-        F0.SetActive(shopManager.Inventory[3, 9] == 0);
-        F1.SetActive(shopManager.Inventory[3, 9] == 1);
-        F2.SetActive(shopManager.Inventory[3, 9] == 2);
-        F3.SetActive(shopManager.Inventory[3, 9] >= 3);
-
-        I0.SetActive(shopManager.Inventory[3, 10] == 0);
-        I1.SetActive(shopManager.Inventory[3, 10] == 1);
-        I2.SetActive(shopManager.Inventory[3, 10] == 2);
-        I3.SetActive(shopManager.Inventory[3, 10] >= 3);
-
-        R0.SetActive(shopManager.Inventory[3, 11] == 0);
-        R1.SetActive(shopManager.Inventory[3, 11] == 1);
-        R2.SetActive(shopManager.Inventory[3, 11] == 2);
-        R3.SetActive(shopManager.Inventory[3, 11] >= 3);
         */
+        if (ItemID >= 8 && ItemID <= 11)
+        {
+            ButtonComponent.interactable = shopManager.Money >= shopManager.Inventory[2, ItemID];
+        }
         if (ItemID >= 8 && ItemID <= 11) //For upgrades
         {
             if (shopManager.Inventory[3, ItemID] >= 3)
@@ -191,12 +176,33 @@ public class ShopButtons : MonoBehaviour
             }
             shopManager.UpdateUI();
         }
-
         else //For normal shop items
         {
             PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID].ToString();
             ButtonComponent.interactable = true;
         }
+        
+        S0.SetActive(shopManager.Inventory[3, 8] == 0);
+        S1.SetActive(shopManager.Inventory[3, 8] == 1);
+        S2.SetActive(shopManager.Inventory[3, 8] == 2);
+        S3.SetActive(shopManager.Inventory[3, 8] >= 3);
+
+        F0.SetActive(shopManager.Inventory[3, 9] == 0);
+        F1.SetActive(shopManager.Inventory[3, 9] == 1);
+        F2.SetActive(shopManager.Inventory[3, 9] == 2);
+        F3.SetActive(shopManager.Inventory[3, 9] >= 3);
+
+        I0.SetActive(shopManager.Inventory[3, 10] == 0);
+        I1.SetActive(shopManager.Inventory[3, 10] == 1);
+        I2.SetActive(shopManager.Inventory[3, 10] == 2);
+        I3.SetActive(shopManager.Inventory[3, 10] >= 3);
+
+        R0.SetActive(shopManager.Inventory[3, 11] == 0);
+        R1.SetActive(shopManager.Inventory[3, 11] == 1);
+        R2.SetActive(shopManager.Inventory[3, 11] == 2);
+        R3.SetActive(shopManager.Inventory[3, 11] >= 3);
+        
+
     }
 }
 
