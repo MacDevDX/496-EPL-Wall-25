@@ -197,6 +197,10 @@ public class ShopManager : MonoBehaviour
 
         //References to the button clicked
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        if (ButtonRef == null)
+        {
+            return;
+        }
         int itemId = ButtonRef.GetComponent<ShopButtons>().ItemID;
 
         //Check if enough money is available for the purchase
