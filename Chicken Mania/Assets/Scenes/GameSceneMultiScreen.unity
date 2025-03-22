@@ -7877,7 +7877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: ToggleBuy
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31587,7 +31587,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: ToggleBuy
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35482,7 +35482,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1556390049}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: ToggleUpgrade
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35768,7 +35768,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1514303263}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: ToggleUpgrade
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -41782,7 +41782,7 @@ PrefabInstance:
       objectReference: {fileID: 95547546}
     - target: {fileID: 5635592135832770378, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleUpgrade
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5635592135832770378, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -41822,7 +41822,7 @@ PrefabInstance:
       objectReference: {fileID: 95547546}
     - target: {fileID: 5852825375553658015, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleBuy
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5852825375553658015, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
