@@ -47,36 +47,7 @@ public class ShopButtons : MonoBehaviour
     {
         var shopManager = ShopManager.GetComponent<ShopManager>();
 
-        if (ItemID == 1)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 1]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 2)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 2]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 3)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 3]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 4)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 4]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 5)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 5]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 6)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 6]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
+
         if (shopManager.Inventory[3, 6] == 0)
         {
             SecretTier.SetActive(false);
@@ -85,37 +56,12 @@ public class ShopButtons : MonoBehaviour
         {
             SecretTier.SetActive(true);
         }
-        if (ItemID == 7)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 7]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        /*
-        if (ItemID == 8)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 8]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 9)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 9]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 10)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 10]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        if (ItemID == 11)
-        {
-            if (shopManager.Money < shopManager.Inventory[2, 11]) ButtonComponent.interactable = false;
-            else ButtonComponent.interactable = true;
-        }
-        */
-        if (ItemID >= 8 && ItemID <= 11)
+
+        if (ItemID >= 1 && ItemID <= 11)
         {
             ButtonComponent.interactable = shopManager.Money >= shopManager.Inventory[2, ItemID];
         }
+
         if (ItemID >= 8 && ItemID <= 11) //For upgrades
         {
             if (shopManager.Inventory[3, ItemID] >= 3)
