@@ -6,6 +6,7 @@ using UnityEngine.AI; // Required for NavMeshAgent
 public class NewEggSpawner : MonoBehaviour
 {
     public GameObject spawnEgg;
+    public GameObject goldenEgg;
     public float timetoSpawn = 10f; // Default time between spawns
     private float spawnCountdown;
     private Animator chickenAnimator;
@@ -64,7 +65,7 @@ public class NewEggSpawner : MonoBehaviour
     {
         return isLayingEgg;
     }
-
+    /*
     public void LayEgg()
     {
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
@@ -88,6 +89,45 @@ public class NewEggSpawner : MonoBehaviour
         chickenAI.StopMovement(false); // Resume movement
 
     }
+    */
+    public void LayEgg()
+    {
+        Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
+
+        //Random chance to spawn a golden egg (1 in 500)
+        bool isGoldenEgg = Random.Range(1, 500) == 1;
+
+        GameObject newEgg;
+
+        if (isGoldenEgg)
+        {
+            newEgg = Instantiate(goldenEgg, eggSpawnPosition, Quaternion.identity);
+
+            FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+            newEgg.GetComponent<ClickforGold>().FoxDir = FoxDir;
+            newEgg.GetComponent<ClickforGold>().shopManager = shopManager;
+
+            shopManager.EggDecay.edibleList.Add(newEgg.GetComponent<Edible>());
+        }
+        else
+        {
+            newEgg = Instantiate(spawnEgg, eggSpawnPosition, Quaternion.identity);
+
+            FoxDir.setupNewEdible(newEgg, shopManager, FoxDir, "EGG");
+            newEgg.GetComponent<ClicktoHatch>().FoxDir = FoxDir;
+            newEgg.GetComponent<ClicktoHatch>().shopManager = shopManager;
+
+            shopManager.EggDecay.edibleList.Add(newEgg.GetComponent<Edible>());
+        }
+
+        newEgg.transform.SetParent(transform.parent);
+
+        shopManager.AddEgg();
+
+        isLayingEgg = false;
+        chickenAI.StopMovement(false);
+    }
+
 
     void HandleMenuOpen(object sender, MenuOpenEventArgs a)
     {
