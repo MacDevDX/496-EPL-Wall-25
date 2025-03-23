@@ -144,7 +144,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.7, y: 0.7, z: 0.7}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!95 &5892349914760301913
 Animator:
   serializedVersion: 7
@@ -183,6 +183,7 @@ MonoBehaviour:
   shopManager: {fileID: 0}
   FoxDir: {fileID: 0}
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
+  moneyIndicator: {fileID: 0}
 --- !u!114 &-3737817806762618023
 MonoBehaviour:
   m_ObjectHideFlags: 0

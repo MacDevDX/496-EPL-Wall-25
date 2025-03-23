@@ -29,7 +29,9 @@ public class ClickforGold : MonoBehaviour
 
         eggAnimator.SetTrigger("tap");
         eggAnimator.SetTrigger("idle");
+
     }
+
 
     void Update()
     {
