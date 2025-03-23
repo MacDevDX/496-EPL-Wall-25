@@ -95,7 +95,7 @@ public class NewEggSpawner : MonoBehaviour
         Vector3 eggSpawnPosition = transform.position - transform.forward * 0.5f;
 
         //Random chance to spawn a golden egg (1 in 500)
-        bool isGoldenEgg = Random.Range(1, 2) == 1;
+        bool isGoldenEgg = Random.Range(1, 500) == 1;
 
         GameObject newEgg;
 
