@@ -12,6 +12,24 @@ public class ShopButtons : MonoBehaviour
     public GameObject ShopManager;
     public GameObject SecretTier;
 
+    [Header("Chicken Objects")]
+    public GameObject C1;
+    public GameObject C2;
+    public GameObject C3;
+    public GameObject C4;
+    public GameObject C5;
+    public GameObject C6;
+    public GameObject C7;
+
+    [Header("Locked Chicken Objects")]
+    public GameObject LC1;
+    public GameObject LC2;
+    public GameObject LC3;
+    public GameObject LC4;
+    public GameObject LC5;
+    public GameObject LC6;
+    public GameObject LC7;
+
     [Header("Supplements Objects")]
     public GameObject S0;
     public GameObject S1;
@@ -147,8 +165,23 @@ public class ShopButtons : MonoBehaviour
         R1.SetActive(shopManager.Inventory[3, 11] == 1);
         R2.SetActive(shopManager.Inventory[3, 11] == 2);
         R3.SetActive(shopManager.Inventory[3, 11] >= 3);
-        
 
+        C1.SetActive(shopManager.Inventory[3, 11] >= 0);
+        C2.SetActive(shopManager.Inventory[3, 11] >= 0);
+        C3.SetActive(shopManager.Inventory[3, 11] >= 1);
+        C4.SetActive(shopManager.Inventory[3, 11] >= 1);
+        C5.SetActive(shopManager.Inventory[3, 11] >= 2);
+        C6.SetActive(shopManager.Inventory[3, 11] >= 3);
+        C7.SetActive((shopManager.Inventory[3, 7] >= 1) && (shopManager.Inventory[3, 6] >= 1));
+
+
+        LC1.SetActive(shopManager.Inventory[3, 11] < 0);
+        LC2.SetActive(shopManager.Inventory[3, 11] < 0);
+        LC3.SetActive(shopManager.Inventory[3, 11] < 1);
+        LC4.SetActive(shopManager.Inventory[3, 11] < 1);
+        LC5.SetActive(shopManager.Inventory[3, 11] < 2);
+        LC6.SetActive(shopManager.Inventory[3, 11] < 3);
+        LC7.SetActive((shopManager.Inventory[3, 7] == 0) && (shopManager.Inventory[3, 6] >= 1));
     }
 }
 
