@@ -183,7 +183,7 @@ MonoBehaviour:
   shopManager: {fileID: 0}
   FoxDir: {fileID: 0}
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
-  moneyIndicator: {fileID: 0}
+  moneyIndicator: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
 --- !u!114 &-3737817806762618023
 MonoBehaviour:
   m_ObjectHideFlags: 0
