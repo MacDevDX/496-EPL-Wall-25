@@ -36,7 +36,6 @@ public class ClicktoHatch : MonoBehaviour
         GetComponent<AnimatedEgg>().RegisterTap();
     }
 
-    /*
     // Update is called once per frame
     void Update()
     {
@@ -56,29 +55,5 @@ public class ClicktoHatch : MonoBehaviour
             newChick.GetComponent<chickGrowth>().shopManager = shopManager;
         }
     }
-    */
-    void Update()
-    {
-        if (hatchCountdown <= 0)
-        {
-            StartCoroutine(HatchSequence());  // Play animation before destroying
-        }
-    }
 
-    private IEnumerator HatchSequence()
-    {
-        eggAnimator.SetTrigger("hatch_tap");
-        yield return new WaitForSeconds(3f);
-
-        // Perform the destruction logic
-        GameObject newChick = Instantiate(chickObject, transform.position, transform.rotation);
-        newChick.transform.SetParent(transform.parent);
-        shopManager.HatchEgg();
-
-        FoxDir.setupNewEdible(newChick, shopManager, FoxDir, "CHICK");
-        newChick.GetComponent<chickGrowth>().FoxDir = FoxDir;
-        newChick.GetComponent<chickGrowth>().shopManager = shopManager;
-
-        Destroy(gameObject); // Destroy the egg
-    }
 }

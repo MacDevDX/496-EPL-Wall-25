@@ -128,7 +128,7 @@ public class ShopManager : MonoBehaviour
          ***************************************************************************
          --------------------------------------------------------------------------*/
 
-        //Chicken Count (NOT USED)
+        //Chicken Count
         Inventory[3, 1] = 0;
         Inventory[3, 2] = 0;
         Inventory[3, 3] = 0;
