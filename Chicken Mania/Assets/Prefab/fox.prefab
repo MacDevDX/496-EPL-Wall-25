@@ -285,7 +285,7 @@ MonoBehaviour:
   foxSpeed: 5
   devourCooldown: 0
   devourSpreeCD: 0
-  Particles: {fileID: 0}
+  Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
   directorRef: {fileID: 0}
   chickenTarget: {fileID: 0}
 --- !u!65 &2686727783829159646
