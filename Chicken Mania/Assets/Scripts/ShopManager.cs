@@ -65,6 +65,10 @@ public class ShopManager : MonoBehaviour
     public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
     public event MenuOpenEventHandler MenuOpen;
 
+    [Header("Theme Objects")]
+    public GameObject ChristmasLights;
+    public GameObject Jackolantern;
+
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();
@@ -149,8 +153,6 @@ public class ShopManager : MonoBehaviour
 
             if (currentDate != null) // Ensures currentDate is valid
             {
-                Debug.Log("Current Date and Time: " + currentDate.ToString());
-
                 // Define the start and end of the Christmas week
                 DateTime startOfChristmasWeek = new DateTime(currentDate.Year, 12, 18);
                 DateTime endOfChristmasWeek = new DateTime(currentDate.Year, 12, 25);
@@ -158,7 +160,7 @@ public class ShopManager : MonoBehaviour
                 // Check if the current date falls within the range
                 if (currentDate >= startOfChristmasWeek && currentDate <= endOfChristmasWeek)
                 {
-                    Debug.Log("It's the week of Christmas!");
+                    ChristmasLights.SetActive(true);
                 }
                 // Define the start and end of the Halloween week
                 DateTime startOfHalloweenWeek = new DateTime(currentDate.Year, 10, 24);
@@ -167,7 +169,7 @@ public class ShopManager : MonoBehaviour
                 // Check if the current date falls within Halloween week
                 if (currentDate >= startOfHalloweenWeek && currentDate <= endOfHalloweenWeek)
                 {
-                    Debug.Log("It's the week of Halloween!");
+                    Jackolantern.SetActive(true);
                 }
             }
             else
@@ -758,6 +760,9 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 6] = 0;
         Inventory[3, 7] = 0;
 
+        ChristmasLights.SetActive(false);
+        Jackolantern.SetActive(false);
+
         GameOverWindow.SetActive(false);
         isGameOver = false;
 
@@ -801,6 +806,9 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 11] = 0;
         Timer = 120f;
         FoxDir.foxList.Clear();
+
+        ChristmasLights.SetActive(false);
+        Jackolantern.SetActive(false);
 
         //Reset UI elements
         UpdateUI();
