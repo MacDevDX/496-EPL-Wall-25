@@ -9,11 +9,16 @@ public class ScreenController : MonoBehaviour
     public GameObject shopManager; // Assign ShopManager in the Inspector
     public string screenName;   // For debugging purposes
 
+    [Header("Game Start Buttons")]
     public GameObject GameUI_TimerMode;
     public GameObject ManiaModeButton; //Assign button for Mania Mode in the Inspector
     public GameObject TimerModeButton; //Assign button for Timed Mode in the Inspector
     public GameObject TycoonModeButton; //Assign button for Tycoon Mode in the Inspector
-    
+
+    [Header("Platform")]
+    public GameObject NormalGround; //Assign the normal polyobject for normal mode
+    public GameObject TimedGround;  //Assign the timed polyobject for timed mode
+
     private TapGesture tapGesture; // TouchScript's Tap Gesture
 
     public ShopManager shopManagerScript; // Reference to ShopManager script
@@ -85,6 +90,8 @@ public class ScreenController : MonoBehaviour
         canvasGroup.blocksRaycasts = true; // blocks clicks
 
         gameObjects.SetActive(true); // Activate game objects
+        NormalGround.SetActive(true);
+        TimedGround.SetActive(false);
         shopManager.SetActive(true); // Activate shop manager
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
@@ -107,6 +114,8 @@ public class ScreenController : MonoBehaviour
         canvasGroup.blocksRaycasts = true; // blocks clicks
 
         gameObjects.SetActive(true); // Activate game objects
+        NormalGround.SetActive(true);
+        TimedGround.SetActive(false);
         shopManager.SetActive(true); // Activate shop manager
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
@@ -130,6 +139,8 @@ public class ScreenController : MonoBehaviour
         {
             startUI.SetActive(false);  // Hide start UI
             gameObjects.SetActive(true); // Activate game objects
+            NormalGround.SetActive(false);
+            TimedGround.SetActive(true);
             shopManager.SetActive(true); // Activate shop manager
             gameUI.SetActive(true);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
@@ -171,6 +182,8 @@ public class ScreenController : MonoBehaviour
         {
             startUI.SetActive(false);  // Hide start UI
             gameObjects.SetActive(true); // Activate game objects
+            NormalGround.SetActive(false);
+            TimedGround.SetActive(true);
             shopManager.SetActive(true); // Activate shop manager
             gameUI.SetActive(true);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();

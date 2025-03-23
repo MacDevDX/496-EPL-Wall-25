@@ -76,12 +76,7 @@ public class AnimatedEgg : MonoBehaviour
             eggAnimator.SetTrigger("tap");
             eggAnimator.SetTrigger("idle");
         }
-        
-        if (GetComponent<ClicktoHatch>().hatchCountdown <= 0)
-        {
-            eggAnimator.SetTrigger("hatch_tap");
-        }
-        
+                
         timeTillIndicator = 30f;  //Reset timer
         HideTapText();
     }
