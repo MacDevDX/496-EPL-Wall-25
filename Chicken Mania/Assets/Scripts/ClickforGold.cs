@@ -23,8 +23,8 @@ public class ClickforGold : MonoBehaviour
 
     private void OnTouchTap(object sender, System.EventArgs e)
     {
-        // Calculate 0.5% of current money or $1 min
-        int moneyEarned = Mathf.Max(1, Mathf.FloorToInt(shopManager.Money * 0.005f)); shopManager.Money += moneyEarned;
+        // Calculate 0.01% of current money or $1 min
+        int moneyEarned = Mathf.Max(1, Mathf.FloorToInt(shopManager.Money * 0.001f)); shopManager.Money += moneyEarned;
         shopManager.UpdateUI();
 
         eggAnimator.SetTrigger("tap");
