@@ -73,7 +73,7 @@ public class ShopButtons : MonoBehaviour
             else
             {
                 //LevelText.text = "Upgrade: #" + shopManager.Inventory[3, ItemID].ToString();
-                PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID].ToString();
+                PriceText.text = "$" + shopManager.Inventory[2, ItemID].ToString();
                 ButtonComponent.interactable = true;
             }
         }
@@ -85,7 +85,7 @@ public class ShopButtons : MonoBehaviour
             {
                 if (researchLevel >= 1)
                 {
-                    PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID];
+                    PriceText.text = "$" + shopManager.Inventory[2, ItemID];
                     ButtonComponent.interactable = true;
                 }
                 else
@@ -98,7 +98,7 @@ public class ShopButtons : MonoBehaviour
             {
                 if (researchLevel >= 2)
                 {
-                    PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID];
+                    PriceText.text = "$" + shopManager.Inventory[2, ItemID];
                     ButtonComponent.interactable = true;
                 }
                 else
@@ -111,7 +111,7 @@ public class ShopButtons : MonoBehaviour
             {
                 if (researchLevel >= 3)
                 {
-                    PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID];
+                    PriceText.text = "$" + shopManager.Inventory[2, ItemID];
                     ButtonComponent.interactable = true;
                 }
                 else
@@ -124,7 +124,7 @@ public class ShopButtons : MonoBehaviour
         }
         else //For normal shop items
         {
-            PriceText.text = "Price: $" + shopManager.Inventory[2, ItemID].ToString();
+            PriceText.text = "$" + shopManager.Inventory[2, ItemID].ToString();
             ButtonComponent.interactable = true;
         }
         
