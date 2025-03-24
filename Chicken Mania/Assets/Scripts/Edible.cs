@@ -64,13 +64,16 @@ public class Edible : MonoBehaviour
 
         if (eggDecay == 3)
         {
-            var decayCol1 = new Color (0.635f, 0.667f, 0.596f);
+            var decayCol1 = new Color (0.098f, 0.196f, 0.11f);
+            decayCol1 = Color.Lerp(mat.color, decayCol1, 0.5f);
 
             mat.SetColor("_BaseColor", decayCol1);
             mat2.SetColor("_BaseColor", decayCol1);
+
+            eggDecay = 4;
         }
 
-        if (eggDecay >= 4)
+        if (eggDecay >= 5)
         {
             eaten = true;
         }
