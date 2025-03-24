@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropZoneTag: DropZone
   shopManager: {fileID: 0}
+  moneyIndicator: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
 --- !u!114 &7058743845706119055
 MonoBehaviour:
   m_ObjectHideFlags: 0

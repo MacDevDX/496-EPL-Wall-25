@@ -60,17 +60,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6815409233026061111, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: bf6e4fd3916423644ab7b2f87e538955, type: 2}
-    - target: {fileID: -5199103673118499719, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: bf6e4fd3916423644ab7b2f87e538955, type: 2}
     - target: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       propertyPath: m_Name
-      value: egg_easter
+      value: egg_golden
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       propertyPath: m_Layer
@@ -95,13 +87,10 @@ PrefabInstance:
       addedObject: {fileID: 5892349914760301913}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -7215506132757572623}
+      addedObject: {fileID: 1137251043439395635}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3429204797135206865}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8400963174771668202}
+      addedObject: {fileID: -3737817806762618023}
   m_SourcePrefab: {fileID: 100100000, guid: a54e74a0ee12c4346be9ae2ef08e1cfc, type: 3}
 --- !u!1 &7082763808412361906 stripped
 GameObject:
@@ -178,7 +167,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7215506132757572623
+--- !u!114 &1137251043439395635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,29 +176,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7082763808412361906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61edc836165db84fa0fa53948047ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8d6c0b0fea8e141a6ec3d7f82142c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapTextPrefab: {fileID: 63707943563286983, guid: 64823b240cc302046b378a5685b552bd, type: 3}
-  timeTillIndicator: 30
---- !u!114 &-3429204797135206865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7082763808412361906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9601c90fba2b2aa4ebe667d3619741f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clicktoHatch: 5
-  hatchCountdown: 0
-  chickObject: {fileID: 5339610932845619327, guid: cbe939c253d1c0548805afd41099ef4f, type: 3}
+  eggTimer: 10
   shopManager: {fileID: 0}
   FoxDir: {fileID: 0}
---- !u!114 &8400963174771668202
+  Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
+  moneyIndicator: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
+--- !u!114 &-3737817806762618023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
