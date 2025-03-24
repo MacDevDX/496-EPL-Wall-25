@@ -314,16 +314,19 @@ public class ShopManager : MonoBehaviour
     }
     private IEnumerator ShowMessage(string message)
     {
-        WinMessage.text = message;
-        WinMessage.gameObject.SetActive(true);
-        TimerText.gameObject.SetActive(true);
-        for (int i = 10; i > 0; i--)
+        if (Inventory[3, 6] == 1)
         {
-            TimerText.text = i.ToString();
-            yield return new WaitForSeconds(1);
+            WinMessage.text = message;
+            WinMessage.gameObject.SetActive(true);
+            TimerText.gameObject.SetActive(true);
+            for (int i = 10; i > 0; i--)
+            {
+                TimerText.text = i.ToString();
+                yield return new WaitForSeconds(1);
+            }
+            WinMessage.gameObject.SetActive(false);
+            TimerText.gameObject.SetActive(false);
         }
-        WinMessage.gameObject.SetActive(false);
-        TimerText.gameObject.SetActive(false);
     }
 
     /**************** Below is to Toggle the shop menu ****************/
@@ -791,7 +794,7 @@ public class ShopManager : MonoBehaviour
 
         ChristmasLights.SetActive(false);
         Jackolantern.SetActive(false);
-
+        
         GameOverWindow.SetActive(false);
         isGameOver = false;
 
