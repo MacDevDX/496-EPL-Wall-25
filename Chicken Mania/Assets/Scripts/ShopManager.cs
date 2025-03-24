@@ -52,6 +52,7 @@ public class ShopManager : MonoBehaviour
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
     public float FoxDetection = 0f;
+    public int GoldEggChance = 500;
     public GameObject lastSpawnedChicken;
 
     private TapGesture tapGesture;
@@ -469,7 +470,7 @@ public class ShopManager : MonoBehaviour
         //ChicksCount_Text.text = "Chicks: " + chicksCount;
         //EggsCount_Text.text = "Eggs: " + eggsCount;
 
-        Money_Text.text = Money.ToString();
+        Money_Text.text = "$" + Money.ToString();
     }
     /****************************************************************/
 
@@ -794,6 +795,7 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
+        GoldEggChance = 500;
         //Resets Array's Upgrade Cost
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;

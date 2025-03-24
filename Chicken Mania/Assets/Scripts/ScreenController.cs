@@ -121,6 +121,7 @@ public class ScreenController : MonoBehaviour
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 50f;
         shopManagerScript.timeToSpawn = 30f;
+        shopManagerScript.GoldEggChance = 1000000;
     }
 
     public void ReturnToTitlePage()
@@ -157,6 +158,7 @@ public class ScreenController : MonoBehaviour
             //shopManagerScript.Inventory[3, 9] = 2;  //DOESN'T SET INITIALLY
             shopManagerScript.timeToGrow = 7f;
             shopManagerScript.timeToSpawn = 7f;
+            shopManagerScript.GoldEggChance = 1000000;
 
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
