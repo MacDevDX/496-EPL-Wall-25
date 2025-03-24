@@ -43,6 +43,7 @@ public class ShopManager : MonoBehaviour
     public GameObject UpgradeWindow;
     public FoxDirector FoxDir;
     public EggDecayer EggDecay;
+    public GameObject FloatingMoneyText;
 
     // Screen Section
     public GameObject screenSection;
