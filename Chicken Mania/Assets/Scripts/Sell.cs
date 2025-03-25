@@ -216,7 +216,21 @@ public class Sell : MonoBehaviour
         {
             shopManager.Money += moneyEarned;
             shopManager.Money_Text.text = shopManager.Money.ToString();
+            SpawnMoneyFloater(moneyEarned);
         }
+    }
+
+    // Spawn a floating text displaying money earned
+    private void SpawnMoneyFloater(int moneyEarned)
+    {
+        Vector3 position = rb.position + new Vector3(0.0f, 0.0f, 1.0f);
+        Quaternion rot = Quaternion.AngleAxis(55, Vector3.right);
+
+        GameObject moneyText = Instantiate(shopManager.FloatingMoneyText, position, rot);
+        FloatingMoneyText moneyTextScript = moneyText.GetComponent<FloatingMoneyText>();
+
+        moneyTextScript.value = "+" + moneyEarned.ToString() + "$";
+        moneyTextScript.positive = true;
     }
 
 }

@@ -43,6 +43,7 @@ public class ShopManager : MonoBehaviour
     public GameObject UpgradeWindow;
     public FoxDirector FoxDir;
     public EggDecayer EggDecay;
+    public GameObject FloatingMoneyText;
 
     // Screen Section
     public GameObject screenSection;
@@ -52,6 +53,7 @@ public class ShopManager : MonoBehaviour
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
     public float FoxDetection = 0f;
+    public int GoldEggChance = 500;
     public GameObject lastSpawnedChicken;
 
     private TapGesture tapGesture;
@@ -220,11 +222,14 @@ public class ShopManager : MonoBehaviour
             {
                 SpawnChicken(itemId);
                 AddChicken();
+                Invoke("RaisePauseEvent", 0.5f);
             }
             if (itemId == 7)
             {
                 SpawnFriedChicken(itemId);
                 AddChicken();
+                //Pause after a short delay after buying chicken
+                Invoke("RaisePauseEvent", 0.5f);
             }
             // Show message if itemId 6 is bought
             if (itemId == 6)
@@ -300,18 +305,28 @@ public class ShopManager : MonoBehaviour
             FoxDir.setupNewEdible(newChicken, this, FoxDir, "CHICKEN");
         }
     }
+
+    // call this to pause the game
+    private void RaisePauseEvent()
+    { 
+        OnMenuOpen(new MenuOpenEventArgs(true)); 
+    
+    }
     private IEnumerator ShowMessage(string message)
     {
-        WinMessage.text = message;
-        WinMessage.gameObject.SetActive(true);
-        TimerText.gameObject.SetActive(true);
-        for (int i = 10; i > 0; i--)
+        if (Inventory[3, 6] == 1)
         {
-            TimerText.text = i.ToString();
-            yield return new WaitForSeconds(1);
+            WinMessage.text = message;
+            WinMessage.gameObject.SetActive(true);
+            TimerText.gameObject.SetActive(true);
+            for (int i = 10; i > 0; i--)
+            {
+                TimerText.text = i.ToString();
+                yield return new WaitForSeconds(1);
+            }
+            WinMessage.gameObject.SetActive(false);
+            TimerText.gameObject.SetActive(false);
         }
-        WinMessage.gameObject.SetActive(false);
-        TimerText.gameObject.SetActive(false);
     }
 
     /**************** Below is to Toggle the shop menu ****************/
@@ -338,6 +353,12 @@ public class ShopManager : MonoBehaviour
         {
             ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
             OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
+
+            if (ShopWindow.activeSelf == false)
+            {
+                //Cancel all invokes from shopmanager. This is meant to stop the delayed pause event after buying a chicken. If you add another Invoked method to shopmanager and it breaks, this is why
+                CancelInvoke();
+            }
         }
     }
 
@@ -347,6 +368,12 @@ public class ShopManager : MonoBehaviour
         {
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
             OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
+
+            if (UpgradeWindow.activeSelf == false)
+            {
+                //Cancel all invokes from shopmanager. This is meant to stop the delayed pause event after buying a chicken. If you add another Invoked method to shopmanager and it breaks, this is why
+                CancelInvoke();
+            }
         }
     }
     public void CloseAllWindows()
@@ -355,6 +382,9 @@ public class ShopManager : MonoBehaviour
         if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
         if (SettingsButtonMenu != null) SettingsButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
+
+        //Cancel all invokes from shopmanager. This is meant to stop the delayed pause event after buying a chicken. If you add another Invoked method to shopmanager and it breaks, this is why
+        CancelInvoke();
     }
     private void OnUserInteraction(object sender, System.EventArgs e)
     {
@@ -362,12 +392,14 @@ public class ShopManager : MonoBehaviour
         {
             ShopWindow.SetActive(false);
             OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
         }
 
         if (UpgradeWindow.activeSelf)
         {
             UpgradeWindow.SetActive(false);
             OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
         }
     }
     /****************************************************************/
@@ -469,7 +501,7 @@ public class ShopManager : MonoBehaviour
         //ChicksCount_Text.text = "Chicks: " + chicksCount;
         //EggsCount_Text.text = "Eggs: " + eggsCount;
 
-        Money_Text.text = Money.ToString();
+        Money_Text.text = "$" + Money.ToString();
     }
     /****************************************************************/
 
@@ -762,7 +794,7 @@ public class ShopManager : MonoBehaviour
 
         ChristmasLights.SetActive(false);
         Jackolantern.SetActive(false);
-
+        
         GameOverWindow.SetActive(false);
         isGameOver = false;
 
@@ -794,6 +826,7 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
+        GoldEggChance = 500;
         //Resets Array's Upgrade Cost
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;
