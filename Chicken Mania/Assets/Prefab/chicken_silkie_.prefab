@@ -217,6 +217,7 @@ MonoBehaviour:
   isChick: 0
   isChicken: 0
   eaten: 0
+  eggDecay: 0
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
   ShopMan: {fileID: 0}
   FoxDirecter: {fileID: 0}
@@ -300,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEgg: {fileID: 7082763808412361906, guid: c7ef6fade0c532f4886a32f601bd9e4a, type: 3}
+  goldenEgg: {fileID: 7082763808412361906, guid: a0b5d7d8772faf240ab6764816046354, type: 3}
   timetoSpawn: 10
   FoxDir: {fileID: 0}
   shopManager: {fileID: 0}

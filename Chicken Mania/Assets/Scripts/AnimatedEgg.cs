@@ -43,7 +43,7 @@ public class AnimatedEgg : MonoBehaviour
         */
         if (tapTextPrefab != null)
         {
-            tapTextInstance = Instantiate(tapTextPrefab, transform.position + Vector3.up * .8f, Quaternion.identity);
+            tapTextInstance = Instantiate(tapTextPrefab, transform.position + Vector3.up * .8f, Quaternion.Euler(45, 0, 0));
             tapTextInstance.transform.SetParent(transform);
             tapTextInstance.SetActive(false);
         }
