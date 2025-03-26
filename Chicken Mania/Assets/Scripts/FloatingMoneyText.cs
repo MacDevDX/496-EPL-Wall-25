@@ -41,8 +41,8 @@ public class FloatingMoneyText : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    // Pass in moneyEarned and a transform's location to spawn the text at. Col is colour of the text. Prefix is optional, use it if gained or lost money, usually + or -.
-    public static void SpawnText(int moneyEarned, Vector3 location, Color col, string prefix = "")
+    // Pass in message and a transform's location to spawn the text at. Col is colour of the text. Prefix is optional, use it if gained or lost money, usually + or -.
+    public static void SpawnText(string message, Vector3 location, Color col, string prefix = "")
     {
         location = location + new Vector3(0.0f, 0.0f, 0.2f);
         Quaternion rot = Quaternion.AngleAxis(55, Vector3.right);
@@ -52,12 +52,12 @@ public class FloatingMoneyText : MonoBehaviour
 
         if (prefix == "")
         {
-            moneyTextScript.value = prefix + moneyEarned.ToString();
+            moneyTextScript.value = prefix + message;
 
         }
         else
         {
-            moneyTextScript.value = prefix + moneyEarned.ToString() + "$";
+            moneyTextScript.value = prefix + message + "$";
         }
 
         moneyTextScript.colour = col;

@@ -217,7 +217,7 @@ public class Sell : MonoBehaviour
         {
             shopManager.Money += moneyEarned;
             shopManager.Money_Text.text = shopManager.Money.ToString();
-            FloatingMoneyText.SpawnText(moneyEarned, location, Color.green, "+");
+            FloatingMoneyText.SpawnText(moneyEarned.ToString(), location, Color.green, "+");
         }
     }
 
