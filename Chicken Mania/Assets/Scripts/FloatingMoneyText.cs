@@ -4,7 +4,16 @@ using TMPro;
 public class FloatingMoneyText : MonoBehaviour
 {
     public string value;
-    public bool positive;
+    public Color colour;
+    private static GameObject _prefab;
+    public static GameObject prefab { get
+        {
+            if (_prefab == null)
+            {
+                _prefab = Resources.Load<GameObject>("FloatingMoneyText");
+            }
+            return _prefab;
+        } }
     private RectTransform RTransform;
     private TextMeshPro TM;
 
@@ -15,14 +24,8 @@ public class FloatingMoneyText : MonoBehaviour
         TM = GetComponent<TextMeshPro>();
 
         TM.text = value;
-        if (positive)
-        {
-            TM.color = Color.green;
-        }
-        else
-        {
-            TM.color = Color.red;
-        }
+        TM.color = colour;
+
 
         Invoke("SelfDestruct", 1.0f);
      }
@@ -36,5 +39,27 @@ public class FloatingMoneyText : MonoBehaviour
     void SelfDestruct()
     {
         Destroy(this.gameObject);
+    }
+
+    // Pass in moneyEarned and a transform's location to spawn the text at. Col is colour of the text. Prefix is optional, use it if gained or lost money, usually + or -.
+    public static void SpawnText(int moneyEarned, Vector3 location, Color col, string prefix = "")
+    {
+        location = location + new Vector3(0.0f, 0.0f, 0.2f);
+        Quaternion rot = Quaternion.AngleAxis(55, Vector3.right);
+
+        GameObject moneyText = Instantiate(prefab, location, rot);
+        FloatingMoneyText moneyTextScript = moneyText.GetComponent<FloatingMoneyText>();
+
+        if (prefix == "")
+        {
+            moneyTextScript.value = prefix + moneyEarned.ToString();
+
+        }
+        else
+        {
+            moneyTextScript.value = prefix + moneyEarned.ToString() + "$";
+        }
+
+        moneyTextScript.colour = col;
     }
 }

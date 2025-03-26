@@ -79,6 +79,7 @@ public class Sell : MonoBehaviour
     public void GiveMoney(GameObject droppedObject)
     {
         int moneyEarned = 0;
+        Vector3 location = droppedObject.transform.position;
 
         if (droppedObject.name.Contains("rhode"))
         {
@@ -216,21 +217,9 @@ public class Sell : MonoBehaviour
         {
             shopManager.Money += moneyEarned;
             shopManager.Money_Text.text = shopManager.Money.ToString();
-            SpawnMoneyFloater(moneyEarned);
+            FloatingMoneyText.SpawnText(moneyEarned, location, Color.green, "+");
         }
     }
 
-    // Spawn a floating text displaying money earned
-    private void SpawnMoneyFloater(int moneyEarned)
-    {
-        Vector3 position = rb.position + new Vector3(0.0f, 0.0f, 1.0f);
-        Quaternion rot = Quaternion.AngleAxis(55, Vector3.right);
-
-        GameObject moneyText = Instantiate(shopManager.FloatingMoneyText, position, rot);
-        FloatingMoneyText moneyTextScript = moneyText.GetComponent<FloatingMoneyText>();
-
-        moneyTextScript.value = "+" + moneyEarned.ToString() + "$";
-        moneyTextScript.positive = true;
-    }
 
 }
