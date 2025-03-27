@@ -10,8 +10,10 @@ public class InactivityHandler : MonoBehaviour
     private float countdownTime;
     private bool countdownStarted = false;
 
-    public GameObject inactivityWarning;
-    public TextMeshProUGUI countdownText;
+    public GameObject inactivityWarningGreen;
+    public GameObject inactivityWarningOrange;
+    public TextMeshProUGUI greenCountdownText;
+    public TextMeshProUGUI orangeCountdownText;
 
     public ShopManager shopManager;
     public GameObject hudObject; // Reference to the HUD object
@@ -21,9 +23,13 @@ public class InactivityHandler : MonoBehaviour
     {
         lastInteractionTime = Time.time;
 
-        if (inactivityWarning != null)
+        if (inactivityWarningGreen != null)
         {
-            inactivityWarning.SetActive(false);
+            inactivityWarningGreen.SetActive(false);
+        }
+        if (inactivityWarningOrange != null)
+        {
+            inactivityWarningOrange.SetActive(false);
         }
 
         RegisterTouchGestures();
@@ -41,11 +47,30 @@ public class InactivityHandler : MonoBehaviour
         if (countdownStarted)
         {
             countdownTime -= Time.deltaTime;
-            countdownText.text = "Returning to Main Menu in: " + Mathf.Ceil(countdownTime) + "s";
+            string countdownMessage = "Returning to Main Menu in: " + Mathf.Ceil(countdownTime) + "s";
+
+            if (inactivityWarningGreen != null && inactivityWarningGreen.activeSelf && greenCountdownText != null)
+            {
+                greenCountdownText.text = countdownMessage;
+            }
+
+            if (inactivityWarningOrange != null && inactivityWarningOrange.activeSelf && orangeCountdownText != null)
+            {
+                orangeCountdownText.text = countdownMessage;
+            }
 
             if (countdownTime <= 0)
             {
-                inactivityWarning.SetActive(false);
+                if (inactivityWarningGreen != null)
+                {
+                    inactivityWarningGreen.SetActive(false);
+                }
+
+                if (inactivityWarningOrange != null)
+                {
+                    inactivityWarningOrange.SetActive(false);
+                }
+
                 countdownStarted = false; // Reset so it can trigger again later
                 shopManager.ResetGame();
             }
@@ -85,7 +110,7 @@ public class InactivityHandler : MonoBehaviour
                 pressGesture.Pressed += OnUserInteraction;
             }
         }
-        
+
     }
 
     private void OnUserInteraction(object sender, System.EventArgs e)
@@ -97,20 +122,47 @@ public class InactivityHandler : MonoBehaviour
     {
         lastInteractionTime = Time.time;
 
-        if (inactivityWarning != null && inactivityWarning.activeSelf)
+        if (inactivityWarningGreen != null)
         {
-            inactivityWarning.SetActive(false);
-            countdownStarted = false;
+            inactivityWarningGreen.SetActive(false);
         }
+
+        if (inactivityWarningOrange != null)
+        {
+            inactivityWarningOrange.SetActive(false);
+        }
+
+        countdownStarted = false;
     }
 
     private void ShowInactivityWarning()
     {
-        if (inactivityWarning != null && !inactivityWarning.activeSelf)
+        if (!countdownStarted)
         {
-            inactivityWarning.SetActive(true);
+            bool showGreen = Random.value < 0.5f;
+
+            if (showGreen && inactivityWarningGreen != null)
+            {
+                inactivityWarningGreen.SetActive(true);
+
+                if (inactivityWarningOrange != null)
+                {
+                    inactivityWarningOrange.SetActive(false);
+                }
+            }
+            else if (!showGreen && inactivityWarningOrange != null)
+            {
+                inactivityWarningOrange.SetActive(true);
+
+                if (inactivityWarningGreen != null)
+                {
+                    inactivityWarningGreen.SetActive(false);
+                }
+            }
+
             countdownStarted = true;
             countdownTime = returnToMenuTime;
         }
     }
+
 }
