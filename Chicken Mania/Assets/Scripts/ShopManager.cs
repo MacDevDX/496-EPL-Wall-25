@@ -43,7 +43,6 @@ public class ShopManager : MonoBehaviour
     public GameObject UpgradeWindow;
     public FoxDirector FoxDir;
     public EggDecayer EggDecay;
-    public GameObject FloatingMoneyText;
 
     // Screen Section
     public GameObject screenSection;
@@ -203,6 +202,8 @@ public class ShopManager : MonoBehaviour
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         if (ButtonRef == null)
         {
+            // When not enough money, ButtonRef doesnt exist. Button is probably disabled somehow when not enough money.
+            FloatingMoneyText.SpawnText("Not Enough Money", new Vector3(-0.3f, 10.7f, -7.3f), Color.gray);
             return;
         }
         int itemId = ButtonRef.GetComponent<ShopButtons>().ItemID;
@@ -212,6 +213,7 @@ public class ShopManager : MonoBehaviour
         {
             //Deduct money and update UI
             Money -= Inventory[2, itemId];
+            FloatingMoneyText.SpawnText(Inventory[2, itemId].ToString(), new Vector3(-0.3f, 10.7f, -7.3f), Color.red, "-");
             //Money_Text.text = Money.ToString();
 
             //Increment the count for the item (upgrade)
