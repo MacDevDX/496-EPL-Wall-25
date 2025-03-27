@@ -231,11 +231,6 @@ public class ShopManager : MonoBehaviour
                 //Pause after a short delay after buying chicken
                 Invoke("RaisePauseEvent", 0.5f);
             }
-            // Show message if itemId 6 is bought
-            if (itemId == 6)
-            {
-                StartCoroutine(ShowMessage("You have purchased the ultimate chicken! You Won! Continue playing or time out to reset!"));
-            }
 
             //Only applies multiplier to Upgrade indexes
             if (itemId == 8)
@@ -312,23 +307,6 @@ public class ShopManager : MonoBehaviour
         OnMenuOpen(new MenuOpenEventArgs(true)); 
     
     }
-    private IEnumerator ShowMessage(string message)
-    {
-        if (Inventory[3, 6] == 1)
-        {
-            WinMessage.text = message;
-            WinMessage.gameObject.SetActive(true);
-            TimerText.gameObject.SetActive(true);
-            for (int i = 10; i > 0; i--)
-            {
-                TimerText.text = i.ToString();
-                yield return new WaitForSeconds(1);
-            }
-            WinMessage.gameObject.SetActive(false);
-            TimerText.gameObject.SetActive(false);
-        }
-    }
-
     /**************** Below is to Toggle the shop menu ****************/
 
     public void ToggleSell()

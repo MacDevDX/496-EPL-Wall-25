@@ -9,7 +9,7 @@ public class WinConditionHandler : MonoBehaviour
     private float countdownTimer;
 
     public GameObject winMessageUI;
-    public TextMeshProUGUI countdownText;
+    //public TextMeshProUGUI countdownText;
     public ShopManager shopManager;
 
     private void Start()
@@ -29,8 +29,8 @@ public class WinConditionHandler : MonoBehaviour
 
         if (hasWon)
         {
-            countdownTimer -= Time.deltaTime;
-            countdownText.text = "You have purchased the ultimate chicken!You Won! Continue playing or time out to reset!" + Mathf.Ceil(countdownTimer) + "s";
+            //countdownTimer -= Time.deltaTime;
+            //countdownText.text = Mathf.Ceil(countdownTimer) + "s";
 
             if (countdownTimer <= 0)
             {
