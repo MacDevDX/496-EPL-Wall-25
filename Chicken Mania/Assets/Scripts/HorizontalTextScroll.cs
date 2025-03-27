@@ -12,10 +12,9 @@ public class HorizontalTextScroll : MonoBehaviour
 
     private void Update()
     {
-        // Move the text horizontally
         textRectTransform.localPosition += Vector3.left * scrollSpeed * Time.deltaTime;
 
-        // Reset position when out of bounds (inside the TextContainer)
+        //Reset if outside the MusicBoxText container
         RectTransform parentRect = transform.parent.GetComponent<RectTransform>();
         if (textRectTransform.localPosition.x < -textRectTransform.rect.width)
         {
