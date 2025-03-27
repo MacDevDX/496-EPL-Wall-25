@@ -4,7 +4,7 @@ using TMPro;
 
 public class WinConditionHandler : MonoBehaviour
 {
-    public float winCountdownTime = 10f;
+    public float winCountdownTime = 6f;
     private bool hasWon = false;
     private float countdownTimer;
 
@@ -29,8 +29,7 @@ public class WinConditionHandler : MonoBehaviour
 
         if (hasWon)
         {
-            //countdownTimer -= Time.deltaTime;
-            //countdownText.text = Mathf.Ceil(countdownTimer) + "s";
+            countdownTimer -= Time.deltaTime;
 
             if (countdownTimer <= 0)
             {

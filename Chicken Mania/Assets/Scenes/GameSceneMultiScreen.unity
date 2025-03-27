@@ -5697,6 +5697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropZoneTag: DropZone
   shopManager: {fileID: 95547546}
+  moneyIndicator: {fileID: 0}
 --- !u!135 &168146225
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22350,6 +22351,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650377346}
   m_CullTransparentMesh: 1
+--- !u!1 &652170512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6337446374708883970, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+  m_PrefabInstance: {fileID: 5022151346588682936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653542931
 GameObject:
   m_ObjectHideFlags: 0
@@ -22875,6 +22881,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658239088}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &663304941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3017382038563561812, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+  m_PrefabInstance: {fileID: 5853365807560204907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &663304942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663304941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba67d04e07d3491989322c6414feaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  flickTime: 0.1
+  minDistance: 1
+  movementThreshold: 0.5
+  direction: 0
+--- !u!114 &663304943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663304941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419477cabb43afb41929dab69744f01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &663328567
 GameObject:
   m_ObjectHideFlags: 0
@@ -60202,6 +60257,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3456744173064612201, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
   m_PrefabInstance: {fileID: 788304168288683651}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1681128580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681128579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419477cabb43afb41929dab69744f01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1681128581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681128579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba67d04e07d3491989322c6414feaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  flickTime: 0.1
+  minDistance: 1
+  movementThreshold: 0.5
+  direction: 0
 --- !u!1 &1681417465
 GameObject:
   m_ObjectHideFlags: 0
@@ -71782,6 +71881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropZoneTag: DropZone
   shopManager: {fileID: 95547546}
+  moneyIndicator: {fileID: 0}
 --- !u!135 &1969101777
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73454,6 +73554,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 545644544075302234, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
   m_PrefabInstance: {fileID: 5022151346588682936}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2036520244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652170512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba67d04e07d3491989322c6414feaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  flickTime: 0.1
+  minDistance: 1
+  movementThreshold: 0.5
+  direction: 0
+--- !u!114 &2036520245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652170512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419477cabb43afb41929dab69744f01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2040329836
 GameObject:
   m_ObjectHideFlags: 0
@@ -78675,6 +78819,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1196046298}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: GoldEggChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: UpgradeWindow
       value: 
       objectReference: {fileID: 1284467643}
@@ -78682,6 +78830,10 @@ PrefabInstance:
       propertyPath: HomeButtonMenu
       value: 
       objectReference: {fileID: 326819082}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: moneyIndicator
+      value: 
+      objectReference: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: ChristmasLights
       value: 
@@ -79152,6 +79304,10 @@ PrefabInstance:
       propertyPath: winMessageUI
       value: 
       objectReference: {fileID: 1681128579}
+    - target: {fileID: 5121686501246718428, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: winCountdownTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5169497638028177642, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -79839,7 +79995,7 @@ PrefabInstance:
     - target: {fileID: 8596073059389842927, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 791d3b56d81a434479e4cd37b5eda031, type: 3}
+      objectReference: {fileID: 21300000, guid: 400887ca15a31b74fb0a7835080e880e, type: 3}
     - target: {fileID: 8692167280993017512, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: m_Name
       value: GreenWarning
@@ -80044,6 +80200,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2071124881656005147, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 501853696}
+    - targetCorrespondingSourceObject: {fileID: 3456744173064612201, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1681128580}
+    - targetCorrespondingSourceObject: {fileID: 3456744173064612201, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1681128581}
   m_SourcePrefab: {fileID: 100100000, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
 --- !u!224 &788304168288683654 stripped
 RectTransform:
@@ -80611,7 +80773,7 @@ PrefabInstance:
     - target: {fileID: 3175051769326307920, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 81244a994760c4d4d826f0083adae455, type: 3}
+      objectReference: {fileID: 21300000, guid: 400887ca15a31b74fb0a7835080e880e, type: 3}
     - target: {fileID: 3266896156710494309, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: m_Type
       value: 0
@@ -80909,6 +81071,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 767916041}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: GoldEggChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: UpgradeWindow
       value: 
       objectReference: {fileID: 1964762428}
@@ -80916,6 +81082,10 @@ PrefabInstance:
       propertyPath: HomeButtonMenu
       value: 
       objectReference: {fileID: 1158331649}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: moneyIndicator
+      value: 
+      objectReference: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: ChristmasLights
       value: 
@@ -81308,6 +81478,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8038886559616769004, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: winCountdownTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8064418902197633069, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -81575,6 +81749,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4491238686557338839, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 994232040}
+    - targetCorrespondingSourceObject: {fileID: 6337446374708883970, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2036520245}
+    - targetCorrespondingSourceObject: {fileID: 6337446374708883970, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2036520244}
   m_SourcePrefab: {fileID: 100100000, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
 --- !u!224 &5022151346588682939 stripped
 RectTransform:
@@ -82464,9 +82644,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 548903546}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: GoldEggChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: HomeButtonMenu
       value: 
       objectReference: {fileID: 1164005356}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: moneyIndicator
+      value: 
+      objectReference: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: ChristmasLights
       value: 
@@ -84426,7 +84614,7 @@ PrefabInstance:
     - target: {fileID: 8040231978700014623, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3d5b7a0ec511c1e4d8f8fa98fb564a67, type: 3}
+      objectReference: {fileID: 21300000, guid: 400887ca15a31b74fb0a7835080e880e, type: 3}
     - target: {fileID: 8120133152276731276, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -84606,6 +84794,10 @@ PrefabInstance:
     - target: {fileID: 9029648589417205060, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029648589417205060, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: winCountdownTime
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9222659116703206396, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_fontSize
@@ -84811,6 +85003,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2033385293329889456, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1963732122}
+    - targetCorrespondingSourceObject: {fileID: 3017382038563561812, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 663304943}
+    - targetCorrespondingSourceObject: {fileID: 3017382038563561812, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 663304942}
   m_SourcePrefab: {fileID: 100100000, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
 --- !u!224 &5853365807560204908 stripped
 RectTransform:

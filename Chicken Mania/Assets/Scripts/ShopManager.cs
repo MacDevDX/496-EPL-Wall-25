@@ -52,8 +52,9 @@ public class ShopManager : MonoBehaviour
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
     public float FoxDetection = 0f;
-    public int GoldEggChance = 500;
+    public int GoldEggChance = 100;
     public GameObject lastSpawnedChicken;
+    public GameObject moneyIndicator;
 
     private TapGesture tapGesture;
 
@@ -198,15 +199,12 @@ public class ShopManager : MonoBehaviour
 
     public void Buy()
     {
-        // a check for if money is less than the cheapest item, there is already a money check below
-        // if (Money < Inventory[2, 1]) return;
+        if (Money < Inventory[2, 1]) return; // think it needs to return if not it will give error on clicking grey out
 
         //References to the button clicked
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         if (ButtonRef == null)
         {
-            // When not enough money, ButtonRef doesnt exist. Button is probably disabled somehow when not enough money.
-            FloatingMoneyText.SpawnText("Not Enough Money", new Vector3(-0.3f, 10.7f, -7.3f), Color.gray);
             return;
         }
         int itemId = ButtonRef.GetComponent<ShopButtons>().ItemID;
@@ -216,7 +214,7 @@ public class ShopManager : MonoBehaviour
         {
             //Deduct money and update UI
             Money -= Inventory[2, itemId];
-            FloatingMoneyText.SpawnText(Inventory[2, itemId].ToString(), new Vector3(-0.3f, 10.7f, -7.3f), Color.red, "-");
+            ShowMoneyIndicator(Inventory[2, itemId], ButtonRef);
             //Money_Text.text = Money.ToString();
 
             //Increment the count for the item (upgrade)
@@ -541,6 +539,15 @@ public class ShopManager : MonoBehaviour
         ResetTimerMode();
         Score.gameObject.SetActive(false);
     }
+    private void ShowMoneyIndicator(int moneyEarned, GameObject buttonRef)
+    {
+        GameObject indicator = Instantiate(moneyIndicator, buttonRef.transform.position + Vector3.up * .8f, Quaternion.Euler(45, 0, 0));
+        indicator.transform.SetParent(transform);
+        TMPro.TMP_Text textComponent = indicator.GetComponentInChildren<TMPro.TMP_Text>();
+        textComponent.text = $"-{moneyEarned}";
+        textComponent.color = Color.red;
+        Destroy(indicator, .5f);
+    }
 
     /***************************************** Below handles Timer Mode *****************************************/
     public void StartCountdown()
@@ -809,7 +816,7 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
-        GoldEggChance = 500;
+        GoldEggChance = 100;
         //Resets Array's Upgrade Cost
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;
@@ -872,6 +879,7 @@ public class ShopManager : MonoBehaviour
 
 
 }
+
 
 
 public class MenuOpenEventArgs : EventArgs

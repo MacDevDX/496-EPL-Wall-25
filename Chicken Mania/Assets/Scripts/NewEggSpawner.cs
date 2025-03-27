@@ -96,7 +96,6 @@ public class NewEggSpawner : MonoBehaviour
 
         //Random chance to spawn a golden egg (1 in 500)
         bool isGoldenEgg = Random.Range(1, shopManager.GoldEggChance) == 1;
-        Debug.Log($"{shopManager.GoldEggChance}");
 
         GameObject newEgg;
 
