@@ -198,7 +198,8 @@ public class ShopManager : MonoBehaviour
 
     public void Buy()
     {
-        if (Money < Inventory[2, 1]) return;
+        // a check for if money is less than the cheapest item, there is already a money check below
+        // if (Money < Inventory[2, 1]) return;
 
         //References to the button clicked
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
