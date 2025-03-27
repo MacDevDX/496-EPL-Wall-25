@@ -60,7 +60,9 @@ public class ShopManager : MonoBehaviour
     private GameObject activeSellZone;
 
     // Music and Home Button Menu
+    [Header("Settings")]
     public GameObject SettingsButtonMenu;
+    public GameObject HomeButtonMenu;
 
     // Pause Broadcast
     public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
@@ -836,19 +838,34 @@ public class ShopManager : MonoBehaviour
     }
     /****************************************************************/
 
-    /***For Home Button Menu***/
-    public void OpenHomeButtonMenu()
+    /***For Settings and Home Button Menu***/
+    public void OpenSettingsButtonMenu()
     {
-        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf))
+        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
         {
             SettingsButtonMenu.SetActive(true);
             OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenu.activeSelf));
         }
     }
 
-    public void CloseHomeButtonMenu()
+    public void CloseSettingsButtonMenu()
     {
         SettingsButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
+
+    public void OpenHomeButtonMenu()
+    {
+        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
+        {
+            HomeButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(HomeButtonMenu.activeSelf));
+        }
+    }
+
+    public void CloseHomeButtonMenu()
+    {
+        HomeButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
 

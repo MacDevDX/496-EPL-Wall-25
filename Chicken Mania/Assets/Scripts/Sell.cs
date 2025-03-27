@@ -216,7 +216,7 @@ public class Sell : MonoBehaviour
         if (moneyEarned > 0)
         {
             shopManager.Money += moneyEarned;
-            shopManager.Money_Text.text = shopManager.Money.ToString();
+            shopManager.Money_Text.text = "$" + shopManager.Money.ToString();
             FloatingMoneyText.SpawnText(moneyEarned.ToString(), location, Color.green, "+");
         }
     }

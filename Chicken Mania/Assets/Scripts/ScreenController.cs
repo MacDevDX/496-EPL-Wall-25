@@ -19,6 +19,11 @@ public class ScreenController : MonoBehaviour
     public GameObject NormalGround; //Assign the normal polyobject for normal mode
     public GameObject TimedGround;  //Assign the timed polyobject for timed mode
 
+    [Header("Tutorial UI")]
+    public GameObject TutorialButton;
+    public GameObject TutorialImage;
+    public GameObject CloseTutorialButton;
+
     private TapGesture tapGesture; // TouchScript's Tap Gesture
 
     public ShopManager shopManagerScript; // Reference to ShopManager script
@@ -72,6 +77,14 @@ public class ScreenController : MonoBehaviour
         else if (tappedObject == TycoonModeButton)
         {
             StartTycoonGameMode();
+        }
+        else if (tappedObject == TutorialButton)
+        {
+            ShowTutorial();
+        }
+        else if (tappedObject == CloseTutorialButton)
+        {
+            HideTutorial();
         }
     }
 
@@ -208,5 +221,15 @@ public class ScreenController : MonoBehaviour
         }
 
 
+    }
+
+    public void ShowTutorial()
+    {
+        TutorialImage.SetActive(true);
+    }
+
+    public void HideTutorial()
+    {
+        TutorialImage.SetActive(false);
     }
 }
