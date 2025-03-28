@@ -11,6 +11,7 @@ public class ClickforGold : MonoBehaviour
 
     private Animator eggAnimator;
     public ParticleSystem Particles;
+    public GameObject moneyIndicator;
 
     void Awake()
     {
@@ -29,7 +30,22 @@ public class ClickforGold : MonoBehaviour
 
         eggAnimator.SetTrigger("tap");
         eggAnimator.SetTrigger("idle");
+
+        ShowMoneyIndicator(moneyEarned);
     }
+
+    private void ShowMoneyIndicator(int moneyEarned)
+    {
+        GameObject indicator = Instantiate(moneyIndicator, transform.position + Vector3.up * .8f, Quaternion.Euler(45, 0, 0));
+        indicator.transform.SetParent(transform);
+        TMPro.TMP_Text textComponent = indicator.GetComponentInChildren<TMPro.TMP_Text>();
+        textComponent.text = $"+{moneyEarned}";
+        textComponent.color = Color.green;
+        textComponent.fontSize *= 2;
+
+        Destroy(indicator, .5f);
+    }
+
     void Update()
     {
         eggTimer -= Time.deltaTime;
