@@ -28,7 +28,6 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI Score;
     public TextMeshProUGUI tutorialTextPGM;
     public TextMeshProUGUI GameOverText;
-    public TextMeshProUGUI HomeMenuText;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -364,6 +363,7 @@ public class ShopManager : MonoBehaviour
         if (ShopWindow != null) ShopWindow.SetActive(false);
         if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
         if (SettingsButtonMenu != null) SettingsButtonMenu.SetActive(false);
+        if (HomeButtonMenu != null) HomeButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
 
         //Cancel all invokes from shopmanager. This is meant to stop the delayed pause event after buying a chicken. If you add another Invoked method to shopmanager and it breaks, this is why
@@ -384,6 +384,35 @@ public class ShopManager : MonoBehaviour
             OnMenuOpen(new MenuOpenEventArgs(false));
             CancelInvoke();
         }
+
+        if (TimedHomeButtonMenu.activeSelf)
+        {
+            TimedHomeButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (TimedSettingsButtonMenu.activeSelf)
+        {
+            TimedSettingsButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (HomeButtonMenu.activeSelf)
+        {
+            HomeButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (SettingsButtonMenu.activeSelf)
+        {
+            SettingsButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
     }
     /****************************************************************/
 
@@ -487,10 +516,6 @@ public class ShopManager : MonoBehaviour
         Money_Text.text = "$" + Money.ToString();
     }
 
-    public void displayValues()
-    {
-        HomeMenuText.text = $"You have {chickensCount} Chickens, {chicksCount} Chicks, and {eggsCount} Eggs!";
-    }
     /****************************************************************/
 
         /***************** Below handles game over **********************/
