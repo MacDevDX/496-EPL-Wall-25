@@ -12,7 +12,6 @@ using TouchScript.Examples.RawInput;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 using TouchScript.Gestures;
-using UnityEngine.WSA;
 
 public class ShopManager : MonoBehaviour
 {
@@ -43,7 +42,6 @@ public class ShopManager : MonoBehaviour
     public GameObject UpgradeWindow;
     public FoxDirector FoxDir;
     public EggDecayer EggDecay;
-    public GameObject FloatingMoneyText;
 
     // Screen Section
     public GameObject screenSection;
@@ -53,15 +51,20 @@ public class ShopManager : MonoBehaviour
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
     public float FoxDetection = 0f;
-    public int GoldEggChance = 500;
+    public int GoldEggChance = 100;
     public GameObject lastSpawnedChicken;
+    public GameObject moneyIndicator;
 
     private TapGesture tapGesture;
 
     private GameObject activeSellZone;
 
     // Music and Home Button Menu
+    [Header("Settings")]
     public GameObject SettingsButtonMenu;
+    public GameObject HomeButtonMenu;
+    public GameObject TimedSettingsButtonMenu;
+    public GameObject TimedHomeButtonMenu;
 
     // Pause Broadcast
     public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
@@ -197,7 +200,7 @@ public class ShopManager : MonoBehaviour
 
     public void Buy()
     {
-        if (Money < Inventory[2, 1]) return;
+        if (Money < Inventory[2, 1]) return; // think it needs to return if not it will give error on clicking grey out
 
         //References to the button clicked
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
@@ -212,6 +215,7 @@ public class ShopManager : MonoBehaviour
         {
             //Deduct money and update UI
             Money -= Inventory[2, itemId];
+            ShowMoneyIndicator(Inventory[2, itemId], ButtonRef);
             //Money_Text.text = Money.ToString();
 
             //Increment the count for the item (upgrade)
@@ -359,6 +363,7 @@ public class ShopManager : MonoBehaviour
         if (ShopWindow != null) ShopWindow.SetActive(false);
         if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
         if (SettingsButtonMenu != null) SettingsButtonMenu.SetActive(false);
+        if (HomeButtonMenu != null) HomeButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
 
         //Cancel all invokes from shopmanager. This is meant to stop the delayed pause event after buying a chicken. If you add another Invoked method to shopmanager and it breaks, this is why
@@ -379,6 +384,35 @@ public class ShopManager : MonoBehaviour
             OnMenuOpen(new MenuOpenEventArgs(false));
             CancelInvoke();
         }
+
+        if (TimedHomeButtonMenu.activeSelf)
+        {
+            TimedHomeButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (TimedSettingsButtonMenu.activeSelf)
+        {
+            TimedSettingsButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (HomeButtonMenu.activeSelf)
+        {
+            HomeButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (SettingsButtonMenu.activeSelf)
+        {
+            SettingsButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
     }
     /****************************************************************/
 
@@ -481,9 +515,10 @@ public class ShopManager : MonoBehaviour
 
         Money_Text.text = "$" + Money.ToString();
     }
+
     /****************************************************************/
 
-    /***************** Below handles game over **********************/
+        /***************** Below handles game over **********************/
     public GameObject GameOverWindow;
     private bool isGameOver = false; //To prevent multiple triggers
     private void CheckGameOver()
@@ -535,6 +570,15 @@ public class ShopManager : MonoBehaviour
     {
         ResetTimerMode();
         Score.gameObject.SetActive(false);
+    }
+    private void ShowMoneyIndicator(int moneyEarned, GameObject buttonRef)
+    {
+        GameObject indicator = Instantiate(moneyIndicator, buttonRef.transform.position + Vector3.up * .8f, Quaternion.Euler(45, 0, 0));
+        indicator.transform.SetParent(transform);
+        TMPro.TMP_Text textComponent = indicator.GetComponentInChildren<TMPro.TMP_Text>();
+        textComponent.text = $"-{moneyEarned}";
+        textComponent.color = Color.red;
+        Destroy(indicator, .5f);
     }
 
     /***************************************** Below handles Timer Mode *****************************************/
@@ -804,7 +848,7 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
-        GoldEggChance = 500;
+        GoldEggChance = 100;
         //Resets Array's Upgrade Cost
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;
@@ -834,24 +878,69 @@ public class ShopManager : MonoBehaviour
     }
     /****************************************************************/
 
-    /***For Home Button Menu***/
-    public void OpenHomeButtonMenu()
+    /***For Settings and Home Button Menu***/
+    public void OpenSettingsButtonMenu()
     {
-        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf))
+        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
         {
             SettingsButtonMenu.SetActive(true);
             OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenu.activeSelf));
         }
     }
 
-    public void CloseHomeButtonMenu()
+    public void CloseSettingsButtonMenu()
     {
         SettingsButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
 
+    public void OpenHomeButtonMenu()
+    {
+        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
+        {
+            HomeButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(HomeButtonMenu.activeSelf));
+        }
+    }
 
+    public void CloseHomeButtonMenu()
+    {
+        HomeButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
+
+    /*For Timed Gamemode*/
+    public void OpenTimedSettingsButtonMenu()
+    {
+        if (TimedHomeButtonMenu == null || !TimedHomeButtonMenu.activeSelf)
+        {
+            TimedSettingsButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(TimedSettingsButtonMenu.activeSelf));
+        }
+    }
+
+    public void CloseTimedSettingsButtonMenu()
+    {
+        TimedSettingsButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
+
+    public void OpenTimedHomeButtonMenu()
+    {
+        if (TimedSettingsButtonMenu == null || !TimedSettingsButtonMenu.activeSelf)
+        {
+            TimedHomeButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(TimedHomeButtonMenu.activeSelf));
+        }
+    }
+
+    public void CloseTimedHomeButtonMenu()
+    {
+        TimedHomeButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
 }
+
 
 
 public class MenuOpenEventArgs : EventArgs
