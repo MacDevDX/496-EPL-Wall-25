@@ -132,8 +132,8 @@ public class ScreenController : MonoBehaviour
         shopManager.SetActive(true); // Activate shop manager
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 50f;
-        shopManagerScript.timeToSpawn = 30f;
+        shopManagerScript.timeToGrow = 10f;
+        shopManagerScript.timeToSpawn = 5f;
         shopManagerScript.GoldEggChance = 1000000;
     }
 

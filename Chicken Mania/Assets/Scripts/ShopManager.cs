@@ -115,18 +115,18 @@ public class ShopManager : MonoBehaviour
 
         //Chicken Price
         Inventory[2, 1] = 20;
-        Inventory[2, 2] = 30;
-        Inventory[2, 3] = 75;
-        Inventory[2, 4] = 113;
-        Inventory[2, 5] = 281;
-        Inventory[2, 6] = 600;
-        Inventory[2, 7] = 10000; //Secret Chicken
+        Inventory[2, 2] = 100;
+        Inventory[2, 3] = 500;
+        Inventory[2, 4] = 3500;
+        Inventory[2, 5] = 28000;
+        Inventory[2, 6] = 300000;
+        Inventory[2, 7] = 10000000; //Secret Chicken
 
         //Upgrades (Supplements, Feed, Incubator, Research)
-        Inventory[2, 8] = 30;
-        Inventory[2, 9] = 25;
-        Inventory[2, 10] = 25;
-        Inventory[2, 11] = 50;
+        Inventory[2, 8] = 300;
+        Inventory[2, 9] = 3000;
+        Inventory[2, 10] = 100;
+        Inventory[2, 11] = 1000;
 
 
         /*--------------------------------------------------------------------------

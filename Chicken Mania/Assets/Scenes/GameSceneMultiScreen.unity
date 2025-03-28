@@ -5781,7 +5781,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
       propertyPath: decayTickTime
-      value: 50
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4468442117905679965, guid: f737d64a3e200684da1a3515603d3ccb, type: 3}
       propertyPath: shopManagerScript
@@ -82452,6 +82452,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2400156670368752282, guid: e5ecb7cf725b2ac459e13a5fedba3554, type: 3}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: timeToSpawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 132274669}
@@ -82463,6 +82467,10 @@ PrefabInstance:
       propertyPath: CountdownText
       value: 
       objectReference: {fileID: 548903546}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: GoldEggChance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: HomeButtonMenu
       value: 
@@ -83493,7 +83501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5379915389629343920, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: maxFoxes
-      value: 99
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5379915389629343920, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: foxObject
