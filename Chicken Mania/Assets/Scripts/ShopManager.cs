@@ -12,7 +12,6 @@ using TouchScript.Examples.RawInput;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 using TouchScript.Gestures;
-using UnityEngine.WSA;
 
 public class ShopManager : MonoBehaviour
 {
@@ -29,6 +28,7 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI Score;
     public TextMeshProUGUI tutorialTextPGM;
     public TextMeshProUGUI GameOverText;
+    public TextMeshProUGUI HomeMenuText;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -64,6 +64,8 @@ public class ShopManager : MonoBehaviour
     [Header("Settings")]
     public GameObject SettingsButtonMenu;
     public GameObject HomeButtonMenu;
+    public GameObject TimedSettingsButtonMenu;
+    public GameObject TimedHomeButtonMenu;
 
     // Pause Broadcast
     public delegate void MenuOpenEventHandler(object sender, MenuOpenEventArgs e);
@@ -484,9 +486,14 @@ public class ShopManager : MonoBehaviour
 
         Money_Text.text = "$" + Money.ToString();
     }
+
+    public void displayValues()
+    {
+        HomeMenuText.text = $"You have {chickensCount} Chickens, {chicksCount} Chicks, and {eggsCount} Eggs!";
+    }
     /****************************************************************/
 
-    /***************** Below handles game over **********************/
+        /***************** Below handles game over **********************/
     public GameObject GameOverWindow;
     private bool isGameOver = false; //To prevent multiple triggers
     private void CheckGameOver()
@@ -877,7 +884,36 @@ public class ShopManager : MonoBehaviour
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
 
+    /*For Timed Gamemode*/
+    public void OpenTimedSettingsButtonMenu()
+    {
+        if (TimedHomeButtonMenu == null || !TimedHomeButtonMenu.activeSelf)
+        {
+            TimedSettingsButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(TimedSettingsButtonMenu.activeSelf));
+        }
+    }
 
+    public void CloseTimedSettingsButtonMenu()
+    {
+        TimedSettingsButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
+
+    public void OpenTimedHomeButtonMenu()
+    {
+        if (TimedSettingsButtonMenu == null || !TimedSettingsButtonMenu.activeSelf)
+        {
+            TimedHomeButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(TimedHomeButtonMenu.activeSelf));
+        }
+    }
+
+    public void CloseTimedHomeButtonMenu()
+    {
+        TimedHomeButtonMenu.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
 }
 
 
