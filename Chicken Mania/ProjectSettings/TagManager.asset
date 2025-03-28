@@ -12,6 +12,7 @@ TagManager:
   - Fox_ScreenLeft
   - Fox_ScreenMiddle
   - Fox_ScreenRight
+  - Fence
   layers:
   - Default
   - TransparentFX
