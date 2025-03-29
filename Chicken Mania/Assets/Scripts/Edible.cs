@@ -13,11 +13,12 @@ public class Edible : MonoBehaviour
 
     private Material mat;
     private Material mat2;
+    private bool stale = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("Decay", 1.0f, 0.5f);
+        InvokeRepeating("Decay", 1.0f, 0.1f);
         // store the material of this object for decay
         var renderers = this.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
         if (renderers.Length >= 2 )
@@ -62,7 +63,7 @@ public class Edible : MonoBehaviour
             CancelInvoke();
         }
 
-        if (eggDecay == 3)
+        if (eggDecay >= 3 && !stale)
         {
             var decayCol1 = new Color (0.098f, 0.196f, 0.11f);
             decayCol1 = Color.Lerp(mat.color, decayCol1, 0.5f);
@@ -70,7 +71,7 @@ public class Edible : MonoBehaviour
             mat.SetColor("_BaseColor", decayCol1);
             mat2.SetColor("_BaseColor", decayCol1);
 
-            eggDecay = 4;
+            stale = true;
         }
 
         if (eggDecay >= 5)
