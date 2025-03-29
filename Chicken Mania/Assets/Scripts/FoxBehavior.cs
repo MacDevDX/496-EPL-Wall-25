@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static UnityEngine.ParticleSystem;
 using TouchScript.Gestures.TransformGestures;
+using UnityEngine.UIElements;
 
 
 public class FoxBehavior : MonoBehaviour
@@ -103,6 +104,7 @@ public class FoxBehavior : MonoBehaviour
         {
             int choice = Random.Range(0, count);
             chickenTarget = directorRef.chickenList[choice];
+            animator.SetBool("walking", false);
 
             if (chickenTarget != null)
             {
@@ -128,7 +130,8 @@ public class FoxBehavior : MonoBehaviour
             {
                 // idle duration and set animation (currently only one state) false
                 wanderCooldown = Random.Range(2f, 4f);
-                animator.SetBool("chasing", false); 
+                animator.SetBool("chasing", false);
+                animator.SetBool("walking", false);
             }
             else
             {
@@ -153,11 +156,11 @@ public class FoxBehavior : MonoBehaviour
             {
                 // sets the chasing animation
                 Vector3 wanderVector = wanderTarget - rBody.position;
-                animator.SetBool("chasing", true);
+                animator.SetBool("walking", true);
                 if (wanderVector.magnitude > 0.5f)
                 {
                     Vector3 wanderNorm = Vector3.Normalize(wanderVector);
-                    rBody.AddForce(wanderNorm * foxSpeed * 200 * Time.deltaTime); //(wanderNorm * foxSpeed * Time.deltaTime);
+                    rBody.AddForce(wanderNorm * 600 * Time.deltaTime); //(wanderNorm * foxSpeed * Time.deltaTime);
 
                     // rotation
                     wanderNorm.y = 0;
@@ -167,46 +170,13 @@ public class FoxBehavior : MonoBehaviour
                 else
                 {
                     wanderTarget = Vector3.zero; // reset once reached coordinate
+                    animator.SetBool("walking", false);
+
                 }
             }
         }
     }
-    /*
-    void WanderRandomly()
-    {
-        if (wanderCooldown <= 0)
-        {
-            // Pick a random direction within a range
-            Vector3 randomDirection = new Vector3(
-                Random.Range(-5f, 5f),
-                0,
-                Random.Range(-5f, 5f)
-            );
-            wanderTarget = rBody.position + randomDirection;
 
-            // Reset cooldown for the next wander
-            wanderCooldown = Random.Range(2f, 4f);
-        }
-        else
-        {
-            wanderCooldown -= Time.deltaTime;
-
-            // Move towards the wander target
-            Vector3 wanderVector = wanderTarget - rBody.position;
-
-            if (wanderVector.magnitude > 0.5f)
-            {
-                Vector3 wanderNorm = Vector3.Normalize(wanderVector);
-                rBody.AddForce(wanderNorm * 600 * Time.deltaTime);
-
-                // Rotate towards the wander target
-                wanderNorm.y = 0;
-                Quaternion wanderRotation = Quaternion.LookRotation(wanderNorm, Vector3.up);
-                rBody.MoveRotation(wanderRotation);
-            }
-        }
-    }
-    */
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Fence"))
