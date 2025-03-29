@@ -5,16 +5,16 @@ using System.Linq;
 public class EggDecayer : MonoBehaviour
 {
     public List<Edible> edibleList;
-    public float decayTickTime;
+    // minimum decay of 1 second.
+    public float decayTime;
     public ShopManager shopManagerScript;
     private bool menuIsOpen = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // 
+        
         edibleList = new List<Edible> ();
-        InvokeRepeating("UpdateList", 0, decayTickTime);
 
         shopManagerScript.MenuOpen += HandleMenuOpen;
     }
@@ -40,6 +40,17 @@ public class EggDecayer : MonoBehaviour
                 egg.eggDecay += 1;
             }
         });
+    }
+
+    void OnEnable()
+    {
+        float tickTime = decayTime / 5;
+        InvokeRepeating("UpdateList", 0, tickTime);
+    }
+
+    void OnDisable()
+    {
+        CancelInvoke();
     }
 
     void HandleMenuOpen(object sender, MenuOpenEventArgs a)
