@@ -106,7 +106,10 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 4] = 113;
         shopManagerScript.Inventory[2, 5] = 281;
         shopManagerScript.Inventory[2, 6] = 600;
-        shopManagerScript.Inventory[2, 7] = 100000000;
+        shopManagerScript.Inventory[2, 7] = 1000000;
+        shopManagerScript.FoxDir.spawnTick = 10;
+        shopManagerScript.FoxDir.maxFoxes = 99;
+        shopManagerScript.GoldEggChance = 100;
     }
 
     public void StartTycoonGameMode()
@@ -139,7 +142,8 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 6] = 3000000;
         shopManagerScript.Inventory[2, 7] = 100000000;
         shopManagerScript.FoxDir.spawnTick = 40;
-
+        shopManagerScript.FoxDir.maxFoxes = 5;
+        shopManagerScript.GoldEggChance = 100;
     }
 
     public void ReturnToTitlePage()
@@ -179,7 +183,8 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToGrow = 7f;
             shopManagerScript.timeToSpawn = 7f;
             shopManagerScript.GoldEggChance = 1000000;
-
+            shopManagerScript.FoxDir.spawnTick = 10;
+            shopManagerScript.FoxDir.maxFoxes = 99;
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
@@ -223,7 +228,8 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.StartCountdownPGM();
 
             shopManagerScript.timeToSpawn = 600f;
-
+            shopManagerScript.FoxDir.spawnTick = 10;
+            shopManagerScript.FoxDir.maxFoxes = 99;
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
