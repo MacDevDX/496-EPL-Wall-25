@@ -43,8 +43,8 @@ public class NewEggSpawner : MonoBehaviour
         if (shopManager.Inventory != null && shopManager.Inventory.Length > 3)
         {
             int upgradeLevel = shopManager.Inventory[3, 8];
-            timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn - upgradeLevel, 3f, 30f); //3f and 30f is min and max values
-            timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn * (1 - 0.05f * upgradeLevel), 3f, 30f);
+            timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn - upgradeLevel, 3f, 600f); //3f and 600f is min and max values
+            timetoSpawn = Mathf.Clamp(shopManager.timeToSpawn * (1 - 0.05f * upgradeLevel), 3f, 600f); // NEED MAX at least 180f for Protect mode
             spawnCountdown = Mathf.Min(spawnCountdown, timetoSpawn); // Adjust spawn countdown
         }
         if (isLayingEgg)
