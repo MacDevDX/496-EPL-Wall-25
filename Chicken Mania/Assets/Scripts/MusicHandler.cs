@@ -94,7 +94,7 @@ public class MusicHandler : MonoBehaviour
     {
         if (currentTrackIndex >= 0 && currentTrackIndex < bgmTracks.Length)
         {
-            return $"Playing: {trackTitles[currentTrackIndex]}\n Composed by {trackCredits[currentTrackIndex]}";
+            return $"Playing: {trackTitles[currentTrackIndex]}\nComposed by {trackCredits[currentTrackIndex]}";
         }
         return "No Track Playing";
     }
