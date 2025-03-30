@@ -666,6 +666,7 @@ public class ShopManager : MonoBehaviour
         //Displays Total Count
         Score.text = $"Time's up!\nYour Score: {chickensCount+chicksCount+eggsCount}!";
         Score.gameObject.SetActive(true);
+        StartCoroutine(CallResetTimerMode());
     }
 
     /***************************************************** Below handles Protect Game Mode ****************************************************/
@@ -692,7 +693,7 @@ public class ShopManager : MonoBehaviour
         SpawnChicken(itemId);
         AddChicken();
         NewChickenAI newChickenAI = lastSpawnedChicken.GetComponent<NewChickenAI>();
-        newChickenAI.foxDetectionRadius = 10f;
+        newChickenAI.foxDetectionRadius = 1f;
 
         StartCoroutine(CountdownRoutinePGM());
         StartCoroutine(UpdateFoxesPer5ChickensRoutine());
@@ -774,12 +775,18 @@ public class ShopManager : MonoBehaviour
             Score.text = "Time's up!\nYour chicken survived!";
         }
         Score.gameObject.SetActive(true);
+        StartCoroutine(CallResetTimerMode());
+    }
+
+    private IEnumerator CallResetTimerMode()
+    {
+        yield return new WaitForSeconds(20f);
+        ResetTimerMode();
     }
 
 
-    
-     /*************************************************** Reset Game State function *************************************************/
-     
+    /*************************************************** Reset Game State function *************************************************/
+
     public void ResetGame()
     {
         // Destroy objects on the screen section
@@ -892,6 +899,7 @@ public class ShopManager : MonoBehaviour
         //Reset UI elements
         UpdateUI();
         CountdownText.gameObject.SetActive(true);
+        Score.gameObject.SetActive(false);
         UpdateTimerDisplay();
 
         // Call the ReturnToTitlePage function

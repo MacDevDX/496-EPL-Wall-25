@@ -209,7 +209,6 @@ public class ScreenController : MonoBehaviour
 
             shopManagerScript.timeToSpawn = 600f;
 
-
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
