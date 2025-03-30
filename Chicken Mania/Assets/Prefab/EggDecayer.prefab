@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edibleList: []
-  decayTickTime: 2
+  decayTime: 15
+  shopManagerScript: {fileID: 0}

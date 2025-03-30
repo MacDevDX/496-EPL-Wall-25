@@ -22,8 +22,6 @@ public class ShopManager : MonoBehaviour
     //public TextMeshProUGUI ChickensCount_Text;
     //public TextMeshProUGUI ChicksCount_Text;
     //public TextMeshProUGUI EggsCount_Text;
-    public TextMeshProUGUI WinMessage;
-    public TextMeshProUGUI TimerText;
     public TextMeshProUGUI CountdownText;
     public TextMeshProUGUI Score;
     public TextMeshProUGUI tutorialTextPGM;
@@ -54,6 +52,9 @@ public class ShopManager : MonoBehaviour
     public int GoldEggChance = 2;
     public GameObject lastSpawnedChicken;
     public GameObject moneyIndicator;
+    public float EggValue = 0.25f;
+    public float ChickValue = 0.5f;
+    public float ChickenValue = 0.6f;
 
     private TapGesture tapGesture;
 
@@ -232,7 +233,8 @@ public class ShopManager : MonoBehaviour
             }
             if (itemId == 7)
             {
-                SpawnFriedChicken(itemId);
+                //SpawnFriedChicken(itemId);
+                SpawnChicken(itemId);
                 AddChicken();
                 //Pause after a short delay after buying chicken
                 Invoke("RaisePauseEvent", 0.5f);
@@ -249,7 +251,7 @@ public class ShopManager : MonoBehaviour
             }
             if (itemId == 10)
             {
-                Inventory[2, itemId] = (int)(Inventory[2, itemId] + (Inventory[2, itemId] * 0.25));
+                Inventory[2, itemId] = (Inventory[2, itemId] + 25);
             }
             if (itemId == 11)
             {
@@ -333,7 +335,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleBuy()
     {
-        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
+        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
         {
             ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
             OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
@@ -348,16 +350,63 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleUpgrade()
     {
-        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
+        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
         {
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
             OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
 
             if (UpgradeWindow.activeSelf == false)
             {
-                //Cancel all invokes from shopmanager. This is meant to stop the delayed pause event after buying a chicken. If you add another Invoked method to shopmanager and it breaks, this is why
                 CancelInvoke();
             }
+        }
+    }
+    public void OpenSettingsButtonMenu()
+    {
+        if (SettingsButtonMenu != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
+        {
+            //SettingsButtonMenu.SetActive(true);
+            SettingsButtonMenu.SetActive(!SettingsButtonMenu.activeSelf);
+            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenu.activeSelf));
+        }
+    }
+    public void OpenHomeButtonMenu()
+    {
+        if (HomeButtonMenu != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
+        {
+            //HomeButtonMenu.SetActive(true);
+            HomeButtonMenu.SetActive(!HomeButtonMenu.activeSelf);
+            OnMenuOpen(new MenuOpenEventArgs(HomeButtonMenu.activeSelf));
+        }
+    }
+    //Timed Home Button for both modes
+    public void OpenTimedHomeButtonMenu()
+    {
+        if ((HatchSettingsButtonMenu == null || !HatchSettingsButtonMenu.activeSelf) && (ProtectSettingsButtonMenu == null || !ProtectSettingsButtonMenu.activeSelf))
+        {
+            //TimedHomeButtonMenu.SetActive(true);
+            TimedHomeButtonMenu.SetActive(!HatchSettingsButtonMenu.activeSelf);
+            //OnMenuOpen(new MenuOpenEventArgs(TimedHomeButtonMenu.activeSelf)); // Do not want to pause on timed mode
+        }
+    }
+    //Timed Hatch (not used)
+    public void OpenHatchTimedSettingsButtonMenu()
+    {
+        if (TimedHomeButtonMenu == null || !TimedHomeButtonMenu.activeSelf)
+        {
+            //HatchSettingsButtonMenu.SetActive(true);
+            HatchSettingsButtonMenu.SetActive(!HatchSettingsButtonMenu.activeSelf);
+            //OnMenuOpen(new MenuOpenEventArgs(HatchSettingsButtonMenu.activeSelf)); // Do not want to pause on timed mode
+        }
+    }
+    //Timed Protect (not used)
+    public void OpenProtectTimedSettingsButtonMenu()
+    {
+        if (TimedHomeButtonMenu == null || !TimedHomeButtonMenu.activeSelf)
+        {
+            //HatchSettingsButtonMenu.SetActive(true);
+            ProtectSettingsButtonMenu.SetActive(!ProtectSettingsButtonMenu.activeSelf);
+            //OnMenuOpen(new MenuOpenEventArgs(ProtectSettingsButtonMenu.activeSelf)); // Do not want to pause on timed mode
         }
     }
     public void CloseAllWindows()
@@ -422,6 +471,10 @@ public class ShopManager : MonoBehaviour
             CancelInvoke();
         }
 
+    }
+    public bool IsSellZoneActive()
+    {
+        return activeSellZone != null;
     }
     /****************************************************************/
 
@@ -841,12 +894,6 @@ public class ShopManager : MonoBehaviour
         activeSellZone = null;
         UpdateUI();
 
-        // Check if win message is on and stops it
-        if (WinMessage != null )
-        {
-            WinMessage.gameObject.SetActive(false);
-        }
-
         // Call the ReturnToTitlePage function
         if (screenController != null)
         {
@@ -916,29 +963,11 @@ public class ShopManager : MonoBehaviour
     }
     /****************************************************************/
 
-    /***For Settings and Home Button Menu***/
-    public void OpenSettingsButtonMenu()
-    {
-        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
-        {
-            SettingsButtonMenu.SetActive(true);
-            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenu.activeSelf));
-        }
-    }
-
+    /***For Close Settings and Close Home Button Menu***/
     public void CloseSettingsButtonMenu()
     {
         SettingsButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
-    }
-
-    public void OpenHomeButtonMenu()
-    {
-        if ((ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
-        {
-            HomeButtonMenu.SetActive(true);
-            OnMenuOpen(new MenuOpenEventArgs(HomeButtonMenu.activeSelf));
-        }
     }
 
     public void CloseHomeButtonMenu()
@@ -948,28 +977,12 @@ public class ShopManager : MonoBehaviour
     }
 
     /*For Timed Gamemode*/
-    public void OpenTimedSettingsButtonMenu()
-    {
-        if (TimedHomeButtonMenu == null || !TimedHomeButtonMenu.activeSelf)
-        {
-            HatchSettingsButtonMenu.SetActive(true);
-            OnMenuOpen(new MenuOpenEventArgs(HatchSettingsButtonMenu.activeSelf));
-        }
-    }
+
 
     public void CloseTimedSettingsButtonMenu()
     {
         HatchSettingsButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
-    }
-
-    public void OpenTimedHomeButtonMenu()
-    {
-        if ((HatchSettingsButtonMenu == null || !HatchSettingsButtonMenu.activeSelf) && (ProtectSettingsButtonMenu == null || !ProtectSettingsButtonMenu.activeSelf))
-        {
-            TimedHomeButtonMenu.SetActive(true);
-            OnMenuOpen(new MenuOpenEventArgs(TimedHomeButtonMenu.activeSelf));
-        }
     }
 
     public void CloseTimedHomeButtonMenu()

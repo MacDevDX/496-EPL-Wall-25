@@ -87,21 +87,24 @@ public class Sell : MonoBehaviour
         {
             if (droppedObject.name.Contains("egg"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.25f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.25f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.EggValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellEgg();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.5f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.5f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.ChickValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChick();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.6f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.6f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChicken();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
@@ -111,21 +114,24 @@ public class Sell : MonoBehaviour
         {
             if (droppedObject.name.Contains("egg"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.25f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.25f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.EggValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellEgg();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.5f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.5f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.ChickValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChick();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.6f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.6f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChicken();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
@@ -135,21 +141,24 @@ public class Sell : MonoBehaviour
         {
             if (droppedObject.name.Contains("egg"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.25f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.25f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.EggValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellEgg();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.5f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.5f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.ChickValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChick();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.6f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.6f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChicken();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
@@ -159,21 +168,24 @@ public class Sell : MonoBehaviour
         {
             if (droppedObject.name.Contains("egg"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.25f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.25f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.EggValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellEgg();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.5f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.5f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.ChickValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChick();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.6f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.6f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChicken();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
@@ -183,21 +195,24 @@ public class Sell : MonoBehaviour
         {
             if (droppedObject.name.Contains("egg"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.25f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.25f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.EggValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellEgg();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.5f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.5f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.ChickValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChick();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.6f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.6f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChicken();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
@@ -207,21 +222,24 @@ public class Sell : MonoBehaviour
         {
             if (droppedObject.name.Contains("egg"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.25f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.25f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.EggValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellEgg();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else if (droppedObject.name.Contains("chicks"))
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.5f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.5f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.ChickValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChick();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
             else
             {
-                moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.6f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+                //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.6f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+                moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 shopManager.SellChicken();
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
@@ -230,6 +248,13 @@ public class Sell : MonoBehaviour
         else if (droppedObject.name.Contains("bucket"))
         {
             moneyEarned = (int)((shopManager.Inventory[2, 7] * 0.6f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
+            shopManager.SellChicken();
+            ShowMoneyIndicator(moneyEarned);
+            Destroy(droppedObject);
+        }
+        else if (droppedObject.name.Contains("drumstick"))
+        {
+            moneyEarned = (int)((shopManager.Inventory[2, 7] * 0.1f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
             shopManager.SellChicken();
             ShowMoneyIndicator(moneyEarned);
             Destroy(droppedObject);

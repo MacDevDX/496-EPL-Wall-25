@@ -47,7 +47,7 @@ public class InactivityHandler : MonoBehaviour
         if (countdownStarted)
         {
             countdownTime -= Time.deltaTime;
-            string countdownMessage = "Returning to Main Menu in: " + Mathf.Ceil(countdownTime) + "s";
+            string countdownMessage = Mathf.Ceil(countdownTime) + "s";
 
             if (inactivityWarningGreen != null && inactivityWarningGreen.activeSelf && greenCountdownText != null)
             {
