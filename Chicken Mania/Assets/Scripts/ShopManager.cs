@@ -117,6 +117,7 @@ public class ShopManager : MonoBehaviour
          --------------------------------------------------------------------------*/
 
         //Chicken Price
+        /*
         Inventory[2, 1] = 20;
         Inventory[2, 2] = 30;
         Inventory[2, 3] = 75;
@@ -124,7 +125,7 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 5] = 281;
         Inventory[2, 6] = 600;
         Inventory[2, 7] = 10000; //Secret Chicken
-
+        */
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;
@@ -806,7 +807,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        Money = 20;
+        Money = 50;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;

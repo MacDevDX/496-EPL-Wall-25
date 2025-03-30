@@ -100,6 +100,13 @@ public class ScreenController : MonoBehaviour
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 10f;
+        shopManagerScript.Inventory[2, 1] = 20;
+        shopManagerScript.Inventory[2, 2] = 30;
+        shopManagerScript.Inventory[2, 3] = 75;
+        shopManagerScript.Inventory[2, 4] = 113;
+        shopManagerScript.Inventory[2, 5] = 281;
+        shopManagerScript.Inventory[2, 6] = 600;
+        shopManagerScript.Inventory[2, 7] = 100000000;
     }
 
     public void StartTycoonGameMode()
@@ -130,6 +137,8 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 4] = 12800;
         shopManagerScript.Inventory[2, 5] = 153000;
         shopManagerScript.Inventory[2, 6] = 3000000;
+        shopManagerScript.Inventory[2, 7] = 100000000;
+
     }
 
     public void ReturnToTitlePage()
