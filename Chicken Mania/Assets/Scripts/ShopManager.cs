@@ -745,6 +745,7 @@ public class ShopManager : MonoBehaviour
     void DisplayScorePGM()
     {
         CountdownText.gameObject.SetActive(false);
+        StopCoroutine(UpdateFoxesPer5ChickensRoutine());
 
         // Destroy objects on the screen section
         Transform screenSectionTransform = screenSection.transform;
@@ -900,6 +901,10 @@ public class ShopManager : MonoBehaviour
         UpdateUI();
         CountdownText.gameObject.SetActive(true);
         Score.gameObject.SetActive(false);
+        StopCoroutine(CallResetTimerMode());
+        StopCoroutine(CountdownRoutine());
+        StopCoroutine(StartingTimedMode());
+        StopCoroutine(StartingPGM());
         UpdateTimerDisplay();
 
         // Call the ReturnToTitlePage function
