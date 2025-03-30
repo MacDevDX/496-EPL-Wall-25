@@ -78,9 +78,19 @@ public class Sell : MonoBehaviour
         }
     }
     */
+
+    IEnumerator ScaleForEffect(GameObject obj, float scaleFactor, float duration)
+    {
+        Vector3 originalScale = obj.transform.localScale;
+        obj.transform.localScale = originalScale * scaleFactor;
+        yield return new WaitForSeconds(duration); 
+        obj.transform.localScale = originalScale; 
+    }
+
     public void GiveMoney(GameObject droppedObject)
     {
         int moneyEarned = 0;
+        StartCoroutine(ScaleForEffect(gameObject, 1.05f, 0.2f)); // Scale by 1.05x for 0.2 seconds
 
         if (droppedObject.name.Contains("rhode"))
         {

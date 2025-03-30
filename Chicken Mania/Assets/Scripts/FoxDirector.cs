@@ -109,6 +109,8 @@ public class FoxDirector : MonoBehaviour
         GameObject newFox = Instantiate(foxObject, randomizedPosition, transform.rotation);
         FoxBehavior newFoxScript = newFox.GetComponent<FoxBehavior>();
         newFoxScript.directorRef = this;
+        newFox.transform.SetParent(screenSection.transform);
+
 
         // Tag forx with screen section
         newFox.tag = "Fox_"+screenSection.name;

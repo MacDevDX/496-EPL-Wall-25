@@ -24,6 +24,9 @@ public class ScreenController : MonoBehaviour
     public ShopManager shopManagerScript; // Reference to ShopManager script
     public InactivityHandler InactivityScript; // Reference to InactivityHandler script
 
+    public GameObject TimeMiddleLeft;
+    public GameObject ProtectMiddleLeft;
+
     private bool gameModeStarted = false;
 
     public float timetoGrow = 10f;
@@ -154,6 +157,8 @@ public class ScreenController : MonoBehaviour
             canvasGroup.blocksRaycasts = false; // Prevents blocking clicks
 
             GameUI_TimerMode.SetActive(true);
+            TimeMiddleLeft.SetActive(true);
+            ProtectMiddleLeft.SetActive(false);
             shopManagerScript.StartCountdown();
             //shopManagerScript.Inventory[3, 9] = 2;  //DOESN'T SET INITIALLY
             shopManagerScript.timeToGrow = 7f;
@@ -198,10 +203,11 @@ public class ScreenController : MonoBehaviour
             canvasGroup.blocksRaycasts = false; // Prevents blocking clicks
 
             GameUI_TimerMode.SetActive(true);
+            TimeMiddleLeft.SetActive(false);
+            ProtectMiddleLeft.SetActive(true);
             shopManagerScript.StartCountdownPGM();
 
             shopManagerScript.timeToSpawn = 600f;
-
 
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;

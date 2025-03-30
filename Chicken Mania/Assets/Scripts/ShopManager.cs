@@ -63,7 +63,8 @@ public class ShopManager : MonoBehaviour
     [Header("Settings")]
     public GameObject SettingsButtonMenu;
     public GameObject HomeButtonMenu;
-    public GameObject TimedSettingsButtonMenu;
+    public GameObject HatchSettingsButtonMenu;
+    public GameObject ProtectSettingsButtonMenu;
     public GameObject TimedHomeButtonMenu;
 
     // Pause Broadcast
@@ -392,9 +393,16 @@ public class ShopManager : MonoBehaviour
             CancelInvoke();
         }
 
-        if (TimedSettingsButtonMenu.activeSelf)
+        if (HatchSettingsButtonMenu.activeSelf)
         {
-            TimedSettingsButtonMenu.SetActive(false);
+            HatchSettingsButtonMenu.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (ProtectSettingsButtonMenu.activeSelf)
+        {
+            ProtectSettingsButtonMenu.SetActive(false);
             OnMenuOpen(new MenuOpenEventArgs(false));
             CancelInvoke();
         }
@@ -658,6 +666,7 @@ public class ShopManager : MonoBehaviour
         //Displays Total Count
         Score.text = $"Time's up!\nYour Score: {chickensCount+chicksCount+eggsCount}!";
         Score.gameObject.SetActive(true);
+        StartCoroutine(CallResetTimerMode());
     }
 
     /***************************************************** Below handles Protect Game Mode ****************************************************/
@@ -684,7 +693,7 @@ public class ShopManager : MonoBehaviour
         SpawnChicken(itemId);
         AddChicken();
         NewChickenAI newChickenAI = lastSpawnedChicken.GetComponent<NewChickenAI>();
-        newChickenAI.foxDetectionRadius = 10f;
+        newChickenAI.foxDetectionRadius = 1f;
 
         StartCoroutine(CountdownRoutinePGM());
         StartCoroutine(UpdateFoxesPer5ChickensRoutine());
@@ -736,6 +745,7 @@ public class ShopManager : MonoBehaviour
     void DisplayScorePGM()
     {
         CountdownText.gameObject.SetActive(false);
+        StopCoroutine(UpdateFoxesPer5ChickensRoutine());
 
         // Destroy objects on the screen section
         Transform screenSectionTransform = screenSection.transform;
@@ -766,12 +776,18 @@ public class ShopManager : MonoBehaviour
             Score.text = "Time's up!\nYour chicken survived!";
         }
         Score.gameObject.SetActive(true);
+        StartCoroutine(CallResetTimerMode());
+    }
+
+    private IEnumerator CallResetTimerMode()
+    {
+        yield return new WaitForSeconds(20f);
+        ResetTimerMode();
     }
 
 
-    
-     /*************************************************** Reset Game State function *************************************************/
-     
+    /*************************************************** Reset Game State function *************************************************/
+
     public void ResetGame()
     {
         // Destroy objects on the screen section
@@ -845,6 +861,22 @@ public class ShopManager : MonoBehaviour
     */
     public void ResetTimerMode()
     {
+        // Destroy objects on the screen section
+        Transform screenSectionTransform = screenSection.transform;
+        GameObject[] draggableObjects = screenSectionTransform.GetComponentsInChildren<Transform>()
+            .Where(t => t.CompareTag("Draggable"))
+            .Select(t => t.gameObject)
+            .ToArray();
+
+        foreach (GameObject obj in draggableObjects)
+        {
+            Destroy(obj);
+        }
+
+        // Destroy Foxes
+        GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
+        foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
+
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
@@ -868,6 +900,11 @@ public class ShopManager : MonoBehaviour
         //Reset UI elements
         UpdateUI();
         CountdownText.gameObject.SetActive(true);
+        Score.gameObject.SetActive(false);
+        StopCoroutine(CallResetTimerMode());
+        StopCoroutine(CountdownRoutine());
+        StopCoroutine(StartingTimedMode());
+        StopCoroutine(StartingPGM());
         UpdateTimerDisplay();
 
         // Call the ReturnToTitlePage function
@@ -914,20 +951,20 @@ public class ShopManager : MonoBehaviour
     {
         if (TimedHomeButtonMenu == null || !TimedHomeButtonMenu.activeSelf)
         {
-            TimedSettingsButtonMenu.SetActive(true);
-            OnMenuOpen(new MenuOpenEventArgs(TimedSettingsButtonMenu.activeSelf));
+            HatchSettingsButtonMenu.SetActive(true);
+            OnMenuOpen(new MenuOpenEventArgs(HatchSettingsButtonMenu.activeSelf));
         }
     }
 
     public void CloseTimedSettingsButtonMenu()
     {
-        TimedSettingsButtonMenu.SetActive(false);
+        HatchSettingsButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
 
     public void OpenTimedHomeButtonMenu()
     {
-        if (TimedSettingsButtonMenu == null || !TimedSettingsButtonMenu.activeSelf)
+        if ((HatchSettingsButtonMenu == null || !HatchSettingsButtonMenu.activeSelf) && (ProtectSettingsButtonMenu == null || !ProtectSettingsButtonMenu.activeSelf))
         {
             TimedHomeButtonMenu.SetActive(true);
             OnMenuOpen(new MenuOpenEventArgs(TimedHomeButtonMenu.activeSelf));
