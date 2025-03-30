@@ -100,6 +100,7 @@ public class ScreenController : MonoBehaviour
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 10f;
+        // base price for mania
         shopManagerScript.Inventory[2, 1] = 20;
         shopManagerScript.Inventory[2, 2] = 30;
         shopManagerScript.Inventory[2, 3] = 75;
@@ -107,6 +108,12 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 5] = 281;
         shopManagerScript.Inventory[2, 6] = 600;
         shopManagerScript.Inventory[2, 7] = 1000000;
+        // Upgrades for mania
+        shopManagerScript.Inventory[2, 8] = 30;
+        shopManagerScript.Inventory[2, 9] = 25;
+        shopManagerScript.Inventory[2, 10] = 25;
+        shopManagerScript.Inventory[2, 11] = 50;
+
         shopManagerScript.FoxDir.spawnTick = 10;
         shopManagerScript.FoxDir.maxFoxes = 99;
         shopManagerScript.GoldEggChance = 100;
@@ -134,13 +141,20 @@ public class ScreenController : MonoBehaviour
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 30f;
         shopManagerScript.timeToSpawn = 10f;
+        // base price for tycoon
         shopManagerScript.Inventory[2, 1] = 20;
         shopManagerScript.Inventory[2, 2] = 160;
-        shopManagerScript.Inventory[2, 3] = 1280;
-        shopManagerScript.Inventory[2, 4] = 12800;
-        shopManagerScript.Inventory[2, 5] = 153000;
-        shopManagerScript.Inventory[2, 6] = 3000000;
+        shopManagerScript.Inventory[2, 3] = 1920;
+        shopManagerScript.Inventory[2, 4] = 26880;
+        shopManagerScript.Inventory[2, 5] = 430080;
+        shopManagerScript.Inventory[2, 6] = 7741440;
         shopManagerScript.Inventory[2, 7] = 100000000;
+        // Upgrades for tycoon
+        shopManagerScript.Inventory[2, 8] = 30;
+        shopManagerScript.Inventory[2, 9] = 25;
+        shopManagerScript.Inventory[2, 10] = 25;
+        shopManagerScript.Inventory[2, 11] = 50;
+
         shopManagerScript.FoxDir.spawnTick = 40;
         shopManagerScript.FoxDir.maxFoxes = 5;
         shopManagerScript.GoldEggChance = 100;

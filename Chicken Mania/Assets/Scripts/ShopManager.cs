@@ -125,13 +125,13 @@ public class ShopManager : MonoBehaviour
         Inventory[2, 5] = 281;
         Inventory[2, 6] = 600;
         Inventory[2, 7] = 10000; //Secret Chicken
-        */
+        
         //Upgrades (Supplements, Feed, Incubator, Research)
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;
         Inventory[2, 10] = 25;
         Inventory[2, 11] = 50;
-
+        */
 
         /*--------------------------------------------------------------------------
          *************************************************************************** 
@@ -249,7 +249,7 @@ public class ShopManager : MonoBehaviour
             }
             if (itemId == 10)
             {
-                Inventory[2, itemId] = (Inventory[2, itemId] + 25);
+                Inventory[2, itemId] = (int)(Inventory[2, itemId] + (Inventory[2, itemId] * 0.25));
             }
             if (itemId == 11)
             {
