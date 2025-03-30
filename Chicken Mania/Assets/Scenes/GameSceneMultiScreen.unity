@@ -88226,7 +88226,7 @@ PrefabInstance:
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: 'ChickenSpecies.Array.data[6]'
       value: 
-      objectReference: {fileID: 5244159697478061131, guid: 54bf753c4f561bb42a7b63bf243e5655, type: 3}
+      objectReference: {fileID: 4464772359369931810, guid: d38a500822d58d7499ffbdb90bf1c384, type: 3}
     - target: {fileID: 2290356640600733689, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -90535,7 +90535,7 @@ PrefabInstance:
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: 'ChickenSpecies.Array.data[6]'
       value: 
-      objectReference: {fileID: 5244159697478061131, guid: 54bf753c4f561bb42a7b63bf243e5655, type: 3}
+      objectReference: {fileID: 4464772359369931810, guid: d38a500822d58d7499ffbdb90bf1c384, type: 3}
     - target: {fileID: 5437262217246671071, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -92133,7 +92133,7 @@ PrefabInstance:
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: 'ChickenSpecies.Array.data[6]'
       value: 
-      objectReference: {fileID: 5244159697478061131, guid: 54bf753c4f561bb42a7b63bf243e5655, type: 3}
+      objectReference: {fileID: 4464772359369931810, guid: d38a500822d58d7499ffbdb90bf1c384, type: 3}
     - target: {fileID: 3168402469506856069, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
