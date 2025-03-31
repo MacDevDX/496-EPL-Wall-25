@@ -85,7 +85,7 @@ public class Sell : MonoBehaviour
 
         if (droppedObject.name.Contains("rhode"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.25f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.EggValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -112,7 +112,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("leghorn"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.25f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.EggValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -139,7 +139,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("astralorp"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.25f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.EggValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -166,7 +166,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("easter"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.25f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.EggValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -193,7 +193,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("silkie"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.25f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.EggValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -220,7 +220,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("polish"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.25f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.EggValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -245,7 +245,7 @@ public class Sell : MonoBehaviour
                 Destroy(droppedObject);
             }
         }
-        else if (droppedObject.name.Contains("bucket"))
+        else if (droppedObject.name.Contains("bucket") && (!shopManager.TycoonMode))
         {
             moneyEarned = (int)((shopManager.Inventory[2, 7] * 0.6f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
             shopManager.SellChicken();
