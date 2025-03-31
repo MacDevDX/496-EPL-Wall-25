@@ -55,6 +55,7 @@ public class ShopManager : MonoBehaviour
     public float EggValue = 0.25f;
     public float ChickValue = 0.5f;
     public float ChickenValue = 0.6f;
+    public bool TycoonMode = false;
 
     private TapGesture tapGesture;
 

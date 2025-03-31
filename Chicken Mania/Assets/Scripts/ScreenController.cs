@@ -108,6 +108,8 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.EggValue = 0.25f;
         shopManagerScript.ChickValue = 0.5f;
         shopManagerScript.ChickenValue = 0.6f;
+        shopManagerScript.TycoonMode = false;
+
         // base price for mania
         shopManagerScript.Inventory[2, 1] = 20;
         shopManagerScript.Inventory[2, 2] = 30;
@@ -153,8 +155,10 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.timeToSpawn = 10f;
 
         shopManagerScript.EggValue = 0.8f;
-        shopManagerScript.ChickValue = 0.05f;
-        shopManagerScript.ChickenValue = 0.1f;
+        shopManagerScript.ChickValue = 0.025f;
+        shopManagerScript.ChickenValue = 0.05f;
+        shopManagerScript.TycoonMode = true;
+
         // base price for tycoon
         shopManagerScript.Inventory[2, 1] = 20;
         shopManagerScript.Inventory[2, 2] = 160;
