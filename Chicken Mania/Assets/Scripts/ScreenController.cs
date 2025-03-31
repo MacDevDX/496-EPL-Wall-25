@@ -26,6 +26,8 @@ public class ScreenController : MonoBehaviour
 
     public GameObject TimeMiddleLeft;
     public GameObject ProtectMiddleLeft;
+    public GameObject Middle_Left_Mania;
+    public GameObject Middle_Left_Tycoon;
 
     private bool gameModeStarted = false;
 
@@ -96,6 +98,8 @@ public class ScreenController : MonoBehaviour
         NormalGround.SetActive(true);
         TimedGround.SetActive(false);
         shopManager.SetActive(true); // Activate shop manager
+        Middle_Left_Mania.SetActive(true);
+        Middle_Left_Tycoon.SetActive(false);
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
@@ -141,6 +145,8 @@ public class ScreenController : MonoBehaviour
         NormalGround.SetActive(true);
         TimedGround.SetActive(false);
         shopManager.SetActive(true); // Activate shop manager
+        Middle_Left_Mania.SetActive(false);
+        Middle_Left_Tycoon.SetActive(true);
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 30f;

@@ -15,7 +15,7 @@ public class DarkenButtonImage : MonoBehaviour
     public ShopManager shopManager;
 
     // The type of button
-    public enum ButtonType { Sell, Buy, Upgrade, Settings, Home, HatchSettings, TimedHome, ProtectSettings }
+    public enum ButtonType { Sell, Buy, Upgrade, ManiaSettings, TycoonSettings, Home, HatchSettings, TimedHome, ProtectSettings }
     public ButtonType buttonType;
 
     void Start()
@@ -47,8 +47,11 @@ public class DarkenButtonImage : MonoBehaviour
                 case ButtonType.Upgrade:
                     isActive = shopManager.UpgradeWindow != null && shopManager.UpgradeWindow.activeSelf;
                     break;
-                case ButtonType.Settings:
-                    isActive = shopManager.SettingsButtonMenu != null && shopManager.SettingsButtonMenu.activeSelf;
+                case ButtonType.ManiaSettings:
+                    isActive = shopManager.SettingsButtonMenuMania != null && shopManager.SettingsButtonMenuMania.activeSelf;
+                    break;
+                case ButtonType.TycoonSettings:
+                    isActive = shopManager.SettingsButtonMenuTycoon != null && shopManager.SettingsButtonMenuMania.activeSelf;
                     break;
                 case ButtonType.Home:
                     isActive = shopManager.HomeButtonMenu != null && shopManager.HomeButtonMenu.activeSelf;
