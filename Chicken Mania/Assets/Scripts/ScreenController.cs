@@ -106,7 +106,7 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Mania.SetActive(true);
         Middle_Left_Tycoon.SetActive(false);
 
-        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 10f;
 
@@ -157,7 +157,7 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Mania.SetActive(false);
         Middle_Left_Tycoon.SetActive(true);
 
-        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 60f;
         shopManagerScript.timeToSpawn = 30f;
 
@@ -226,7 +226,7 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.GoldEggChance = 1000000;
             shopManagerScript.FoxDir.spawnTick = 10;
             shopManagerScript.FoxDir.maxFoxes = 99;
-            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            //InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
         /*
@@ -273,7 +273,7 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToSpawn = 600f;
             shopManagerScript.FoxDir.spawnTick = 10;
             shopManagerScript.FoxDir.maxFoxes = 99;
-            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            //InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
 

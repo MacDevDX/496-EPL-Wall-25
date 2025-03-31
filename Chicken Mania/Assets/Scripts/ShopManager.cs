@@ -46,7 +46,6 @@ public class ShopManager : MonoBehaviour
     private ScreenController screenController;
 
     private float Timer = 120f;
-    private float DefenderTimer = 0f;
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
     public float FoxDetection = 0f;
@@ -699,6 +698,8 @@ public class ShopManager : MonoBehaviour
     }
     private IEnumerator CountdownRoutine()
     {
+        Timer = 120f;
+        CountdownText.gameObject.SetActive(true);
         while (Timer > 0)
         {
             Timer -= Time.deltaTime;
@@ -775,6 +776,7 @@ public class ShopManager : MonoBehaviour
     private IEnumerator CountdownRoutinePGM()
     {
         Timer = 0f;
+        CountdownText.gameObject.SetActive(true);
         while (chickensCount > 0)
         {
             Timer += Time.deltaTime;
@@ -873,7 +875,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        Money = 50;
+        Money = 100;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
@@ -938,6 +940,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
+        Money = 100;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
@@ -952,7 +955,7 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
         Inventory[3, 11] = 0;
-        Timer = 120f;
+
         FoxDir.foxList.Clear();
 
         ChristmasLights.SetActive(false);
@@ -960,7 +963,7 @@ public class ShopManager : MonoBehaviour
 
         //Reset UI elements
         UpdateUI();
-        CountdownText.gameObject.SetActive(true);
+        CountdownText.gameObject.SetActive(false);
         Score.gameObject.SetActive(false);
         StopCoroutine(CallResetTimerMode());
         StopCoroutine(CountdownRoutine());

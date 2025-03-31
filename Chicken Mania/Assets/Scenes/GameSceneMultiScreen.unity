@@ -2866,7 +2866,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 74526501}
   m_maskType: 0
 --- !u!23 &74526501
@@ -22823,7 +22823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &548903545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33091,7 +33091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &767916040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42104,11 +42104,11 @@ PrefabInstance:
       objectReference: {fileID: 1514303263}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseTimedHomeButtonMenu
+      value: ResetTimerMode
       objectReference: {fileID: 0}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ResetTimerMode
+      value: CloseTimedHomeButtonMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -43030,7 +43030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2449d3c44848448a05777e07a76ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inactivityThreshold: 60
+  inactivityThreshold: 5
   returnToMenuTime: 30
   inactivityWarningGreen: {fileID: 1162788097}
   inactivityWarningOrange: {fileID: 840804733}
@@ -51510,7 +51510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1196046297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56882,11 +56882,11 @@ PrefabInstance:
       objectReference: {fileID: 1556390049}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseHomeButtonMenu
+      value: ResetGame
       objectReference: {fileID: 0}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ResetGame
+      value: CloseHomeButtonMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7875702598441422439, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -73430,6 +73430,10 @@ PrefabInstance:
       objectReference: {fileID: 1514303263}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CloseHomeButtonMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7875702598441422439, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
@@ -76537,11 +76541,11 @@ PrefabInstance:
       objectReference: {fileID: 95547546}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseTimedHomeButtonMenu
+      value: ResetTimerMode
       objectReference: {fileID: 0}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ResetTimerMode
+      value: CloseTimedHomeButtonMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7611544892562370369, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_Mesh
@@ -78326,11 +78330,11 @@ PrefabInstance:
       objectReference: {fileID: 1556390049}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseTimedHomeButtonMenu
+      value: ResetTimerMode
       objectReference: {fileID: 0}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ResetTimerMode
+      value: CloseTimedHomeButtonMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7875702598441422439, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -80109,11 +80113,11 @@ PrefabInstance:
       objectReference: {fileID: 95547546}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseHomeButtonMenu
+      value: ResetGame
       objectReference: {fileID: 0}
     - target: {fileID: 6721087602341396320, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ResetGame
+      value: CloseHomeButtonMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7611544892562370369, guid: cf4c3d37c8af1594ea8a2161c33da4b6, type: 3}
       propertyPath: m_Mesh
@@ -98830,7 +98834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: Money
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: Score
@@ -100493,7 +100497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: Money
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: Score
