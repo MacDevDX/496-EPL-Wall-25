@@ -151,25 +151,25 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Tycoon.SetActive(true);
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 30f;
-        shopManagerScript.timeToSpawn = 10f;
+        shopManagerScript.timeToGrow = 60f;
+        shopManagerScript.timeToSpawn = 30f;
 
-        shopManagerScript.EggValue = 0.8f;
-        shopManagerScript.ChickValue = 0.025f;
-        shopManagerScript.ChickenValue = 0.05f;
+        shopManagerScript.EggValue = 0.1f;
+        shopManagerScript.ChickValue = 0.0025f;
+        shopManagerScript.ChickenValue = 0.005f;
         shopManagerScript.TycoonMode = true;
 
         // base price for tycoon
-        shopManagerScript.Inventory[2, 1] = 20;
-        shopManagerScript.Inventory[2, 2] = 160;
-        shopManagerScript.Inventory[2, 3] = 2000;
-        shopManagerScript.Inventory[2, 4] = 16000;
-        shopManagerScript.Inventory[2, 5] = 200000;
-        shopManagerScript.Inventory[2, 6] = 3000000;
-        shopManagerScript.Inventory[2, 7] = 100000000;
+        shopManagerScript.Inventory[2, 1] = 10;
+        shopManagerScript.Inventory[2, 2] = 50;
+        shopManagerScript.Inventory[2, 3] = 250;
+        shopManagerScript.Inventory[2, 4] = 1000;
+        shopManagerScript.Inventory[2, 5] = 5000;
+        shopManagerScript.Inventory[2, 6] = 25000;
+        shopManagerScript.Inventory[2, 7] = 250000;
         // Upgrades for tycoon
-        shopManagerScript.Inventory[2, 8] = 150;
-        shopManagerScript.Inventory[2, 9] = 150;
+        shopManagerScript.Inventory[2, 8] = 50;
+        shopManagerScript.Inventory[2, 9] = 100;
         shopManagerScript.Inventory[2, 10] = 25;
         shopManagerScript.Inventory[2, 11] = 500;
 
