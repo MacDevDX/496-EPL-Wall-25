@@ -62,7 +62,8 @@ public class ShopManager : MonoBehaviour
 
     // Music and Home Button Menu
     [Header("Settings")]
-    public GameObject SettingsButtonMenu;
+    public GameObject SettingsButtonMenuMania;
+    public GameObject SettingsButtonMenuTycoon;
     public GameObject HomeButtonMenu;
     public GameObject HatchSettingsButtonMenu;
     public GameObject ProtectSettingsButtonMenu;
@@ -335,7 +336,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleBuy()
     {
-        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
+        if (ShopWindow != null && !isGameOver && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenuMania == null || !SettingsButtonMenuMania.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf) && (SettingsButtonMenuTycoon == null || !SettingsButtonMenuTycoon.activeSelf))
         {
             ShopWindow.SetActive(!ShopWindow.activeSelf); //Toggle the Chicken Shop Window
             OnMenuOpen(new MenuOpenEventArgs(ShopWindow.activeSelf));
@@ -350,7 +351,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleUpgrade()
     {
-        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
+        if (UpgradeWindow != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (SettingsButtonMenuMania == null || !SettingsButtonMenuMania.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf) && (SettingsButtonMenuTycoon == null || !SettingsButtonMenuTycoon.activeSelf))
         {
             UpgradeWindow.SetActive(!UpgradeWindow.activeSelf); //Toggle the upgrade shop
             OnMenuOpen(new MenuOpenEventArgs(UpgradeWindow.activeSelf));
@@ -361,18 +362,27 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    public void OpenSettingsButtonMenu()
+    public void ManiaOpenSettingsButtonMenu()
     {
-        if (SettingsButtonMenu != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
+        if (SettingsButtonMenuMania != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
         {
             //SettingsButtonMenu.SetActive(true);
-            SettingsButtonMenu.SetActive(!SettingsButtonMenu.activeSelf);
-            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenu.activeSelf));
+            SettingsButtonMenuMania.SetActive(!SettingsButtonMenuMania.activeSelf);
+            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenuMania.activeSelf));
+        }
+    }
+    public void TycoonOpenSettingsButtonMenu()
+    {
+        if (SettingsButtonMenuMania != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
+        {
+            //SettingsButtonMenu.SetActive(true);
+            SettingsButtonMenuMania.SetActive(!SettingsButtonMenuMania.activeSelf);
+            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenuMania.activeSelf));
         }
     }
     public void OpenHomeButtonMenu()
     {
-        if (HomeButtonMenu != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenu == null || !SettingsButtonMenu.activeSelf))
+        if (HomeButtonMenu != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (SettingsButtonMenuMania == null || !SettingsButtonMenuMania.activeSelf) && (SettingsButtonMenuTycoon == null || !SettingsButtonMenuTycoon.activeSelf))
         {
             //HomeButtonMenu.SetActive(true);
             HomeButtonMenu.SetActive(!HomeButtonMenu.activeSelf);
@@ -413,7 +423,8 @@ public class ShopManager : MonoBehaviour
     {
         if (ShopWindow != null) ShopWindow.SetActive(false);
         if (UpgradeWindow != null) UpgradeWindow.SetActive(false);
-        if (SettingsButtonMenu != null) SettingsButtonMenu.SetActive(false);
+        if (SettingsButtonMenuMania != null) SettingsButtonMenuMania.SetActive(false);
+        if (SettingsButtonMenuTycoon != null) SettingsButtonMenuTycoon.SetActive(false);
         if (HomeButtonMenu != null) HomeButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
 
@@ -464,9 +475,16 @@ public class ShopManager : MonoBehaviour
             CancelInvoke();
         }
 
-        if (SettingsButtonMenu.activeSelf)
+        if (SettingsButtonMenuMania.activeSelf)
         {
-            SettingsButtonMenu.SetActive(false);
+            SettingsButtonMenuMania.SetActive(false);
+            OnMenuOpen(new MenuOpenEventArgs(false));
+            CancelInvoke();
+        }
+
+        if (SettingsButtonMenuTycoon.activeSelf)
+        {
+            SettingsButtonMenuTycoon.SetActive(false);
             OnMenuOpen(new MenuOpenEventArgs(false));
             CancelInvoke();
         }
@@ -964,12 +982,16 @@ public class ShopManager : MonoBehaviour
     /****************************************************************/
 
     /***For Close Settings and Close Home Button Menu***/
-    public void CloseSettingsButtonMenu()
+    public void ManiaCloseSettingsButtonMenu()
     {
-        SettingsButtonMenu.SetActive(false);
+        SettingsButtonMenuMania.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
-
+    public void TycoonCloseSettingsButtonMenu()
+    {
+        SettingsButtonMenuMania.SetActive(false);
+        OnMenuOpen(new MenuOpenEventArgs(false));
+    }
     public void CloseHomeButtonMenu()
     {
         HomeButtonMenu.SetActive(false);
