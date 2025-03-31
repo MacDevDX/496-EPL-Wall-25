@@ -29,6 +29,9 @@ public class ScreenController : MonoBehaviour
     public GameObject Middle_Left_Mania;
     public GameObject Middle_Left_Tycoon;
 
+    public GameObject RedBarn;
+    public GameObject BlueBarn;
+
     private bool gameModeStarted = false;
 
     public float timetoGrow = 10f;
@@ -97,6 +100,8 @@ public class ScreenController : MonoBehaviour
         gameObjects.SetActive(true); // Activate game objects
         NormalGround.SetActive(true);
         TimedGround.SetActive(false);
+        RedBarn.SetActive(true);
+        BlueBarn.SetActive(false);
         shopManager.SetActive(true); // Activate shop manager
         Middle_Left_Mania.SetActive(true);
         Middle_Left_Tycoon.SetActive(false);
@@ -146,6 +151,8 @@ public class ScreenController : MonoBehaviour
         gameObjects.SetActive(true); // Activate game objects
         NormalGround.SetActive(true);
         TimedGround.SetActive(false);
+        RedBarn.SetActive(false);
+        BlueBarn.SetActive(true);
         shopManager.SetActive(true); // Activate shop manager
         Middle_Left_Mania.SetActive(false);
         Middle_Left_Tycoon.SetActive(true);
@@ -196,6 +203,8 @@ public class ScreenController : MonoBehaviour
             gameObjects.SetActive(true); // Activate game objects
             NormalGround.SetActive(false);
             TimedGround.SetActive(true);
+            RedBarn.SetActive(true);
+            BlueBarn.SetActive(false);
             shopManager.SetActive(true); // Activate shop manager
             gameUI.SetActive(true);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
@@ -243,6 +252,8 @@ public class ScreenController : MonoBehaviour
             gameObjects.SetActive(true); // Activate game objects
             NormalGround.SetActive(false);
             TimedGround.SetActive(true);
+            RedBarn.SetActive(true);
+            BlueBarn.SetActive(false);
             shopManager.SetActive(true); // Activate shop manager
             gameUI.SetActive(true);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
