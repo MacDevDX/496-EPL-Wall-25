@@ -170,15 +170,15 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 1] = 10;
         shopManagerScript.Inventory[2, 2] = 50;
         shopManagerScript.Inventory[2, 3] = 250;
-        shopManagerScript.Inventory[2, 4] = 1000;
-        shopManagerScript.Inventory[2, 5] = 5000;
-        shopManagerScript.Inventory[2, 6] = 25000;
-        shopManagerScript.Inventory[2, 7] = 250000;
+        shopManagerScript.Inventory[2, 4] = 600;
+        shopManagerScript.Inventory[2, 5] = 1000;
+        shopManagerScript.Inventory[2, 6] = 5000;
+        shopManagerScript.Inventory[2, 7] = 25000;
         // Upgrades for tycoon
-        shopManagerScript.Inventory[2, 8] = 50;
-        shopManagerScript.Inventory[2, 9] = 100;
+        shopManagerScript.Inventory[2, 8] = 50; //50, 80, 140
+        shopManagerScript.Inventory[2, 9] = 100; //100, 256, 1049
         shopManagerScript.Inventory[2, 10] = 25;
-        shopManagerScript.Inventory[2, 11] = 300;
+        shopManagerScript.Inventory[2, 11] = 300; // 300, 768, 3146
 
         shopManagerScript.FoxDir.spawnTick = 20;
         shopManagerScript.FoxDir.maxFoxes = 5;
