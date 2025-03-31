@@ -159,9 +159,9 @@ public class ScreenController : MonoBehaviour
 
         //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 60f;
-        shopManagerScript.timeToSpawn = 30f;
+        shopManagerScript.timeToSpawn = 15f;
 
-        shopManagerScript.EggValue = 0.1f;
+        shopManagerScript.EggValue = 0.3f;
         shopManagerScript.ChickValue = 0.0025f;
         shopManagerScript.ChickenValue = 0.005f;
         shopManagerScript.TycoonMode = true;
@@ -178,7 +178,7 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 8] = 50;
         shopManagerScript.Inventory[2, 9] = 100;
         shopManagerScript.Inventory[2, 10] = 25;
-        shopManagerScript.Inventory[2, 11] = 500;
+        shopManagerScript.Inventory[2, 11] = 300;
 
         shopManagerScript.FoxDir.spawnTick = 20;
         shopManagerScript.FoxDir.maxFoxes = 5;
