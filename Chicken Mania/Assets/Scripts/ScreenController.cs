@@ -167,8 +167,8 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.TycoonMode = true;
 
         // base price for tycoon
-        shopManagerScript.Inventory[2, 1] = 10;
-        shopManagerScript.Inventory[2, 2] = 50;
+        shopManagerScript.Inventory[2, 1] = 20;
+        shopManagerScript.Inventory[2, 2] = 60;
         shopManagerScript.Inventory[2, 3] = 250;
         shopManagerScript.Inventory[2, 4] = 600;
         shopManagerScript.Inventory[2, 5] = 1000;
