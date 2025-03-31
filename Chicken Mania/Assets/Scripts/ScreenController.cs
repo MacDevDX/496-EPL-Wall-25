@@ -100,6 +100,27 @@ public class ScreenController : MonoBehaviour
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 10f;
+
+        shopManagerScript.EggValue = 0.25f;
+        shopManagerScript.ChickValue = 0.5f;
+        shopManagerScript.ChickenValue = 0.6f;
+        // base price for mania
+        shopManagerScript.Inventory[2, 1] = 20;
+        shopManagerScript.Inventory[2, 2] = 30;
+        shopManagerScript.Inventory[2, 3] = 75;
+        shopManagerScript.Inventory[2, 4] = 113;
+        shopManagerScript.Inventory[2, 5] = 281;
+        shopManagerScript.Inventory[2, 6] = 600;
+        shopManagerScript.Inventory[2, 7] = 100000;
+        // Upgrades for mania
+        shopManagerScript.Inventory[2, 8] = 30;
+        shopManagerScript.Inventory[2, 9] = 25;
+        shopManagerScript.Inventory[2, 10] = 25;
+        shopManagerScript.Inventory[2, 11] = 50;
+
+        shopManagerScript.FoxDir.spawnTick = 10;
+        shopManagerScript.FoxDir.maxFoxes = 99;
+        shopManagerScript.GoldEggChance = 100;
     }
 
     public void StartTycoonGameMode()
@@ -122,9 +143,29 @@ public class ScreenController : MonoBehaviour
         shopManager.SetActive(true); // Activate shop manager
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 50f;
-        shopManagerScript.timeToSpawn = 30f;
-        shopManagerScript.GoldEggChance = 1000000;
+        shopManagerScript.timeToGrow = 30f;
+        shopManagerScript.timeToSpawn = 10f;
+
+        shopManagerScript.EggValue = 0.8f;
+        shopManagerScript.ChickValue = 0.05f;
+        shopManagerScript.ChickenValue = 0.1f;
+        // base price for tycoon
+        shopManagerScript.Inventory[2, 1] = 20;
+        shopManagerScript.Inventory[2, 2] = 160;
+        shopManagerScript.Inventory[2, 3] = 2000;
+        shopManagerScript.Inventory[2, 4] = 16000;
+        shopManagerScript.Inventory[2, 5] = 200000;
+        shopManagerScript.Inventory[2, 6] = 3000000;
+        shopManagerScript.Inventory[2, 7] = 100000000;
+        // Upgrades for tycoon
+        shopManagerScript.Inventory[2, 8] = 150;
+        shopManagerScript.Inventory[2, 9] = 150;
+        shopManagerScript.Inventory[2, 10] = 25;
+        shopManagerScript.Inventory[2, 11] = 500;
+
+        shopManagerScript.FoxDir.spawnTick = 40;
+        shopManagerScript.FoxDir.maxFoxes = 5;
+        shopManagerScript.GoldEggChance = 100;
     }
 
     public void ReturnToTitlePage()
@@ -164,7 +205,8 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToGrow = 7f;
             shopManagerScript.timeToSpawn = 7f;
             shopManagerScript.GoldEggChance = 1000000;
-
+            shopManagerScript.FoxDir.spawnTick = 10;
+            shopManagerScript.FoxDir.maxFoxes = 99;
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
@@ -208,7 +250,8 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.StartCountdownPGM();
 
             shopManagerScript.timeToSpawn = 600f;
-
+            shopManagerScript.FoxDir.spawnTick = 10;
+            shopManagerScript.FoxDir.maxFoxes = 99;
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
