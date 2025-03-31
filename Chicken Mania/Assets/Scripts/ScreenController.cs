@@ -173,7 +173,7 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 10] = 25;
         shopManagerScript.Inventory[2, 11] = 500;
 
-        shopManagerScript.FoxDir.spawnTick = 40;
+        shopManagerScript.FoxDir.spawnTick = 20;
         shopManagerScript.FoxDir.maxFoxes = 5;
         shopManagerScript.GoldEggChance = 100;
     }

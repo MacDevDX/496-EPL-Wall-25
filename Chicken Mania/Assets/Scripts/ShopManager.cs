@@ -46,6 +46,7 @@ public class ShopManager : MonoBehaviour
     private ScreenController screenController;
 
     private float Timer = 120f;
+    private float DefenderTimer = 0f;
     public float timeToGrow = 10f;
     public float timeToSpawn = 10f;
     public float FoxDetection = 0f;
@@ -665,7 +666,6 @@ public class ShopManager : MonoBehaviour
     /***************************************** Below handles Timer Mode *****************************************/
     public void StartCountdown()
     {
-        StartCoroutine(CountdownRoutine());
         StartCoroutine(StartingTimedMode());
     }
     private IEnumerator StartingTimedMode()
@@ -766,7 +766,7 @@ public class ShopManager : MonoBehaviour
         SpawnChicken(itemId);
         AddChicken();
         NewChickenAI newChickenAI = lastSpawnedChicken.GetComponent<NewChickenAI>();
-        newChickenAI.foxDetectionRadius = 1f;
+        newChickenAI.foxDetectionRadius = 0.6f;
 
         StartCoroutine(CountdownRoutinePGM());
         StartCoroutine(UpdateFoxesPer5ChickensRoutine());
@@ -774,19 +774,14 @@ public class ShopManager : MonoBehaviour
 
     private IEnumerator CountdownRoutinePGM()
     {
-        while (Timer > 0)
+        Timer = 0f;
+        while (chickensCount > 0)
         {
-            Timer -= Time.deltaTime;
+            Timer += Time.deltaTime;
             UpdateTimerDisplayPGM();
-            if (chickensCount == 0)
-            {
-                DisplayScorePGM();
-            }
-
             yield return null;
         }
 
-        Timer = 0;
         DisplayScorePGM();
     }
     private IEnumerator UpdateFoxesPer5ChickensRoutine()
@@ -842,12 +837,11 @@ public class ShopManager : MonoBehaviour
 
         if (chickensCount == 0)
         {
-            Score.text = "You lost your chicken!";
+            int minutes = Mathf.FloorToInt(Timer / 60);
+            int seconds = Mathf .FloorToInt(Timer % 60);
+            Score.text = $"You lost your chicken!\nTime Survived: {minutes:D2}:{seconds:D2}";
         }
-        else if (chickensCount >= 1)
-        {
-            Score.text = "Time's up!\nYour chicken survived!";
-        }
+
         Score.gameObject.SetActive(true);
         StartCoroutine(CallResetTimerMode());
     }
