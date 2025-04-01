@@ -55,6 +55,7 @@ public class ShopManager : MonoBehaviour
     public float EggValue = 0.25f;
     public float ChickValue = 0.5f;
     public float ChickenValue = 0.6f;
+    public bool TycoonMode = false;
 
     private TapGesture tapGesture;
 
@@ -242,22 +243,72 @@ public class ShopManager : MonoBehaviour
             }
 
             //Only applies multiplier to Upgrade indexes
-            if (itemId == 8)
+            if (itemId == 8) //Supplement
             {
-                Inventory[2, itemId] = (Inventory[2, itemId] + (30 * Inventory[3, itemId]));
+                // For Mania Mode
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 60;
+                }
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 100;
+                }
+                // For Tycoon Mode
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 75;
+                }
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 100;
+                }
             }
-            if (itemId == 9)
+            if (itemId == 9) //Feed
             {
-                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
+                // For Mania Mode
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 50;
+                }
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 100;
+                }
+                // For Tycoon Mode
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 250;
+                }
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 600;
+                }
             }
-            if (itemId == 10)
+            if (itemId == 10) //Incubator
             {
                 Inventory[2, itemId] = (Inventory[2, itemId] + 25);
             }
-            if (itemId == 11)
+            if (itemId == 11) //Research
             {
-                //Recalculate the price: Price = BasePrice * 1.6^(Upgrade + 1)
-                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
+                // For Mania Mode
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 150;
+                }
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 500;
+                }
+                // For Tycoon Mode
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 800;
+                }
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 3000;
+                }
             }
         }
         UpdateUI();
@@ -664,7 +715,6 @@ public class ShopManager : MonoBehaviour
     /***************************************** Below handles Timer Mode *****************************************/
     public void StartCountdown()
     {
-        StartCoroutine(CountdownRoutine());
         StartCoroutine(StartingTimedMode());
     }
     private IEnumerator StartingTimedMode()
@@ -698,6 +748,8 @@ public class ShopManager : MonoBehaviour
     }
     private IEnumerator CountdownRoutine()
     {
+        Timer = 120f;
+        CountdownText.gameObject.SetActive(true);
         while (Timer > 0)
         {
             Timer -= Time.deltaTime;
@@ -765,7 +817,7 @@ public class ShopManager : MonoBehaviour
         SpawnChicken(itemId);
         AddChicken();
         NewChickenAI newChickenAI = lastSpawnedChicken.GetComponent<NewChickenAI>();
-        newChickenAI.foxDetectionRadius = 1f;
+        newChickenAI.foxDetectionRadius = 0.6f;
 
         StartCoroutine(CountdownRoutinePGM());
         StartCoroutine(UpdateFoxesPer5ChickensRoutine());
@@ -773,19 +825,15 @@ public class ShopManager : MonoBehaviour
 
     private IEnumerator CountdownRoutinePGM()
     {
-        while (Timer > 0)
+        Timer = 0f;
+        CountdownText.gameObject.SetActive(true);
+        while (chickensCount > 0)
         {
-            Timer -= Time.deltaTime;
+            Timer += Time.deltaTime;
             UpdateTimerDisplayPGM();
-            if (chickensCount == 0)
-            {
-                DisplayScorePGM();
-            }
-
             yield return null;
         }
 
-        Timer = 0;
         DisplayScorePGM();
     }
     private IEnumerator UpdateFoxesPer5ChickensRoutine()
@@ -841,12 +889,11 @@ public class ShopManager : MonoBehaviour
 
         if (chickensCount == 0)
         {
-            Score.text = "You lost your chicken!";
+            int minutes = Mathf.FloorToInt(Timer / 60);
+            int seconds = Mathf .FloorToInt(Timer % 60);
+            Score.text = $"You lost your chicken!\nTime Survived: {minutes:D2}:{seconds:D2}";
         }
-        else if (chickensCount >= 1)
-        {
-            Score.text = "Time's up!\nYour chicken survived!";
-        }
+
         Score.gameObject.SetActive(true);
         StartCoroutine(CallResetTimerMode());
     }
@@ -878,7 +925,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        Money = 50;
+        Money = 100;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
@@ -943,6 +990,7 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
+        Money = 100;
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
@@ -957,7 +1005,7 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 9] = 0;
         Inventory[3, 10] = 0;
         Inventory[3, 11] = 0;
-        Timer = 120f;
+
         FoxDir.foxList.Clear();
 
         ChristmasLights.SetActive(false);
@@ -965,7 +1013,7 @@ public class ShopManager : MonoBehaviour
 
         //Reset UI elements
         UpdateUI();
-        CountdownText.gameObject.SetActive(true);
+        CountdownText.gameObject.SetActive(false);
         Score.gameObject.SetActive(false);
         StopCoroutine(CallResetTimerMode());
         StopCoroutine(CountdownRoutine());

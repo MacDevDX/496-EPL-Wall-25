@@ -63,7 +63,7 @@ public class Sell : MonoBehaviour
         if (other.CompareTag(sellableTag))
         {
             GiveMoney(other.gameObject);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
 
         }
     }
@@ -85,7 +85,7 @@ public class Sell : MonoBehaviour
 
         if (droppedObject.name.Contains("rhode"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.25f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.EggValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -93,7 +93,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else if (droppedObject.name.Contains("chicks"))
+            else if (droppedObject.name.Contains("chicks") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.5f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.ChickValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -101,7 +101,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else
+            else if (droppedObject.name.Contains("chicken") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 1] * 0.6f) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 1] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 1] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -112,7 +112,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("leghorn"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.25f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.EggValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -120,7 +120,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else if (droppedObject.name.Contains("chicks"))
+            else if (droppedObject.name.Contains("chicks") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.5f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.ChickValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -128,7 +128,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else
+            else if (droppedObject.name.Contains("chicken") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 2] * 0.6f) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 2] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 2] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -139,7 +139,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("astralorp"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.25f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.EggValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -147,7 +147,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else if (droppedObject.name.Contains("chicks"))
+            else if (droppedObject.name.Contains("chicks") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.5f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.ChickValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -155,7 +155,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else
+            else if (droppedObject.name.Contains("chicken") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 3] * 0.6f) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 3] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 3] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -166,7 +166,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("easter"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.25f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.EggValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -174,7 +174,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else if (droppedObject.name.Contains("chicks"))
+            else if (droppedObject.name.Contains("chicks") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.5f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.ChickValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -182,7 +182,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else
+            else if (droppedObject.name.Contains("chicken") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 4] * 0.6f) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 4] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 4] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -193,7 +193,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("silkie"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.25f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.EggValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -201,7 +201,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else if (droppedObject.name.Contains("chicks"))
+            else if (droppedObject.name.Contains("chicks") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.5f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.ChickValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -209,7 +209,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else
+            else if (droppedObject.name.Contains("chicken") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 5] * 0.6f) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 5] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 5] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -220,7 +220,7 @@ public class Sell : MonoBehaviour
         }
         else if (droppedObject.name.Contains("polish"))
         {
-            if (droppedObject.name.Contains("egg"))
+            if (droppedObject.name.Contains("eggs"))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.25f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.EggValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -228,7 +228,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else if (droppedObject.name.Contains("chicks"))
+            else if (droppedObject.name.Contains("chicks") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.5f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.ChickValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -236,7 +236,7 @@ public class Sell : MonoBehaviour
                 ShowMoneyIndicator(moneyEarned);
                 Destroy(droppedObject);
             }
-            else
+            else if (droppedObject.name.Contains("chicken") && (!shopManager.TycoonMode))
             {
                 //moneyEarned = (int)((shopManager.Inventory[2, 6] * 0.6f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
                 moneyEarned = (int)((shopManager.Inventory[2, 6] * shopManager.ChickenValue) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
@@ -245,7 +245,7 @@ public class Sell : MonoBehaviour
                 Destroy(droppedObject);
             }
         }
-        else if (droppedObject.name.Contains("bucket"))
+        else if (droppedObject.name.Contains("bucket") && (!shopManager.TycoonMode))
         {
             moneyEarned = (int)((shopManager.Inventory[2, 7] * 0.6f) + ((shopManager.Inventory[2, 6] * (shopManager.Inventory[3, 9] * 0.1f))));
             shopManager.SellChicken();
