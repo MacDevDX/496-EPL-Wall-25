@@ -70672,6 +70672,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 38db3c2f79ee62445b5dc67c12a358a6, type: 3}
   m_PrefabInstance: {fileID: 1637640260}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1639155635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9044637724063350302, guid: 609be4980e4b3c148ac0cdad83fc03ba, type: 3}
+  m_PrefabInstance: {fileID: 1608397047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1641145966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9044637724063350302, guid: 609be4980e4b3c148ac0cdad83fc03ba, type: 3}
+  m_PrefabInstance: {fileID: 1061957718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1641632826
 GameObject:
   m_ObjectHideFlags: 0
@@ -79497,6 +79507,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783397871}
   m_CullTransparentMesh: 1
+--- !u!1 &1783727173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9044637724063350302, guid: 609be4980e4b3c148ac0cdad83fc03ba, type: 3}
+  m_PrefabInstance: {fileID: 1495622455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1787351025
 GameObject:
   m_ObjectHideFlags: 0
@@ -97074,7 +97089,7 @@ PrefabInstance:
     - target: {fileID: 5234467073561155566, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: BlueBarn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1783727173}
     - target: {fileID: 5234467073561155566, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: Top_Left
       value: 
@@ -98720,7 +98735,7 @@ PrefabInstance:
     - target: {fileID: 4575506691804799859, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: BlueBarn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1639155635}
     - target: {fileID: 4575506691804799859, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: Top_Left
       value: 
@@ -102325,7 +102340,7 @@ PrefabInstance:
     - target: {fileID: 7348066907276561349, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: BlueBarn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1641145966}
     - target: {fileID: 7348066907276561349, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: Top_Left
       value: 
