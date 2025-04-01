@@ -124,10 +124,10 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 6] = 600;
         shopManagerScript.Inventory[2, 7] = 100000;
         // Upgrades for mania
-        shopManagerScript.Inventory[2, 8] = 30;
-        shopManagerScript.Inventory[2, 9] = 25;
-        shopManagerScript.Inventory[2, 10] = 25;
-        shopManagerScript.Inventory[2, 11] = 50;
+        shopManagerScript.Inventory[2, 8] = 30; // 30 60 120
+        shopManagerScript.Inventory[2, 9] = 25;  //25 64 262
+        shopManagerScript.Inventory[2, 10] = 25; // 25 50 75
+        shopManagerScript.Inventory[2, 11] = 50; // 50 128 524
 
         shopManagerScript.FoxDir.spawnTick = 10;
         shopManagerScript.FoxDir.maxFoxes = 99;
@@ -158,27 +158,27 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Tycoon.SetActive(true);
 
         //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 40f;
-        shopManagerScript.timeToSpawn = 7f;
+        shopManagerScript.timeToGrow = 30f;
+        shopManagerScript.timeToSpawn = 20f;
 
-        shopManagerScript.EggValue = 0.3f;
+        shopManagerScript.EggValue = 0.5f;
         shopManagerScript.ChickValue = 0.0025f;
         shopManagerScript.ChickenValue = 0.005f;
         shopManagerScript.TycoonMode = true;
 
         // base price for tycoon
-        shopManagerScript.Inventory[2, 1] = 20;
-        shopManagerScript.Inventory[2, 2] = 60;
-        shopManagerScript.Inventory[2, 3] = 250;
+        shopManagerScript.Inventory[2, 1] = 100;
+        shopManagerScript.Inventory[2, 2] = 200;
+        shopManagerScript.Inventory[2, 3] = 450;
         shopManagerScript.Inventory[2, 4] = 600;
         shopManagerScript.Inventory[2, 5] = 1000;
         shopManagerScript.Inventory[2, 6] = 5000;
         shopManagerScript.Inventory[2, 7] = 25000;
         // Upgrades for tycoon
-        shopManagerScript.Inventory[2, 8] = 50; //50, 80, 140
-        shopManagerScript.Inventory[2, 9] = 100; //100, 256, 1049
-        shopManagerScript.Inventory[2, 10] = 25;
-        shopManagerScript.Inventory[2, 11] = 300; // 300, 768, 3146
+        shopManagerScript.Inventory[2, 8] = 50; //75, 100
+        shopManagerScript.Inventory[2, 9] = 100; //250, 600
+        shopManagerScript.Inventory[2, 10] = 25; //50, 75
+        shopManagerScript.Inventory[2, 11] = 300; //800, 3000
 
         shopManagerScript.FoxDir.spawnTick = 15;
         shopManagerScript.FoxDir.maxFoxes = 5;

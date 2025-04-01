@@ -243,22 +243,72 @@ public class ShopManager : MonoBehaviour
             }
 
             //Only applies multiplier to Upgrade indexes
-            if (itemId == 8)
+            if (itemId == 8) //Supplement
             {
-                Inventory[2, itemId] = (Inventory[2, itemId] + (30 * Inventory[3, itemId]));
+                // For Mania Mode
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 60;
+                }
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 100;
+                }
+                // For Tycoon Mode
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 75;
+                }
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 100;
+                }
             }
-            if (itemId == 9)
+            if (itemId == 9) //Feed
             {
-                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
+                // For Mania Mode
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 50;
+                }
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 100;
+                }
+                // For Tycoon Mode
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 250;
+                }
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 600;
+                }
             }
-            if (itemId == 10)
+            if (itemId == 10) //Incubator
             {
                 Inventory[2, itemId] = (Inventory[2, itemId] + 25);
             }
-            if (itemId == 11)
+            if (itemId == 11) //Research
             {
-                //Recalculate the price: Price = BasePrice * 1.6^(Upgrade + 1)
-                Inventory[2, itemId] = Mathf.RoundToInt(Inventory[2, itemId] * Mathf.Pow(1.6f, Inventory[3, itemId] + 1));
+                // For Mania Mode
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 150;
+                }
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = 500;
+                }
+                // For Tycoon Mode
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 800;
+                }
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                {
+                    Inventory[2, itemId] = 3000;
+                }
             }
         }
         UpdateUI();
