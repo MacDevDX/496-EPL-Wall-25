@@ -246,6 +246,10 @@ public class ShopManager : MonoBehaviour
             if (itemId == 8) //Supplement
             {
                 // For Mania Mode
+                if ((Inventory[3, itemId] == 0) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = Inventory[2, itemId];
+                }
                 if ((Inventory[3, itemId] == 1) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 60;
@@ -255,6 +259,10 @@ public class ShopManager : MonoBehaviour
                     Inventory[2, itemId] = 100;
                 }
                 // For Tycoon Mode
+                if ((Inventory[3, itemId] == 0) && TycoonMode)
+                {
+                    Inventory[2, itemId] = Inventory[2, itemId];
+                }
                 if ((Inventory[3, itemId] == 1) && TycoonMode)
                 {
                     Inventory[2, itemId] = 75;
@@ -267,6 +275,10 @@ public class ShopManager : MonoBehaviour
             if (itemId == 9) //Feed
             {
                 // For Mania Mode
+                if ((Inventory[3, itemId] == 0) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = Inventory[2, itemId];
+                }
                 if ((Inventory[3, itemId] == 1) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 50;
@@ -276,6 +288,10 @@ public class ShopManager : MonoBehaviour
                     Inventory[2, itemId] = 100;
                 }
                 // For Tycoon Mode
+                if ((Inventory[3, itemId] == 0) && TycoonMode)
+                {
+                    Inventory[2, itemId] = Inventory[2, itemId];
+                }
                 if ((Inventory[3, itemId] == 1) && TycoonMode)
                 {
                     Inventory[2, itemId] = 250;
@@ -292,6 +308,10 @@ public class ShopManager : MonoBehaviour
             if (itemId == 11) //Research
             {
                 // For Mania Mode
+                if ((Inventory[3, itemId] == 0) && !TycoonMode)
+                {
+                    Inventory[2, itemId] = Inventory[2, itemId];
+                }
                 if ((Inventory[3, itemId] == 1) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 150;
@@ -301,6 +321,10 @@ public class ShopManager : MonoBehaviour
                     Inventory[2, itemId] = 500;
                 }
                 // For Tycoon Mode
+                if ((Inventory[3, itemId] == 0) && TycoonMode)
+                {
+                    Inventory[2, itemId] = Inventory[2, itemId];
+                }
                 if ((Inventory[3, itemId] == 1) && TycoonMode)
                 {
                     Inventory[2, itemId] = 800;
