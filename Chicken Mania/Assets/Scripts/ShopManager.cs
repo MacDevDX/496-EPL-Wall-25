@@ -206,7 +206,7 @@ public class ShopManager : MonoBehaviour
     public void Buy()
     {
         if (Money < Inventory[2, 1]) return; // think it needs to return if not it will give error on clicking grey out
-
+        Debug.Log("here");
         //References to the button clicked
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         if (ButtonRef == null)
