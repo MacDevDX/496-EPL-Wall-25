@@ -270,7 +270,9 @@ public class Sell : MonoBehaviour
         if (moneyEarned > 0)
         {
             shopManager.Money += moneyEarned;
-            shopManager.Money_Text.text = "$" + shopManager.Money.ToString();
+            Debug.Log($"{shopManager.Money}");
+            shopManager.UpdateUI();
+            //shopManager.Money_Text.text = "$" + shopManager.Money.ToString();
         }
     }
 
