@@ -23319,7 +23319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc2cdd80e40dffe428b504973f953cbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77e36302d69dbe34e9b3c471f6d7bb27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -68779,7 +68779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc2cdd80e40dffe428b504973f953cbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77e36302d69dbe34e9b3c471f6d7bb27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -98712,7 +98712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: Money
-      value: 100
+      value: 10000000
       objectReference: {fileID: 0}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: Score
@@ -102522,7 +102522,7 @@ PrefabInstance:
     - target: {fileID: 8747591757144076546, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dc2cdd80e40dffe428b504973f953cbd, type: 3}
+      objectReference: {fileID: 21300000, guid: 77e36302d69dbe34e9b3c471f6d7bb27, type: 3}
     - target: {fileID: 8754614016354116293, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Pivot.y
       value: 1
