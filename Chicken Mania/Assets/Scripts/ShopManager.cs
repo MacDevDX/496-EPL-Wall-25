@@ -245,29 +245,30 @@ public class ShopManager : MonoBehaviour
             //Only applies multiplier to Upgrade indexes
             if (itemId == 8) //Supplement
             {
+                Debug.Log($"{itemId} and TycoonMode:{TycoonMode} and count: {Inventory[3, itemId]}");
                 // For Mania Mode
-                if ((Inventory[3, itemId] == 0) && !TycoonMode)
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
                 {
                     Inventory[2, itemId] = Inventory[2, itemId];
                 }
-                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 60;
                 }
-                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                if ((Inventory[3, itemId] == 3) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 100;
                 }
                 // For Tycoon Mode
-                if ((Inventory[3, itemId] == 0) && TycoonMode)
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
                 {
                     Inventory[2, itemId] = Inventory[2, itemId];
                 }
-                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
                 {
                     Inventory[2, itemId] = 75;
                 }
-                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                if ((Inventory[3, itemId] == 3) && TycoonMode)
                 {
                     Inventory[2, itemId] = 100;
                 }
@@ -275,28 +276,28 @@ public class ShopManager : MonoBehaviour
             if (itemId == 9) //Feed
             {
                 // For Mania Mode
-                if ((Inventory[3, itemId] == 0) && !TycoonMode)
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
                 {
                     Inventory[2, itemId] = Inventory[2, itemId];
                 }
-                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 50;
                 }
-                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                if ((Inventory[3, itemId] == 3) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 100;
                 }
                 // For Tycoon Mode
-                if ((Inventory[3, itemId] == 0) && TycoonMode)
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
                 {
                     Inventory[2, itemId] = Inventory[2, itemId];
                 }
-                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
                 {
                     Inventory[2, itemId] = 250;
                 }
-                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                if ((Inventory[3, itemId] == 3) && TycoonMode)
                 {
                     Inventory[2, itemId] = 600;
                 }
@@ -308,28 +309,28 @@ public class ShopManager : MonoBehaviour
             if (itemId == 11) //Research
             {
                 // For Mania Mode
-                if ((Inventory[3, itemId] == 0) && !TycoonMode)
+                if ((Inventory[3, itemId] == 1) && !TycoonMode)
                 {
                     Inventory[2, itemId] = Inventory[2, itemId];
                 }
-                if ((Inventory[3, itemId] == 1) && !TycoonMode)
+                if ((Inventory[3, itemId] == 2) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 150;
                 }
-                if ((Inventory[3, itemId] == 2) && !TycoonMode)
+                if ((Inventory[3, itemId] == 3) && !TycoonMode)
                 {
                     Inventory[2, itemId] = 500;
                 }
                 // For Tycoon Mode
-                if ((Inventory[3, itemId] == 0) && TycoonMode)
+                if ((Inventory[3, itemId] == 1) && TycoonMode)
                 {
                     Inventory[2, itemId] = Inventory[2, itemId];
                 }
-                if ((Inventory[3, itemId] == 1) && TycoonMode)
+                if ((Inventory[3, itemId] == 2) && TycoonMode)
                 {
                     Inventory[2, itemId] = 800;
                 }
-                if ((Inventory[3, itemId] == 2) && TycoonMode)
+                if ((Inventory[3, itemId] == 3) && TycoonMode)
                 {
                     Inventory[2, itemId] = 3000;
                 }
