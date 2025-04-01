@@ -122,7 +122,7 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 4] = 113;
         shopManagerScript.Inventory[2, 5] = 281;
         shopManagerScript.Inventory[2, 6] = 600;
-        shopManagerScript.Inventory[2, 7] = 100000;
+        shopManagerScript.Inventory[2, 7] = 50000;
         // Upgrades for mania
         shopManagerScript.Inventory[2, 8] = 30; // 30 60 120
         shopManagerScript.Inventory[2, 9] = 25;  //25 64 262
@@ -158,8 +158,8 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Tycoon.SetActive(true);
 
         //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 15f;
-        shopManagerScript.timeToSpawn = 10f;
+        shopManagerScript.timeToGrow = 10f;
+        shopManagerScript.timeToSpawn = 6f;
 
         shopManagerScript.EggValue = 0.1f;
         shopManagerScript.ChickValue = 0.0025f;
