@@ -158,10 +158,10 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Tycoon.SetActive(true);
 
         //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 30f;
-        shopManagerScript.timeToSpawn = 20f;
+        shopManagerScript.timeToGrow = 15f;
+        shopManagerScript.timeToSpawn = 10f;
 
-        shopManagerScript.EggValue = 0.5f;
+        shopManagerScript.EggValue = 0.1f;
         shopManagerScript.ChickValue = 0.0025f;
         shopManagerScript.ChickenValue = 0.005f;
         shopManagerScript.TycoonMode = true;
@@ -180,7 +180,7 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 10] = 25; //50, 75
         shopManagerScript.Inventory[2, 11] = 300; //800, 3000
 
-        shopManagerScript.FoxDir.spawnTick = 15;
+        shopManagerScript.FoxDir.spawnTick = 10;
         shopManagerScript.FoxDir.maxFoxes = 5;
         shopManagerScript.GoldEggChance = 100;
     }
