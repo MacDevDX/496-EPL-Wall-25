@@ -7471,7 +7471,7 @@ GameObject:
   - component: {fileID: 192579657}
   - component: {fileID: 192579656}
   m_Layer: 12
-  m_Name: TutorialImageTycoon
+  m_Name: TutorialImageMania
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17395,7 +17395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1830083249}
+      - m_Target: {fileID: 1047958431}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -19542,7 +19542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUITycoon
+      value: SettingsMenuUIMania
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -19554,11 +19554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -19583,7 +19583,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -19738,7 +19738,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleLefttInGameTycoon
+      value: MusicToggleLefttInGameMania
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -26556,7 +26556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886159453}
+      - m_Target: {fileID: 192579654}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -28879,7 +28879,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1047958431}
+      - m_Target: {fileID: 1830083249}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -29903,7 +29903,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 882464024}
+      - m_Target: {fileID: 791919055}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -31412,7 +31412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUITycoon
+      value: SettingsMenuUIMania
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -31424,11 +31424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -31453,7 +31453,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -31620,7 +31620,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleMiddleInGameTycoon
+      value: MusicToggleMiddleInGameMania
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -32686,7 +32686,7 @@ GameObject:
   - component: {fileID: 791919057}
   - component: {fileID: 791919056}
   m_Layer: 10
-  m_Name: TutorialImageTycoon
+  m_Name: TutorialImageMania
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33159,7 +33159,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 791919055}
+      - m_Target: {fileID: 882464024}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -37254,7 +37254,7 @@ GameObject:
   - component: {fileID: 882464027}
   - component: {fileID: 882464026}
   m_Layer: 10
-  m_Name: TutorialImageMania
+  m_Name: TutorialImageTycoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37451,7 +37451,7 @@ GameObject:
   - component: {fileID: 886159455}
   - component: {fileID: 886159454}
   m_Layer: 12
-  m_Name: TutorialImageMania
+  m_Name: TutorialImageTycoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43526,7 +43526,7 @@ GameObject:
   - component: {fileID: 1047958433}
   - component: {fileID: 1047958432}
   m_Layer: 11
-  m_Name: TutorialImageTycoon
+  m_Name: TutorialImageMania
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62473,16 +62473,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1200
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1500
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -62605,7 +62605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleRightInGameMania
+      value: MusicToggleRightInGameEgg
       objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
@@ -74972,7 +74972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUIMania
+      value: SettingsMenuUIEgg
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -74984,11 +74984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1200
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1500
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -75013,7 +75013,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -75180,7 +75180,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleMiddleInGameMania
+      value: MusicToggleMiddleInGameEgg
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -79260,16 +79260,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -79392,7 +79392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleRightInGameTycoon
+      value: MusicToggleRightInGameMania
       objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
@@ -80064,7 +80064,7 @@ GameObject:
   - component: {fileID: 1830083252}
   - component: {fileID: 1830083251}
   m_Layer: 11
-  m_Name: TutorialImageMania
+  m_Name: TutorialImageTycoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83420,7 +83420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUIMania
+      value: SettingsMenuUIEgg
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -83432,11 +83432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1200
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1500
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -83461,7 +83461,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -83616,7 +83616,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleLefttInGameMania
+      value: MusicToggleLefttInGameEgg
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -93073,7 +93073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192579654}
+      - m_Target: {fileID: 886159453}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -95430,10 +95430,10 @@ PrefabInstance:
       addedObject: {fileID: 383710908}
     - targetCorrespondingSourceObject: {fileID: 2343436921758257491, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2139131835}
+      addedObject: {fileID: 659255293}
     - targetCorrespondingSourceObject: {fileID: 2343436921758257491, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 659255293}
+      addedObject: {fileID: 2139131835}
     - targetCorrespondingSourceObject: {fileID: 2343436921758257491, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1104057070}
@@ -97135,10 +97135,10 @@ PrefabInstance:
       addedObject: {fileID: 1608197860}
     - targetCorrespondingSourceObject: {fileID: 1484981896724488393, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 712737443}
+      addedObject: {fileID: 456307668}
     - targetCorrespondingSourceObject: {fileID: 1484981896724488393, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 456307668}
+      addedObject: {fileID: 712737443}
     - targetCorrespondingSourceObject: {fileID: 1484981896724488393, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1720665799}
@@ -100447,10 +100447,10 @@ PrefabInstance:
       addedObject: {fileID: 2115390870}
     - targetCorrespondingSourceObject: {fileID: 3157148901028417558, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 811847297}
+      addedObject: {fileID: 729686757}
     - targetCorrespondingSourceObject: {fileID: 3157148901028417558, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 729686757}
+      addedObject: {fileID: 811847297}
     - targetCorrespondingSourceObject: {fileID: 3157148901028417558, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2101373879}
