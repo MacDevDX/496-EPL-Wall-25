@@ -416,8 +416,8 @@ public class ShopManager : MonoBehaviour
         if (SettingsButtonMenuMania != null && !isGameOver && (ShopWindow == null || !ShopWindow.activeSelf) && (UpgradeWindow == null || !UpgradeWindow.activeSelf) && (HomeButtonMenu == null || !HomeButtonMenu.activeSelf))
         {
             //SettingsButtonMenu.SetActive(true);
-            SettingsButtonMenuMania.SetActive(!SettingsButtonMenuMania.activeSelf);
-            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenuMania.activeSelf));
+            SettingsButtonMenuTycoon.SetActive(!SettingsButtonMenuTycoon.activeSelf);
+            OnMenuOpen(new MenuOpenEventArgs(SettingsButtonMenuTycoon.activeSelf));
         }
     }
     public void OpenHomeButtonMenu()
@@ -1084,7 +1084,7 @@ public class ShopManager : MonoBehaviour
     }
     public void TycoonCloseSettingsButtonMenu()
     {
-        SettingsButtonMenuMania.SetActive(false);
+        SettingsButtonMenuTycoon.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
     }
     public void CloseHomeButtonMenu()

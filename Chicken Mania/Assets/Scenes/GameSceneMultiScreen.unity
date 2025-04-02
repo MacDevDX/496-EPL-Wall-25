@@ -19542,7 +19542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUIMania
+      value: SettingsMenuUIEgg
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -19554,11 +19554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1200
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1500
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -19583,7 +19583,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -19738,7 +19738,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleLefttInGameMania
+      value: MusicToggleLefttInGameEgg
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -31412,7 +31412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUIMania
+      value: SettingsMenuUIEgg
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -31424,11 +31424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1200
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1500
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -31453,7 +31453,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -31620,7 +31620,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleMiddleInGameMania
+      value: MusicToggleMiddleInGameEgg
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -62473,16 +62473,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -62605,7 +62605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleRightInGameEgg
+      value: MusicToggleRightInGameMania
       objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
@@ -74972,7 +74972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUIEgg
+      value: SettingsMenuUIMania
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -74984,11 +74984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -75013,7 +75013,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -75180,7 +75180,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleMiddleInGameEgg
+      value: MusicToggleMiddleInGameMania
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -79252,7 +79252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUITycoon
+      value: SettingsMenuUIEgg
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_IsActive
@@ -79260,16 +79260,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1200
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1500
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -79392,7 +79392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleRightInGameMania
+      value: MusicToggleRightInGameEgg
       objectReference: {fileID: 0}
     - target: {fileID: 8380012953279178288, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
@@ -83420,7 +83420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: SettingsMenuUIEgg
+      value: SettingsMenuUIMania
       objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
@@ -83432,11 +83432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 5776561579167585286, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1400
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6473863317551228317, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -83461,7 +83461,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -83616,7 +83616,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28bd5b8c2764adc4298db6407661a5a9, type: 3}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
-      value: MusicToggleLefttInGameEgg
+      value: MusicToggleLefttInGameMania
       objectReference: {fileID: 0}
     - target: {fileID: 7830433752509738258, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
