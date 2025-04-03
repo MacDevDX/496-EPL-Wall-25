@@ -14,6 +14,7 @@ public class ScreenController : MonoBehaviour
     public GameObject ManiaModeButton; //Assign button for Mania Mode in the Inspector
     public GameObject TimerModeButton; //Assign button for Timed Mode in the Inspector
     public GameObject TycoonModeButton; //Assign button for Tycoon Mode in the Inspector
+    public GameObject DefendModeButton; //Assign button for Defend Mode in the Inspector
 
     [Header("Platform")]
     public GameObject NormalGround; //Assign the normal polyobject for normal mode
@@ -81,6 +82,10 @@ public class ScreenController : MonoBehaviour
         {
             StartTycoonGameMode();
         }
+        else if (tappedObject == DefendModeButton)
+        {
+            ProtectGameMode();
+        }
     }
 
     public void StartGame()
@@ -106,7 +111,7 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Mania.SetActive(true);
         Middle_Left_Tycoon.SetActive(false);
 
-        //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 10f;
 
@@ -157,7 +162,7 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Mania.SetActive(false);
         Middle_Left_Tycoon.SetActive(true);
 
-        //InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 6f;
 
@@ -206,7 +211,7 @@ public class ScreenController : MonoBehaviour
             RedBarn.SetActive(true);
             BlueBarn.SetActive(false);
             shopManager.SetActive(true); // Activate shop manager
-            gameUI.SetActive(true);
+            gameUI.SetActive(false);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
             if (canvasGroup == null)
             {
@@ -225,8 +230,9 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToSpawn = 7f;
             shopManagerScript.GoldEggChance = 1000000;
             shopManagerScript.FoxDir.spawnTick = 10;
+            shopManagerScript.FoxDir.graceTime = 15;
             shopManagerScript.FoxDir.maxFoxes = 99;
-            //InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
         /*
@@ -255,7 +261,7 @@ public class ScreenController : MonoBehaviour
             RedBarn.SetActive(true);
             BlueBarn.SetActive(false);
             shopManager.SetActive(true); // Activate shop manager
-            gameUI.SetActive(true);
+            gameUI.SetActive(false);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
             if (canvasGroup == null)
             {
@@ -273,7 +279,7 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToSpawn = 600f;
             shopManagerScript.FoxDir.spawnTick = 10;
             shopManagerScript.FoxDir.maxFoxes = 99;
-            //InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
 

@@ -149,9 +149,6 @@ PrefabInstance:
       addedObject: {fileID: 5526027936251406615}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0377caa7cddd8f64cb0a6e1ffc2d0d57, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2041824876224939323}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0377caa7cddd8f64cb0a6e1ffc2d0d57, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7433037706118416203}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0377caa7cddd8f64cb0a6e1ffc2d0d57, type: 3}
       insertIndex: -1
@@ -204,20 +201,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &2041824876224939323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5339610932845619327}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69b50c98945f4a48907217f027febaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 65
-  rotationSpeed: 100
 --- !u!65 &7433037706118416203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -277,6 +260,7 @@ MonoBehaviour:
   isChick: 0
   isChicken: 0
   eaten: 0
+  eggDecay: 0
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
   ShopMan: {fileID: 0}
   FoxDirecter: {fileID: 0}
