@@ -65,7 +65,6 @@ public class ShopButtons : MonoBehaviour
     {
         var shopManager = ShopManager.GetComponent<ShopManager>();
 
-
         if (shopManager.Inventory[3, 6] == 0)
         {
             SecretTier.SetActive(false);

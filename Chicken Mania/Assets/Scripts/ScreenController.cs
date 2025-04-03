@@ -14,6 +14,7 @@ public class ScreenController : MonoBehaviour
     public GameObject ManiaModeButton; //Assign button for Mania Mode in the Inspector
     public GameObject TimerModeButton; //Assign button for Timed Mode in the Inspector
     public GameObject TycoonModeButton; //Assign button for Tycoon Mode in the Inspector
+    public GameObject DefendModeButton; //Assign button for Defend Mode in the Inspector
 
     [Header("Platform")]
     public GameObject NormalGround; //Assign the normal polyobject for normal mode
@@ -28,6 +29,9 @@ public class ScreenController : MonoBehaviour
     public GameObject ProtectMiddleLeft;
     public GameObject Middle_Left_Mania;
     public GameObject Middle_Left_Tycoon;
+
+    public GameObject RedBarn;
+    public GameObject BlueBarn;
 
     private bool gameModeStarted = false;
 
@@ -78,6 +82,10 @@ public class ScreenController : MonoBehaviour
         {
             StartTycoonGameMode();
         }
+        else if (tappedObject == DefendModeButton)
+        {
+            ProtectGameMode();
+        }
     }
 
     public void StartGame()
@@ -97,6 +105,8 @@ public class ScreenController : MonoBehaviour
         gameObjects.SetActive(true); // Activate game objects
         NormalGround.SetActive(true);
         TimedGround.SetActive(false);
+        RedBarn.SetActive(true);
+        BlueBarn.SetActive(false);
         shopManager.SetActive(true); // Activate shop manager
         Middle_Left_Mania.SetActive(true);
         Middle_Left_Tycoon.SetActive(false);
@@ -108,6 +118,8 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.EggValue = 0.25f;
         shopManagerScript.ChickValue = 0.5f;
         shopManagerScript.ChickenValue = 0.6f;
+        shopManagerScript.TycoonMode = false;
+
         // base price for mania
         shopManagerScript.Inventory[2, 1] = 20;
         shopManagerScript.Inventory[2, 2] = 30;
@@ -115,12 +127,12 @@ public class ScreenController : MonoBehaviour
         shopManagerScript.Inventory[2, 4] = 113;
         shopManagerScript.Inventory[2, 5] = 281;
         shopManagerScript.Inventory[2, 6] = 600;
-        shopManagerScript.Inventory[2, 7] = 100000;
+        shopManagerScript.Inventory[2, 7] = 50000;
         // Upgrades for mania
-        shopManagerScript.Inventory[2, 8] = 30;
-        shopManagerScript.Inventory[2, 9] = 25;
-        shopManagerScript.Inventory[2, 10] = 25;
-        shopManagerScript.Inventory[2, 11] = 50;
+        shopManagerScript.Inventory[2, 8] = 30; // 30 60 120
+        shopManagerScript.Inventory[2, 9] = 25;  //25 64 262
+        shopManagerScript.Inventory[2, 10] = 25; // 25 50 75
+        shopManagerScript.Inventory[2, 11] = 50; // 50 128 524
 
         shopManagerScript.FoxDir.spawnTick = 10;
         shopManagerScript.FoxDir.maxFoxes = 99;
@@ -144,32 +156,36 @@ public class ScreenController : MonoBehaviour
         gameObjects.SetActive(true); // Activate game objects
         NormalGround.SetActive(true);
         TimedGround.SetActive(false);
+        RedBarn.SetActive(false);
+        BlueBarn.SetActive(true);
         shopManager.SetActive(true); // Activate shop manager
         Middle_Left_Mania.SetActive(false);
         Middle_Left_Tycoon.SetActive(true);
 
         InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
-        shopManagerScript.timeToGrow = 30f;
-        shopManagerScript.timeToSpawn = 10f;
+        shopManagerScript.timeToGrow = 10f;
+        shopManagerScript.timeToSpawn = 6f;
 
-        shopManagerScript.EggValue = 0.8f;
-        shopManagerScript.ChickValue = 0.05f;
-        shopManagerScript.ChickenValue = 0.1f;
+        shopManagerScript.EggValue = 0.1f;
+        shopManagerScript.ChickValue = 0.0025f;
+        shopManagerScript.ChickenValue = 0.005f;
+        shopManagerScript.TycoonMode = true;
+
         // base price for tycoon
-        shopManagerScript.Inventory[2, 1] = 20;
-        shopManagerScript.Inventory[2, 2] = 160;
-        shopManagerScript.Inventory[2, 3] = 2000;
-        shopManagerScript.Inventory[2, 4] = 16000;
-        shopManagerScript.Inventory[2, 5] = 200000;
-        shopManagerScript.Inventory[2, 6] = 3000000;
-        shopManagerScript.Inventory[2, 7] = 100000000;
+        shopManagerScript.Inventory[2, 1] = 100;
+        shopManagerScript.Inventory[2, 2] = 200;
+        shopManagerScript.Inventory[2, 3] = 450;
+        shopManagerScript.Inventory[2, 4] = 600;
+        shopManagerScript.Inventory[2, 5] = 1000;
+        shopManagerScript.Inventory[2, 6] = 5000;
+        shopManagerScript.Inventory[2, 7] = 25000;
         // Upgrades for tycoon
-        shopManagerScript.Inventory[2, 8] = 150;
-        shopManagerScript.Inventory[2, 9] = 150;
-        shopManagerScript.Inventory[2, 10] = 25;
-        shopManagerScript.Inventory[2, 11] = 500;
+        shopManagerScript.Inventory[2, 8] = 50; //75, 100
+        shopManagerScript.Inventory[2, 9] = 100; //250, 600
+        shopManagerScript.Inventory[2, 10] = 25; //50, 75
+        shopManagerScript.Inventory[2, 11] = 300; //800, 3000
 
-        shopManagerScript.FoxDir.spawnTick = 40;
+        shopManagerScript.FoxDir.spawnTick = 10;
         shopManagerScript.FoxDir.maxFoxes = 5;
         shopManagerScript.GoldEggChance = 100;
     }
@@ -192,8 +208,10 @@ public class ScreenController : MonoBehaviour
             gameObjects.SetActive(true); // Activate game objects
             NormalGround.SetActive(false);
             TimedGround.SetActive(true);
+            RedBarn.SetActive(true);
+            BlueBarn.SetActive(false);
             shopManager.SetActive(true); // Activate shop manager
-            gameUI.SetActive(true);
+            gameUI.SetActive(false);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
             if (canvasGroup == null)
             {
@@ -212,6 +230,7 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.timeToSpawn = 7f;
             shopManagerScript.GoldEggChance = 1000000;
             shopManagerScript.FoxDir.spawnTick = 10;
+            shopManagerScript.FoxDir.graceTime = 15;
             shopManagerScript.FoxDir.maxFoxes = 99;
             InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
             gameModeStarted = true;
@@ -239,8 +258,10 @@ public class ScreenController : MonoBehaviour
             gameObjects.SetActive(true); // Activate game objects
             NormalGround.SetActive(false);
             TimedGround.SetActive(true);
+            RedBarn.SetActive(true);
+            BlueBarn.SetActive(false);
             shopManager.SetActive(true); // Activate shop manager
-            gameUI.SetActive(true);
+            gameUI.SetActive(false);
             CanvasGroup canvasGroup = gameUI.GetComponent<CanvasGroup>();
             if (canvasGroup == null)
             {

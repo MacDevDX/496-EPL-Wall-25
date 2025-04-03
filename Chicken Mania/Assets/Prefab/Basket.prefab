@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5226658268232503214}
   - component: {fileID: 7058743845706119055}
   - component: {fileID: 6496657177260262934}
-  - component: {fileID: 7079611639447446337}
   - component: {fileID: 9026459121647879620}
   m_Layer: 0
   m_Name: Basket
@@ -71,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9193b5f4b623184ca9eb0fb49bf7a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropZoneTag: DropZone
+  sellableTag: Draggable
   shopManager: {fileID: 0}
   moneyIndicator: {fileID: 6159142471267236396, guid: d6d1fe95338bd2e4ca1c6f3912234bbc, type: 3}
 --- !u!114 &7058743845706119055
@@ -135,20 +134,6 @@ MonoBehaviour:
   projectionProps: 0
   projection: 1
   projectionPlaneNormal: {x: 0, y: 1, z: 0}
---- !u!114 &7079611639447446337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762804623361041400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10544021a6213534c946a633f735d143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSize: 2
-  minSize: 1
 --- !u!54 &9026459121647879620
 Rigidbody:
   m_ObjectHideFlags: 0

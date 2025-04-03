@@ -149,9 +149,6 @@ PrefabInstance:
       addedObject: {fileID: 6243769144133612310}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e307ada411258694a8617481c7ab5e2e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2993901969997501663}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e307ada411258694a8617481c7ab5e2e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5935393669669888006}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e307ada411258694a8617481c7ab5e2e, type: 3}
       insertIndex: -1
@@ -204,20 +201,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &2993901969997501663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593655168115586626}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69b50c98945f4a48907217f027febaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 65
-  rotationSpeed: 100
 --- !u!65 &5935393669669888006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -277,6 +260,7 @@ MonoBehaviour:
   isChick: 0
   isChicken: 0
   eaten: 0
+  eggDecay: 0
   Particles: {fileID: -7946023515151913674, guid: ed392309027100f48be246879fbad7bf, type: 3}
   ShopMan: {fileID: 0}
   FoxDirecter: {fileID: 0}
@@ -325,7 +309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 0
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: ca2ed216f98028c4dae6c5224a952b3c, type: 3}
+  - {fileID: 2926557707537190794, guid: fb1befdf71b93204b9cf6bbf1e51e5f5, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
