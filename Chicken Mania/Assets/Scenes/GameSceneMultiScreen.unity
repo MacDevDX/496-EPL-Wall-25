@@ -1512,7 +1512,7 @@ GameObject:
   - component: {fileID: 58191212}
   - component: {fileID: 58191211}
   m_Layer: 12
-  m_Name: Price_Text
+  m_Name: Shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a3f770ebfbea864595d9a504bafe266, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8009ae6565db5dd45b1c33e2f993fc33, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3427,7 +3427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce7de7730023fd14696c780fedcfa2f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20b8b1dcfa082df4186af109aa810301, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4130,7 +4130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1df8fabfe5a3d3d4dbd011698ee74ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3ce4b93c2fd7ca4392e62e3df481a6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4518,7 +4518,7 @@ GameObject:
   - component: {fileID: 132689290}
   - component: {fileID: 132689289}
   m_Layer: 11
-  m_Name: Price_Text
+  m_Name: Shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6371,6 +6371,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: TimeTutorialdImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -6421,7 +6425,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 71c78f1b8043bdc4d9c0887a50fb159e, type: 3}
+      objectReference: {fileID: 21300000, guid: d0aaeab9833fe524a9656139de92b6e3, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -6829,7 +6833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 90617676c6b2b744a8359e3d565f9966, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c903f8ce1fbdf3c41bf2eb1b2ab8ba50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7517,7 +7521,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca9cfe9495f85024e94ec93fc9d6584b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8197,7 +8201,7 @@ GameObject:
   - component: {fileID: 223496478}
   - component: {fileID: 223496477}
   m_Layer: 10
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8808,7 +8812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a3f770ebfbea864595d9a504bafe266, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8009ae6565db5dd45b1c33e2f993fc33, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14006,7 +14010,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b735df16ea7c7a04abebf5d7020e5976, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32fa6c0f74266db4a8a2e3ab9508f254, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14582,7 +14586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 662382c2220d5b040ac77185fd803b7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d43dfb4881f2384aa64ce929ffe2803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16440,7 +16444,7 @@ GameObject:
   - component: {fileID: 437746269}
   - component: {fileID: 437746268}
   m_Layer: 10
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17962,7 +17966,7 @@ GameObject:
   - component: {fileID: 473902824}
   - component: {fileID: 473902823}
   m_Layer: 11
-  m_Name: Price_Text
+  m_Name: Shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19533,6 +19537,10 @@ PrefabInstance:
       value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: EggTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
@@ -19583,7 +19591,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: ca9cfe9495f85024e94ec93fc9d6584b, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -21292,7 +21300,7 @@ GameObject:
   - component: {fileID: 542701232}
   - component: {fileID: 542701231}
   m_Layer: 10
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25313,7 +25321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71c78f1b8043bdc4d9c0887a50fb159e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0aaeab9833fe524a9656139de92b6e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26995,7 +27003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71c78f1b8043bdc4d9c0887a50fb159e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0aaeab9833fe524a9656139de92b6e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29667,7 +29675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b59c6af459ede34f89f4acacd1b66c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4525feb2d9942842881bff09f1efa02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30344,7 +30352,7 @@ GameObject:
   - component: {fileID: 747810628}
   - component: {fileID: 747810627}
   m_Layer: 12
-  m_Name: Price_Text
+  m_Name: Shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30632,7 +30640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 90617676c6b2b744a8359e3d565f9966, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c903f8ce1fbdf3c41bf2eb1b2ab8ba50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31407,6 +31415,10 @@ PrefabInstance:
       value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: EggTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -31453,7 +31465,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: ca9cfe9495f85024e94ec93fc9d6584b, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -32334,7 +32346,7 @@ GameObject:
   - component: {fileID: 784933036}
   - component: {fileID: 784933035}
   m_Layer: 11
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32712,7 +32724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca9cfe9495f85024e94ec93fc9d6584b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33418,6 +33430,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: DefenderTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -33440,7 +33456,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 662382c2220d5b040ac77185fd803b7e, type: 3}
+      objectReference: {fileID: 21300000, guid: 8d43dfb4881f2384aa64ce929ffe2803, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -35556,7 +35572,7 @@ GameObject:
   - component: {fileID: 846740836}
   - component: {fileID: 846740835}
   m_Layer: 11
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37118,7 +37134,7 @@ GameObject:
   - component: {fileID: 880259801}
   - component: {fileID: 880259800}
   m_Layer: 10
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37300,7 +37316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c2d5b394bb492b4d899cfbb686177e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37477,7 +37493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c2d5b394bb492b4d899cfbb686177e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39732,7 +39748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 662382c2220d5b040ac77185fd803b7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d43dfb4881f2384aa64ce929ffe2803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40124,7 +40140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b59c6af459ede34f89f4acacd1b66c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4525feb2d9942842881bff09f1efa02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -42512,7 +42528,7 @@ GameObject:
   - component: {fileID: 1033952060}
   - component: {fileID: 1033952059}
   m_Layer: 11
-  m_Name: Price_Text
+  m_Name: Shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43390,7 +43406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a3f770ebfbea864595d9a504bafe266, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8009ae6565db5dd45b1c33e2f993fc33, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -43552,7 +43568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca9cfe9495f85024e94ec93fc9d6584b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -45251,7 +45267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 003bf38fab920ec40a1cd9401f99e4db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8635495d244983d45890234acd498417, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -47834,6 +47850,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: DefenderTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
@@ -47880,7 +47900,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 662382c2220d5b040ac77185fd803b7e, type: 3}
+      objectReference: {fileID: 21300000, guid: 8d43dfb4881f2384aa64ce929ffe2803, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -48789,6 +48809,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: DefenderTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -48839,7 +48863,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 662382c2220d5b040ac77185fd803b7e, type: 3}
+      objectReference: {fileID: 21300000, guid: 8d43dfb4881f2384aa64ce929ffe2803, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -51047,7 +51071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1df8fabfe5a3d3d4dbd011698ee74ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3ce4b93c2fd7ca4392e62e3df481a6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -52396,7 +52420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce7de7730023fd14696c780fedcfa2f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20b8b1dcfa082df4186af109aa810301, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -53864,7 +53888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f2818998b19f954aa40cd6bd2498a4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0609826b3a95d27478bb73f80e67cb6f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -57471,7 +57495,7 @@ GameObject:
   - component: {fileID: 1380173614}
   - component: {fileID: 1380173613}
   m_Layer: 12
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60149,7 +60173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1df8fabfe5a3d3d4dbd011698ee74ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3ce4b93c2fd7ca4392e62e3df481a6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -62463,6 +62487,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 160
       objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: ManiaTutorialImage
+      objectReference: {fileID: 0}
     - target: {fileID: 5227686767643290818, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Name
       value: SettingsMenuUIMania
@@ -62482,7 +62510,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: 8c2d5b394bb492b4d899cfbb686177e5, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -63272,7 +63300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b59c6af459ede34f89f4acacd1b66c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4525feb2d9942842881bff09f1efa02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -63369,7 +63397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71c78f1b8043bdc4d9c0887a50fb159e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0aaeab9833fe524a9656139de92b6e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -64939,7 +64967,7 @@ GameObject:
   - component: {fileID: 1568905532}
   - component: {fileID: 1568905531}
   m_Layer: 12
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69853,6 +69881,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: TimeTutorialdImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
@@ -69899,7 +69931,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 71c78f1b8043bdc4d9c0887a50fb159e, type: 3}
+      objectReference: {fileID: 21300000, guid: d0aaeab9833fe524a9656139de92b6e3, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -71669,7 +71701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b735df16ea7c7a04abebf5d7020e5976, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32fa6c0f74266db4a8a2e3ab9508f254, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74967,6 +74999,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: ManiaTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -75013,7 +75049,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: 8c2d5b394bb492b4d899cfbb686177e5, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -79247,6 +79283,10 @@ PrefabInstance:
       value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: EggTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -79269,7 +79309,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1724dfd06a4ec94c8c481a96b7d26f2, type: 3}
+      objectReference: {fileID: 21300000, guid: ca9cfe9495f85024e94ec93fc9d6584b, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -80110,7 +80150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c2d5b394bb492b4d899cfbb686177e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -80424,6 +80464,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: TimeTutorialdImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -80446,7 +80490,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 71c78f1b8043bdc4d9c0887a50fb159e, type: 3}
+      objectReference: {fileID: 21300000, guid: d0aaeab9833fe524a9656139de92b6e3, type: 3}
     - target: {fileID: 6911606733431135698, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -81244,7 +81288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 662382c2220d5b040ac77185fd803b7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d43dfb4881f2384aa64ce929ffe2803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -82390,7 +82434,7 @@ GameObject:
   - component: {fileID: 1894039630}
   - component: {fileID: 1894039629}
   m_Layer: 11
-  m_Name: Price_Text
+  m_Name: Shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82636,7 +82680,7 @@ GameObject:
   - component: {fileID: 1897850259}
   - component: {fileID: 1897850258}
   m_Layer: 12
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83415,6 +83459,10 @@ PrefabInstance:
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
+      propertyPath: m_Name
+      value: ManiaTutorialImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874767063969824852, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
@@ -83461,7 +83509,7 @@ PrefabInstance:
     - target: {fileID: 6516740050297939936, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc165296dc18864aa501d3486838957, type: 3}
+      objectReference: {fileID: 21300000, guid: 8c2d5b394bb492b4d899cfbb686177e5, type: 3}
     - target: {fileID: 6631428693333630797, guid: d63cf03f4c12bd54197df009b8e0f5c4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -85520,7 +85568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f2818998b19f954aa40cd6bd2498a4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0609826b3a95d27478bb73f80e67cb6f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89503,7 +89551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 003bf38fab920ec40a1cd9401f99e4db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8635495d244983d45890234acd498417, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91394,7 +91442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 003bf38fab920ec40a1cd9401f99e4db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8635495d244983d45890234acd498417, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -92222,7 +92270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 90617676c6b2b744a8359e3d565f9966, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c903f8ce1fbdf3c41bf2eb1b2ab8ba50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -92487,7 +92535,7 @@ GameObject:
   - component: {fileID: 2127695197}
   - component: {fileID: 2127695196}
   m_Layer: 12
-  m_Name: Price_Text
+  m_Name: shop_Price_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92841,7 +92889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce7de7730023fd14696c780fedcfa2f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20b8b1dcfa082df4186af109aa810301, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -97638,7 +97686,7 @@ PrefabInstance:
     - target: {fileID: 1476560141606647490, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4f2818998b19f954aa40cd6bd2498a4a, type: 3}
+      objectReference: {fileID: 21300000, guid: 0609826b3a95d27478bb73f80e67cb6f, type: 3}
     - target: {fileID: 1566793058884711155, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Pivot.y
       value: 1
@@ -98397,6 +98445,10 @@ PrefabInstance:
       propertyPath: SecretTier
       value: 
       objectReference: {fileID: 903845488}
+    - target: {fileID: 3399440848516291453, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: m_Name
+      value: Shop_Price_Text
+      objectReference: {fileID: 0}
     - target: {fileID: 3670315481986361899, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Pivot.y
       value: 1
@@ -98860,7 +98912,7 @@ PrefabInstance:
     - target: {fileID: 4452629044206034210, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b735df16ea7c7a04abebf5d7020e5976, type: 3}
+      objectReference: {fileID: 21300000, guid: 32fa6c0f74266db4a8a2e3ab9508f254, type: 3}
     - target: {fileID: 4480830719105960171, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_SizeDelta.x
       value: 800
@@ -99264,6 +99316,10 @@ PrefabInstance:
     - target: {fileID: 5635592135832770378, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660821032291686292, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: m_Name
+      value: Shop_Price_Text
       objectReference: {fileID: 0}
     - target: {fileID: 5731663406025817124, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: m_SizeDelta.x
