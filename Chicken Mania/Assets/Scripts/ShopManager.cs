@@ -57,6 +57,8 @@ public class ShopManager : MonoBehaviour
     public float ChickValue = 0.5f;
     public float ChickenValue = 0.6f;
     public bool TycoonMode = false;
+    public GameObject HatchStartingMessage;
+    public GameObject DefendStartingMessage;
 
     private TapGesture tapGesture;
 
@@ -702,20 +704,25 @@ public class ShopManager : MonoBehaviour
     }
 
     /***************************************** Below handles Timer Mode *****************************************/
+
+    private Coroutine startingTimedModeCoroutine;
+    private Coroutine countdownRoutineCoroutine;
+    private Coroutine callResetTimerModeCoroutine;
     public void StartCountdown()
     {
-        StartCoroutine(StartingTimedMode());
+        startingTimedModeCoroutine = StartCoroutine(StartingTimedMode());
     }
     private IEnumerator StartingTimedMode()
     {
-        tutorialTextPGM.gameObject.SetActive(true);
+
         int timeLeft = 3; // Starting countdown
         while (timeLeft > 0)
         {
-            tutorialTextPGM.text = $"45 seconds to hatch the eggs!";
+            HatchStartingMessage.SetActive(true);
             yield return new WaitForSeconds(1f);
             timeLeft--;
         }
+        HatchStartingMessage.SetActive(false);
 
         // Randomly spawn 10 chickens
         for (int i = 0; i < 10; i++)  // need above small delay for fox director
@@ -727,6 +734,8 @@ public class ShopManager : MonoBehaviour
                 AddChicken();
             }
         }
+
+        tutorialTextPGM.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         timeLeft = 5;
         while (timeLeft > 0)
@@ -739,7 +748,7 @@ public class ShopManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         tutorialTextPGM.gameObject.SetActive(false);
 
-        StartCoroutine(CountdownRoutine());
+        countdownRoutineCoroutine = StartCoroutine(CountdownRoutine());
     }
     private IEnumerator CountdownRoutine()
     {
@@ -834,21 +843,36 @@ public class ShopManager : MonoBehaviour
         }
 
         Score.gameObject.SetActive(true);
-        StartCoroutine(CallResetTimerMode());
+        callResetTimerModeCoroutine = StartCoroutine(CallResetTimerMode());
     }
 
     /***************************************************** Below handles Protect Game Mode ****************************************************/
+
+    private Coroutine startingDefendModeCoroutine;
+    private Coroutine startingCountDownCoroutine;
+    private Coroutine startingFoxSpawnCoroutine;
+
     public void StartCountdownPGM()
     {
-        StartCoroutine(StartingPGM());
+        startingDefendModeCoroutine = StartCoroutine(StartingPGM());
     }
     private IEnumerator StartingPGM()
     {
-        tutorialTextPGM.gameObject.SetActive(true);
-        int timeLeft = 5; // Starting countdown
+        int timeLeft = 3; // Starting countdown
         while (timeLeft > 0)
         {
-            tutorialTextPGM.text = $"Protect the chicken from foxes! \nStarting in {timeLeft} seconds...";
+            DefendStartingMessage.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            timeLeft--;
+        }
+        DefendStartingMessage.SetActive(false);
+
+
+        tutorialTextPGM.gameObject.SetActive(true);
+        timeLeft = 5;
+        while (timeLeft > 0)
+        {
+            tutorialTextPGM.text = $"Starting in {timeLeft} seconds...";
             yield return new WaitForSeconds(1f);
             timeLeft--;
         }
@@ -863,8 +887,8 @@ public class ShopManager : MonoBehaviour
         NewChickenAI newChickenAI = lastSpawnedChicken.GetComponent<NewChickenAI>();
         newChickenAI.foxDetectionRadius = 0.6f;
 
-        StartCoroutine(CountdownRoutinePGM());
-        StartCoroutine(UpdateFoxesPer5ChickensRoutine());
+        startingCountDownCoroutine = StartCoroutine(CountdownRoutinePGM());
+        startingFoxSpawnCoroutine = StartCoroutine(UpdateFoxesPer5ChickensRoutine());
     }
 
     private IEnumerator CountdownRoutinePGM()
@@ -942,7 +966,7 @@ public class ShopManager : MonoBehaviour
         }
 
         Score.gameObject.SetActive(true);
-        StartCoroutine(CallResetTimerMode());
+        callResetTimerModeCoroutine = StartCoroutine(CallResetTimerMode());
     }
 
     private IEnumerator CallResetTimerMode()
@@ -1059,8 +1083,14 @@ public class ShopManager : MonoBehaviour
 
         FoxDir.foxList.Clear();
         FoxDir.graceTime = 10;
+        CancelInvoke("UpdateChickenList");
+        InvokeRepeating("UpdateChickenList", FoxDir.graceTime, FoxDir.spawnTick);
+
         ChristmasLights.SetActive(false);
         Jackolantern.SetActive(false);
+        HatchStartingMessage.SetActive(false);
+        DefendStartingMessage.SetActive(false);
+        tutorialTextPGM.gameObject.SetActive(false);
 
         //Reset UI elements
         UpdateUI();
@@ -1071,6 +1101,38 @@ public class ShopManager : MonoBehaviour
         StopCoroutine(StartingTimedMode());
         StopCoroutine(StartingPGM());
         UpdateTimerDisplay();
+
+        if (startingTimedModeCoroutine != null)
+        {
+            StopCoroutine(startingTimedModeCoroutine);
+            startingTimedModeCoroutine = null; 
+        }
+        if (countdownRoutineCoroutine != null)
+        {
+            StopCoroutine(countdownRoutineCoroutine);
+            countdownRoutineCoroutine = null;
+        }
+        
+        if (startingDefendModeCoroutine != null)
+        {
+            StopCoroutine(startingDefendModeCoroutine);
+            startingDefendModeCoroutine = null; 
+        }
+        if (startingCountDownCoroutine != null)
+        {
+            StopCoroutine(startingCountDownCoroutine);
+            startingCountDownCoroutine = null;
+        }
+        if (startingFoxSpawnCoroutine != null)
+        {
+            StopCoroutine(startingFoxSpawnCoroutine);
+            startingFoxSpawnCoroutine = null;
+        }
+        if (callResetTimerModeCoroutine != null)
+        {
+            StopCoroutine(callResetTimerModeCoroutine);
+            callResetTimerModeCoroutine = null;
+        }
 
         // Call the ReturnToTitlePage function
         if (screenController != null)

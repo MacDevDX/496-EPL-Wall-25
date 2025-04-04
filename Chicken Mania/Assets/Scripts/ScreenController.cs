@@ -90,6 +90,8 @@ public class ScreenController : MonoBehaviour
 
     public void StartGame()
     {
+        shopManagerScript.FoxDir.CancelInvoke("UpdateChickenList");
+        shopManagerScript.FoxDir.InvokeRepeating("UpdateChickenList", shopManagerScript.FoxDir.graceTime = 10, shopManagerScript.FoxDir.spawnTick = 10);
         startUI.SetActive(false);  // Hide start UI
         gameUI.SetActive(true);    // Show in-game UI
 
@@ -141,6 +143,8 @@ public class ScreenController : MonoBehaviour
 
     public void StartTycoonGameMode()
     {
+        shopManagerScript.FoxDir.CancelInvoke("UpdateChickenList");
+        shopManagerScript.FoxDir.InvokeRepeating("UpdateChickenList", shopManagerScript.FoxDir.graceTime = 10, shopManagerScript.FoxDir.spawnTick = 10);
         startUI.SetActive(false);  // Hide start UI
         gameUI.SetActive(true);    // Show in-game UI
 
@@ -202,6 +206,8 @@ public class ScreenController : MonoBehaviour
 
     public void TGameMode()
     {
+        shopManagerScript.FoxDir.CancelInvoke("UpdateChickenList");
+        shopManagerScript.FoxDir.InvokeRepeating("UpdateChickenList", shopManagerScript.FoxDir.graceTime = 15, shopManagerScript.FoxDir.spawnTick = 10);
         if (!gameModeStarted)
         {
             startUI.SetActive(false);  // Hide start UI
