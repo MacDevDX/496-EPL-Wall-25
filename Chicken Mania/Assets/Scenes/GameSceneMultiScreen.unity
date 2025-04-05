@@ -20078,27 +20078,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2071124881656005147, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
   m_PrefabInstance: {fileID: 788304168288683651}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &501853696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501853692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2449d3c44848448a05777e07a76ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inactivityThreshold: 60
-  returnToMenuTime: 30
-  inactivityWarningGreen: {fileID: 456891096}
-  inactivityWarningOrange: {fileID: 358528709}
-  greenCountdownText: {fileID: 171356056}
-  orangeCountdownText: {fileID: 1210472449}
-  shopManager: {fileID: 1514303263}
-  hudObject: {fileID: 1216667154}
-  Screen: {fileID: 1932802633}
 --- !u!1 &506751249
 GameObject:
   m_ObjectHideFlags: 0
@@ -28029,27 +28008,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6768611070340818363, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
   m_PrefabInstance: {fileID: 5853365807560204907}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &667530336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667530332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2449d3c44848448a05777e07a76ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inactivityThreshold: 60
-  returnToMenuTime: 30
-  inactivityWarningGreen: {fileID: 438888301}
-  inactivityWarningOrange: {fileID: 591372952}
-  greenCountdownText: {fileID: 863670010}
-  orangeCountdownText: {fileID: 2101520288}
-  shopManager: {fileID: 95547546}
-  hudObject: {fileID: 549045206184073147}
-  Screen: {fileID: 34766635}
 --- !u!224 &667530337 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8928090996122167834, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
@@ -42718,27 +42676,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4491238686557338839, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
   m_PrefabInstance: {fileID: 5022151346588682936}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &994232040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994232036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2449d3c44848448a05777e07a76ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inactivityThreshold: 60
-  returnToMenuTime: 30
-  inactivityWarningGreen: {fileID: 1162788097}
-  inactivityWarningOrange: {fileID: 840804733}
-  greenCountdownText: {fileID: 1343720571}
-  orangeCountdownText: {fileID: 2143277563}
-  shopManager: {fileID: 1556390049}
-  hudObject: {fileID: 666154667}
-  Screen: {fileID: 534948562}
 --- !u!1001 &996777843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97801,6 +97738,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1568917423}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: Screen
+      value: 
+      objectReference: {fileID: 1932802633}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: EggDecay
       value: 
       objectReference: {fileID: 1360233529}
@@ -97808,6 +97749,10 @@ PrefabInstance:
       propertyPath: dragZone
       value: 
       objectReference: {fileID: 1762804623361041400, guid: 6a631d52e728ff343b44c30f0605d5d1, type: 3}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: hudObject
+      value: 
+      objectReference: {fileID: 1216667154}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: ShopWindow
       value: 
@@ -97869,9 +97814,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 433252119}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: greenCountdownText
+      value: 
+      objectReference: {fileID: 171356056}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: TimedHomeButtonMenu
       value: 
       objectReference: {fileID: 2041817935}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: inactivityThreshold
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: orangeCountdownText
+      value: 
+      objectReference: {fileID: 1210472449}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: HatchStartingMessage
       value: 
@@ -97880,6 +97837,10 @@ PrefabInstance:
       propertyPath: DefendStartingMessage
       value: 
       objectReference: {fileID: 889701310}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: inactivityWarningGreen
+      value: 
+      objectReference: {fileID: 456891096}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: HatchSettingsButtonMenu
       value: 
@@ -97892,6 +97853,10 @@ PrefabInstance:
       propertyPath: TimedSettingsButtonMenu
       value: 
       objectReference: {fileID: 1274606184}
+    - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
+      propertyPath: inactivityWarningOrange
+      value: 
+      objectReference: {fileID: 358528709}
     - target: {fileID: 2288932627359336718, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: SettingsButtonMenuTycoon
       value: 
@@ -98549,7 +98514,7 @@ PrefabInstance:
     - target: {fileID: 5234467073561155566, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: InactivityScript
       value: 
-      objectReference: {fileID: 501853696}
+      objectReference: {fileID: 0}
     - target: {fileID: 5234467073561155566, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       propertyPath: TycoonModeButton
       value: 
@@ -99392,9 +99357,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5921025421459457392, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1929408977}
-    - targetCorrespondingSourceObject: {fileID: 2071124881656005147, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 501853696}
   m_SourcePrefab: {fileID: 100100000, guid: a7150f2c63b3dab4cb5c31a28c0398d0, type: 3}
 --- !u!224 &788304168288683654 stripped
 RectTransform:
@@ -100202,7 +100164,7 @@ PrefabInstance:
     - target: {fileID: 4575506691804799859, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: InactivityScript
       value: 
-      objectReference: {fileID: 994232040}
+      objectReference: {fileID: 0}
     - target: {fileID: 4575506691804799859, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: TycoonModeButton
       value: 
@@ -100316,6 +100278,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 980384816}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: Screen
+      value: 
+      objectReference: {fileID: 534948562}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: EggDecay
       value: 
       objectReference: {fileID: 580305240}
@@ -100323,6 +100289,10 @@ PrefabInstance:
       propertyPath: dragZone
       value: 
       objectReference: {fileID: 1762804623361041400, guid: 6a631d52e728ff343b44c30f0605d5d1, type: 3}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: hudObject
+      value: 
+      objectReference: {fileID: 666154667}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: ShopWindow
       value: 
@@ -100384,9 +100354,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1817403101}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: greenCountdownText
+      value: 
+      objectReference: {fileID: 1343720571}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: TimedHomeButtonMenu
       value: 
       objectReference: {fileID: 1749903551}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: inactivityThreshold
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: orangeCountdownText
+      value: 
+      objectReference: {fileID: 2143277563}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: HatchStartingMessage
       value: 
@@ -100395,6 +100377,10 @@ PrefabInstance:
       propertyPath: DefendStartingMessage
       value: 
       objectReference: {fileID: 2018262791}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: inactivityWarningGreen
+      value: 
+      objectReference: {fileID: 1162788097}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: HatchSettingsButtonMenu
       value: 
@@ -100407,6 +100393,10 @@ PrefabInstance:
       propertyPath: TimedSettingsButtonMenu
       value: 
       objectReference: {fileID: 1828530209}
+    - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
+      propertyPath: inactivityWarningOrange
+      value: 
+      objectReference: {fileID: 840804733}
     - target: {fileID: 5427536771615828702, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       propertyPath: SettingsButtonMenuTycoon
       value: 
@@ -101120,9 +101110,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8996420687059829847, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1208564616}
-    - targetCorrespondingSourceObject: {fileID: 4491238686557338839, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 994232040}
   m_SourcePrefab: {fileID: 100100000, guid: 4eac87f1be9cf384a84fd937a2ca4130, type: 3}
 --- !u!224 &5022151346588682939 stripped
 RectTransform:
@@ -102016,6 +102003,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 837053366}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: Screen
+      value: 
+      objectReference: {fileID: 34766635}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: EggDecay
       value: 
       objectReference: {fileID: 766093198}
@@ -102023,6 +102014,10 @@ PrefabInstance:
       propertyPath: dragZone
       value: 
       objectReference: {fileID: 1762804623361041400, guid: 6a631d52e728ff343b44c30f0605d5d1, type: 3}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: hudObject
+      value: 
+      objectReference: {fileID: 549045206184073147}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: sellPrefab
       value: 
@@ -102076,9 +102071,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1077823334}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: greenCountdownText
+      value: 
+      objectReference: {fileID: 863670010}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: TimedHomeButtonMenu
       value: 
       objectReference: {fileID: 1907312281}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: inactivityThreshold
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: orangeCountdownText
+      value: 
+      objectReference: {fileID: 2101520288}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: HatchStartingMessage
       value: 
@@ -102087,6 +102094,10 @@ PrefabInstance:
       propertyPath: DefendStartingMessage
       value: 
       objectReference: {fileID: 937301512}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: inactivityWarningGreen
+      value: 
+      objectReference: {fileID: 438888301}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: HatchSettingsButtonMenu
       value: 
@@ -102099,6 +102110,10 @@ PrefabInstance:
       propertyPath: TimedSettingsButtonMenu
       value: 
       objectReference: {fileID: 921693343}
+    - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
+      propertyPath: inactivityWarningOrange
+      value: 
+      objectReference: {fileID: 591372952}
     - target: {fileID: 3132471907574813793, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: SettingsButtonMenuTycoon
       value: 
@@ -103886,7 +103901,7 @@ PrefabInstance:
     - target: {fileID: 7348066907276561349, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: InactivityScript
       value: 
-      objectReference: {fileID: 667530336}
+      objectReference: {fileID: 0}
     - target: {fileID: 7348066907276561349, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       propertyPath: TycoonModeButton
       value: 
@@ -104572,9 +104587,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2968208626196813753, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       insertIndex: -1
       addedObject: {fileID: 577942879}
-    - targetCorrespondingSourceObject: {fileID: 6768611070340818363, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 667530336}
     - targetCorrespondingSourceObject: {fileID: 2033385293329889456, guid: 8cd853c66513f4949a22898ceeef4655, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1963732122}

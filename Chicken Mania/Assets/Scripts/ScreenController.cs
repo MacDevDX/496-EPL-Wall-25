@@ -23,7 +23,6 @@ public class ScreenController : MonoBehaviour
     private TapGesture tapGesture; // TouchScript's Tap Gesture
 
     public ShopManager shopManagerScript; // Reference to ShopManager script
-    public InactivityHandler InactivityScript; // Reference to InactivityHandler script
 
     public GameObject TimeMiddleLeft;
     public GameObject ProtectMiddleLeft;
@@ -113,7 +112,7 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Mania.SetActive(true);
         Middle_Left_Tycoon.SetActive(false);
 
-        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        shopManagerScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 10f;
 
@@ -166,7 +165,7 @@ public class ScreenController : MonoBehaviour
         Middle_Left_Mania.SetActive(false);
         Middle_Left_Tycoon.SetActive(true);
 
-        InactivityScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
+        shopManagerScript.inactivityThreshold = 60f; //Time set to higher than the game's time mode
         shopManagerScript.timeToGrow = 10f;
         shopManagerScript.timeToSpawn = 6f;
 
@@ -238,7 +237,7 @@ public class ScreenController : MonoBehaviour
             shopManagerScript.FoxDir.spawnTick = 10;
             shopManagerScript.FoxDir.graceTime = 15;
             shopManagerScript.FoxDir.maxFoxes = 99;
-            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            shopManagerScript.inactivityThreshold = 6000f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
         /*
@@ -282,10 +281,10 @@ public class ScreenController : MonoBehaviour
             ProtectMiddleLeft.SetActive(true);
             shopManagerScript.StartCountdownPGM();
 
-            shopManagerScript.timeToSpawn = 600f;
+            shopManagerScript.timeToSpawn = 10000f;
             shopManagerScript.FoxDir.spawnTick = 10;
             shopManagerScript.FoxDir.maxFoxes = 99;
-            InactivityScript.inactivityThreshold = 600f; //Time set to higher than the game's time mode
+            shopManagerScript.inactivityThreshold = 6000f; //Time set to higher than the game's time mode
             gameModeStarted = true;
         }
 

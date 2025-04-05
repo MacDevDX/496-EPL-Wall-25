@@ -31,7 +31,7 @@ public class ClicktoHatch : MonoBehaviour
     {
         // When the object is tapped, reduce the countdown
         hatchCountdown -= 1 + shopManager.Inventory[3, 10];
-
+        shopManager.ResetInactivityTimer();
         GetComponent<AnimatedEgg>().RegisterTap();
     }
 

@@ -83,6 +83,19 @@ public class ShopManager : MonoBehaviour
     public GameObject ChristmasLights;
     public GameObject Jackolantern;
 
+    [Header("Inactivity Objects")]
+    public GameObject inactivityWarningGreen;
+    public GameObject inactivityWarningOrange;
+    public TextMeshProUGUI greenCountdownText;
+    public TextMeshProUGUI orangeCountdownText;
+    public GameObject hudObject; // Reference to the HUD object
+    public GameObject Screen;
+    public float inactivityThreshold = 60f; // Seconds before warning
+    public float returnToMenuTime = 30f;    // Seconds before message disappears
+    private float lastInteractionTime;
+    private float countdownTime;
+    private bool countdownStarted = false;
+
     void Start()
     {
         screenController = screenSection.GetComponent<ScreenController>();
@@ -197,10 +210,63 @@ public class ShopManager : MonoBehaviour
             Debug.LogError("Error occurred while checking the date: " + ex.Message);
         }
 
+
+        lastInteractionTime = Time.time;
+
+        if (inactivityWarningGreen != null)
+        {
+            inactivityWarningGreen.SetActive(false);
+        }
+        if (inactivityWarningOrange != null)
+        {
+            inactivityWarningOrange.SetActive(false);
+        }
+
+        RegisterTouchGestures();
     }
     void Update()
     {
         CheckGameOver();
+
+        //Inactivity Handler
+        // Check inactivity per instance
+        if (!countdownStarted && Time.time - lastInteractionTime > inactivityThreshold)
+        {
+            ShowInactivityWarning();
+        }
+
+        // Handle countdown per instance
+        if (countdownStarted)
+        {
+            countdownTime -= Time.deltaTime;
+            string countdownMessage = Mathf.Ceil(countdownTime) + "s";
+
+            if (inactivityWarningGreen != null && inactivityWarningGreen.activeSelf && greenCountdownText != null)
+            {
+                greenCountdownText.text = countdownMessage;
+            }
+
+            if (inactivityWarningOrange != null && inactivityWarningOrange.activeSelf && orangeCountdownText != null)
+            {
+                orangeCountdownText.text = countdownMessage;
+            }
+
+            if (countdownTime <= 0)
+            {
+                if (inactivityWarningGreen != null)
+                {
+                    inactivityWarningGreen.SetActive(false);
+                }
+
+                if (inactivityWarningOrange != null)
+                {
+                    inactivityWarningOrange.SetActive(false);
+                }
+
+                countdownStarted = false; // Reset so it can trigger again later
+                ResetGame();
+            }
+        }
     }
 
     protected virtual void OnMenuOpen(MenuOpenEventArgs e)
@@ -1090,8 +1156,6 @@ public class ShopManager : MonoBehaviour
 
         FoxDir.foxList.Clear();
         FoxDir.graceTime = 10;
-        CancelInvoke("UpdateChickenList");
-        InvokeRepeating("UpdateChickenList", FoxDir.graceTime, FoxDir.spawnTick);
 
         HatchStartingMessage.SetActive(false);
         DefendStartingMessage.SetActive(false);
@@ -1177,6 +1241,96 @@ public class ShopManager : MonoBehaviour
     {
         TimedHomeButtonMenu.SetActive(false);
         OnMenuOpen(new MenuOpenEventArgs(false));
+    }
+
+    //Inactivity
+    private void RegisterTouchGestures()
+    {
+        if (Screen != null)
+        {
+            TapGesture tapGesture = Screen.GetComponent<TapGesture>();
+            PressGesture pressGesture = Screen.GetComponent<PressGesture>();
+
+            if (tapGesture != null)
+            {
+                tapGesture.Tapped += OnUserActivity;
+            }
+
+            if (pressGesture != null)
+            {
+                pressGesture.Pressed += OnUserActivity;
+            }
+        }
+
+        if (hudObject != null)
+        {
+            TapGesture tapGesture = hudObject.GetComponent<TapGesture>();
+            PressGesture pressGesture = hudObject.GetComponent<PressGesture>();
+
+            if (tapGesture != null)
+            {
+                tapGesture.Tapped += OnUserActivity;
+            }
+
+            if (pressGesture != null)
+            {
+                pressGesture.Pressed += OnUserActivity;
+            }
+        }
+
+    }
+
+    private void OnUserActivity(object sender, System.EventArgs e)
+    {
+        ResetInactivityTimer();
+    }
+
+    public void ResetInactivityTimer()
+    {
+        Debug.Log("Resetting");
+        lastInteractionTime = Time.time;
+
+        if (inactivityWarningGreen != null)
+        {
+            inactivityWarningGreen.SetActive(false);
+        }
+
+        if (inactivityWarningOrange != null)
+        {
+            inactivityWarningOrange.SetActive(false);
+        }
+
+        countdownStarted = false;
+    }
+
+    private void ShowInactivityWarning()
+    {
+        if (!countdownStarted)
+        {
+            bool showGreen = Random.value < 0.5f;
+
+            if (showGreen && inactivityWarningGreen != null)
+            {
+                inactivityWarningGreen.SetActive(true);
+
+                if (inactivityWarningOrange != null)
+                {
+                    inactivityWarningOrange.SetActive(false);
+                }
+            }
+            else if (!showGreen && inactivityWarningOrange != null)
+            {
+                inactivityWarningOrange.SetActive(true);
+
+                if (inactivityWarningGreen != null)
+                {
+                    inactivityWarningGreen.SetActive(false);
+                }
+            }
+
+            countdownStarted = true;
+            countdownTime = returnToMenuTime;
+        }
     }
 }
 
