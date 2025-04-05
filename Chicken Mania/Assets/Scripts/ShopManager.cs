@@ -1287,7 +1287,6 @@ public class ShopManager : MonoBehaviour
 
     public void ResetInactivityTimer()
     {
-        Debug.Log("Resetting");
         lastInteractionTime = Time.time;
 
         if (inactivityWarningGreen != null)
