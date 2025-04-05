@@ -31,9 +31,6 @@ public class FoxDirector : MonoBehaviour
         chickenList = new List<Edible>();
         foxList = new List<FoxBehavior>();
         shopManagerScript.MenuOpen += HandleMenuOpen;
-
-        // this will repeat the listed function. to cancel _all_ invokes, use CancelInvoke()
-        InvokeRepeating("UpdateChickenList", graceTime, spawnTick);
     }
 
     // Update is called once per frame
@@ -58,6 +55,7 @@ public class FoxDirector : MonoBehaviour
         }
         // remove all null values, eg gameobjects that have been destroyed
         chickenList.RemoveAll(x => !x);
+        foxList.RemoveAll(x => !x);
 
         int spawnTarget = chickenList.Count / 5;
         int foxCount = foxList.Count;
@@ -124,8 +122,23 @@ public class FoxDirector : MonoBehaviour
         //Debug.Log("Created fox agent :" + newFoxScript + " for Director :" + this);
     }
 
+    void OnEnable()
+    {
+        // this will repeat the listed function. to cancel _all_ invokes, use CancelInvoke()
+        InvokeRepeating("UpdateChickenList", graceTime, spawnTick);
+    }
+
+    void OnDisable()
+    {
+        CancelInvoke();
+        chickenList.Clear();
+        foxList.Clear();
+    }
+
     void HandleMenuOpen(object sender, MenuOpenEventArgs a)
     {
         menuIsOpen = a.State;
     }
+
 }
+

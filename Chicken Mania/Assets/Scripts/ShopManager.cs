@@ -1074,8 +1074,6 @@ public class ShopManager : MonoBehaviour
         chickensCount = 0;
         chicksCount = 0;
         eggsCount = 0;
-        FoxDir.chickenList.Clear();
-        FoxDir.foxList.Clear();
         FoxDir.devourCooldown = 5;
 
         //Resets Array's Upgrade Cost
@@ -1135,9 +1133,6 @@ public class ShopManager : MonoBehaviour
         GameObject[] foxesToDestroy = GameObject.FindGameObjectsWithTag("Fox_" + screenSection.name);
         foreach (GameObject fox in foxesToDestroy) { Destroy(fox); }
 
-        FoxDir.chickenList.Clear();
-        FoxDir.foxList.Clear();
-
         Money = 100;
         chickensCount = 0;
         chicksCount = 0;
@@ -1154,7 +1149,6 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 10] = 0;
         Inventory[3, 11] = 0;
 
-        FoxDir.foxList.Clear();
         FoxDir.graceTime = 10;
 
         HatchStartingMessage.SetActive(false);
