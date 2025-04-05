@@ -28,6 +28,8 @@ public class Sell : MonoBehaviour
     {
         isDragging = true;
         //GetComponent<Collider>().enabled = false;
+        shopManager.ResetInactivityTimer();
+
         transform.position += dragGesture.DeltaPosition;
         rb.MovePosition(transform.position + dragGesture.DeltaPosition);
     }

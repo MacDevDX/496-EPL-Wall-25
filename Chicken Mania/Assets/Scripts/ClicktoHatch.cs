@@ -22,7 +22,6 @@ public class ClicktoHatch : MonoBehaviour
         // parent object will load shopmanager instead
         //shopManager = Object.FindFirstObjectByType<ShopManager>();
         eggAnimator = GetComponent<Animator>();
-
         // Set up TapGesture component for detecting taps on the object
         TapGesture tapGesture = gameObject.AddComponent<TapGesture>();
         tapGesture.Tapped += OnTouchTap;
@@ -32,7 +31,7 @@ public class ClicktoHatch : MonoBehaviour
     {
         // When the object is tapped, reduce the countdown
         hatchCountdown -= 1 + shopManager.Inventory[3, 10];
-
+        shopManager.ResetInactivityTimer();
         GetComponent<AnimatedEgg>().RegisterTap();
     }
 

@@ -4,9 +4,9 @@ using TMPro;
 
 public class WinConditionHandler : MonoBehaviour
 {
-    public float winCountdownTime = 6f;
+    //public float winCountdownTime = 6f;
     private bool hasWon = false;
-    private float countdownTimer;
+    //private float countdownTimer;
 
     public GameObject winMessageUI;
     //public TextMeshProUGUI countdownText;
@@ -26,7 +26,7 @@ public class WinConditionHandler : MonoBehaviour
         {
             TriggerWinCondition();
         }
-
+        /*
         if (hasWon)
         {
             countdownTimer -= Time.deltaTime;
@@ -36,12 +36,13 @@ public class WinConditionHandler : MonoBehaviour
                 winMessageUI.SetActive(false); 
             }
         }
+        */
     }
 
     private void TriggerWinCondition()
     {
         hasWon = true;
-        countdownTimer = winCountdownTime;
+        //countdownTimer = winCountdownTime;
 
         if (winMessageUI != null)
         {
