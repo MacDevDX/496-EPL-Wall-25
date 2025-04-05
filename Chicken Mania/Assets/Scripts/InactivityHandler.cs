@@ -118,7 +118,7 @@ public class InactivityHandler : MonoBehaviour
         ResetInactivityTimer();
     }
 
-    private void ResetInactivityTimer()
+    public void ResetInactivityTimer()
     {
         lastInteractionTime = Time.time;
 

@@ -128,7 +128,7 @@ MonoBehaviour:
   OnTransformComplete:
     m_PersistentCalls:
       m_Calls: []
-  type: 5
+  type: 1
   screenTransformThreshold: 0.1
   minScreenPointsDistance: 0.5
   projectionProps: 0
