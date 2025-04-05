@@ -107,7 +107,8 @@ public class ShopButtons : MonoBehaviour
                 }
                 else
                 {
-                    PriceText.text = "Requires Research 1";
+                    //PriceText.text = "Requires Research 1";
+                    PriceText.text = "";
                     ButtonComponent.interactable = false;
                 }
             }
@@ -120,7 +121,8 @@ public class ShopButtons : MonoBehaviour
                 }
                 else
                 {
-                    PriceText.text = "Requires Research 2";
+                    //PriceText.text = "Requires Research 2";
+                    PriceText.text = "";
                     ButtonComponent.interactable = false;
                 }
             }
@@ -133,7 +135,8 @@ public class ShopButtons : MonoBehaviour
                 }
                 else
                 {
-                    PriceText.text = "Requires Research 3";
+                    //PriceText.text = "Requires Research 3";
+                    PriceText.text = "";
                     ButtonComponent.interactable = false;
                 }
             }

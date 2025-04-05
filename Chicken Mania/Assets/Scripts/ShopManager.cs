@@ -27,6 +27,8 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI Score;
     public TextMeshProUGUI tutorialTextPGM;
     public TextMeshProUGUI GameOverText;
+    public TextMeshProUGUI ShopMoneyText;
+    public TextMeshProUGUI ShopUpgradeText;
 
     //Chicken Species & Spawn
     public GameObject[] ChickenSpecies;
@@ -636,6 +638,8 @@ public class ShopManager : MonoBehaviour
         //EggsCount_Text.text = "Eggs: " + eggsCount;
 
         Money_Text.text = "$" + Money.ToString();
+        ShopMoneyText.text = "$" + Money.ToString();
+        ShopUpgradeText.text = "$" + Money.ToString();
     }
 
     /****************************************************************/
@@ -858,6 +862,7 @@ public class ShopManager : MonoBehaviour
     }
     private IEnumerator StartingPGM()
     {
+        FoxDir.devourCooldown = 1;
         int timeLeft = 3; // Starting countdown
         while (timeLeft > 0)
         {
@@ -917,7 +922,7 @@ public class ShopManager : MonoBehaviour
                 for (int i = 0; i < foxesToSpawn; i++)
                 {
                     FoxDir.SpawnFox();
-                    yield return new WaitForSeconds(0.5f); // Small delay between each fox spawn (0.5 seconds)
+                    yield return new WaitForSeconds(0.4f); // Small delay between each fox spawn (0.5 seconds)
                 }
                 foxesToSpawn += 2;
             }
@@ -936,8 +941,11 @@ public class ShopManager : MonoBehaviour
     void DisplayScorePGM()
     {
         CountdownText.gameObject.SetActive(false);
-        StopCoroutine(UpdateFoxesPer5ChickensRoutine());
-
+        if (startingFoxSpawnCoroutine != null)
+        {
+            StopCoroutine(startingFoxSpawnCoroutine);
+            startingFoxSpawnCoroutine = null;
+        }
         // Destroy objects on the screen section
         Transform screenSectionTransform = screenSection.transform;
         GameObject[] draggableObjects = screenSectionTransform.GetComponentsInChildren<Transform>()
@@ -1002,6 +1010,8 @@ public class ShopManager : MonoBehaviour
         eggsCount = 0;
         FoxDir.chickenList.Clear();
         FoxDir.foxList.Clear();
+        FoxDir.devourCooldown = 5;
+
         //Resets Array's Upgrade Cost
         Inventory[2, 8] = 30;
         Inventory[2, 9] = 25;
@@ -1020,9 +1030,6 @@ public class ShopManager : MonoBehaviour
         Inventory[3, 5] = 0;
         Inventory[3, 6] = 0;
         Inventory[3, 7] = 0;
-
-        ChristmasLights.SetActive(false);
-        Jackolantern.SetActive(false);
         
         GameOverWindow.SetActive(false);
         isGameOver = false;
@@ -1086,8 +1093,6 @@ public class ShopManager : MonoBehaviour
         CancelInvoke("UpdateChickenList");
         InvokeRepeating("UpdateChickenList", FoxDir.graceTime, FoxDir.spawnTick);
 
-        ChristmasLights.SetActive(false);
-        Jackolantern.SetActive(false);
         HatchStartingMessage.SetActive(false);
         DefendStartingMessage.SetActive(false);
         tutorialTextPGM.gameObject.SetActive(false);
